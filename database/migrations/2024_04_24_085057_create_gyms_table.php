@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admins', function (Blueprint $table) {
-            $table->id();
+        Schema::create('gyms', function (Blueprint $table) {
+            $table->id();  
             $table->uuid('uuid')->unique();
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->string('full_name');
-            $table->string('phone_no')->unique();
-            $table->string('email');
+            $table->string('gym_name');
+            $table->longText('address');
+            $table->string('country');
             $table->longText('image');
-            $table->string('department');
-            $table->integer('user_type');
+            $table->string('state');
+            $table->string('city');
+            $table->string('gym_link');
+            $table->string('gym_type');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('gyms');
     }
 };

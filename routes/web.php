@@ -15,7 +15,7 @@ Route::get('/register', function () {
     return view('GymOwner.register');
 });
 
-Route::get('/clubinfo', [AdminController::class, 'showClubInfo']);
+Route::get('/viewGymInfo', [AdminController::class, 'viewGymInfo']);
 Route::get('/packages', [AdminController::class, 'showPackages']);
 Route::get('/personalTraining', [AdminController::class, 'showPersonalTraining']);
 Route::get('/news', [AdminController::class, 'showNews']);

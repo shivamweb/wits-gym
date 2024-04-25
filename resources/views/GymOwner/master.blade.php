@@ -364,7 +364,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href='/clubinfo'>
+                            <a href='/viewGymInfo'>
                                 <i class="text-success menu-icon fa fa-fw fa-info-circle"></i>
                                 <span class="mm-text">Club Info</span>
                             </a>
