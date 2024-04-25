@@ -11,6 +11,7 @@ class Gym extends Authenticatable
     use SoftDeletes;
 
     protected $fillable = [
+        'username',
         'gym_name',
         'address',
         'country',
@@ -21,17 +22,18 @@ class Gym extends Authenticatable
         'gym_type'
     ];
 
-    public function addGyn(array $addGym)
+    public function addGymByAdmin(array $addGym,$imagePath)
     {
         try {
             return $this->create([
+                'username'  => $addGym['username'],
                 'gym_name'  => $addGym['gym_name'],
                 'address'   => $addGym['address'],
                 'country'   => $addGym['country'],
                 'state'     => $addGym['state'],
                 'city'      => $addGym['city'],
                 'gym_link'  => $addGym['gym_link'],
-                'image'     => $addGym['image'],
+                'image'     => $imagePath,
                 'gym_type'  => $addGym['gym_type']
             ]);
         } catch (\Throwable $e) {
