@@ -43,7 +43,7 @@
                                         <a href="#Info" aria-controls="Info" role="tab" data-toggle="tab">
                                             <strong>Club Info</strong>
                                         </a>
-                                    </li>
+                                    <4/li>
                                     <li role="presentation">
                                         <a href="#terms" aria-controls="terms" role="tab" data-toggle="tab">
                                             <strong>Terms & Conditions</strong>
