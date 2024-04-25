@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
-class GymController extends Controller
+class GymDetailController extends Controller
 {
 
     private $gym;
@@ -26,7 +26,7 @@ class GymController extends Controller
 
         try {
             Validator::make($request->all(),[
-                
+
 
             ]);
             $this->gym->addGym($request->all());
