@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Gym extends Authenticatable
 {
     use SoftDeletes;
 
     protected $fillable = [
-        'username',
-        'password',
-        'full_name',
-        'phone_no',
-        'email',
+        'gym_name',
+        'address',
+        'country',
         'image',
-        'department',
-        'user_type'
+        'state',
+        'city',
+        'gym_link',
+        'gym_type'
     ];
 }
