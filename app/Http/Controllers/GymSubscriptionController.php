@@ -17,7 +17,7 @@ class GymSubscriptionController extends Controller
     public function listSubscriptionPlan()
     {
         $subscriptions = $this->gymSubscription->all();
-        return view('GymOwner.GymSubscription.createList',compact('subscriptions'));
+        return view('GymOwner.GymSubscription.createListSubscription',compact('subscriptions'));
     }
     public function createGymSubscriptionPlan(Request $request)
     {
