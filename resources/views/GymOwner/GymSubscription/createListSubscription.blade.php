@@ -176,7 +176,7 @@
                     <div class="panel panel-success">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <i class="fa fa-fw fa-file-text-o"></i> Courses
+                                <i class="fa fa-fw fa-file-text-o"></i> Subscriptions
                             </h4>
                             <span class="pull-right">
                                 <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
