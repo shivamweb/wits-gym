@@ -1,4 +1,4 @@
-@extends('GymOwner.master')
+@extends('GymOwner.master1')
 @section('title','Club Info')
 @section('content')
 
@@ -43,7 +43,7 @@
                                         <a href="#Info" aria-controls="Info" role="tab" data-toggle="tab">
                                             <strong>Gym Info</strong>
                                         </a>
-                                    <4/li>
+                                    </li>
                                     <li role="presentation">
                                         <a href="#terms" aria-controls="terms" role="tab" data-toggle="tab">
                                             <strong>Terms & Conditions</strong>
@@ -56,8 +56,9 @@
                                     </li>
                                 </ul>
                             </div>
-                            <form action="#" class="form-horizontal">
-                                <!-- Tab panes -->
+                            <form action="{{ route('addGymByAdmin') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                            @csrf    
+                            <!-- Tab panes -->
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane active" id="Info">
                                         <div class="row">
@@ -85,6 +86,8 @@
                                                         <table class="table table-bordered" id="users">
                                                             <tr>
                                                                 <td>Username</td>
+                                                                
+                                                                <input type="text" name="username" class="editable" placeholder="enter gym_name">
                                                                 <td>
                                                                     <input type="text" name="gym_name" placeholder="enter gym_name">
                                                                     <a href="#" data-pk="1" id="username" class="editable" data-title="Edit User Name" data-placeholder="Required">Nataliapery</a>
@@ -146,9 +149,10 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            
+                                    <button type="submit">save</button>
                                         </div>
                                     </div>
-                                    <button type="submit">save</button>
                             </form>
                             <div role="tabpanel" class="tab-pane" id="terms">
                                 <div class="row">
