@@ -17,9 +17,10 @@ return new class extends Migration
             $table->integer('status');
             $table->string('subscription_name');
             $table->float('amount');
-            $table->string('validity');
-            $table->float('description');
-            $table->float('plan_id');
+            $table->integer('validity');
+            $table->longText('description');
+            $table->integer('plan_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
