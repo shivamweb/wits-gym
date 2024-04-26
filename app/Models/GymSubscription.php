@@ -17,11 +17,13 @@ class GymSubscription extends Model
         'validity',
         'description',
         'plan_id',
-        'status'
+        'status',
+        'image',
+        'start_date'
     ];
 
 
-    public function createSubscription(array $subscriptionArray)
+    public function createSubscription(array $subscriptionArray, $imagePath)
     {
         $this->create([
             'subscription_name' => $subscriptionArray['subscription_name'],
@@ -29,8 +31,9 @@ class GymSubscription extends Model
             'validity' => $subscriptionArray['validity'],
             'description' => $subscriptionArray['description'],
             'plan_id' => $subscriptionArray['plan_id'],
-            'status'=> GymSubscriptionStatusEnum::Active
-
+            'status'=> GymSubscriptionStatusEnum::Active,
+            'image'=> $imagePath,
+            'start_date'=> $subscriptionArray['start_date']
         ]);
     }
 
