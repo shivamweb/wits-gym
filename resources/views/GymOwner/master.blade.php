@@ -357,16 +357,16 @@
                     </div>
                     <ul class="navigation">
                         <li class="active" id="active">
-                            <a href='/'>
+                            <a href='/dashboard'>
                                 <i class="text-primary menu-icon fa fa-fw fa-dashboard"></i>
                                 <span class="mm-text ">Dashboard</span>
                                 <span class="arrow"></span>
                             </a>
                         </li>
                         <li>
-                            <a href='/viewGymInfo'>
+                            <a href='/gym-subscription'>
                                 <i class="text-success menu-icon fa fa-fw fa-info-circle"></i>
-                                <span class="mm-text">Club Info</span>
+                                <span class="mm-text">Gym Subscription</span>
                             </a>
                         </li>
                         <li>
