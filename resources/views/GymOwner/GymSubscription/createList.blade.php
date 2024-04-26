@@ -111,7 +111,7 @@
                                     <div class="row">
                                         <div class="col-md-offset-3 col-md-7">
                                             <input type="submit" class="btn btn-primary" value="Add"> &nbsp;
-                                            <a class='btn btn-danger' href='admin_courseschedule.html'> Cancel</a>
+                                            <a class='btn btn-danger' href='/dashboard'> Cancel</a>
                                             <input type="reset" id="add-news-reset-editable" class="btn btn-default reset-styles" value="Reset">
                                         </div>
                                     </div>
@@ -140,18 +140,23 @@
                     <table class="table table-bordered" id="fitness-table">
                         <thead>
                             <tr>
-                                <th>Course Name</th>
-                                <th>Course Duration</th>
-                                <th>Course Price</th>
+                                <th> Id</th>
+                                <th>Subscription Name</th>
+                                <th>Subscription Duration</th>
+                                <th>Subscription Price</th>
+                                <th>Description</th>
                                 <th>Edit/Save</th>
                                 <th>Delete/Cancel</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($subscriptions as $subscription)
                             <tr>
-                                <td>Yoga</td>
-                                <td>3 Months</td>
-                                <td>$70</td>
+                                <td>{{$subscription->plan_id}}</td>
+                                <td>{{$subscription->subscription_name}}</td>
+                                <td>{{$subscription->validity}}</td>
+                                <td>{{$subscription->amount}}</td>
+                                <td>{{$subscription->description}}</td>
                                 <td>
                                     <a class="edit btn btn-primary mar-bm" href="javascript:;">
                                         <i class="fa fa-fw fa-edit"></i> Edit
@@ -163,66 +168,7 @@
                                     </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Fitness</td>
-                                <td>3 Months</td>
-                                <td>$70</td>
-                                <td>
-                                    <a class=" edit btn btn-primary mar-bm" href="javascript:;">
-                                        <i class="fa fa-fw fa-edit"></i> Edit
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class=" delete btn btn-danger mar-bm" href="javascript:;">
-                                        <i class="fa fa-trash-o"></i> Delete
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Body Building</td>
-                                <td>3 Months</td>
-                                <td>$70</td>
-                                <td>
-                                    <a class="edit btn btn-primary mar-bm" href="javascript:;">
-                                        <i class="fa fa-fw fa-edit"></i> Edit
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="delete btn btn-danger mar-bm" href="javascript:;">
-                                        <i class="fa fa-trash-o"></i> Delete
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Aerobics</td>
-                                <td>3 Months</td>
-                                <td>$70</td>
-                                <td>
-                                    <a class="edit btn btn-primary mar-bm" href="javascript:;">
-                                        <i class="fa fa-fw fa-edit"></i> Edit
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="delete btn btn-danger mar-bm" href="javascript:;">
-                                        <i class="fa fa-trash-o"></i> Delete
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Flexibility</td>
-                                <td>3 Months</td>
-                                <td>$70</td>
-                                <td>
-                                    <a class="edit btn btn-primary mar-bm" href="javascript:;">
-                                        <i class="fa fa-fw fa-edit"></i> Edit
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="delete btn btn-danger mar-bm" href="javascript:;">
-                                        <i class="fa fa-trash-o"></i> Delete
-                                    </a>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -16,7 +16,8 @@ class GymSubscriptionController extends Controller
 
     public function listSubscriptionPlan()
     {
-        return view('GymOwner.GymSubscription.createList');
+        $subscriptions = $this->gymSubscription->all();
+        return view('GymOwner.GymSubscription.createList',compact('subscriptions'));
     }
     public function createGymSubscriptionPlan(Request $request)
     {
@@ -32,7 +33,7 @@ class GymSubscriptionController extends Controller
             // dd($validatedData);
             $this->gymSubscription->createSubscription($validatedData);
 
-            return redirect()->route('dashboard')->with('success', 'Data saved successfully.');
+            return redirect()->route('/gym-subscription')->with('success', 'Data saved successfully.');
         } catch (\Throwable $th) {
             Log::error("[GymSubscriptionController][createGymSubscriptionPlan] error " . $th->getMessage());
             return redirect()->back()->with('error', $th->getMessage());
