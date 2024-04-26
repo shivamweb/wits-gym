@@ -370,9 +370,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href='/packages'>
+                            <a href='/gym-staff'>
                                 <i class="text-primary menu-icon fa fa-th fa-info-circle"></i>
-                                <span class="mm-text">Packages</span>
+                                <span class="mm-text">Gym Staff</span>
                             </a>
                         </li>
                         <li>
