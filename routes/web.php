@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GymSubscriptionController;
+use App\Http\Controllers\AdminGymController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', function () {
@@ -15,8 +16,8 @@ Route::get('/', function () {
 Route::get('/register', function () {
     return view('GymOwner.register');
 });
+// Route::get('/viewGymInfo', [AdminGymController::class, 'viewGymInfo']);
 
-Route::get('/viewGymInfo', [AdminController::class, 'viewGymInfo']);
 Route::get('/packages', [AdminController::class, 'showPackages']);
 Route::get('/personalTraining', [AdminController::class, 'showPersonalTraining']);
 Route::get('/news', [AdminController::class, 'showNews']);

@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 class AdminController extends Controller
 {
+
+    public function adminDashboard()
+    {
+        return view('admin.dashboard');
+    }
+
+
     public function showClubInfo()
     {
         return view('GymOwner.clubInfo');

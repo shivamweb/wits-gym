@@ -14,14 +14,20 @@ return new class extends Migration
         Schema::create('gyms', function (Blueprint $table) {
             $table->id();  
             $table->uuid('uuid')->unique();
+            $table->string('username')->unique();
+            $table->string('email')->unique();
             $table->string('gym_name');
             $table->longText('address');
             $table->string('country');
             $table->longText('image');
             $table->string('state');
             $table->string('city');
-            $table->string('gym_link');
+            $table->string('web_link');
+            $table->string('subscription_id');
             $table->string('gym_type');
+            $table->longText('terms_and_conditions')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
