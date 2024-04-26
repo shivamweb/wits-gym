@@ -1,0 +1,169 @@
+@extends('GymOwner.master')
+@section('title', 'Add Staff')
+@section('content')
+
+
+    <aside class="right-side right-padding">
+        <section class="content-header">
+            <!--section starts-->
+            <h2>Courses</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a href='/dashboard'>
+                        <i class="fa fa-fw fa-home"></i> Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a>Gym Staff</a>
+                </li>
+            </ol>
+        </section>
+        <!--section ends-->
+        <div class="container-fluid">
+            <!--main content-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <i class="fa fa-fw fa-file-text-o"></i> Add Staff
+                            </h4>
+                            <span class="pull-right">
+                                <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
+                                <i class="glyphicon glyphicon-remove removepanel"></i>
+                            </span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form id="course_form" action="/add-gym-staff" class="form-horizontal" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Image <span
+                                                    class='require'>*</span></label>
+                                            <div class="col-md-7 text-center">
+                                                <div class="input-group">
+                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                        <div class="fileinput-new thumbnail"
+                                                            style="width: 200px; height: 150px;">
+                                                            <img data-src="holder.js/200x150" src="#" alt="profile">
+                                                        </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail"
+                                                            style="max-width: 200px; max-height: 150px;"></div>
+                                                        <div class="select_align">
+                                                            <span class="btn btn-primary btn-file">
+                                                                <span class="fileinput-new">Select image</span>
+                                                                <span class="fileinput-exists">Change</span>
+                                                                <input type="file" name="image" id="image">
+                                                            </span>
+                                                            <a href="#" class="btn btn-primary fileinput-exists"
+                                                                data-dismiss="fileinput">Remove</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-body">
+                                            <div class="form-group">
+                                                <label for="member_name" class="col-md-3 control-label">
+                                                    Name
+                                                    <span class='require'>*</span>
+                                                </label>
+                                                <div class="col-md-7">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-fw fa-file-text-o"></i>
+                                                        </span>
+                                                        <input id="member_name" type="text" name="member_name"
+                                                            class="form-control" placeholder="Enter Name">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="member_designation" class="col-md-3 control-label">
+                                                    Designation
+                                                    <span class='require'>*</span>
+                                                </label>
+                                                <div class="col-md-7">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-fw fa-file-text-o"></i>
+                                                        </span>
+                                                        <input id="member_designation" type="text"
+                                                            name="member_designation" class="form-control"
+                                                            placeholder="Enter Designation">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-3 col-md-7">
+                                                        <input type="submit" class="btn btn-primary" value="Add"> &nbsp;
+                                                        <a class='btn btn-danger' href='/dashboard'> Cancel</a>
+                                                        <input type="reset" id="add-news-reset-editable"
+                                                            class="btn btn-default reset-styles" value="Reset">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Basic charts strats here-->
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <i class="fa fa-fw fa-file-text-o"></i> Courses
+                            </h4>
+                            <span class="pull-right">
+                                <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
+                                <i class="glyphicon glyphicon-remove removepanel"></i>
+                            </span>
+                        </div>
+                        <div class="panel-body table-responsive">
+                            <table class="table table-bordered" id="fitness-table">
+                                <thead>
+                                    <tr>
+                                        <th>Gym Id</th>
+                                        <th>Member Image</th>
+                                        <th>Member Name</th>
+                                        <th>Member Designation</th>
+                                        <th>Edit/Save</th>
+                                        <th>Delete/Cancel</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($gymStaffMembers as $gymStaffMember)
+                                        <tr>
+                                            <td>{{ $gymStaffMember->gym_id }}</td>
+                                            <td align="center"> <img src="{{ $gymStaffMember->image }}" height="100" alt="user Image"></td>
+                                            <td>{{ $gymStaffMember->name }}</td>
+                                            <td>{{ $gymStaffMember->designation }}</td>
+                                            <td>
+                                                <a class="edit btn btn-primary mar-bm" href="javascript:;">
+                                                    <i class="fa fa-fw fa-edit"></i> Edit
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a class="delete btn btn-danger mar-bm" href="javascript:;">
+                                                    <i class="fa fa-trash-o"></i> Delete
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+@endsection

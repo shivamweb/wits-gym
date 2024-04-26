@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GymStaffController;
 use App\Http\Controllers\GymSubscriptionController;
 use App\Http\Controllers\AdminGymController;
 use Illuminate\Support\Facades\Route;
@@ -44,4 +45,8 @@ Route::get('/userPayment', [AdminController::class, 'showUserPayment']);
 Route::get('/userProfile', [AdminController::class, 'showUserProfile']);
 
 Route::get('/gym-subscription', [GymSubscriptionController::class, 'listSubscriptionPlan']);
+Route::get('/gym-subscription', [GymSubscriptionController::class, 'listSubscriptionPlan']);
 Route::post('/add-gym-subscription', [GymSubscriptionController::class, 'createGymSubscriptionPlan']);
+
+Route::get('/gym-staff', [GymStaffController::class, 'listGymStaff']);
+Route::post('/add-gym-staff', [GymStaffController::class, 'addGymStaff']);

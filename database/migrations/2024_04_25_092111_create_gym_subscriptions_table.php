@@ -17,8 +17,10 @@ return new class extends Migration
             $table->integer('status');
             $table->string('subscription_name');
             $table->float('amount');
+            $table->date('start_date');
             $table->integer('validity');
             $table->longText('description');
+            $table->longText('image');
             $table->integer('plan_id');
             $table->softDeletes();
             $table->timestamps();
