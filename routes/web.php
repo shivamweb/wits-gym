@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GymStaffController;
 use App\Http\Controllers\GymSubscriptionController;
 use App\Http\Controllers\AdminGymController;
+use App\Http\Controllers\GymUserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', function () {
@@ -49,3 +50,6 @@ Route::post('/add-gym-subscription', [GymSubscriptionController::class, 'createG
 
 Route::get('/gym-staff', [GymStaffController::class, 'listGymStaff']);
 Route::post('/add-gym-staff', [GymStaffController::class, 'addGymStaff']);
+
+Route::post('/addUserByGym', [GymUserController::class, 'addUserByGym'])->name('addUserByGym');
+

@@ -68,7 +68,7 @@ class AdminController extends Controller
 
     public function showAddUsers()
     {
-        return view('GymOwner.addUsers');
+        return view('GymOwner.User.addUsers');
     }
 
     public function showUserList()
