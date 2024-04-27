@@ -34,9 +34,9 @@
                             </span>
                         </div>
                         <div class="panel-body">
-                            <div class="row">
+                            <div class="row" style="padding: 20px;">
                                 <div class="col-md-12">
-                                    <form id="course_form" action="/add-gym-subscription" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                                    <form id="course_form" action="/gym-subscription" class="form-horizontal" method="POST" enctype="multipart/form-data">
                                         @csrf
 
                                         <div class="form-group">
@@ -55,7 +55,7 @@
                                                             <span class="btn btn-primary btn-file">
                                                                 <span class="fileinput-new">Select image</span>
                                                                 <span class="fileinput-exists">Change</span>
-                                                                <input type="file" name="image" id="image">
+                                                                <input type="file" name="image" id="image" required>
                                                             </span>
                                                             <a href="#" class="btn btn-primary fileinput-exists"
                                                                 data-dismiss="fileinput">Remove</a>
@@ -75,7 +75,7 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-fw fa-file-text-o"></i>
                                                         </span>
-                                                        <input id="subscription_name" type="text"
+                                                        <input id="subscription_name" type="text" required
                                                             name="subscription_name" class="form-control"
                                                             placeholder="Enter Name">
                                                     </div>

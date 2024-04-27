@@ -36,7 +36,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form id="course_form" action="/add-gym-staff" class="form-horizontal" method="POST"
+                                    <form id="course_form" action="/gym-staff" class="form-horizontal" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
 
