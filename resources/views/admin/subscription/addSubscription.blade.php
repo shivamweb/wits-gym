@@ -6,7 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <!--section starts-->
-        <h2>Packages</h2>
+        <h2>Subscriptions</h2>
         <ol class="breadcrumb">
             <li>
                 <a href='index.html'>
@@ -14,7 +14,7 @@
                 </a>
             </li>
             <li class="active" id="active">
-                <a href='packages.html'>Packages</a>
+                <a href='packages.html'>Subscriptions</a>
             </li>
         </ol>
     </section>
@@ -27,7 +27,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <i class="fa fa-money"></i> Add Package
+                            <i class="fa fa-money"></i> Add Subscription
                         </h4>
                         <span class="pull-right">
                             <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
@@ -202,6 +202,5 @@
             </div>
         </div>
     </div>
-    <!-- /.content -->
 </aside>
 @endsection

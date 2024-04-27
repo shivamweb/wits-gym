@@ -6,7 +6,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <!--section starts-->
-    <h2 class="section_h2_margin_top">User Profile</h2>
+    <h2 class="section_h2_margin_top">Gym Profile</h2>
     <ol class="breadcrumb">
         <li>
             <a href='index.html'>
@@ -14,10 +14,10 @@
             </a>
         </li>
         <li>
-            <a href="#">Users</a>
+            <a href="#">Gym</a>
         </li>
         <li>
-            <a href='admin_userprofile.html'>User Profile</a>
+            <a href='admin_userprofile.html'>Gym Profile</a>
         </li>
     </ol>
 </section>
@@ -27,13 +27,13 @@
         <div class="col-md-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h5 class="panel-title">User Profile</h5>
+                    <h5 class="panel-title">Gym Profile</h5>
                 </div>
                 <div class="panel-body">
                     <div class="col-sm-4">
                         <div class="form-group">
                             <div class="text-center">
-                                <img src="assets/img/authors/avatar1.jpg" alt="img" width="200" height="200" class="img-bor" />
+                                <img src="{{$gymDetail->image}}" alt="img" width="200" height="200" class="img-bor" />
                             </div>
                         </div>
                     </div>
@@ -43,14 +43,14 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>User</th>
+                                        <th>Gym</th>
                                         <th>Details</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td class="text-primary">Username</td>
-                                        <td>Nataliapery</td>
+                                        <td>{{$gymDetail->username}}</td>
                                     </tr>
                                     <tr>
                                         <td class="text-primary">Gender</td>
@@ -70,11 +70,11 @@
                                     </tr>
                                     <tr>
                                         <td class="text-primary">Email</td>
-                                        <td>Johnpery@example.com</td>
+                                        <td>{{$gymDetail->email}}</td>
                                     </tr>
                                     <tr>
                                         <td class="text-primary">Contact Number</td>
-                                        <td>(999) 999-9999</td>
+                                        <td>{{$gymDetail->phone_no}}</td>
                                     </tr>
                                     <tr>
                                         <td class="text-primary">Address</td>

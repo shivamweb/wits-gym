@@ -28,7 +28,8 @@
             <div class="box bounceInLeft animated">
                 <img src="assets/img/logo.png" class="logo" alt="image not found">
                 <h3 class="text-center">User Log In</h3>
-                <form class="form" id="log_in">
+                <form class="form" id="log_in" method="POST" action="{{route('gymLogin')}}">
+                    @csrf
                     <div class="form-group">
                         <label class="sr-only"></label>
                         <input type="email" class="form-control" name="email" placeholder="Email" required>

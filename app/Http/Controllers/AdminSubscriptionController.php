@@ -19,8 +19,8 @@ class AdminSubscriptionController extends Controller
 
     public function viewAddAdminSubscription()
     {
-        $adminSubscriptions=$this->adminSubscription->get();
-        return view('admin.subscription.addSubscription',compact('adminSubscriptions'));
+        $adminSubscriptions = $this->adminSubscription->get();
+        return view('admin.subscription.addSubscription', compact('adminSubscriptions'));
     }
 
     public function addAdminSubscription(Request $request)
@@ -42,5 +42,4 @@ class AdminSubscriptionController extends Controller
             return back()->with('status', 'error')->with('message', 'Subscription Not Added ');
         }
     }
-
 }

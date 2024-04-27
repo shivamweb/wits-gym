@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gym;
+use App\Traits\SessionTrait;
+use Illuminate\Http\Request;
+
 class AdminController extends Controller
 {
-
+    use SessionTrait;
     public function adminDashboard()
     {
         return view('admin.dashboard');
@@ -81,8 +85,13 @@ class AdminController extends Controller
         return view('GymOwner.userPayment');
     }
 
-    public function showUserProfile()
+    public function showUserProfile(Request $request)
     {
-        return view('GymOwner.userProfile');
+        $gymSession = $this->getGymSession($request);
+        // dd($gymSession);
+        $uuid = $gymSession['uuid'];
+        $gymDetail = Gym::where('uuid', $uuid)->first();
+    
+        return view('GymOwner.userProfile',compact('gymDetail'));
     }
 }
