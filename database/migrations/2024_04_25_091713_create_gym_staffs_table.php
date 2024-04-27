@@ -13,12 +13,17 @@ return new class extends Migration {
         Schema::create('gym_staffs', function (Blueprint $table) {
             $table->id();
             $table->uuid()->index();
-            $table->integer('gym_id');
+            $table->unsignedBigInteger('gym_id');
             $table->string('name');
             $table->string('designation');
             $table->longText('image');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('gym_id')
+                ->references('id')
+                ->on('gyms')
+                ->onDelete('cascade');
         });
     }
 
