@@ -1,0 +1,22 @@
+
+document.addEventListener('DOMContentLoaded', function() {
+    var discountTypeSelect = document.getElementById('discount_type');
+    var maxAmountContainer = document.getElementById('max_amount');
+
+    // Function to toggle visibility of max amount input field
+    function toggleMaxAmountField() {
+        if (discountTypeSelect.value === 'percentage') {
+            maxAmountContainer.style.display = 'block';
+        } else {
+            maxAmountContainer.style.display = 'none';
+        }
+    }
+
+    // Initially toggle based on current value
+    toggleMaxAmountField();
+
+    // Event listener for changes in discount type
+    discountTypeSelect.addEventListener('change', function() {
+        toggleMaxAmountField();
+    });
+});

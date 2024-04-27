@@ -42,7 +42,7 @@ class GymStaffController extends Controller
             // dd($imagePath);
             $this->gymStaf->addGymStaff($validatedData,$imagePath);
 
-            return redirect()->route('/gym-subscription')->with('success', 'Data saved successfully.');
+            return redirect()->route('listGymStaff')->with('success', 'Data saved successfully.');
         } catch (\Throwable $th) {
             Log::error("[GymStaffController][addGymStaff] error " . $th->getMessage());
             return redirect()->back()->with('error', $th->getMessage());

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GymCouponController;
 use App\Http\Controllers\GymStaffController;
 use App\Http\Controllers\GymSubscriptionController;
 use App\Http\Controllers\GymDetailController;
@@ -10,6 +11,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard', function () {
     return view('GymOwner.dashboard');
 })->name('dashboard');
+
+Route::post('/dashboard', function () {
+    return view('GymOwner.dashboard');
+});
 
 Route::get('/', function () {
     return view('GymOwner.login');
@@ -45,12 +50,15 @@ Route::get('/userPayment', [AdminController::class, 'showUserPayment']);
 
 Route::get('/userProfile', [AdminController::class, 'showUserProfile']);
 
-Route::get('/gym-subscription', [GymSubscriptionController::class, 'listSubscriptionPlan']);
+Route::get('/gym-subscription', [GymSubscriptionController::class, 'listSubscriptionPlan'])->name('listSubscriptionPlan');
 Route::post('/gym-subscription', [GymSubscriptionController::class, 'createGymSubscriptionPlan']);
 
-Route::get('/gym-staff', [GymStaffController::class, 'listGymStaff']);
+Route::get('/gym-staff', [GymStaffController::class, 'listGymStaff'])->name('listGymStaff');
 Route::post('/gym-staff', [GymStaffController::class, 'addGymStaff']);
 Route::post('/add-user-by-gym', [GymUserController::class, 'addUserByGym'])->name('addUserByGym');
 
 Route::post('/gym-login', [GymDetailController::class, 'gymLogin'])->name('gymLogin');
-   
+
+Route::get('/gym-coupon', [GymCouponController::class, 'listGymCoupons'])->name('listGymCoupons');
+Route::post('/gym-coupon', [GymCouponController::class, 'addGymCoupon']);
+

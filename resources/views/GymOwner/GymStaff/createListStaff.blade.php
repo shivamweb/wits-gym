@@ -6,7 +6,7 @@
     <aside class="right-side right-padding">
         <section class="content-header">
             <!--section starts-->
-            <h2>Courses</h2>
+            {{-- <h2>Courses</h2> --}}
             <ol class="breadcrumb">
                 <li>
                     <a href='/dashboard'>
@@ -34,7 +34,7 @@
                             </span>
                         </div>
                         <div class="panel-body">
-                            <div class="row">
+                            <div class="row" style="padding: 20px;">
                                 <div class="col-md-12">
                                     <form id="course_form" action="/gym-staff" class="form-horizontal" method="POST"
                                         enctype="multipart/form-data">
@@ -56,7 +56,7 @@
                                                             <span class="btn btn-primary btn-file">
                                                                 <span class="fileinput-new">Select image</span>
                                                                 <span class="fileinput-exists">Change</span>
-                                                                <input type="file" name="image" id="image">
+                                                                <input type="file" name="image" id="image" required>
                                                             </span>
                                                             <a href="#" class="btn btn-primary fileinput-exists"
                                                                 data-dismiss="fileinput">Remove</a>
@@ -76,7 +76,7 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-fw fa-file-text-o"></i>
                                                         </span>
-                                                        <input id="member_name" type="text" name="member_name"
+                                                        <input id="member_name" type="text" name="member_name" required
                                                             class="form-control" placeholder="Enter Name">
                                                     </div>
                                                 </div>
@@ -91,7 +91,7 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-fw fa-file-text-o"></i>
                                                         </span>
-                                                        <input id="member_designation" type="text"
+                                                        <input id="member_designation" type="text" required
                                                             name="member_designation" class="form-control"
                                                             placeholder="Enter Designation">
                                                     </div>

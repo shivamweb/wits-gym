@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('name');
             $table->date('from');
             $table->date('to');
-            $table->decimal('amount');
+            $table->decimal('discount');
+            $table->decimal('max_amount');
             $table->string('type');
             $table->softDeletes();
             $table->timestamps();

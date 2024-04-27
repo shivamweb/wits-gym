@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -14,14 +13,21 @@ return new class extends Migration
         Schema::create('gym_coupons', function (Blueprint $table) {
             $table->id();
             $table->uuid()->index();
-            $table->integer('gym_id');
+            $table->unsignedBigInteger('gym_id');
             $table->string('name');
             $table->date('from');
             $table->date('to');
-            $table->float('amount');
+            $table->decimal('amount');
+            $table->decimal('discount');
+            $table->decimal('max_amount');
             $table->string('type');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('gym_id')
+            ->references('id')
+            ->on('gyms')
+            ->onDelete('cascade');
         });
     }
 
