@@ -46,7 +46,7 @@ class GymSubscriptionController extends Controller
             // dd($imagePath);
             $this->gymSubscription->createSubscription($validatedData, $imagePath);
 
-            return redirect()->route('/gym-subscription')->with('success', 'Data saved successfully.');
+            return redirect()->route('listSubscriptionPlan')->with('success', 'Data saved successfully.');
         } catch (\Throwable $th) {
             Log::error("[GymSubscriptionController][createGymSubscriptionPlan] error " . $th->getMessage());
             return redirect()->back()->with('error', $th->getMessage());

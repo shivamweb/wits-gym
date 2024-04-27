@@ -327,7 +327,7 @@
                                     </a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href='login.html'>
+                                    <a href='/'>
                                         <i class="fa fa-fw fa-sign-out"></i> Logout
                                     </a>
                                 </div>
@@ -376,9 +376,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href='personalTraining'>
+                            <a href='/gym-coupon'>
                                 <i class="text-success menu-icon fa fa-life-ring fa-info-circle"></i>
-                                <span class="mm-text">Personal Training</span>
+                                <span class="mm-text">Coupons</span>
                             </a>
                         </li>
                         <li class="menu-dropdown">

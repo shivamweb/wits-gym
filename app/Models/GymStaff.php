@@ -25,7 +25,7 @@ class GymStaff extends Model
             'name' => $gymStaffArray['member_name'],
             'designation' => $gymStaffArray['member_designation'],
             'image' => $imagePath,
-            'gym_id'=> $randomNumber
+            'gym_id'=> 1
         ]);
     }
 
