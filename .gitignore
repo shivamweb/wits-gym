@@ -19,3 +19,6 @@ yarn-error.log
 /.vscode
 /public/gymStaff_images
 /public/gymSubscription_images
+public/gymProfile_images
+public/adminSubscription_images
+public/user_images

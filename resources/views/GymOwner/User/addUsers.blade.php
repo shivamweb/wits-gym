@@ -38,8 +38,9 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <form id="add_users_form" action="#" class="form-horizontal">
-                                <div class="form-body">
+                            <form id="add_users_form" action="{{route('addUserByGym')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                            @csrf  
+                            <div class="form-body">
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Image</label>
                                         <div class="col-md-7 text-center">
@@ -77,6 +78,34 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="mail">
+                                            First name
+                                            <span class='require'>*</span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-envelope text-primary"></i>
+                                                </span>
+                                                <input type="text" placeholder="Email Address" class="form-control" id="mail" name="first_name" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="mail">
+                                            Last Name
+                                            <span class='require'>*</span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-envelope text-primary"></i>
+                                                </span>
+                                                <input type="text" placeholder="Email Address" class="form-control" id="mail" name="last_name" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="mail">
                                             Email
                                             <span class='require'>*</span>
                                         </label>
@@ -99,7 +128,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-fw fa-phone text-primary"></i>
                                                 </span>
-                                                <input type="text" placeholder="Phone Number" id="contact" class="form-control" name="phone_number" />
+                                                <input type="text" placeholder="Phone Number" id="contact" class="form-control" name="phone_no" />
                                             </div>
                                         </div>
                                     </div>
@@ -123,6 +152,20 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label class="col-md-3 control-label" for="mail">
+                                            password
+                                            <span class='require'>*</span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-envelope text-primary"></i>
+                                                </span>
+                                                <input type="text" placeholder="Email Address" class="form-control" id="mail" name="password" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="form-group">
                                         <label class="col-md-3 control-label" for="addr">
                                             Address
                                             <span class='require'>*</span>
@@ -254,7 +297,7 @@
                                                 </optgroup>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="form-actions">
                                     <div class="row">
