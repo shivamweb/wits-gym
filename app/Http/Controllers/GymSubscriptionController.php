@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Log;
 class GymSubscriptionController extends Controller
 {
     protected $gymSubscription;
+
     public function __construct(GymSubscription $gymSubscription)
     {
         $this->gymSubscription = $gymSubscription;
@@ -19,6 +20,7 @@ class GymSubscriptionController extends Controller
         $subscriptions = $this->gymSubscription->all();
         return view('GymOwner.GymSubscription.createListSubscription',compact('subscriptions'));
     }
+
     public function createGymSubscriptionPlan(Request $request)
     {
         try {
@@ -50,8 +52,4 @@ class GymSubscriptionController extends Controller
             return redirect()->back()->with('error', $th->getMessage());
         }
     }
-
-
-
-
 }

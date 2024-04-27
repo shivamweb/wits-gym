@@ -41,20 +41,20 @@ class Gym extends Authenticatable
     {
         try {
             return $this->create([
-                'username'         => $addGym['username'],
-                'gym_name'         => $addGym['gym_name'],
-                'email'            => $addGym['email'],
-                'address'          => $addGym['address'],
-                'country'          => $addGym['country'],
-                'state'            => $addGym['state'],
-                'city'             => $addGym['city'],
-                'web_link'         => $addGym['web_link'],
-                'image'            => $imagePath,
-                'gym_type'         => $addGym['gym_type'],
-                'facebook'         => $addGym['facebook'],
-                'instagram'        => $addGym['instagram'],   
+                'username'               => $addGym['username'],
+                'gym_name'               => $addGym['gym_name'],
+                'email'                  => $addGym['email'],
+                'address'                => $addGym['address'],
+                'country'                => $addGym['country'],
+                'state'                  => $addGym['state'],
+                'city'                   => $addGym['city'],
+                'web_link'               => $addGym['web_link'],
+                'image'                  => $imagePath,
+                'gym_type'               => $addGym['gym_type'],
+                'facebook'               => $addGym['facebook'],
+                'instagram'              => $addGym['instagram'],
                 'terms_and_conditions'   => $addGym['terms_and_conditions'],
-                'subscription_id'  => AdminSubscriptionEnum::Trial
+                'subscription_id'        => AdminSubscriptionEnum::Trial
             ]);
         } catch (\Throwable $e) {
             Log::error('[Gym][addGym] Error adding gym detail: ' . $e->getMessage());

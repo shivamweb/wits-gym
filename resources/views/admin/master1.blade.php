@@ -3,7 +3,9 @@
 
 
 <!-- Mirrored from demo.lorvent.com/fitness/admin_clubinfo by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:48:18 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
 <head>
     <meta charset="UTF-8">
     <title>@yield('title', 'Dashboard')</title>
@@ -326,12 +328,24 @@
                                 <span class="mm-text ">Dashboard</span>
                             </a>
                         </li>
-                        <li class="active" id="active">
-                            <a href='/admin/viewGymInfo'>
-                                <i class="text-success menu-icon fa fa-fw fa-info-circle"></i>
-                                <span class="mm-text">Gym Info</span>
-                                <span class="arrow"></span>
+                        <li class="menu-dropdown">
+                            <a href="#">
+                                <i class="text-success menu-icon fa fa-fw fa-picture-o"></i>
+                                <span class="mm-text">GYM</span>
+                                <span class="fa fa-angle-down pull-right"></span>
                             </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href='../admin/viewGymInfo'>
+                                        <i class="text-primary fa fa-fw fa-cloud-upload"></i> Gym Add
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='../admin/viewGymList'>
+                                        <i class="text-success fa fa-fw fa-file-image-o"></i> Gym List
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href='/admin/viewAddAdminSubscription'>
@@ -640,7 +654,7 @@
             </section>
             <!-- /.sidebar -->
         </aside>
-    @yield('content')
+        @yield('content')
     </div>
     <!-- /.right-side -->
     <!-- ./wrapper -->
@@ -666,4 +680,5 @@
 
 
 <!-- Mirrored from demo.lorvent.com/fitness/admin_clubinfo by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:49:09 GMT -->
+
 </html>

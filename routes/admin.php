@@ -3,7 +3,6 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminGymController;
 use App\Http\Controllers\AdminSubscriptionController;
-use App\Models\AdminSubscription;
 use Illuminate\Support\Facades\Route;
 
 // Route::prefix('admin')->group(function () {
