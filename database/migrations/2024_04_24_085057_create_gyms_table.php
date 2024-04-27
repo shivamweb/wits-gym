@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('gym_name');
+            $table->string('password');
             $table->longText('address');
             $table->string('country');
             $table->longText('image');
