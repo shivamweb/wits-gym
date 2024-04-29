@@ -85,13 +85,4 @@ class AdminController extends Controller
         return view('GymOwner.userPayment');
     }
 
-    public function showUserProfile(Request $request)
-    {
-        $gymSession = $this->getGymSession($request);
-        // dd($gymSession);
-        $uuid = $gymSession['uuid'];
-        $gymDetail = Gym::where('uuid', $uuid)->first();
-    
-        return view('GymOwner.userProfile',compact('gymDetail'));
-    }
 }

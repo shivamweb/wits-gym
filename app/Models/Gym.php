@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\AdminSubscriptionEnum;
+use App\Traits\SessionTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Log;
@@ -11,6 +12,7 @@ use Ramsey\Uuid\Uuid;
 class Gym extends Authenticatable
 {
     use SoftDeletes;
+    use SessionTrait;
 
     protected $fillable = [
         'username',
@@ -42,21 +44,21 @@ class Gym extends Authenticatable
     {
         try {
             return $this->create([
-                'username'               => $addGym['username'],
-                'gym_name'               => $addGym['gym_name'],
-                'email'                  => $addGym['email'],
-                'password'               => $addGym['password'],
-                'address'                => $addGym['address'],
-                'country'                => $addGym['country'],
-                'state'                  => $addGym['state'],
-                'city'                   => $addGym['city'],
-                'web_link'               => $addGym['web_link'],
-                'image'                  => $imagePath,
-                'gym_type'               => $addGym['gym_type'],
-                'facebook'               => $addGym['facebook'],
-                'instagram'              => $addGym['instagram'],
-                'terms_and_conditions'   => $addGym['terms_and_conditions'],
-                'subscription_id'        => AdminSubscriptionEnum::Trial
+                'username' => $addGym['username'],
+                'gym_name' => $addGym['gym_name'],
+                'email' => $addGym['email'],
+                'password' => $addGym['password'],
+                'address' => $addGym['address'],
+                'country' => $addGym['country'],
+                'state' => $addGym['state'],
+                'city' => $addGym['city'],
+                'web_link' => $addGym['web_link'],
+                'image' => $imagePath,
+                'gym_type' => $addGym['gym_type'],
+                'facebook' => $addGym['facebook'],
+                'instagram' => $addGym['instagram'],
+                'terms_and_conditions' => $addGym['terms_and_conditions'],
+                'subscription_id' => AdminSubscriptionEnum::Trial
             ]);
         } catch (\Throwable $e) {
             Log::error('[Gym][addGym] Error adding gym detail: ' . $e->getMessage());
@@ -67,16 +69,56 @@ class Gym extends Authenticatable
     {
         try {
             return $this->create([
-                'username'               => $addGym['username'],
-                'gym_name'               => $addGym['gym_name'],
-                'email'                  => $addGym['email'],
-                'password'               => $addGym['password']
+                'username' => $addGym['username'],
+                'gym_name' => $addGym['gym_name'],
+                'email' => $addGym['email'],
+                'password' => $addGym['password']
             ]);
         } catch (\Throwable $e) {
             Log::error('[Gym][registerGymBySelf] Error adding gym detail: ' . $e->getMessage());
         }
     }
 
+    public function updateGym(array $updateGym , $imagePath)
+    {
+
+        $uuid = $this->getGymSession()['uuid'];
+        $gymUser = Gym::where('uuid', $uuid)->first();
+
+        // Check if the user exists
+        if (!$gymUser) {
+            return redirect()->back()->with('error', 'User not found');
+        }
+
+        // dd($gymUser);
+        // // Update the user's attributes
+        // //
+        // // ]);
+        try {
+            $gymUser->update([
+                'username' => $updateGym['username'],
+                'gym_name' => $updateGym['gym_name'],
+                'email' => $updateGym['email'],
+                'password' => $updateGym['password'],
+                'address' => $updateGym['address'],
+                'country' => $updateGym['country'],
+                'state' => $updateGym['state'],
+                'city' => $updateGym['city'],
+                'web_link' => $updateGym['web_link'],
+                'image' => $imagePath,
+                'gym_type' => $updateGym['gym_type'],
+                'facebook' => $updateGym['facebook'],
+                'instagram' => $updateGym['instagram'],
+                'terms_and_conditions' => $updateGym['terms_and_conditions'],
+                'subscription_id' => AdminSubscriptionEnum::Trial
+            ]);
+
+            return $gymUser->save();
+        } catch (\Throwable $e) {
+            Log::error('[Gym][updateGym] Error while updating gym detail: ' . $e->getMessage());
+        }
+
+    }
     // public function addTandC(array $tAndC)
     // {
     //     try {
