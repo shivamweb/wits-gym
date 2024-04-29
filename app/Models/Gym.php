@@ -63,6 +63,20 @@ class Gym extends Authenticatable
         }
     }
 
+    public function registerGymBySelf(array $addGym)
+    {
+        try {
+            return $this->create([
+                'username'               => $addGym['username'],
+                'gym_name'               => $addGym['gym_name'],
+                'email'                  => $addGym['email'],
+                'password'               => $addGym['password']
+            ]);
+        } catch (\Throwable $e) {
+            Log::error('[Gym][registerGymBySelf] Error adding gym detail: ' . $e->getMessage());
+        }
+    }
+
     // public function addTandC(array $tAndC)
     // {
     //     try {

@@ -18,11 +18,13 @@ Route::post('/dashboard', function () {
 
 Route::get('/', function () {
     return view('GymOwner.login');
-});
+})->name('login');
 
 Route::get('/register', function () {
     return view('GymOwner.register');
-});
+})->name('register');
+
+Route::post('/register',[GymDetailController::class, 'registerGym'] )->name('registerGym');
 // Route::get('/viewGymInfo', [AdminGymController::class, 'viewGymInfo']);
 
 Route::get('/packages', [AdminController::class, 'showPackages']);

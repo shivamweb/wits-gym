@@ -12,20 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('gyms', function (Blueprint $table) {
-            $table->id();  
+            $table->id();
             $table->uuid('uuid')->unique();
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('gym_name');
             $table->string('password');
-            $table->longText('address');
-            $table->string('country');
-            $table->longText('image');
-            $table->string('state');
-            $table->string('city');
-            $table->string('web_link');
-            $table->string('subscription_id');
-            $table->string('gym_type');
+            $table->longText('address')->nullable();
+            $table->string('country')->nullable();
+            $table->longText('image')->nullable();
+            $table->string('state')->nullable();
+            $table->string('city')->nullable();
+            $table->string('web_link')->nullable();
+            $table->string('subscription_id')->nullable();
+            $table->string('gym_type')->nullable();
             $table->longText('terms_and_conditions')->nullable();
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();

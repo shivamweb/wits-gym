@@ -28,10 +28,15 @@
             <div class="box bounceInLeft animated">
                 <img src="assets/img/logo.png" class="logo" alt="image not found">
                 <h3 class="text-center">Gym Register</h3>
-                <form class="form" id="log_in" method="post">
+                <form class="form" id="log_in" method="post" action="/register">
+                    @csrf
                     <div class="form-group">
                         <label class="sr-only"></label>
-                        <input type="text" class="form-control" name="name" placeholder="Gym Name" required>
+                        <input type="text" class="form-control" name="gym_name" placeholder="Gym Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only"></label>
+                        <input type="text" class="form-control" name="username" placeholder="Username" required>
                     </div>
                     <div class="form-group">
                         <label class="sr-only"></label>
