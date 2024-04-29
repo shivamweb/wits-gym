@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Traits\SessionTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Ramsey\Uuid\Uuid;
@@ -10,6 +10,7 @@ use Ramsey\Uuid\Uuid;
 class GymStaff extends Model
 {
     use SoftDeletes;
+    use SessionTrait;
     protected $table = 'gym_staffs';
     protected $fillable = [
         'name',
@@ -18,14 +19,13 @@ class GymStaff extends Model
         'gym_id'
     ];
 
-    public function addGymStaff(array $gymStaffArray, $imagePath)
+    public function addGymStaff(array $gymStaffArray, $imagePath,$gymId)
     {
-        $randomNumber = rand(1, 100);
         $this->create([
             'name' => $gymStaffArray['member_name'],
             'designation' => $gymStaffArray['member_designation'],
             'image' => $imagePath,
-            'gym_id'=> 1
+            'gym_id' => $gymId
         ]);
     }
 
