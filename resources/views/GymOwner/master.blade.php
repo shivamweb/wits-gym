@@ -345,7 +345,7 @@
                                     </a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href='/'>
+                                    <a href={{route('logout')}}>
                                         <i class="fa fa-fw fa-sign-out"></i> Logout
                                     </a>
                                 </div>
@@ -392,6 +392,31 @@
                                 <i class="text-primary menu-icon fa fa-th fa-info-circle"></i>
                                 <span class="mm-text">Gym Staff</span>
                             </a>
+                        </li>
+                        <li class="menu-dropdown">
+                            <a href="#">
+                                <i class="text-default menu-icon fa fa-fw fa-users"></i>
+                                <span class="mm-text">Users</span>
+                                <span class="fa fa-angle-down pull-right"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href={{route('listGymUser')}}>
+                                        <i class="text-primary fa fa-fw fa-users"></i> Users List
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href='/addUsers'>
+                                        <i class="text-info fa fa-fw fa-user"></i> Add Users
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='/userPayment'>
+                                        <i class="text-danger fa fa-fw fa-money"></i> Payments
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href='/gym-coupon'>
@@ -466,35 +491,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-dropdown">
-                            <a href="#">
-                                <i class="text-default menu-icon fa fa-fw fa-users"></i>
-                                <span class="mm-text">Users</span>
-                                <span class="fa fa-angle-down pull-right"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href='/userList'>
-                                        <i class="text-primary fa fa-fw fa-users"></i> Users List
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href={{ route('showGymProfile') }}>
-                                        <i class="text-success fa fa-fw fa-user"></i> Gym Profile
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href='/addUsers'>
-                                        <i class="text-info fa fa-fw fa-user"></i> Add Users
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href='/userPayment'>
-                                        <i class="text-danger fa fa-fw fa-money"></i> Payments
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+
                         <li>
                             <a href='admin_coupon.html'>
                                 <i class="text-primary  menu-icon fa fa-scissors"></i>
@@ -542,6 +539,11 @@
                             <a href='blank.html'>
                                 <i class="text-default menu-icon fa fa-file-o"></i>
                                 <span class="mm-text">Blank</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href={{ route('showGymProfile') }}>
+                                <i class="text-success fa fa-fw fa-user"></i> Gym Profile
                             </a>
                         </li>
                         <li class="menu-dropdown">

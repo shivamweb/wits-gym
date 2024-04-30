@@ -13,15 +13,22 @@ return new class extends Migration {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->uuid()->index();
+            $table->unsignedBigInteger('gym_id');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
+            $table->string('gender');
             $table->string('phone_no');
             $table->string('username');
             $table->string('password');
             $table->longText('image');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('gym_id')
+            ->references('id')
+            ->on('gyms')
+            ->onDelete('cascade');
         });
     }
 

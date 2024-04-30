@@ -126,7 +126,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                            {{-- <div class="form-group">
                                                 <label for="subscription_id" class="col-md-3 control-label">
                                                     Subscription id
                                                     <span class='require'>*</span>
@@ -140,7 +140,7 @@
                                                             class="form-control" placeholder="Enter Subscription id">
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">
                                                     Description

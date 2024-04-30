@@ -6,6 +6,7 @@ use App\Http\Controllers\GymStaffController;
 use App\Http\Controllers\GymSubscriptionController;
 use App\Http\Controllers\GymDetailController;
 use App\Http\Controllers\GymUserController;
+use App\Traits\SessionTrait;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', function () {
@@ -19,6 +20,8 @@ Route::post('/dashboard', function () {
 Route::get('/', function () {
     return view('GymOwner.login');
 })->name('login');
+
+Route::get('/logout',[GymUserController::class, 'logouGymUser'] )->name('logout');
 
 Route::get('/register', function () {
     return view('GymOwner.register');
@@ -46,8 +49,6 @@ Route::get('/rooms', [AdminController::class, 'showRooms']);
 
 Route::get('/addUsers', [AdminController::class, 'showAddUsers']);
 
-Route::get('/userList', [AdminController::class, 'showUserList']);
-
 Route::get('/userPayment', [AdminController::class, 'showUserPayment']);
 
 Route::get('/gymProfile', [GymDetailController::class, 'showGymProfile'])->name('showGymProfile');
@@ -57,12 +58,14 @@ Route::post('/gym-subscription', [GymSubscriptionController::class, 'createGymSu
 
 Route::get('/gym-staff', [GymStaffController::class, 'listGymStaff'])->name('listGymStaff');
 Route::post('/gym-staff', [GymStaffController::class, 'addGymStaff']);
+
 Route::post('/add-user-by-gym', [GymUserController::class, 'addUserByGym'])->name('addUserByGym');
+Route::get('/listUser', [GymUserController::class, 'listGymUser'])->name('listGymUser');
 
 Route::post('/gym-login', [GymDetailController::class, 'gymLogin'])->name('gymLogin');
 
 Route::get('/gym-coupon', [GymCouponController::class, 'listGymCoupons'])->name('listGymCoupons');
 Route::post('/gym-coupon', [GymCouponController::class, 'addGymCoupon']);
 
-Route::post('/', [GymDetailController::class,'updateGym'])->name('updateGym');
+Route::post('/updateGym', [GymDetailController::class,'updateGym'])->name('updateGym');
 
