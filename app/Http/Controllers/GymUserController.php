@@ -28,11 +28,6 @@ class GymUserController extends Controller
         return view('GymOwner.userList', compact('users'));
     }
 
-    public function logouGymUser()
-    {
-        session()->flush();
-        return redirect()->route('login');
-    }
     public function addUserByGym(Request $request)
     {
         try {

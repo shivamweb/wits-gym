@@ -16,6 +16,15 @@ class GymDetailController extends Controller
         $this->gym = $gym;
     }
 
+    public function showDashboard(Request $request)
+    {
+        $gymSession = $this->getGymSession();
+        $uuid = $gymSession['uuid'];
+        $gymDetail = $this->gym->where('uuid', $uuid)->first();
+        Log::error('[GymDetailController][showDashboard] user image null : ' . empty($gymDetail->image));
+        Log::error('[GymDetailController][showDashboard] user image src : ' . $gymDetail->image);
+        return view('GymOwner.dashboard', compact('gymDetail'));
+    }
     public function showGymProfile(Request $request)
     {
         $gymSession = $this->getGymSession();
@@ -23,7 +32,7 @@ class GymDetailController extends Controller
         $uuid = $gymSession['uuid'];
         $gymDetail = $this->gym->where('uuid', $uuid)->first();
 
-        return view('GymOwner.userProfile',compact('gymDetail'));
+        return view('GymOwner.userProfile', compact('gymDetail'));
     }
     public function gymLogin(Request $request)
     {
@@ -44,6 +53,12 @@ class GymDetailController extends Controller
             Log::error('[GymDetailController][gymLogin] Error Login Gym ' . 'Request=' . $request . ', Exception=' . $e->getMessage());
             return redirect()->back()->with('status', 'error')->with('message', 'Invalid credentials or account is not active');
         }
+    }
+
+    public function logouGymUser()
+    {
+        session()->flush();
+        return redirect()->route('login');
     }
 
     public function registerGym(Request $request)
