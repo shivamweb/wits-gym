@@ -187,7 +187,7 @@
                             <table class="table table-bordered" id="fitness-table">
                                 <thead>
                                     <tr>
-                                        <th> Id</th>
+                                        <th>Gym Id</th>
                                         <th>Image</th>
                                         <th>Subscription Name</th>
                                         <th>Subscription Duration</th>
@@ -201,7 +201,7 @@
                                 <tbody>
                                     @foreach ($subscriptions as $subscription)
                                         <tr>
-                                            <td>{{ $subscription->plan_id }}</td>
+                                            <td>{{ $subscription->gym_id }}</td>
                                             <td align="center"> <img src="{{ $subscription->image }}" height="100" alt="Image"></td>
                                             <td>{{ $subscription->subscription_name }}</td>
                                             <td>{{ $subscription->validity }}</td>
