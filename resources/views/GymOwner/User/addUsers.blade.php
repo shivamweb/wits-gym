@@ -1,5 +1,5 @@
 @extends('GymOwner.master')
-@section('title','Add News')
+@section('title','Add User')
 @section('content')
 <aside class="right-side right-padding">
 <section class="content-header">
@@ -7,15 +7,15 @@
     <h2>Add User</h2>
     <ol class="breadcrumb">
         <li>
-            <a href='index.html'>
+            <a href={{ route('dashboard') }}>
                 <i class="fa fa-fw fa-home"></i> Dashboard
             </a>
         </li>
         <li>
-            <a href="#">Users</a>
+            <a >Users</a>
         </li>
         <li>
-            <a class='activated' href='add_users.html'>Add User</a>
+            <a class='activated'>Add User</a>
         </li>
     </ol>
 </section>
@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <form id="add_users_form" action="{{route('addUserByGym')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
-                            @csrf  
+                            @csrf
                             <div class="form-body">
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Image</label>
@@ -54,7 +54,7 @@
                                                         <span class="btn btn-primary btn-file">
                                                             <span class="fileinput-new">Select image</span>
                                                             <span class="fileinput-exists">Change</span>
-                                                            <input type="file" name="image">
+                                                            <input type="file" name="image" required>
                                                         </span>
                                                         <a href="#" class="btn btn-primary fileinput-exists" data-dismiss="fileinput">Remove</a>
                                                     </div>
@@ -72,7 +72,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-fw fa-user-md text-primary"></i>
                                                 </span>
-                                                <input type="text" class="form-control" id="usr_name" placeholder="Username" name="username">
+                                                <input type="text" class="form-control" id="usr_name" placeholder="Enter Username" name="username" required>
                                             </div>
                                         </div>
                                     </div>
@@ -86,7 +86,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-envelope text-primary"></i>
                                                 </span>
-                                                <input type="text" placeholder="Email Address" class="form-control" id="mail" name="first_name" />
+                                                <input type="text" placeholder="Enter First Name" required class="form-control" id="mail" name="first_name" />
                                             </div>
                                         </div>
                                     </div>
@@ -100,7 +100,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-envelope text-primary"></i>
                                                 </span>
-                                                <input type="text" placeholder="Email Address" class="form-control" id="mail" name="last_name" />
+                                                <input type="text" placeholder="Enter Last Name" required class="form-control" id="mail" name="last_name" />
                                             </div>
                                         </div>
                                     </div>
@@ -114,7 +114,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-envelope text-primary"></i>
                                                 </span>
-                                                <input type="email" placeholder="Email Address" class="form-control" id="mail" name="email" />
+                                                <input type="email" placeholder=" Enter Email Address" required class="form-control" id="mail" name="email" />
                                             </div>
                                         </div>
                                     </div>
@@ -128,7 +128,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-fw fa-phone text-primary"></i>
                                                 </span>
-                                                <input type="text" placeholder="Phone Number" id="contact" class="form-control" name="phone_no" />
+                                                <input type="text"placeholder="Enter Contact number" required id="contact" class="form-control" name="phone_no" />
                                             </div>
                                         </div>
                                     </div>
@@ -161,7 +161,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-envelope text-primary"></i>
                                                 </span>
-                                                <input type="text" placeholder="Email Address" class="form-control" id="mail" name="password" />
+                                                <input type="text" placeholder="Enter Password" required class="form-control" id="mail" name="password" />
                                             </div>
                                         </div>
                                     </div>

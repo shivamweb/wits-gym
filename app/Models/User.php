@@ -12,9 +12,11 @@ class User extends Authenticatable
     use SoftDeletes;
 
     protected $fillable = [
+        'gym_id',
         'first_name',
         'last_name',
         'email',
+        'gender',
         'phone_no',
         'username',
         'password',
@@ -29,13 +31,15 @@ class User extends Authenticatable
         });
     }
 
-    public function addUser(array $addUser, $imagePath)
+    public function addUser(array $addUser, $imagePath,$gymId)
     {
         try {
             return $this->create([
+                'gym_id'  => $gymId,
                 'first_name'  => $addUser['first_name'],
                 'last_name'   => $addUser['last_name'],
                 'email'       => $addUser['email'],
+                'gender'       => $addUser['gender'],
                 'phone_no'    => $addUser['phone_no'],
                 'username'    => $addUser['username'],
                 'password'    => $addUser['password'],
@@ -45,4 +49,22 @@ class User extends Authenticatable
             Log::error('[User][addUser] Error adding user detail: ' . $e->getMessage());
         }
     }
+
+    // public function addUseByGym(array $addUser, $imagePath,$gymId)
+    // {
+    //     try {
+    //         return $this->create([
+    //             'gym_id'  => $gymId,
+    //             'first_name'  => $addUser['first_name'],
+    //             'last_name'   => $addUser['last_name'],
+    //             'email'       => $addUser['email'],
+    //             'phone_no'    => $addUser['phone_no'],
+    //             'username'    => $addUser['username'],
+    //             'password'    => $addUser['password'],
+    //             'image'       => $imagePath,
+    //         ]);
+    //     } catch (\Throwable $e) {
+    //         Log::error('[User][addUseByGym] Error adding user detail: ' . $e->getMessage());
+    //     }
+    // }
 }
