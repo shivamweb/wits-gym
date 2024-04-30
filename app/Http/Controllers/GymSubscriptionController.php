@@ -2,28 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gym;
 use App\Models\GymSubscription;
+use App\Traits\SessionTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class GymSubscriptionController extends Controller
 {
+    use SessionTrait;
     protected $gymSubscription;
+    protected $gym;
 
-    public function __construct(GymSubscription $gymSubscription)
+    public function __construct(GymSubscription $gymSubscription,Gym $gym)
     {
         $this->gymSubscription = $gymSubscription;
+        $this->gym = $gym;
     }
 
     public function listSubscriptionPlan()
     {
-        $subscriptions = $this->gymSubscription->all();
+
+        $gym_uuid = $this->getGymSession()['uuid'];
+        $gymId = $this->gym->where('uuid', $gym_uuid)->first()->id;
+
+        $subscriptions = $this->gymSubscription->where('gym_id', $gymId)->get();
         return view('GymOwner.GymSubscription.createListSubscription',compact('subscriptions'));
     }
 
     public function createGymSubscriptionPlan(Request $request)
     {
         try {
+
+            $gym_uuid = $this->getGymSession()['uuid'];
+            $gymId=$this->gym->where('uuid', $gym_uuid)->first()->id;
+
             $validatedData = $request->validate([
                 'subscription_name' => '',
                 'amount' => 'required',
@@ -44,7 +57,7 @@ class GymSubscriptionController extends Controller
             }
             // dd($validatedData);
             // dd($imagePath);
-            $this->gymSubscription->createSubscription($validatedData, $imagePath);
+            $this->gymSubscription->createSubscription($validatedData, $imagePath,$gymId);
 
             return redirect()->route('listSubscriptionPlan')->with('success', 'Data saved successfully.');
         } catch (\Throwable $th) {

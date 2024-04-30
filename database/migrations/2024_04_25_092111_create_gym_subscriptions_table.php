@@ -21,9 +21,14 @@ return new class extends Migration
             $table->integer('validity');
             $table->longText('description');
             $table->longText('image');
-            $table->integer('plan_id');
+            $table->unsignedBigInteger('gym_id');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('gym_id')
+                ->references('id')
+                ->on('gyms')
+                ->onDelete('cascade');
         });
     }
 
