@@ -47,6 +47,8 @@ Route::get('/addUsers', [AdminController::class, 'showAddUsers']);
 Route::get('/userPayment', [AdminController::class, 'showUserPayment']);
 
 Route::get('/gymProfile', [GymDetailController::class, 'showGymProfile'])->name('showGymProfile');
+Route::post('/userProfile', [GymUserController::class, 'showUserProfile'])->name('updateUserProfile');
+// Route::get('/userProfile', [GymUserController::class, 'showUserProfile'])->name('showUserProfile');
 
 Route::get('/gym-subscription', [GymSubscriptionController::class, 'listSubscriptionPlan'])->name('listSubscriptionPlan');
 Route::post('/gym-subscription', [GymSubscriptionController::class, 'createGymSubscriptionPlan']);
@@ -63,4 +65,5 @@ Route::get('/gym-coupon', [GymCouponController::class, 'listGymCoupons'])->name(
 Route::post('/gym-coupon', [GymCouponController::class, 'addGymCoupon']);
 
 Route::post('/updateGym', [GymDetailController::class,'updateGym'])->name('updateGym');
+Route::post('/updateUser', [GymUserController::class,'updateUser'])->name('updateUser');
 

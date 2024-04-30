@@ -32,7 +32,7 @@ class GymDetailController extends Controller
         $uuid = $gymSession['uuid'];
         $gymDetail = $this->gym->where('uuid', $uuid)->first();
 
-        return view('GymOwner.userProfile', compact('gymDetail'));
+        return view('GymOwner.gymProfile', compact('gymDetail'));
     }
     public function gymLogin(Request $request)
     {
