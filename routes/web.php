@@ -18,11 +18,13 @@ Route::post('/dashboard', function () {
 
 Route::get('/', function () {
     return view('GymOwner.login');
-});
+})->name('login');
 
 Route::get('/register', function () {
     return view('GymOwner.register');
-});
+})->name('register');
+
+Route::post('/register',[GymDetailController::class, 'registerGym'] )->name('registerGym');
 // Route::get('/viewGymInfo', [AdminGymController::class, 'viewGymInfo']);
 
 Route::get('/packages', [AdminController::class, 'showPackages']);
@@ -48,7 +50,7 @@ Route::get('/userList', [AdminController::class, 'showUserList']);
 
 Route::get('/userPayment', [AdminController::class, 'showUserPayment']);
 
-Route::get('/userProfile', [AdminController::class, 'showUserProfile']);
+Route::get('/gymProfile', [GymDetailController::class, 'showGymProfile'])->name('showGymProfile');
 
 Route::get('/gym-subscription', [GymSubscriptionController::class, 'listSubscriptionPlan'])->name('listSubscriptionPlan');
 Route::post('/gym-subscription', [GymSubscriptionController::class, 'createGymSubscriptionPlan']);
@@ -61,4 +63,6 @@ Route::post('/gym-login', [GymDetailController::class, 'gymLogin'])->name('gymLo
 
 Route::get('/gym-coupon', [GymCouponController::class, 'listGymCoupons'])->name('listGymCoupons');
 Route::post('/gym-coupon', [GymCouponController::class, 'addGymCoupon']);
+
+Route::post('/', [GymDetailController::class,'updateGym'])->name('updateGym');
 

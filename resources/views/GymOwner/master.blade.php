@@ -32,10 +32,12 @@
     <link rel="stylesheet" type="text/css" href="assets/css/custom_css/personaltraining.css">
     <link rel="stylesheet" type="text/css" href="assets/css/custom_css/instructors.css">
     <link type="text/css" href="assets/css/custom_css/coupon.css" rel="stylesheet">
-    <link type="text/css" href="assets/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link type="text/css" href="assets/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"
+        rel="stylesheet" />
     <link type="text/css" href="assets/vendors/bootstrapvalidator/dist/css/bootstrapValidator.css" rel="stylesheet" />
     <link type="text/css" href="assets/vendors/datatables/css/dataTables.bootstrap.css" rel="stylesheet" />
-    <link type="text/css" href="assets/vendors/fancyBox/source/jquery.fancybox8cbb.css?v=2.1.5" media="screen" rel="stylesheet" />
+    <link type="text/css" href="assets/vendors/fancyBox/source/jquery.fancybox8cbb.css?v=2.1.5" media="screen"
+        rel="stylesheet" />
     <link type="text/css" href="assets/css/custom_css/timings.css" rel="stylesheet" />
     <link type="text/css" href="assets/css/custom_css/add_news.css" rel="stylesheet" />
     <link type="text/css" href="assets/css/custom_css/course_schedule.css" rel="stylesheet" />
@@ -80,20 +82,23 @@
             <!-- Sidebar toggle button-->
             <!-- Sidebar toggle button-->
             <div>
-                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button"> <i class="fa fa-fw fa-navicon"></i>
+                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button"> <i
+                        class="fa fa-fw fa-navicon"></i>
                 </a>
             </div>
             <div class="navbar-right">
                 <ul class="nav navbar-nav">
                     <li class="dropdown messages-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-fw fa-envelope-o black"></i>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
+                                class="fa fa-fw fa-envelope-o black"></i>
                             <span class="label label-success">5</span>
                         </a>
                         <ul class="dropdown-menu dropdown-messages table-striped">
                             <li class="dropdown-title">New Messages</li>
                             <li>
                                 <a href="#" class="message striped-col">
-                                    <img class="message-image img-circle" alt="image" src="assets/img/authors/avatar7.jpg">
+                                    <img class="message-image img-circle" alt="image"
+                                        src="assets/img/authors/avatar7.jpg">
                                     <div class="message-body"><strong>Ernest Kerry</strong>
                                         <br> Can we Meet?
                                         <br>
@@ -104,7 +109,8 @@
                             </li>
                             <li>
                                 <a href="#" class="message">
-                                    <img class="message-image img-circle" alt="image" src="assets/img/authors/avatar.jpg">
+                                    <img class="message-image img-circle" alt="image"
+                                        src="assets/img/authors/avatar.jpg">
                                     <div class="message-body"><strong>John</strong>
                                         <br> Dont forgot to call...
                                         <br>
@@ -115,7 +121,8 @@
                             </li>
                             <li>
                                 <a href="#" class="message striped-col">
-                                    <img class="message-image img-circle" alt="image" src="assets/img/authors/avatar5.jpg">
+                                    <img class="message-image img-circle" alt="image"
+                                        src="assets/img/authors/avatar5.jpg">
                                     <div class="message-body">
                                         <strong>Wilton Zeph</strong>
                                         <br> If there is anything else &hellip;
@@ -127,7 +134,8 @@
                             </li>
                             <li>
                                 <a href="#" class="message">
-                                    <img class="message-image img-circle" alt="image" src="assets/img/authors/avatar1.jpg">
+                                    <img class="message-image img-circle" alt="image"
+                                        src="assets/img/authors/avatar1.jpg">
                                     <div class="message-body">
                                         <strong>Jenny Kerry</strong>
                                         <br> Let me know when you free
@@ -139,7 +147,8 @@
                             </li>
                             <li>
                                 <a href="#" class="message striped-col">
-                                    <img class="message-image img-circle" alt="image" src="assets/img/authors/avatar.jpg">
+                                    <img class="message-image img-circle" alt="image"
+                                        src="assets/img/authors/avatar.jpg">
                                     <div class="message-body">
                                         <strong>Tony</strong>
                                         <br> Let me know when you free
@@ -166,7 +175,9 @@
                                     <small class="pull-right">20%</small>
                                     <div class="message-body">
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-primary" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-primary" style="width: 20%"
+                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                aria-valuemax="100">
                                                 <span class="sr-only">20% Complete</span>
                                             </div>
                                         </div>
@@ -179,7 +190,9 @@
                                     <small class="pull-right">40%</small>
                                     <div class="message-body">
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-success" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-success" style="width: 40%"
+                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                aria-valuemax="100">
                                                 <span class="sr-only">40% Complete</span>
                                             </div>
                                         </div>
@@ -192,7 +205,9 @@
                                     <small class="pull-right">60%</small>
                                     <div class="message-body">
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-red" style="width: 60%"
+                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                aria-valuemax="100">
                                                 <span class="sr-only">60% Complete</span>
                                             </div>
                                         </div>
@@ -205,7 +220,9 @@
                                     <small class="pull-right">80%</small>
                                     <div class="message-body">
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-warning" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-warning" style="width: 80%"
+                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                aria-valuemax="100">
                                                 <span class="sr-only">80% Complete</span>
                                             </div>
                                         </div>
@@ -290,7 +307,8 @@
                     <!-- User Account: style can be found in dropdown-->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle padding-user" data-toggle="dropdown">
-                            <img src="assets/img/authors/avatar1.jpg" width="35" class="img-circle img-responsive pull-left" height="35" alt="User Image">
+                            <img src="assets/img/authors/avatar1.jpg" width="35"
+                                class="img-circle img-responsive pull-left" height="35" alt="User Image">
                             <div class="riot">
                                 <div>
                                     Natali
@@ -308,7 +326,7 @@
                             </li>
                             <!-- Menu Body -->
                             <li class="pad-3">
-                                <a href="#">
+                                <a href={{ route('showGymProfile') }}>
                                     <i class="fa fa-fw fa-user"></i> My Profile
                                 </a>
                             </li>
@@ -461,8 +479,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='/userProfile'>
-                                        <i class="text-success fa fa-fw fa-user"></i> User Profile
+                                    <a href={{ route('showGymProfile') }}>
+                                        <i class="text-success fa fa-fw fa-user"></i> Gym Profile
                                     </a>
                                 </li>
                                 <li>
@@ -573,12 +591,14 @@
                                                     <ul class="sub-menu sub-submenu">
                                                         <li>
                                                             <a href="#">
-                                                                <i class="text-primary fa fa-fw fa-sitemap"></i> Level 4
+                                                                <i class="text-primary fa fa-fw fa-sitemap"></i> Level
+                                                                4
                                                             </a>
                                                         </li>
                                                         <li>
                                                             <a href="#">
-                                                                <i class="text-success fa fa-fw fa-sitemap"></i> Level 4
+                                                                <i class="text-success fa fa-fw fa-sitemap"></i> Level
+                                                                4
                                                             </a>
                                                         </li>
                                                         <li>
@@ -589,17 +609,22 @@
                                                             <ul class="sub-menu sub-submenu">
                                                                 <li>
                                                                     <a href="#">
-                                                                        <i class="text-primary fa fa-fw fa-sitemap"></i> Level 5
+                                                                        <i
+                                                                            class="text-primary fa fa-fw fa-sitemap"></i>
+                                                                        Level 5
                                                                     </a>
                                                                 </li>
                                                                 <li>
                                                                     <a href="#">
-                                                                        <i class="text-success fa fa-fw fa-sitemap"></i> Level 5
+                                                                        <i
+                                                                            class="text-success fa fa-fw fa-sitemap"></i>
+                                                                        Level 5
                                                                     </a>
                                                                 </li>
                                                                 <li>
                                                                     <a href="#">
-                                                                        <i class="text-danger fa fa-fw fa-sitemap"></i> Level 5
+                                                                        <i class="text-danger fa fa-fw fa-sitemap"></i>
+                                                                        Level 5
                                                                     </a>
                                                                 </li>
                                                             </ul>
@@ -719,7 +744,8 @@
     <script src="assets/vendors/summernote/summernote.min.js" type="text/javascript"></script>
     <script src="assets/js/custom_js/club_info.js" type="text/javascript"></script>
     <script src="assets/vendors/moment/moment.js" type="text/javascript"></script>
-    <script src="assets/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+    <script src="assets/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js" type="text/javascript">
+    </script>
     <script src="assets/vendors/bootstrapvalidator/dist/js/bootstrapValidator.js" type="text/javascript"></script>
     <script src="assets/vendors/fancyBox/source/jquery.fancybox8cbb.js?v=2.1.5" type="text/javascript"></script>
     <script src="assets/vendors/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script>
