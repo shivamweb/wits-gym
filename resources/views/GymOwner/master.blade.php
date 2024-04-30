@@ -307,8 +307,13 @@
                     <!-- User Account: style can be found in dropdown-->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle padding-user" data-toggle="dropdown">
-                            <img src="assets/img/authors/avatar1.jpg" width="35"
-                                class="img-circle img-responsive pull-left" height="35" alt="User Image">
+                            @if (!empty($gymDetail->image))
+                                <img src="{{ $gymDetail->image }}"width="35"
+                                    class="img-circle img-responsive pull-left" height="35" alt="User Image">
+                            @else
+                                <img src="assets\img\defaultImage\profile.png" width="35"
+                                    class="img-circle img-responsive pull-left" height="35" alt="User Image">
+                            @endif
                             <div class="riot">
                                 <div>
                                     Natali
@@ -321,7 +326,13 @@
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="assets/img/authors/avatar1.jpg" class="img-circle" alt="User Image">
+                                @if (!empty($gymDetail->image))
+                                    <img src="{{ $gymDetail->image }}"class="img-circle" alt="User Image">
+                                @else
+                                    <img src="assets\img\defaultImage\profile.png" class="img-circle"
+                                        alt="User Image">
+                                @endif
+
                                 <p>Nataliapery</p>
                             </li>
                             <!-- Menu Body -->
@@ -345,7 +356,7 @@
                                     </a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href={{route('logout')}}>
+                                    <a href={{ route('logout') }}>
                                         <i class="fa fa-fw fa-sign-out"></i> Logout
                                     </a>
                                 </div>
@@ -365,11 +376,17 @@
                     <div class="nav_profile">
                         <div class="media profile-left">
                             <a class="pull-left profile-thumb" href="#">
-                                <img src="assets/img/authors/avatar1.jpg" class="img-circle" alt="User Image">
+                                @if (!empty($gymDetail->image))
+                                    <img src="{{ $gymDetail->image }}" class="img-circle" alt="User Image">
+                                @else
+                                    <img src="assets\img\defaultImage\profile.png" class="img-circle"
+                                        alt="User Image">
+                                @endif
+
                             </a>
                             <div class="content-profile">
-                                <h4 class="media-heading">Nataliapery</h4>
-                                <span class="text-default">Admin</span>
+                                <h4 class="media-heading">{{ $gymDetail->gym_name }}</h4>
+                                <span class="text-default">{{ $gymDetail->username }}</span>
                             </div>
                         </div>
                     </div>
@@ -401,7 +418,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href={{route('listGymUser')}}>
+                                    <a href={{ route('listGymUser') }}>
                                         <i class="text-primary fa fa-fw fa-users"></i> Users List
                                     </a>
                                 </li>

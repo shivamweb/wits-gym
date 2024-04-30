@@ -9,19 +9,14 @@ use App\Http\Controllers\GymUserController;
 use App\Traits\SessionTrait;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/dashboard', function () {
-    return view('GymOwner.dashboard');
-})->name('dashboard');
 
-Route::post('/dashboard', function () {
-    return view('GymOwner.dashboard');
-});
+Route::get('/dashboard', [GymDetailController::class, 'showDashboard'])->name('dashboard');
 
 Route::get('/', function () {
     return view('GymOwner.login');
 })->name('login');
 
-Route::get('/logout',[GymUserController::class, 'logouGymUser'] )->name('logout');
+Route::get('/logout',[GymDetailController::class, 'logouGymUser'] )->name('logout');
 
 Route::get('/register', function () {
     return view('GymOwner.register');
