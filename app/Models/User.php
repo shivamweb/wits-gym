@@ -31,22 +31,51 @@ class User extends Authenticatable
         });
     }
 
-    public function addUser(array $addUser, $imagePath,$gymId)
+    public function addUser(array $addUser, $imagePath, $gymId)
     {
         try {
             return $this->create([
-                'gym_id'  => $gymId,
-                'first_name'  => $addUser['first_name'],
-                'last_name'   => $addUser['last_name'],
-                'email'       => $addUser['email'],
-                'gender'       => $addUser['gender'],
-                'phone_no'    => $addUser['phone_no'],
-                'username'    => $addUser['username'],
-                'password'    => $addUser['password'],
-                'image'       => $imagePath,
+                'gym_id' => $gymId,
+                'first_name' => $addUser['first_name'],
+                'last_name' => $addUser['last_name'],
+                'email' => $addUser['email'],
+                'gender' => $addUser['gender'],
+                'phone_no' => $addUser['phone_no'],
+                'username' => $addUser['username'],
+                'password' => $addUser['password'],
+                'image' => $imagePath,
             ]);
         } catch (\Throwable $e) {
             Log::error('[User][addUser] Error adding user detail: ' . $e->getMessage());
+        }
+    }
+
+    public function updateUser(array $updateUser, $imagePath)
+    {
+
+        // dd($updateUser);
+        $uuid = $updateUser['uuid'];
+        $userProfile = User::where('uuid', $uuid)->first();
+
+        // Check if the user exists
+        if (!$userProfile) {
+            return redirect()->back()->with('error', 'User not found');
+        }
+        try {
+            $userProfile->update([
+                'first_name' => $updateUser['first_name'],
+                'last_name' => $updateUser['last_name'],
+                'email' => $updateUser['email'],
+                'gender' => $updateUser['gender'],
+                'phone_no' => $updateUser['phone_no'],
+                'username' => $updateUser['username'],
+                'password' => $updateUser['password'],
+                'image' => $imagePath,
+            ]);
+
+            return $userProfile->save();
+        } catch (\Throwable $e) {
+            Log::error('[Gym][updateUser] Error while updating user detail: ' . $e->getMessage());
         }
     }
 

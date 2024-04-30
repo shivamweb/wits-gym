@@ -63,4 +63,50 @@ class GymUserController extends Controller
             return back()->with('status', 'error')->with('message', 'User Not Added ');
         }
     }
+
+
+    public function showUserProfile(Request $request)
+    {
+        $uuid = $request->input('uuid');
+        $userDetail = $this->user->where('uuid', $uuid)->first();
+
+        // dd($userDetail);
+        return view('GymOwner.User.userProfile', compact('userDetail'));
+    }
+
+    public function updateUser(Request $request)
+    {
+        try {
+            // dd($request->all());
+
+            $validatedData = $request->validate([
+                'uuid' => 'required',
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'email' => 'required',
+                'gender' => 'required',
+                'phone_no' => 'required',
+                'username' => 'required',
+                'password' => 'required',
+                'image' => 'nullable'
+            ]);
+
+            $imagePath = null;
+            if ($request->hasFile('image')) {
+                $gymImage = $request->file('image');
+                $filename = time() . '_' . $gymImage->getClientOriginalName();
+                $imagePath = 'gymProfile_images/' . $filename;
+                $gymImage->move(public_path('gymProfile_images/'), $filename);
+            }
+
+            $isProfileUpdated = $this->user->updateUser($validatedData, $imagePath);
+            if ($isProfileUpdated) {
+                return redirect()->route('dashboard')->with('status', 'success')->with('message', 'user profile updated succesfully.');
+            }
+            return redirect()->route('dashboard')->with('status', 'error')->with('message', 'error while updating user.');
+        } catch (\Exception $e) {
+            Log::error('[GymDetailController][updateUser] Error updating user ' . 'Request=' . $request . ', Exception=' . $e->getMessage());
+            return redirect()->route('dashboard')->with('status', 'error')->with('message', 'error while updating user.');
+        }
+    }
 }

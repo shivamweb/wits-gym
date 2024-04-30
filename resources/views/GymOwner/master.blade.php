@@ -385,8 +385,16 @@
 
                             </a>
                             <div class="content-profile">
-                                <h4 class="media-heading">{{ $gymDetail->gym_name }}</h4>
-                                <span class="text-default">{{ $gymDetail->username }}</span>
+                                <h4 class="media-heading">
+                                    @if (isset($gymDetail))
+                                        {{ $gymDetail->gym_name }}
+                                    @endif
+                                </h4>
+                                <span class="text-default">
+                                    @if (isset($gymDetail))
+                                        {{ $gymDetail->username }}
+                                    @endif
+                                </span>
                             </div>
                         </div>
                     </div>

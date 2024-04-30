@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->string('phone_no');
             $table->string('username');
             $table->string('password');
-            $table->longText('image');
+            $table->longText('image')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

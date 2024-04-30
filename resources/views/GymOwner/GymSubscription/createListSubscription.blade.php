@@ -126,21 +126,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            {{-- <div class="form-group">
-                                                <label for="subscription_id" class="col-md-3 control-label">
-                                                    Subscription id
-                                                    <span class='require'>*</span>
-                                                </label>
-                                                <div class="col-md-7">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-usd" aria-hidden="true"></i>
-                                                        </span>
-                                                        <input id="subscription_id" type="text" name="plan_id" required
-                                                            class="form-control" placeholder="Enter Subscription id">
-                                                    </div>
-                                                </div>
-                                            </div> --}}
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">
                                                     Description
