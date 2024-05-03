@@ -1,5 +1,5 @@
 @extends('GymOwner.master')
-@section('title', 'Add News')
+@section('title', 'User List')
 @section('content')
 
     <aside class="right-side right-padding">
@@ -9,7 +9,7 @@
             <h2>Users List</h2>
             <ol class="breadcrumb">
                 <li>
-                    <a href={{ route('dashboard') }}>
+                    <a href='/dashboard'>
                         <i class="fa fa-fw fa-home"></i> Dashboard
                     </a>
                 </li>
@@ -79,7 +79,7 @@
                                             <td>{{ $user->phone_no }}</td>
                                             <td>{{ $user->gender }}</td>
                                             <td>
-                                                <a class="edit btn btn-primary" href="#" data-user-uuid="{{ $user->uuid  }}">
+                                                <a class="edit btn btn-primary" href="{{route('showUserProfile', $user->uuid)}}" data-user-uuid="{{ $user->uuid  }}">
                                                     <i class="fa fa-fw fa-edit"></i> Edit
                                                 </a>
                                             </td>
@@ -109,8 +109,8 @@
 
                     // Create a form element
                     var form = $('<form>', {
-                        'method': 'POST',
-                        'action': '{{ route("updateUserProfile") }}'
+                        'method': 'GET',
+                        'action': '{{ route("showUserProfile") }}'
                     });
 
                     // Add CSRF token

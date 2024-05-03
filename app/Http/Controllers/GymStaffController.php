@@ -13,7 +13,7 @@ class GymStaffController extends Controller
     use SessionTrait;
     protected $gymStaf;
     protected $gym;
-    public function __construct(GymStaff $gymStaf,Gym $gym)
+    public function __construct(GymStaff $gymStaf, Gym $gym)
     {
         $this->gymStaf = $gymStaf;
         $this->gym = $gym;
@@ -26,7 +26,7 @@ class GymStaffController extends Controller
         $gymId = $this->gym->where('uuid', $gym_uuid)->first()->id;
 
         $gymStaffMembers = $this->gymStaf->where('gym_id', $gymId)->get();
-        return view('GymOwner.GymStaff.createListStaff',compact('gymStaffMembers'));
+        return view('GymOwner.GymStaff.createListStaff', compact('gymStaffMembers'));
     }
     public function addGymStaff(Request $request)
     {
@@ -37,7 +37,8 @@ class GymStaffController extends Controller
         try {
             $validatedData = $request->validate([
                 "member_name" => 'required',
-                "member_designation" =>'required',
+                "member_designation" => 'required',
+                "salary" => 'required',
                 "image" => 'required'
 
             ]);
@@ -53,12 +54,59 @@ class GymStaffController extends Controller
             }
             // dd($validatedData);
             // dd($imagePath);
-            $this->gymStaf->addGymStaff($validatedData,$imagePath,$gymId);
+            $this->gymStaf->addGymStaff($validatedData, $imagePath, $gymId);
 
             return redirect()->route('listGymStaff')->with('success', 'Data saved successfully.');
         } catch (\Throwable $th) {
             Log::error("[GymStaffController][addGymStaff] error " . $th->getMessage());
             return redirect()->back()->with('error', $th->getMessage());
+        }
+    }
+
+    public function showUpdateStaff(Request $request, $uuid)
+    {
+        // $uuid = $request->input('uuid');
+        $staffDetail = $this->gymStaf->where('uuid', $uuid)->first();
+
+        return view('GymOwner.GymStaff.editStaff', compact('staffDetail'));
+    }
+
+    public function updateStaff(Request $request)
+    {
+       
+        try {
+
+            $validatedData = $request->validate([
+                'uuid' => 'required',
+                'member_name' => 'required',
+                'member_designation' => 'required',
+                'salary' => 'required',
+                'image' => 'nullable'
+            ]);
+            
+            $imagePath = null;
+            if ($request->hasFile('image')) {
+                $gymImage = $request->file('image');
+                $filename = time() . '_' . $gymImage->getClientOriginalName();
+                $imagePath = 'gymStaff_images/' . $filename;
+                $gymImage->move(public_path('gymStaff_images/'), $filename);
+            }
+
+            $isStaffUpdated = $this->gymStaf->updateStaff($validatedData, $imagePath);
+            
+
+
+            if ($isStaffUpdated) {
+                return redirect()->back()->with('status', 'success')->with('message', 'Staff Updated successfully.');
+            }
+
+            if ($isStaffUpdated) {
+                return redirect()->back()->with('status', 'success')->with('message', 'Staff Updated successfully.');
+            }
+            return redirect()->back()->with('status', 'error')->with('message', 'error while updating user.');
+        } catch (\Exception $e) {
+            Log::error('[GymStaffController][updateStaff] Error updating user ' . 'Request=' . $request . ', Exception=' . $e->getMessage());
+            return redirect()->back()->with('status', 'error')->with('message', 'error while updating user.');
         }
     }
 }

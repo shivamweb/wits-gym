@@ -7,7 +7,7 @@
     <h2>Add User</h2>
     <ol class="breadcrumb">
         <li>
-            <a href={{ route('dashboard') }}>
+            <a href='/dashboard '>
                 <i class="fa fa-fw fa-home"></i> Dashboard
             </a>
         </li>

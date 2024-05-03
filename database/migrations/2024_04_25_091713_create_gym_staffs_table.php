@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('gym_id');
             $table->string('name');
             $table->string('designation');
+            $table->float('salary');
             $table->longText('image');
             $table->softDeletes();
             $table->timestamps();
