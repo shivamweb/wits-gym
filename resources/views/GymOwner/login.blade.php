@@ -64,6 +64,8 @@
     <script src="assets/vendors/iCheck/icheck.min.js" type="text/javascript"></script>
     <script src="assets/vendors/bootstrapvalidator/dist/js/bootstrapValidator.js" type="text/javascript"></script>
     <script src="assets/js/custom_js/login1.js" type="text/javascript"></script>
+     {{-- Custom sweetAlert --}}
+     @include('CustomSweetAlert');
     <!-- end of page level js -->
 </body>
 

@@ -55,16 +55,20 @@
                 </form>
                 <div class="row">
                     <div class="col-sm-6">
-                        <p class="text-left"><a class='text-warning forgot_color' href='/' style='color: white'>Login</a></p>
+                        <p class="text-left"><a class='text-warning forgot_color' href='/'
+                                style='color: white'>Login</a></p>
                     </div>
                     <div class="col-sm-6">
-                        <p class="text-right"><a class='text-warning forgot_color' href='#' style='color: white'>Forgot Password?</a></p>
+                        <p class="text-right"><a class='text-warning forgot_color' href='#'
+                                style='color: white'>Forgot Password?</a></p>
                     </div>
                 </div>
-             </div>
+            </div>
         </div>
     </div>
     <!-- global js -->
+
+
     <script src="assets/js/jquery.min.js" type="text/javascript"></script>
     <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- end of global js -->
@@ -72,6 +76,8 @@
     <script src="assets/vendors/iCheck/icheck.min.js" type="text/javascript"></script>
     <script src="assets/vendors/bootstrapvalidator/dist/js/bootstrapValidator.js" type="text/javascript"></script>
     <script src="assets/js/custom_js/login1.js" type="text/javascript"></script>
+    {{-- Custom sweetAlert --}}
+    @include('CustomSweetAlert');
     <!-- end of page level js -->
 </body>
 

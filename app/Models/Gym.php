@@ -40,46 +40,9 @@ class Gym extends Authenticatable
         });
     }
 
-    public function addGym(array $addGym, $imagePath)
-    {
-        try {
-            return $this->create([
-                'username' => $addGym['username'],
-                'gym_name' => $addGym['gym_name'],
-                'email' => $addGym['email'],
-                'password' => $addGym['password'],
-                'address' => $addGym['address'],
-                'country' => $addGym['country'],
-                'state' => $addGym['state'],
-                'city' => $addGym['city'],
-                'web_link' => $addGym['web_link'],
-                'image' => $imagePath,
-                'gym_type' => $addGym['gym_type'],
-                'facebook' => $addGym['facebook'],
-                'instagram' => $addGym['instagram'],
-                'terms_and_conditions' => $addGym['terms_and_conditions'],
-                'subscription_id' => AdminSubscriptionEnum::Trial
-            ]);
-        } catch (\Throwable $e) {
-            Log::error('[Gym][addGym] Error adding gym detail: ' . $e->getMessage());
-        }
-    }
 
-    public function registerGymBySelf(array $addGym)
-    {
-        try {
-            return $this->create([
-                'username' => $addGym['username'],
-                'gym_name' => $addGym['gym_name'],
-                'email' => $addGym['email'],
-                'password' => $addGym['password']
-            ]);
-        } catch (\Throwable $e) {
-            Log::error('[Gym][registerGymBySelf] Error adding gym detail: ' . $e->getMessage());
-        }
-    }
 
-    public function updateGym(array $updateGym , $imagePath)
+    public function updateGym(array $updateGym, $imagePath)
     {
 
         $uuid = $this->getGymSession()['uuid'];

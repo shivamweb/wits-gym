@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gym;
+use App\Services\GymService;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -11,10 +13,14 @@ class AdminGymController extends Controller
 {
 
     private $gym;
+    private $gymService;
+
     public function __construct(
-        Gym $gym
+        Gym $gym,
+        GymService $gymService
     ) {
         $this->gym = $gym;
+        $this->gymService = $gymService;
     }
 
     public function viewGymInfo()
@@ -32,19 +38,12 @@ class AdminGymController extends Controller
     {
         try {
             Validator::make($request->all(), []);
-            $data = $request->all();
-            $imagePath = null;
-            if ($request->hasFile('image')) {
-                $gymImage = $request->file('image');
-                $filename = time() . '_' . $gymImage->getClientOriginalName();
-                $imagePath = 'gymProfile_images/' . $filename;
-                $gymImage->move(public_path('gymProfile_images/'), $filename);
-            }
-            $this->gym->addGym($data, $imagePath);
+            $this->gymService->createGymAccount($request->all());
+
             return back()->with('status', 'success')->with('message', 'Gym Added Succesfully');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             Log::error('[GymController][addGym]Error adding : ' . 'Request=' . $e->getMessage());
-            return back()->with('status', 'error')->with('message', 'Gym Not Added ');
+            return back()->with('status', 'error')->with('message', $e->getMessage());
         }
     }
 
