@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gym;
+use App\Services\GymService;
 use App\Traits\SessionTrait;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -11,9 +13,14 @@ class GymDetailController extends Controller
 {
     use SessionTrait;
     protected $gym;
-    public function __construct(Gym $gym)
-    {
+    protected $gymService;
+
+    public function __construct(
+        Gym $gym,
+        GymService $gymService
+    ) {
         $this->gym = $gym;
+        $this->gymService = $gymService;
     }
 
     public function showDashboard(Request $request)
@@ -64,31 +71,29 @@ class GymDetailController extends Controller
     public function registerGym(Request $request)
     {
         try {
-            // dd($request->all());
-
-            $validatedData = $request->validate([
-                'username' => 'required',
+            $request->validate([
+                'username' => 'required|unique:gyms,username',
                 'gym_name' => 'required',
                 'email' => 'required',
                 'password' => 'required'
             ]);
-            $gymUser = $this->gym->registerGymBySelf($validatedData);
+
+            $gymUser = $this->gymService->createGymAccount($request->all());
             if ($gymUser) {
                 return redirect()->route('login')->with('success', 'Gym Registered Succesfully.');
             }
-            return redirect('/register')->with('status', 'error')->with('message', 'error in register gym.');
-        } catch (\Exception $e) {
-            Log::error('[GymDetailController][registerGym] Error register gym ' . 'Request=' . $request . ', Exception=' . $e->getMessage());
-            return redirect('/register')->with('status', 'error')->with('message', 'error in register gym.');
+            return redirect()->route('register')->with('status', 'error')->with('message', 'error in register gym.');
+        } catch (Exception $e) {
+            //  dd($e);
+            Log::error('[GymDetailController][registerGym] Error register gym: ' . $e->getMessage());
+            return redirect()->route('register')->with('status', 'error')->with('message', 'error in register gym.');
         }
     }
 
     public function updateGym(Request $request)
     {
         try {
-            // dd($request->all());
-
-            $validatedData = $request->validate([
+            $request->validate([
                 "username" => 'required',
                 "email" => 'required',
                 "password" => 'required',
@@ -104,23 +109,14 @@ class GymDetailController extends Controller
                 "instagram" => 'nullable'
             ]);
 
-            // dd($validatedData);
 
-            $imagePath = null;
-            if ($request->hasFile('image')) {
-                $gymImage = $request->file('image');
-                $filename = time() . '_' . $gymImage->getClientOriginalName();
-                $imagePath = 'gymProfile_images/' . $filename;
-                $gymImage->move(public_path('gymProfile_images/'), $filename);
-            }
-
-            $isProfileUpdated = $this->gym->updateGym($validatedData, $imagePath);
+            $isProfileUpdated = $this->gymService->createGymAccount($request->all());
             if ($isProfileUpdated) {
                 return redirect()->route('showGymProfile')->with('status', 'success')->with('message', 'Gym profile updated succesfully.');
             }
             return redirect()->route('showGymProfile')->with('status', 'error')->with('message', 'error while updating gym.');
-        } catch (\Exception $e) {
-            Log::error('[GymDetailController][updateGym] Error updating gym ' . 'Request=' . $request . ', Exception=' . $e->getMessage());
+        } catch (Exception $e) {
+            Log::error('[GymDetailController][updateGym] Error updating gym :' . $e->getMessage());
             return redirect()->route('showGymProfile')->with('status', 'error')->with('message', 'error while updating gym.');
         }
     }
