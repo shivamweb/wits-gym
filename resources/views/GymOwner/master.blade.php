@@ -74,9 +74,9 @@
     <!-- header logo: style can be found in header-->
     <header class="header">
         <nav class="navbar navbar-static-top">
-            <a class='logo' href='index.html'>
+            <a class='logo' href='/dashboard'>
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                <img src="assets/img/logo.png" alt="image not found">
+                <img src="assets/img/logo3.png" alt="image not found">
             </a>
             <!-- Header Navbar: style can be found in header-->
             <!-- Sidebar toggle button-->
@@ -374,6 +374,7 @@
             <section class="sidebar">
                 <div id="menu" role="navigation">
                     <div class="nav_profile">
+                        <div>
                         <div class="media profile-left">
                             <a class="pull-left profile-thumb" href="#">
                                 @if (!empty($gymDetail->image))
@@ -396,6 +397,7 @@
                                     @endif
                                 </span>
                             </div>
+</div>
                         </div>
                     </div>
                     <ul class="navigation">

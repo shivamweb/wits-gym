@@ -6,6 +6,7 @@ use App\Traits\SessionTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Facades\Log;
 
 class GymStaff extends Model
 {
@@ -15,6 +16,7 @@ class GymStaff extends Model
     protected $fillable = [
         'name',
         'designation',
+        'salary',
         'image',
         'gym_id'
     ];
@@ -24,10 +26,37 @@ class GymStaff extends Model
         $this->create([
             'name' => $gymStaffArray['member_name'],
             'designation' => $gymStaffArray['member_designation'],
+            'salary' => $gymStaffArray['salary'],
             'image' => $imagePath,
             'gym_id' => $gymId
         ]);
     }
+
+    public function updateStaff(array $updateStaff, $imagePath)
+    {
+
+        $uuid = $updateStaff['uuid'];
+        $staffDetail = GymStaff::where('uuid', $uuid)->first();
+
+        // Check if the user exists
+        if (!$staffDetail) {
+            return redirect()->back()->with('error', 'User not found');
+        }
+        try {
+            $staffDetail->update([
+                'name' => $updateStaff['member_name'],
+                'designation' => $updateStaff['member_designation'],
+                'salary' => $updateStaff['salary'],
+                'image' => $imagePath,
+            ]);
+            
+
+            return $staffDetail->save();
+        } catch (\Throwable $e) {
+            Log::error('[GymStaff][updateStaff] Error while updating user detail: ' . $e->getMessage());
+        }
+    }
+
 
     protected static function boot()
     {
