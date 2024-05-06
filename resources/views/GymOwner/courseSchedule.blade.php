@@ -1,4 +1,4 @@
-@extends('GymOwner.master')
+@extends('GymOwner.master1')
 @section('title','Add News')
 @section('content')
 <!-- Content Header (Page header) -->

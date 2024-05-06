@@ -1,4 +1,4 @@
-@extends('GymOwner.master')
+@extends('GymOwner.master1')
 @section('title','Club Info')
 @section('content')
 
@@ -23,9 +23,9 @@
 
 
     <!-- header logo: style can be found in header-->
- 
+
         <!-- Left side column. contains the logo and sidebar -->
-       
+
         <aside class="right-side right-padding">
             <!-- Content Header (Page header) -->
             <section class="content-header">

@@ -1,4 +1,4 @@
-@extends('GymOwner.master')
+@extends('GymOwner.master1')
 @section('title', 'User Profile')
 @section('content')
 
@@ -74,7 +74,11 @@
                                                 <div class="form-group pad-top">
                                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                                         <div class="fileinput-new thumbnail">
+                                                            @if(isset($userDetail->image))
                                                             <img src="{{$userDetail->image}}" alt="profile">
+                                                            @else
+                                                            <img src="" alt="profile">
+                                                           @endif
                                                         </div>
                                                         <div class="fileinput-preview fileinput-exists thumbnail"></div>
                                                         <div class="select_align">
