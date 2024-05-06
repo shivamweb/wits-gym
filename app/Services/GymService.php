@@ -50,7 +50,7 @@ class GymService
             $gymData
         );
 
-        if ($gymData["image"]) {
+        if (isset($gymData["image"])) {
             $this->uploadAdminProfilePicture($gym, $enteredGymData["image"]);
         }
 

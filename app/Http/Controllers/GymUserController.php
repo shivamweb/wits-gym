@@ -110,7 +110,7 @@ class GymUserController extends Controller
 
             $isProfileUpdated = $this->user->updateUser($validatedData, $imagePath);
 
-            
+
 
         if ($isProfileUpdated) {
             return redirect()->back()->with('status', 'success')->with('message', 'User profile and workout data updated successfully.');
@@ -119,7 +119,7 @@ class GymUserController extends Controller
             if ($isProfileUpdated) {
                 return redirect()->back()->with('status', 'success')->with('message', 'user profile updated succesfully.');
             }
-            return redirect()->route('dashboard')->with('status', 'error')->with('message', 'error while updating user.');
+            return redirect()->back()->with('status', 'error')->with('message', 'error while updating user.');
         } catch (\Exception $e) {
             Log::error('[GymDetailController][updateUser] Error updating user ' . 'Request=' . $request . ', Exception=' . $e->getMessage());
             return redirect()->back()->with('status', 'error')->with('message', 'error while updating user.');
@@ -140,7 +140,7 @@ class GymUserController extends Controller
 
             $this->workout->addWorkout($validatedData);
 
-            return redirect()->route('dashboard')->with('success', 'Workout data saved successfully.');
+            return redirect()->back()->with('success', 'Workout data saved successfully.');
         } catch (\Throwable $th) {
             Log::error("[GymUserController][addUserWorkout] error " . $th->getMessage());
             return redirect()->back()->with('error', 'Failed to save workout data. Please try again.');
@@ -163,7 +163,7 @@ class GymUserController extends Controller
 
             $this->diet->addUserDiet($validatedData);
 
-            return redirect()->route('dashboard')->with('success', 'Diet data saved successfully.');
+            return redirect()->back()->with('success', 'Diet data saved successfully.');
         } catch (\Throwable $th) {
             Log::error("[GymUserController][addUserDiet] error " . $th->getMessage());
             return redirect()->back()->with('error', 'Failed to save workout data. Please try again.');

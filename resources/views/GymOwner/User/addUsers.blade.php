@@ -1,4 +1,4 @@
-@extends('GymOwner.master')
+@extends('GymOwner.master1')
 @section('title','Add User')
 @section('content')
 <aside class="right-side right-padding">
