@@ -345,11 +345,29 @@
                                 <span class="mm-text ">Dashboard</span>
                             </a>
                         </li>
-                        <li class="active" id="active">
-                            <a href='/admin/viewGymInfo'>
-                                <i class="text-success menu-icon fa fa-fw fa-info-circle"></i>
-                                <span class="mm-text">Gym Info</span>
-                                <span class="arrow"></span>
+                        <li class="menu-dropdown">
+                            <a href="#">
+                                <i class="text-success menu-icon fa fa-fw fa-picture-o"></i>
+                                <span class="mm-text">GYM</span>
+                                <span class="fa fa-angle-down pull-right"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href='../admin/viewGymInfo'>
+                                        <i class="text-primary fa fa-fw fa-cloud-upload"></i> Gym Add
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='../admin/viewGymList'>
+                                        <i class="text-success fa fa-fw fa-file-image-o"></i> Gym List
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href='/admin/viewAddAdminSubscription'>
+                                <i class="text-primary menu-icon fa fa-th fa-info-circle"></i>
+                                <span class="mm-text">Subscription</span>
                             </a>
                         </li>
                         <li>
