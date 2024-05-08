@@ -14,22 +14,22 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]-->
-    <script src="../../oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="../../oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <script src="../../../../assets/oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="../../../../assets/oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <!--[endif]-->
     <!-- global css -->
-    <link type="text/css" href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="../../assets/css/font-awesome.min.css" rel="stylesheet" />
-    <link type="text/css" href="../../assets/css/custom_css/metisMenu.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/custom_css/metisMenu.css" rel="stylesheet" />
 
-    <link type="text/css" href="../../assets/css/custom_css/panel.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/custom_css/panel.css" rel="stylesheet" />
     <!-- end of global css -->
     <!--page level css -->
-    <link type="text/css" href="../../assets/vendors/jasny-bootstrap/css/jasny-bootstrap.css" rel="stylesheet" />
-    <link type="text/css" href="../../assets/vendors/x-editable/css/bootstrap-editable.css" rel="stylesheet" />
-    <link type="text/css" href="../../assets/vendors/summernote/summernote.css" rel="stylesheet" media="screen" />
-    <link type="text/css" href="../../assets/css/custom_css/fitness.css" rel="stylesheet" />
-    <link type="text/css" href="../../assets/css/custom_css/club_info.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/vendors/jasny-bootstrap/css/jasny-bootstrap.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/vendors/x-editable/css/bootstrap-editable.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/vendors/summernote/summernote.css" rel="stylesheet" media="screen" />
+    <link type="text/css" href="../../../../assets/css/custom_css/fitness.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/custom_css/club_info.css" rel="stylesheet" />
     <!--end of page level css-->
 </head>
 
@@ -40,7 +40,7 @@
         <nav class="navbar navbar-static-top">
             <a class='logo' href='index.html'>
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                <img src="../../assets/img/logo.png" alt="image not found">
+                <img src="../../../../assets/img/logo.png" alt="image not found">
             </a>
             <!-- Header Navbar: style can be found in header-->
             <!-- Sidebar toggle button-->
@@ -256,7 +256,7 @@
                     <!-- User Account: style can be found in dropdown-->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle padding-user" data-toggle="dropdown">
-                            <img src="../../assets/img/authors/avatar1.jpg" width="35" class="img-circle img-responsive pull-left" height="35" alt="User Image">
+                            <img src="../../../../assets/img/authors/avatar1.jpg" width="35" class="img-circle img-responsive pull-left" height="35" alt="User Image">
                             <div class="riot">
                                 <div>
                                     Natali
@@ -269,7 +269,7 @@
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="../../assets/img/authors/avatar1.jpg" class="img-circle" alt="User Image">
+                                <img src="../../../../assets/img/authors/avatar1.jpg" class="img-circle" alt="User Image">
                                 <p>Nataliapery</p>
                             </li>
                             <!-- Menu Body -->
@@ -313,7 +313,7 @@
                     <div class="nav_profile">
                         <div class="media profile-left">
                             <a class="pull-left profile-thumb" href="#">
-                                <img src="../../assets/img/authors/avatar1.jpg" class="img-circle" alt="User Image">
+                                <img src="../../../../assets/img/authors/avatar1.jpg" class="img-circle" alt="User Image">
                             </a>
                             <div class="content-profile">
                                 <h4 class="media-heading">Nataliapery</h4>
@@ -659,22 +659,22 @@
     <!-- /.right-side -->
     <!-- ./wrapper -->
     <!-- global js -->
-    <script src="../../assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="../../assets/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../../assets/js/custom_js/app.js" type="text/javascript"></script>
-    <script src="../../assets/js/custom_js/metisMenu.js" type="text/javascript"></script>
-    <script src="../../assets/vendors/holder/holder.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/custom_js/app.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/custom_js/metisMenu.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/holder/holder.js" type="text/javascript"></script>
     <!-- end of page level js -->
     <!-- begining of page level js -->
-    <script src="../../assets/vendors/jasny-bootstrap/js/jasny-bootstrap.js" type="text/javascript"></script>
-    <script src="../../assets/vendors/x-editable/jquery.mockjax.js" type="text/javascript"></script>
-    <script src="../../assets/vendors/x-editable/bootstrap-editable.js" type="text/javascript"></script>
-    <script src="../../assets/vendors/x-editable/js/html5types.js" type="text/javascript"></script>
-    <script src="../../assets/vendors/summernote/summernote.min.js" type="text/javascript"></script>
-    <script src="../../assets/vendors/jasny-bootstrap/js/inputmask.js" type="text/javascript"></script>
-    <script src="../../assets/vendors/jasny-bootstrap/js/jquery.inputmask.js" type="text/javascript"></script>
-    <script src="../../assets/vendors/x-editable/js/demo-mock.js" type="text/javascript"></script>
-    <script src="../../assets/js/custom_js/club_info.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/jasny-bootstrap/js/jasny-bootstrap.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/x-editable/jquery.mockjax.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/x-editable/bootstrap-editable.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/x-editable/js/html5types.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/summernote/summernote.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/jasny-bootstrap/js/inputmask.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/jasny-bootstrap/js/jquery.inputmask.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/x-editable/js/demo-mock.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/custom_js/club_info.js" type="text/javascript"></script>
     <!-- end of page level js -->
 </body>
 

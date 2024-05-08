@@ -1,5 +1,5 @@
-@extends('GymOwner.master')
-@section('title', 'User List')
+@extends('admin.master')
+@section('title', 'Admin User List')
 @section('content')
 
 <aside class="right-side right-padding">
@@ -79,7 +79,7 @@
                                     <td>{{ $user->phone_no }}</td>
                                     <td>{{ $user->gender }}</td>
                                     <td>
-                                        <a class="edit btn btn-primary" href="{{route('showUserProfile', $user->uuid)}}" data-user-uuid="{{ $user->uuid  }}">
+                                        <a class="edit btn btn-primary" href="" data-user-uuid="">
                                             <i class="fa fa-fw fa-edit"></i> Edit
                                         </a>
                                     </td>
@@ -99,35 +99,6 @@
         <!-- col-md-6 -->
         <!--row -->
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.edit').click(function(event) {
-                event.preventDefault(); // Prevent default link behavior
 
-                var uuid = $(this).data('user-uuid'); // Get the user ID from data attribute
-
-                // Create a form element
-                var form = $('<form>', {
-                    'method': 'GET',
-                    'action': '{{ route("showUserProfile") }}'
-                });
-
-                // Add CSRF token
-                form.append('{{ csrf_field() }}');
-
-                // Add hidden input for user ID
-                form.append($('<input>', {
-                    'type': 'hidden',
-                    'name': 'uuid',
-                    'value': uuid
-                }));
-
-                // Append the form to the body and submit it
-                $(document.body).append(form);
-                form.submit();
-            });
-        });
-    </script>
 </aside>
 @endsection
