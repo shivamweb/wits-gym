@@ -18,7 +18,7 @@
             <a href="#">News</a>
         </li>
         <li>
-            <a href='admin_addnews.html'>Add News</a>
+            <a href='/addNews'>Add News</a>
         </li>
     </ol>
 </section>

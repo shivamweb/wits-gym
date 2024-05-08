@@ -1,5 +1,5 @@
 @extends('GymOwner.master1')
-@section('title','Add News')
+@section('title','Courses')
 @section('content')
 
 
