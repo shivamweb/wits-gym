@@ -12,28 +12,28 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]-->
-    <script src="../../oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="../../oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <script src="../../assets/oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="../../assets/oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <!--[endif]-->
     <!-- global css -->
-    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="css/font-awesome.min.css" rel="stylesheet" />
-    <link type="text/css" href="css/custom_css/metisMenu.css" rel="stylesheet" />
+    <link type="text/css" href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="../../assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link type="text/css" href="assets/css/custom_css/metisMenu.css" rel="stylesheet" />
     <!-- Date picker -->
-    <link href="../../vendors/air-datepicker-master/dist/css/datepicker.min.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/vendors/air-datepicker-master/dist/css/datepicker.min.css" rel="stylesheet" type="text/css">
     <!-- end of global css -->
     <!-- page level css -->
-    <link type="text/css" href="../../vendors/jquery-circliful/css/jquery.circliful.css" rel="stylesheet">
+    <link type="text/css" href="../../assets/vendors/jquery-circliful/css/jquery.circliful.css" rel="stylesheet">
     <!-- <link rel="stylesheet" type="text/css" href="vendors/jquery-plugin-circliful-master/css/jquery.circliful.css"> -->
-    <link type="text/css" href="../../vendors/progressbar/css/bootstrap-progressbar.min.css" rel="stylesheet">
-    <link type="text/css" href="../../vendors/fullcalendar/css/fullcalendar.css" rel="stylesheet">
-    <link type="text/css" href="../../vendors/select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-    <link type="text/css" href="../../css/custom_css/calendar_custom.css" rel="stylesheet">
-    <link type="text/css" href="../../vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="../../vendors/nvd3chart/nv.d3.min.css">
-    <link type="text/css" href="../../css/custom_css/fitness.css" rel="stylesheet" />
-    <link type="text/css" href="../../css/custom_css/panel.css" rel="stylesheet" />
-    <link type="text/css" href="../../css/custom_css/admin_dashboard.css" rel="stylesheet">
+    <link type="text/css" href="../../assets/vendors/progressbar/css/bootstrap-progressbar.min.css" rel="stylesheet">
+    <link type="text/css" href="../../assets/vendors/fullcalendar/css/fullcalendar.css" rel="stylesheet">
+    <link type="text/css" href="../../assets/vendors/select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link type="text/css" href="../../assets/css/custom_css/calendar_custom.css" rel="stylesheet">
+    <link type="text/css" href="../../assets/vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../assets/vendors/nvd3chart/nv.d3.min.css">
+    <link type="text/css" href="../../assets/css/custom_css/fitness.css" rel="stylesheet" />
+    <link type="text/css" href="../../assets/css/custom_css/panel.css" rel="stylesheet" />
+    <link type="text/css" href="../../assets/css/custom_css/admin_dashboard.css" rel="stylesheet">
    
     <link type="text/css" href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link type="text/css" href="../../assets/css/font-awesome.min.css" rel="stylesheet" />
@@ -345,11 +345,29 @@
                                 <span class="mm-text ">Dashboard</span>
                             </a>
                         </li>
-                        <li class="active" id="active">
-                            <a href='/admin/viewGymInfo'>
-                                <i class="text-success menu-icon fa fa-fw fa-info-circle"></i>
-                                <span class="mm-text">Gym Info</span>
-                                <span class="arrow"></span>
+                        <li class="menu-dropdown">
+                            <a href="#">
+                                <i class="text-success menu-icon fa fa-fw fa-picture-o"></i>
+                                <span class="mm-text">GYM</span>
+                                <span class="fa fa-angle-down pull-right"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href='../admin/viewGymInfo'>
+                                        <i class="text-primary fa fa-fw fa-cloud-upload"></i> Gym Add
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='../admin/viewGymList'>
+                                        <i class="text-success fa fa-fw fa-file-image-o"></i> Gym List
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href='/admin/viewAddAdminSubscription'>
+                                <i class="text-primary menu-icon fa fa-th fa-info-circle"></i>
+                                <span class="mm-text">Subscription</span>
                             </a>
                         </li>
                         <li>
@@ -439,7 +457,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href='admin_userlist.html'>
+                                    <a href='/admin/adminUserList'>
                                         <i class="text-primary fa fa-fw fa-users"></i> Users List
                                     </a>
                                 </li>
@@ -449,7 +467,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='add_users.html'>
+                                    <a href='/admin/addAdminUsers'>
                                         <i class="text-info fa fa-fw fa-user"></i> Add Users
                                     </a>
                                 </li>

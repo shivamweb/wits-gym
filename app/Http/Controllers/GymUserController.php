@@ -6,7 +6,9 @@ use App\Models\Gym;
 use App\Models\User;
 use App\Models\UserWorkout;
 use App\Models\UserDiet;
+use App\Services\UserService;
 use App\Traits\SessionTrait;
+use Dotenv\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -17,13 +19,15 @@ class GymUserController extends Controller
     protected $gym;
     protected $workout;
     protected $diet;
+    protected $userService;
 
-    public function __construct(User $user, Gym $gym, UserWorkout $workout, UserDiet $diet)
+    public function __construct(User $user, Gym $gym, UserWorkout $workout, UserDiet $diet, UserService $userService)
     {
         $this->user = $user;
         $this->gym = $gym;
         $this->workout = $workout;
         $this->diet = $diet;
+        $this->userService = $userService;
     }
 
     public function listGymUser()
@@ -38,32 +42,23 @@ class GymUserController extends Controller
 
     public function addUserByGym(Request $request)
     {
-        try {
-            $gym_uuid = $this->getGymSession()['uuid'];
-            $gymId = $this->gym->where('uuid', $gym_uuid)->first()->id;
-
-            $validatedData = $request->validate([
+        try { 
+             $request->validate([
                 'first_name' => 'required',
                 'last_name' => 'required',
                 'email' => 'required',
                 'gender' => 'required',
                 'phone_no' => 'required',
-                'username' => 'required',
+                'username' => 'required|unique:users',
                 'password' => 'required'
 
             ]);
 
-            // dd($validatedData);
-            $imagePath = null;
-            $data = $request->all();
-            if ($request->hasFile('image')) {
-                $userImage = $request->file('image');
-                $filename = time() . '_' . $userImage->getClientOriginalName();
-                $imagePath = 'user_images/' . $filename;
-                $userImage->move(public_path('user_images/'), $filename);
-            }
+            $gym_uuid = $this->getGymSession()['uuid'];
+            $gymId = $this->gym->where('uuid', $gym_uuid)->first()->id;
 
-            $this->user->addUser($validatedData, $imagePath, $gymId);
+            $this->userService->createUserAccount($request->all(), $gymId);
+            
 
             return back()->with('status', 'success')->with('message', 'User Added Succesfully');
         } catch (\Exception $e) {

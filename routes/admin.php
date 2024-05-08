@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminGymController;
 use App\Http\Controllers\AdminSubscriptionController;
+use App\Http\Controllers\AdminUserController;
 use Illuminate\Support\Facades\Route;
 
 // Route::prefix('admin')->group(function () {
@@ -22,3 +23,6 @@ Route::post('/addGymByAdmin', [AdminGymController::class, 'addGymDetailsByAdmin'
 Route::get('/viewAddAdminSubscription', [AdminSubscriptionController::class, 'viewAddAdminSubscription']);
 Route::post('/addAdminSubscription', [AdminSubscriptionController::class, 'addAdminSubscription'])->name('addAdminSubscription');
 
+Route::get('/addAdminUsers', [AdminUserController::class, 'showAddUsers']);
+Route::post('/add-user-by-admin', [AdminUserController::class, 'addUserByadmin'])->name('addUserByadmin');
+Route::get('/adminUserList', [AdminUserController::class, 'adminUserList'])->name('adminUserList');

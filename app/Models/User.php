@@ -35,7 +35,7 @@ class User extends Authenticatable
     {
         try {
             return $this->create([
-                'gym_id' => $gymId,
+               'gym_id' => $gymId, 
                 'first_name' => $addUser['first_name'],
                 'last_name' => $addUser['last_name'],
                 'email' => $addUser['email'],
