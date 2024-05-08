@@ -69,3 +69,23 @@ Route::post('/updateGym', [GymDetailController::class,'updateGym'])->name('updat
 Route::post('/updateUser', [GymUserController::class,'updateUser'])->name('updateUser');
 Route::post('/addUserWorkout', [GymUserController::class, 'addUserWorkout'])->name('addUserWorkout');
 Route::post('/addUserDiet', [GymUserController::class, 'addUserDiet'])->name('addUserDiet');
+
+Route::get('/addGallery', function () {
+    return view('GymOwner.addGallery');
+});
+
+Route::get('/gallery', function () {
+    return view('GymOwner.gallery');
+});
+Route::get('/calendar', function () {
+    return view('GymOwner.calendar');
+});
+Route::get('/faq', function () {
+    return view('GymOwner.faq');
+});
+Route::get('/addFaq', function () {
+    return view('GymOwner.addFaq');
+});
+Route::get('/courses', function () {
+    return view('GymOwner.courses');
+});

@@ -482,13 +482,6 @@
                                 </li>
                             </ul>
                         </li>
-
-                        <li>
-                            <a href='admin_coupon.html'>
-                                <i class="text-primary  menu-icon fa fa-scissors"></i>
-                                <span class="mm-text">Coupons</span>
-                            </a>
-                        </li>
                         <li class="menu-dropdown">
                             <a href="#">
                                 <i class="text-success menu-icon fa fa-fw fa-picture-o"></i>
@@ -497,39 +490,21 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href='add_gallery.html'>
+                                    <a href='/addGallery'>
                                         <i class="text-primary fa fa-fw fa-cloud-upload"></i> Add Gallery
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='gallery.html'>
+                                    <a href='/gallery'>
                                         <i class="text-success fa fa-fw fa-file-image-o"></i> Gallery
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href='admin_timings.html'>
+                            <a href='/calendar'>
                                 <i class="text-info menu-icon fa fa-fw fa-clock-o"></i>
                                 <span class="mm-text ">Class Calendar</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href='admin_login.html'>
-                                <i class="text-danger menu-icon fa fa-sign-in"></i>
-                                <span class="mm-text">Login</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href='404.html'>
-                                <i class="text-warning menu-icon fa fa-anchor"></i>
-                                <span class="mm-text">404</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href='blank.html'>
-                                <i class="text-default menu-icon fa fa-file-o"></i>
-                                <span class="mm-text">Blank</span>
                             </a>
                         </li>
                         <li>
@@ -537,137 +512,7 @@
                                 <i class="text-success fa fa-fw fa-user"></i> Gym Profile
                             </a>
                         </li>
-                        <li class="menu-dropdown">
-                            <a href="#">
-                                <i class="text-primary menu-icon fa fa-sitemap"></i>
-                                <span class="mm-text">Menu Levels</span>
-                                <span class="fa fa-angle-down pull-right"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="#">
-                                        <i class="text-primary fa fa-fw fa-sitemap"></i> Level 1
-                                        <span class="fa arrow"></span>
-                                    </a>
-                                    <ul class="sub-menu sub-submenu">
-                                        <li>
-                                            <a href="#">
-                                                <i class="text-primary fa fa-fw fa-sitemap"></i> Level 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="text-success fa fa-fw fa-sitemap"></i> Level 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="text-info fa fa-fw fa-sitemap"></i> Level 2
-                                                <span class="fa arrow"></span>
-                                            </a>
-                                            <ul class="sub-menu sub-submenu">
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="text-primary fa fa-fw fa-sitemap"></i> Level 3
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="text-success fa fa-fw fa-sitemap"></i> Level 3
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="text-info fa fa-fw fa-sitemap"></i> Level 3
-                                                        <span class="fa arrow"></span>
-                                                    </a>
-                                                    <ul class="sub-menu sub-submenu">
-                                                        <li>
-                                                            <a href="#">
-                                                                <i class="text-primary fa fa-fw fa-sitemap"></i> Level
-                                                                4
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <i class="text-success fa fa-fw fa-sitemap"></i> Level
-                                                                4
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <i class="text-info fa fa-fw fa-sitemap"></i> Level 4
-                                                                <span class="fa arrow"></span>
-                                                            </a>
-                                                            <ul class="sub-menu sub-submenu">
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i
-                                                                            class="text-primary fa fa-fw fa-sitemap"></i>
-                                                                        Level 5
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i
-                                                                            class="text-success fa fa-fw fa-sitemap"></i>
-                                                                        Level 5
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="text-danger fa fa-fw fa-sitemap"></i>
-                                                                        Level 5
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="text-danger fa fa-fw fa-sitemap"></i> Level 4
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="text-danger fa fa-fw fa-sitemap"></i> Level 2
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="text-success fa fa-fw fa-sitemap"></i> Level 1
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="text-info fa fa-fw fa-sitemap"></i> Level 1
-                                        <span class="fa arrow"></span>
-                                    </a>
-                                    <ul class="sub-menu sub-submenu">
-                                        <li>
-                                            <a href="#">
-                                                <i class="text-primary fa fa-fw fa-sitemap"></i> Level 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="text-success fa fa-fw fa-sitemap"></i> Level 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="text-info fa fa-fw fa-sitemap"></i> Level 2
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+
                         <li class="menu-dropdown">
                             <a href="#">
                                 <i class="text-success menu-icon fa fa-fw fa-question-circle"></i>
@@ -676,12 +521,12 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href='faq.html'>
+                                    <a href='/faq'>
                                         <i class="text-primary fa fa-fw fa-question-circle"></i> FAQ
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='add_faq.html'>
+                                    <a href='/addFaq'>
                                         <i class="text-success fa fa-fw fa-question"></i> Add Faq
                                     </a>
                                 </li>
@@ -719,6 +564,8 @@
     <script src="../../../../assets/vendors/x-editable/js/demo-mock.js" type="text/javascript"></script>
     <script src="../../../../assets/js/custom_js/club_info.js" type="text/javascript"></script>
     <!-- end of page level js -->
+
+
 </body>
 
 
