@@ -29,6 +29,42 @@ class GymSubscriptionController extends Controller
         $subscriptions = $this->gymSubscription->where('gym_id', $gymId)->get();
         return view('GymOwner.GymSubscription.createListSubscription',compact('subscriptions'));
     }
+    public function updateGymSubscriptionPlan(Request $request)
+    {
+        $subscription = $this->gymSubscription->where('uuid', $request->uuid)->first();
+        return view('GymOwner.GymSubscription.editSubscription',compact('subscription'));
+        // try {
+
+        //     $gym_uuid = $this->getGymSession()['uuid'];
+        //     $gymId=$this->gym->where('uuid', $gym_uuid)->first()->id;
+
+        //     $validatedData = $request->validate([
+        //         'subscription_name' => '',
+        //         'amount' => 'required',
+        //         'validity' => 'required',
+        //         'description' => 'required',
+        //         'start_date'=>'required'
+        //     ]);
+
+        //     $imagePath = null;
+        //     if ($request->hasFile('image')) {
+        //         $subscriptionImage = $request->file('image');
+        //         $filename = time() . '_' . $subscriptionImage->getClientOriginalName();
+        //         $imagePath = 'gymSubscription_images/' . $filename;
+        //         $subscriptionImage->move(public_path('gymSubscription_images/'), $filename);
+        //     }else{
+        //         Log::error("[GymSubscriptionController][createGymSubscriptionPlan] error imagefile is null" );
+        //     }
+        //     // dd($validatedData);
+        //     // dd($imagePath);
+        //     $this->gymSubscription->createSubscription($validatedData, $imagePath,$gymId);
+
+        //     return redirect()->route('listSubscriptionPlan')->with('success', 'Data saved successfully.');
+        // } catch (\Throwable $th) {
+        //     Log::error("[GymSubscriptionController][createGymSubscriptionPlan] error " . $th->getMessage());
+        //     return redirect()->back()->with('error', $th->getMessage());
+        // }
+    }
 
     public function createGymSubscriptionPlan(Request $request)
     {
@@ -42,7 +78,6 @@ class GymSubscriptionController extends Controller
                 'amount' => 'required',
                 'validity' => 'required',
                 'description' => 'required',
-                'plan_id' => 'required',
                 'start_date'=>'required'
             ]);
 

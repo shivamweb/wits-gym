@@ -2,34 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gym;
 use App\Models\GymCoupon;
+use App\Traits\SessionTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class GymCouponController extends Controller
 {
+    use SessionTrait;
     protected $gymCoupon;
-    public function __construct(GymCoupon $gymCoupon)
+    protected $gym;
+    public function __construct(GymCoupon $gymCoupon,Gym $gym)
     {
         $this->gymCoupon = $gymCoupon;
+        $this->gym = $gym;
     }
     public function listGymCoupons()
     {
-        $coupons = $this->gymCoupon->all();
-        return view('GymOwner.GymCoupon.createListGymCoupon',compact('coupons'));
+        $gym_uuid = $this->getGymSession()['uuid'];
+        $gymId = $this->gym->where('uuid', $gym_uuid)->first()->id;
+
+        $coupons = $this->gymCoupon->where('gym_id', $gymId)->get();
+        return view('GymOwner.GymCoupon.createListGymCoupon', compact('coupons'));
     }
     public function addGymCoupon(Request $request)
     {
         // dd($request->all());
         try {
             $validatedData = $request->validate([
-                "name"      =>  'required',
-                "from"      =>  'required',
-                "to"        =>  'required',
-                "amount"    =>  'required',
-                "discount"  =>  'required',
-                "type"      =>  'required',
-                "max_amount"=>  'required'
+                "name" => 'required',
+                "from" => 'required',
+                "to" => 'required',
+                "amount" => 'required',
+                "discount" => 'required',
+                "type" => 'required',
+                "max_amount" => 'required'
             ]);
 
             // dd($validatedData);
