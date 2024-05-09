@@ -36,7 +36,8 @@
                         <div class="panel-body">
                             <div class="row" style="padding: 20px;">
                                 <div class="col-md-12">
-                                    <form id="course_form" action="{{route('updateStaff')}}" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                                    <form id="course_form" action="{{ route('updateStaff') }}" class="form-horizontal"
+                                        method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">Image <span
@@ -44,10 +45,20 @@
                                             <div class="col-md-7 text-center">
                                                 <div class="input-group">
                                                     <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                        <div class="fileinput-new thumbnail"
-                                                            style="width: 200px; height: 150px;">
-                                                            <img  src="{{'../'.$staffDetail->image}}" alt="profile">
-                                                        </div>
+                                                        @if ($staffDetail && $staffDetail->image)
+                                                            <div class="fileinput-new thumbnail"
+                                                                style="width: 200px; height: 150px;">
+                                                                <img src="{{ '../' . $staffDetail->image }}" alt="profile">
+                                                            </div>
+                                                        @else
+                                                            <!-- Handle the case where $staffDetail is null or image is not set -->
+                                                            <div class="fileinput-new thumbnail"
+                                                                style="width: 200px; height: 150px;">
+                                                                <img src="{{ asset('placeholder-image.jpg') }}"
+                                                                    alt="profile">
+                                                            </div>
+                                                        @endif
+
                                                         <div class="fileinput-preview fileinput-exists thumbnail"
                                                             style="max-width: 200px; max-height: 150px;"></div>
                                                         <div class="select_align">
@@ -74,8 +85,10 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-fw fa-file-text-o"></i>
                                                         </span>
-                                                        <input id="member_name" value="{{$staffDetail->name}}" type="text" name="member_name" required
-                                                            class="form-control" placeholder="Enter Name">
+                                                        <input id="member_name"
+                                                            @if ($staffDetail && $staffDetail->name) value="{{ $staffDetail->name }}" @endif
+                                                            type="text" name="member_name" required class="form-control"
+                                                            placeholder="Enter Name">
                                                     </div>
                                                 </div>
                                             </div>
@@ -89,9 +102,10 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-fw fa-file-text-o"></i>
                                                         </span>
-                                                        <input id="member_designation" value="{{$staffDetail->designation}}" type="text" required
-                                                            name="member_designation" class="form-control"
-                                                            placeholder="Enter Designation">
+                                                        <input id="member_designation"
+                                                            @if ($staffDetail && $staffDetail->designation) value="{{ $staffDetail->designation }}" @endif
+                                                            type="text" required name="member_designation"
+                                                            class="form-control" placeholder="Enter Designation">
                                                     </div>
                                                 </div>
                                             </div>
@@ -105,10 +119,12 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-fw fa-file-text-o"></i>
                                                         </span>
-                                                        <input id="salary" value="{{$staffDetail->salary}}" type="float" required
-                                                            name="salary" class="form-control"
+                                                        <input id="salary"
+                                                            @if ($staffDetail && $staffDetail->salary) value="{{ $staffDetail->salary }}" @endif
+                                                            type="float" required name="salary" class="form-control"
                                                             placeholder="Enter Salary">
-                                                            <input type="hidden" name="uuid" id="uuid" value="{{$staffDetail->uuid}}">
+                                                        <input type="hidden" name="uuid" id="uuid"
+                                                            @if ($staffDetail && $staffDetail->uuid) value="{{ $staffDetail->uuid }}" @endif>
                                                     </div>
                                                 </div>
                                             </div>

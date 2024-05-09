@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Gym;
 use App\Models\GymStaff;
 use App\Traits\SessionTrait;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -73,7 +74,7 @@ class GymStaffController extends Controller
 
     public function updateStaff(Request $request)
     {
-       
+    //    dd($request->all());
         try {
 
             $validatedData = $request->validate([
@@ -83,7 +84,7 @@ class GymStaffController extends Controller
                 'salary' => 'required',
                 'image' => 'nullable'
             ]);
-            
+
             $imagePath = null;
             if ($request->hasFile('image')) {
                 $gymImage = $request->file('image');
@@ -93,19 +94,13 @@ class GymStaffController extends Controller
             }
 
             $isStaffUpdated = $this->gymStaf->updateStaff($validatedData, $imagePath);
-            
 
-
-            if ($isStaffUpdated) {
-                return redirect()->back()->with('status', 'success')->with('message', 'Staff Updated successfully.');
+            if (!$isStaffUpdated) {
+                return redirect()->back()->with('status', 'error')->with('message', 'error while updating user.');
             }
-
-            if ($isStaffUpdated) {
-                return redirect()->back()->with('status', 'success')->with('message', 'Staff Updated successfully.');
-            }
-            return redirect()->back()->with('status', 'error')->with('message', 'error while updating user.');
-        } catch (\Exception $e) {
-            Log::error('[GymStaffController][updateStaff] Error updating user ' . 'Request=' . $request . ', Exception=' . $e->getMessage());
+            return redirect()->route('listGymStaff')->with('status', 'success')->with('message', 'Staff Updated successfully.');
+        } catch (Exception $e) {
+            Log::error('[GymStaffController][updateStaff] Error updating user ' . $e->getMessage());
             return redirect()->back()->with('status', 'error')->with('message', 'error while updating user.');
         }
     }

@@ -47,9 +47,14 @@ class GymStaff extends Model
                 'name' => $updateStaff['member_name'],
                 'designation' => $updateStaff['member_designation'],
                 'salary' => $updateStaff['salary'],
-                'image' => $imagePath,
             ]);
-            
+
+            if (isset($imagePath)) {
+                $staffDetail->update([
+                    'image' => $imagePath
+                ]);
+            }
+
 
             return $staffDetail->save();
         } catch (\Throwable $e) {
