@@ -36,7 +36,7 @@
                         <div class="panel-body">
                             <div class="row" style="padding: 20px;">
                                 <div class="col-md-12">
-                                    <form id="course_form" action="/gym-subscription" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                                    <form id="course_form" action={{route('updateSubscriiption')}} class="form-horizontal" method="POST" enctype="multipart/form-data">
                                         @csrf
 
                                         <div class="form-group">
@@ -78,6 +78,8 @@
                                                         <input id="subscription_name" value={{$subscription->subscription_name}} type="text" required
                                                             name="subscription_name" class="form-control"
                                                             placeholder="Enter Name">
+                                                            <input type="hidden" name="uuid" value={{$subscription->uuid}}>
+                                                            <input type="hidden" name="status" value={{$subscription->status}}>
                                                     </div>
                                                 </div>
                                             </div>

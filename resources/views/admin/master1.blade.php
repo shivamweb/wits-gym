@@ -681,6 +681,7 @@
     <script src="../../../../assets/vendors/x-editable/js/demo-mock.js" type="text/javascript"></script>
     <script src="../../../../assets/js/custom_js/club_info.js" type="text/javascript"></script>
     <!-- end of page level js -->
+
 </body>
 
 

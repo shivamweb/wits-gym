@@ -51,7 +51,9 @@ Route::get('/userProfile', [GymUserController::class, 'showUserProfile'])->name(
 
 Route::get('/gym-subscription', [GymSubscriptionController::class, 'listSubscriptionPlan'])->name('listSubscriptionPlan');
 Route::post('/gym-subscription', [GymSubscriptionController::class, 'createGymSubscriptionPlan']);
-Route::get('/updateSubscriiption', [GymSubscriptionController::class, 'updateGymSubscriptionPlan'])->name('updateSubscriiption');
+
+Route::get('/updateSubscriptionView', [GymSubscriptionController::class, 'viewGymSubscription'])->name('updateSubscriiptionView');
+Route::post('/updateSubscriiption', [GymSubscriptionController::class, 'updateGymSubscriptionPlan'])->name('updateSubscriiption');
 
 Route::get('/gym-staff', [GymStaffController::class, 'listGymStaff'])->name('listGymStaff');
 Route::post('/gym-staff', [GymStaffController::class, 'addGymStaff']);

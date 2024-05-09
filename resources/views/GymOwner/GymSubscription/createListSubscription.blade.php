@@ -195,7 +195,7 @@
                                             <td>{{ $subscription->description }}</td>
                                             <td>
 
-                                                <a class="edit btn btn-primary" href={{route('updateSubscriiption',["uuid"=>$subscription->uuid])}} >
+                                                <a class="edit btn btn-primary" href={{route('updateSubscriiptionView',["uuid"=>$subscription->uuid])}} >
                                                     <i class="fa fa-fw fa-edit"></i> Edit
                                                 </a>
                                             </td>

@@ -10,8 +10,10 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
-    <script src="../../oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="../../oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    {{-- <script src="../../oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> --}}
+    <script src="{{ asset('assets/oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') }}"></script>
+    {{-- <script src="../../oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script> --}}
+    <script src="{{ asset('assets/oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js') }}"></script>
 
     <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet" />
     <link type="text/css" href="css/font-awesome.min.css" rel="stylesheet" />
@@ -25,7 +27,8 @@
     <link type="text/css" href="../../vendors/fullcalendar/css/fullcalendar.css" rel="stylesheet">
     <link type="text/css" href="../../vendors/select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link type="text/css" href="../../css/custom_css/calendar_custom.css" rel="stylesheet">
-    <link type="text/css" href="../../vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" />
+    {{-- <link type="text/css" href="../../vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" /> --}}
+    <link type="text/css" href="{{ asset('vendors/sweetalert/dist/sweetalert2.css') }}" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../../vendors/nvd3chart/nv.d3.min.css">
     <link type="text/css" href="../../css/custom_css/fitness.css" rel="stylesheet" />
     <link type="text/css" href="../../css/custom_css/panel.css" rel="stylesheet" />
@@ -50,7 +53,7 @@
     <link type="text/css" href="../../assets/vendors/fullcalendar/css/fullcalendar.css" rel="stylesheet">
     <link type="text/css" href="../../assets/vendors/select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link type="text/css" href="../../assets/css/custom_css/calendar_custom.css" rel="stylesheet">
-    <link type="text/css" href="../../assets/vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" />
+    <link type="text/css" href="{{ asset('vendors/sweetalert/dist/sweetalert2.css') }}" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../../assets/vendors/nvd3chart/nv.d3.min.css">
     <link type="text/css" href="../../assets/css/custom_css/fitness.css" rel="stylesheet" />
     <link type="text/css" href="../../assets/css/custom_css/panel.css" rel="stylesheet" />
