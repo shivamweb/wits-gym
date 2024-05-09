@@ -72,22 +72,15 @@
                             <tbody>
                                 @foreach ($users as $user)
                                 <tr>
-<<<<<<< HEAD
+
                                     <td><img src="{{ $user->image }}" height="100"></td>
-=======
-                                    <td><img src="{{ asset($user->image) }}" height="100"></td>
->>>>>>> 3b9c5c9 (Add and List Users at Admin Side)
                                     <td>{{ $user->first_name }} {{ $user->last_name }}</td>
                                     <td>{{ $user->username }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->phone_no }}</td>
                                     <td>{{ $user->gender }}</td>
                                     <td>
-<<<<<<< HEAD
-                                        <a class="edit btn btn-primary" href="{{route('showUserProfile', $user->uuid)}}">
-=======
                                         <a class="edit btn btn-primary" href="{{route('showUserProfile', $user->uuid)}}" data-user-uuid="{{ $user->uuid  }}">
->>>>>>> 3b9c5c9 (Add and List Users at Admin Side)
                                             <i class="fa fa-fw fa-edit"></i> Edit
                                         </a>
                                     </td>
@@ -107,40 +100,5 @@
         <!-- col-md-6 -->
         <!--row -->
     </div>
-<<<<<<< HEAD
 </aside>
 @endsection
-=======
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.edit').click(function(event) {
-                event.preventDefault(); // Prevent default link behavior
-
-                var uuid = $(this).data('user-uuid'); // Get the user ID from data attribute
-
-                // Create a form element
-                var form = $('<form>', {
-                    'method': 'GET',
-                    'action': '{{ route("showUserProfile") }}'
-                });
-
-                // Add CSRF token
-                form.append('{{ csrf_field() }}');
-
-                // Add hidden input for user ID
-                form.append($('<input>', {
-                    'type': 'hidden',
-                    'name': 'uuid',
-                    'value': uuid
-                }));
-
-                // Append the form to the body and submit it
-                $(document.body).append(form);
-                form.submit();
-            });
-        });
-    </script>
-</aside>
-@endsection
->>>>>>> 3b9c5c9 (Add and List Users at Admin Side)

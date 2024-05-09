@@ -14,6 +14,7 @@
     <!--[if lt IE 9]-->
     <script src="../../assets/oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="../../assets/oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    {{-- <script src="{{ asset('assets/oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js') }}"></script> --}}
     <!--[endif]-->
     <!-- global css -->
     <link type="text/css" href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -29,12 +30,12 @@
     <link type="text/css" href="../../assets/vendors/fullcalendar/css/fullcalendar.css" rel="stylesheet">
     <link type="text/css" href="../../assets/vendors/select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link type="text/css" href="../../assets/css/custom_css/calendar_custom.css" rel="stylesheet">
-    <link type="text/css" href="../../assets/vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" />
+    <link type="text/css" href="{{ asset('vendors/sweetalert/dist/sweetalert2.css') }}" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../../assets/vendors/nvd3chart/nv.d3.min.css">
     <link type="text/css" href="../../assets/css/custom_css/fitness.css" rel="stylesheet" />
     <link type="text/css" href="../../assets/css/custom_css/panel.css" rel="stylesheet" />
     <link type="text/css" href="../../assets/css/custom_css/admin_dashboard.css" rel="stylesheet">
-   
+
     <link type="text/css" href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link type="text/css" href="../../assets/css/font-awesome.min.css" rel="stylesheet" />
     <link type="text/css" href="../../assets/css/custom_css/metisMenu.css" rel="stylesheet" />
@@ -682,7 +683,7 @@
     <!-- /.right-side -->
     <!-- ./wrapper -->
     <!-- global js -->
-    
+
     <script src="../../assets/js/jquery.min.js" type="text/javascript"></script>
     <script src="../../assets/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="../../assets/js/custom_js/app.js" type="text/javascript"></script>
@@ -700,6 +701,7 @@
     <script src="../../assets/vendors/x-editable/js/demo-mock.js" type="text/javascript"></script>
     <script src="../../assets/js/custom_js/club_info.js" type="text/javascript"></script>
     <!-- end of page level js -->
+
 </body>
 
 

@@ -7,6 +7,7 @@ use App\Models\GymSubscription;
 use App\Traits\SessionTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Throwable;
 
 class GymSubscriptionController extends Controller
 {
@@ -14,7 +15,7 @@ class GymSubscriptionController extends Controller
     protected $gymSubscription;
     protected $gym;
 
-    public function __construct(GymSubscription $gymSubscription,Gym $gym)
+    public function __construct(GymSubscription $gymSubscription, Gym $gym)
     {
         $this->gymSubscription = $gymSubscription;
         $this->gym = $gym;
@@ -27,23 +28,25 @@ class GymSubscriptionController extends Controller
         $gymId = $this->gym->where('uuid', $gym_uuid)->first()->id;
 
         $subscriptions = $this->gymSubscription->where('gym_id', $gymId)->get();
-        return view('GymOwner.GymSubscription.createListSubscription',compact('subscriptions'));
+        return view('GymOwner.GymSubscription.createListSubscription', compact('subscriptions'));
+    }
+    public function viewGymSubscription(Request $request)
+    {
+        $subscription = $this->gymSubscription->where('uuid', $request->uuid)->first();
+        return view('GymOwner.GymSubscription.editSubscription', compact('subscription'));
     }
 
-    public function createGymSubscriptionPlan(Request $request)
+
+    public function updateGymSubscriptionPlan(Request $request)
     {
         try {
-
-            $gym_uuid = $this->getGymSession()['uuid'];
-            $gymId=$this->gym->where('uuid', $gym_uuid)->first()->id;
-
             $validatedData = $request->validate([
-                'subscription_name' => '',
-                'amount' => 'required',
-                'validity' => 'required',
-                'description' => 'required',
-                'plan_id' => 'required',
-                'start_date'=>'required'
+                "uuid" => 'required',
+                "subscription_name" => 'required',
+                "validity" => 'required',
+                "start_date" => 'required',
+                "amount" => 'required',
+                "description" => 'required'
             ]);
 
             $imagePath = null;
@@ -52,15 +55,50 @@ class GymSubscriptionController extends Controller
                 $filename = time() . '_' . $subscriptionImage->getClientOriginalName();
                 $imagePath = 'gymSubscription_images/' . $filename;
                 $subscriptionImage->move(public_path('gymSubscription_images/'), $filename);
-            }else{
-                Log::error("[GymSubscriptionController][createGymSubscriptionPlan] error imagefile is null" );
+            } else {
+                Log::error("[GymSubscriptionController][updateGymSubscriptionPlan] error imagefile is null");
+            }
+            $updatedSubscription = $this->gymSubscription->updateSubscription($validatedData, $imagePath, $request->uuid);
+            if ($updatedSubscription) {
+                return redirect()->route('listSubscriptionPlan')->with("status", "success")->with("message", "Subscription upated succesfully");
+            } else {
+                return redirect()->back()->with('error', 'error while updating profi');
+            }
+        } catch (Throwable $th) {
+            Log::error("[GymSubscriptionController][updateGymSubscriptionPlan] error " . $th->getMessage());
+            return redirect()->back()->with('error', $th->getMessage());
+        }
+    }
+    public function createGymSubscriptionPlan(Request $request)
+    {
+        try {
+
+            $gym_uuid = $this->getGymSession()['uuid'];
+            $gymId = $this->gym->where('uuid', $gym_uuid)->first()->id;
+
+            $validatedData = $request->validate([
+                'subscription_name' => '',
+                'amount' => 'required',
+                'validity' => 'required',
+                'description' => 'required',
+                'start_date' => 'required'
+            ]);
+
+            $imagePath = null;
+            if ($request->hasFile('image')) {
+                $subscriptionImage = $request->file('image');
+                $filename = time() . '_' . $subscriptionImage->getClientOriginalName();
+                $imagePath = 'gymSubscription_images/' . $filename;
+                $subscriptionImage->move(public_path('gymSubscription_images/'), $filename);
+            } else {
+                Log::error("[GymSubscriptionController][createGymSubscriptionPlan] error imagefile is null");
             }
             // dd($validatedData);
             // dd($imagePath);
-            $this->gymSubscription->createSubscription($validatedData, $imagePath,$gymId);
+            $this->gymSubscription->createSubscription($validatedData, $imagePath, $gymId);
 
-            return redirect()->route('listSubscriptionPlan')->with('success', 'Data saved successfully.');
-        } catch (\Throwable $th) {
+            return redirect()->route('listSubscriptionPlan')->with('status', 'success')->with('message', 'Data saved successfully.');
+        } catch (Throwable $th) {
             Log::error("[GymSubscriptionController][createGymSubscriptionPlan] error " . $th->getMessage());
             return redirect()->back()->with('error', $th->getMessage());
         }
