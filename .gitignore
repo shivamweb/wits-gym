@@ -22,3 +22,18 @@ yarn-error.log
 public/gymProfile_images
 public/adminSubscription_images
 public/user_images
+database/migrations/2024_05_08_095910_create_gym_enquiries_table.php
+public/gymEnquiry_images/1715169786_black_logo_gym.png
+.gitignore
+public/gymEnquiry_images/1715169857_black_logo_gym.png
+public/gymEnquiry_images/1715170225_black_logo_gym.png
+public/gymEnquiry_images/1715170351_black_logo_gym.png
+public/gymEnquiry_images/1715170593_black_logo_gym.png
+public/gymEnquiry_images/1715170699_black_logo_gym.png
+public/gymEnquiry_images/1715171165_black_logo_gym.png
+public/gymEnquiry_images/1715232700_video_bg1.png
+public/gymEnquiry_images/1715244326_testing-removebg-preview (2).png
+public/gymEnquiry_images/1715244135_black_logo_gym.png
+public/gymEnquiry_images/1715241311_istockphoto-1387134070-612x612.jpg
+public/gymEnquiry_images/1715228949_testing-removebg-preview (2).png
+public/gymEnquiry_images/1715324596_white pasta (1).jpg

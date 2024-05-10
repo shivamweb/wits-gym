@@ -1,1 +1,7 @@
 *.sqlite*
+admin_user_images/
+admin_user_images/
+gymEnquiry_images/
+gymProfile_images/
+gymStaff_images/
+gymSubscription_images/

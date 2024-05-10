@@ -5,6 +5,7 @@ use App\Http\Controllers\GymCouponController;
 use App\Http\Controllers\GymStaffController;
 use App\Http\Controllers\GymSubscriptionController;
 use App\Http\Controllers\GymDetailController;
+use App\Http\Controllers\GymEnquiryController;
 use App\Http\Controllers\GymUserController;
 use App\Traits\SessionTrait;
 use Illuminate\Support\Facades\Route;
@@ -92,3 +93,7 @@ Route::get('/addFaq', function () {
 Route::get('/courses', function () {
     return view('GymOwner.courses');
 });
+
+Route::get('/viewAddEnquiry', [GymEnquiryController::class, 'viewAddEnquiry'])->name('viewAddEnquiry');
+Route::post('/addGymEnquiry', [GymEnquiryController::class, 'addGymEnquiry'])->name('addGymEnquiry');
+Route::get('/viewEnquiry/{uuid}', [GymEnquiryController::class, 'viewEnquiry'])->name('viewEnquiry');
