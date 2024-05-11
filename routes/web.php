@@ -7,6 +7,7 @@ use App\Http\Controllers\GymSubscriptionController;
 use App\Http\Controllers\GymDetailController;
 use App\Http\Controllers\GymEnquiryController;
 use App\Http\Controllers\GymUserController;
+use App\Http\Controllers\UserBmiController;
 use App\Traits\SessionTrait;
 use Illuminate\Support\Facades\Route;
 
@@ -104,3 +105,5 @@ Route::get('/courses', function () {
 Route::get('/viewAddEnquiry', [GymEnquiryController::class, 'viewAddEnquiry'])->name('viewAddEnquiry');
 Route::post('/addGymEnquiry', [GymEnquiryController::class, 'addGymEnquiry'])->name('addGymEnquiry');
 Route::get('/viewEnquiry/{uuid}', [GymEnquiryController::class, 'viewEnquiry'])->name('viewEnquiry');
+
+Route::post('/addBmi', [UserBmiController::class, 'createUserBodyMeasurement'])->name('addUserBodyMeasurement');

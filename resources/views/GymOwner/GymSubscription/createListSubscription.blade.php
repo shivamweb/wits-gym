@@ -178,8 +178,7 @@
                                         <th>Subscription Duration</th>
                                         <th>Start Date</th>
                                         <th>Subscription Price</th>
-                                        <th>Description</th>
-                                        <th>Edit/Save</th>
+                                        <th>Edit/View</th>
                                         <th>Delete/Cancel</th>
                                     </tr>
                                 </thead>
@@ -192,7 +191,6 @@
                                             <td>{{ $subscription->validity }}</td>
                                             <td>{{ $subscription->start_date }}</td>
                                             <td>{{ $subscription->amount }}</td>
-                                            <td>{{ $subscription->description }}</td>
                                             <td>
 
                                                 <a class="edit btn btn-primary" href={{route('updateSubscriiptionView',["uuid"=>$subscription->uuid])}} >
