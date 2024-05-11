@@ -2,15 +2,13 @@
 <html lang="en">
 
 
-<!-- Mirrored from demo.lorvent.com/fitness/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:47:22 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-
+<!-- Mirrored from demo.lorvent.com/fitness/admin_coupon by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:49:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="UTF-8">
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <title>@yield('title', 'GYM Info')</title>
+    <title>@yield('title', 'Admin Advertisement')</title>
     <link rel="shortcut icon" href="favicon.ico" />
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -18,23 +16,24 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     <!-- global css -->
-    <script src="../../../../assets/oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="../../../../assets/oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <!--[endif]-->
-    <!-- global css -->
     <link type="text/css" href="../../../../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/custom_css/fitness.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/custom_css/metisMenu.css" rel="stylesheet" />
 
     <link type="text/css" href="../../../../assets/css/custom_css/panel.css" rel="stylesheet" />
     <!-- end of global css -->
     <!--page level css -->
-    <link type="text/css" href="../../../../assets/vendors/jasny-bootstrap/css/jasny-bootstrap.css" rel="stylesheet" />
-    <link type="text/css" href="../../../../assets/vendors/x-editable/css/bootstrap-editable.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/vendors/summernote/summernote.css" rel="stylesheet" media="screen" />
-    <link type="text/css" href="../../../../assets/css/custom_css/fitness.css" rel="stylesheet" />
-    <link type="text/css" href="../../../../assets/css/custom_css/club_info.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../../../assets/vendors/jasny-bootstrap/css/jasny-bootstrap.css">
+    <link type="text/css" href="../../../../assets/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/vendors/datatables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/vendors/bootstrapvalidator/dist/css/bootstrapValidator.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/custom_css/timings.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/custom_css/coupon.css" rel="stylesheet">
     <!--end of page level css-->
+</head>
 
 <body>
     <div class="se-pre-con"></div>
@@ -316,7 +315,7 @@
                     <div class="nav_profile">
                         <div class="media profile-left">
                             <a class="pull-left profile-thumb" href="#">
-                                <img src="../../../../assets/img/authors/avatar1.jpg" class="img-circle" alt="User Image">
+                                <img src="../../assets/img/authors/avatar1.jpg" class="img-circle" alt="User Image">
                             </a>
                             <div class="content-profile">
                                 <h4 class="media-heading">Nataliapery</h4>
@@ -408,10 +407,15 @@
                         <li>
                             <a href='/admin/listEnquiry'>
                                 <i class="text-primary  menu-icon fa fa-question-circle"></i>
+                                <span class="mm-text">Payment</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/admin/listEnquiry'>
+                                <i class="text-primary  menu-icon fa fa-question-circle"></i>
                                 <span class="mm-text">Enquiry</span>
                             </a>
                         </li>
-
                     <!-- / .navigation -->
                 </div>
                 <!-- menu -->
@@ -421,7 +425,8 @@
         <aside class="right-side right-padding">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <h2>Gym Info</h2>
+                <!--section starts-->
+                <h2>Coupons</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href='index.html'>
@@ -429,7 +434,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class='activated' href='admin_clubinfo.html'>Gym Info</a>
+                        <a class='activated' href='admin_coupon.html'>Advertisement</a>
                     </li>
                 </ol>
             </section>
@@ -439,10 +444,10 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <!-- Basic charts strats here-->
-                        <div class="panel">
-                            <div class="panel-heading bg-primary">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <i class="fa fa-fw fa-user"></i> Gym Info
+                                    <i class="fa fa-scissors "></i> Add Coupon
                                 </h4>
                                 <span class="pull-right">
                                     <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
@@ -450,239 +455,234 @@
                                 </span>
                             </div>
                             <div class="panel-body">
-                                <div role="tabpanel">
-                                    <!-- Nav tabs -->
-                                    <div class="terms">
-                                        <ul class="nav nav-tabs nav-custom " role="tablist">
-                                            <li role="presentation" class="active">
-                                                <a href="#Info" aria-controls="Info" role="tab" data-toggle="tab">
-                                                    <strong>Gym Info</strong>
-                                                </a>
-                                            </li>
-                                            <li role="presentation">
-                                                <a href="#terms" aria-controls="terms" role="tab" data-toggle="tab">
-                                                    <strong>Terms & Conditions</strong>
-                                                </a>
-                                            </li>
-                                            <li role="presentation">
-                                                <a href="#social" aria-controls="social" role="tab" data-toggle="tab">
-                                                    <strong>Social Networks</strong>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <form action="{{ route('addGymByAdmin') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
-                                        @csrf
-
-                                        <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane active" id="Info">
-                                                <div class="row">
-                                                    <div class="col-md-3 col-sm-4 text-center">
-                                                        <div class="form-group pad-top">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form id="coupon_form" action="#" class="form-horizontal">
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="cupon">
+                                                        Coupon Name
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-file-text-o"></i>
+                                                            </span>
+                                                            <input type="text" name="title" id="cupon" class="form-control" placeholder="Enter Title">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">Image</label>
+                                                    <div class="col-md-7 text-center">
+                                                        <div class="input-group">
                                                             <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                                <div class="fileinput-new thumbnail">
+                                                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
                                                                     <img data-src="holder.js/200x150" src="#" alt="profile">
                                                                 </div>
-                                                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                                                 <div class="select_align">
                                                                     <span class="btn btn-primary btn-file">
                                                                         <span class="fileinput-new">Select image</span>
-                                                                        <span class="fileinput-exists">Change</span>
-                                                                        <input type="file" name="image">
+                                                                    <span class="fileinput-exists">Change</span>
+                                                                    <input type="file" name="...">
                                                                     </span>
                                                                     <a href="#" class="btn btn-primary fileinput-exists" data-dismiss="fileinput">Remove</a>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-9 col-sm-8">
-                                                        <div class="panel-body">
-                                                            <div class="table-responsive">
-                                                                <table class="table table-bordered" id="users">
-                                                                    <tr>
-                                                                        <td>Username</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter user name" id="fb-name" name="username" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>E-mail</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter email" id="fb-name" name="email" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Password</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter email" id="fb-name" name="password" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Gym name</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter gym name" id="fb-name" name="gym_name" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Address</td>
-                                                                        <td>
-                                                                            <textarea class="summernote edi-css" name="address" placeholder="Place some text here"></textarea>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>City</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter city name" id="fb-name" name="city" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>State</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter state name" id="fb-name" name="state" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Country</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter country name" id="fb-name" name="country" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Website</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter website link" id="fb-name" name="web_link" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Gym Type</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter gym type" id="fb-name" name="gym_type" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="start">
+                                                        Start *
+                                                    </label>
+                                                    <div class="col-md-3">
+                                                        <div class='input-group date datetimepicker6'>
+                                                            <input type='text' class="form-control" id="start" name="date_start" />
+                                                            <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-time"></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <label class="col-md-1 control-label" for="end">
+                                                        End *
+                                                    </label>
+                                                    <div class="col-md-3">
+                                                        <div class='input-group date datetimepicker7'>
+                                                            <input type='text' class="form-control" id="end" name="date_end" />
+                                                            <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-time"></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">Description<span class='require'> *</span></label>
+                                                    <div class="col-md-7 ">
+                                                        <div class="input-group">
+                                                            <textarea name="content" class="summernote edi-css form-control"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div role="tabpanel" class="tab-pane" id="terms">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div>
-                                                            <h4>Terms and Conditions</h4>
-                                                        </div>
-                                                        <!-- <form> -->
-                                                        <textarea class="summernote edi-css" placeholder="Place some text here" name="terms_and_conditions"></textarea>
-                                                        <div class="form-actions pad-top">
-                                                            <div class="">
-                                                                <!-- <input type="submit" class="btn btn-primary" value="Add"> &nbsp; -->
-                                                                <!-- <input type="button" class="btn btn-danger" value="Cancel"> &nbsp; -->
-                                                                <!-- <input type="reset" class="btn btn-default reset-editable" value="Reset"> -->
-                                                            </div>
-                                                        </div>
-                                                        <!-- </form> -->
+                                            <div class="form-actions">
+                                                <div class="form-group">
+                                                    <div class="col-md-offset-3 col-md-9">
+                                                        <input type="submit" class="btn btn-primary" value="Add">
+                                                        <input type="button" class="btn btn-danger" value="Cancel">
+                                                        <input type="reset" ID="add-news-reset-editable" class="btn btn-default" value="Reset">
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div role="tabpanel" class="tab-pane" id="social">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div>
-                                                            <h4>Social Networks</h4>
-                                                        </div>
-                                                        <!-- <form action="#" class="form-horizontal"> -->
-                                                        <div class="form-body">
-                                                            <div class="form-group">
-                                                                <label class="col-lg-2 control-label" for="fb-name">Facebook</label>
-                                                                <div class="col-lg-6">
-                                                                    <div class="input-group">
-                                                                        <span class="input-group-addon">
-                                                                            <i class="fa fa-fw fa-facebook text-primary"></i>
-                                                                        </span>
-                                                                        <input type="text" placeholder=" " name="facebook" id="fb-name" class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-lg-2 control-label" for="twitter">Twitter</label>
-                                                                <div class="col-lg-6">
-                                                                    <div class="input-group">
-                                                                        <span class="input-group-addon">
-                                                                            <i class="fa fa-fw fa-twitter text-primary"></i>
-                                                                        </span>
-                                                                        <input type="text" placeholder=" " name="instagram" id="twitter" class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="g-plus">Google plus</label>
-                                                        <div class="col-lg-6">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">
-                                                                    <i class="fa fa-fw fa-google-plus text-primary"></i>
-                                                                </span>
-                                                                <input type="text" placeholder=" " id="g-plus" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                    </div> -->
-                                                            <!-- <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="skype">Skype</label>
-                                                        <div class="col-lg-6">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">
-                                                                    <i class="fa fa-fw fa-skype text-primary"></i>
-                                                                </span>
-                                                                <input type="text" placeholder=" " id="skype" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                    </div> -->
-                                                        </div>
-                                                        <div class="form-actions">
-                                                            <div class="row">
-                                                                <div class="col-md-offset-2 col-md-9">
-                                                                    <input type="submit" class="btn btn-primary" value="Add"> &nbsp;
-                                                                    <input type="button" class="btn btn-danger" value="Cancel"> &nbsp;
-                                                                    <input type="reset" class="btn btn-default" value="Reset">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- </form> -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- col-md-6 -->
-                <!--row -->
-                <!--row ends-->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- Basic charts strats here-->
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <i class="fa fa-fw fa-file-text-o"></i> Present Coupons
+                                </h4>
+                                <span class="pull-right">
+                                    <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
+                                    <i class="glyphicon glyphicon-remove removepanel"></i>
+                                </span>
+                            </div>
+                            <div class="panel-body table-responsive">
+                                <table class="table table-bordered" id="fitness-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Coupon Name</th>
+                                            <th>Duration</th>
+                                            <th>Desciption</th>
+                                            <th>Code</th>
+                                            <th>Edit/Save</th>
+                                            <th>Delete/Cancel</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Yoga</td>
+                                            <td>3 Months</td>
+                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                                            <td>SF345K</td>
+                                            <td>
+                                                <a class="edit btn btn-primary" href="javascript:;">
+                                                    <i class="fa fa-fw fa-edit"></i> Edit
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a class="delete btn btn-danger" href="javascript:;">
+                                                    <i class="fa fa-trash-o"></i> Delete
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fitness</td>
+                                            <td>1 Week</td>
+                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                                            <td>QD144B</td>
+                                            <td>
+                                                <a class="edit btn btn-primary" href="javascript:;">
+                                                    <i class="fa fa-fw fa-edit"></i> Edit
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a class="delete btn btn-danger" href="javascript:;">
+                                                    <i class="fa fa-trash-o"></i> Delete
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Body Building</td>
+                                            <td>1 Month</td>
+                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                                            <td>RTV46L</td>
+                                            <td>
+                                                <a class="edit btn btn-primary" href="javascript:;">
+                                                    <i class="fa fa-fw fa-edit"></i> Edit
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a class="delete btn btn-danger" href="javascript:;">
+                                                    <i class="fa fa-trash-o"></i> Delete
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aerobics</td>
+                                            <td>3 Months</td>
+                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                                            <td>AVX753</td>
+                                            <td>
+                                                <a class=" edit btn btn-primary" href="javascript:;">
+                                                    <i class="fa fa-fw fa-edit"></i> Edit
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a class="delete btn btn-danger" href="javascript:;">
+                                                    <i class="fa fa-trash-o"></i> Delete
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Flexibility</td>
+                                            <td>2 Months</td>
+                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                                            <td>TN682J</td>
+                                            <td>
+                                                <a class="edit btn btn-primary" href="javascript:;">
+                                                    <i class="fa fa-fw fa-edit"></i> Edit
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a class="delete btn btn-danger" href="javascript:;">
+                                                    <i class="fa fa-trash-o"></i> Delete
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- /.content -->
         </aside>
-        <script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>
-        <script src="../../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../../../../assets/js/custom_js/app.js" type="text/javascript"></script>
-        <script src="../../../../assets/js/custom_js/metisMenu.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/holder/holder.js" type="text/javascript"></script>
-        <!-- end of page level js -->
-        <!-- begining of page level js -->
-        <script src="../../../../assets/vendors/jasny-bootstrap/js/jasny-bootstrap.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/x-editable/jquery.mockjax.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/x-editable/bootstrap-editable.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/x-editable/js/html5types.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/summernote/summernote.min.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/jasny-bootstrap/js/inputmask.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/jasny-bootstrap/js/jquery.inputmask.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/x-editable/js/demo-mock.js" type="text/javascript"></script>
-        <script src="../../../../assets/js/custom_js/club_info.js" type="text/javascript"></script>
-        <!-- end of page level js -->
+        <!-- /.right-side -->
+    </div>
+    <!-- /.right-side -->
+    <!-- ./wrapper -->
+    <!-- global js -->
+    <script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/custom_js/app.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/custom_js/metisMenu.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/holder/holder.js" type="text/javascript"></script>
+    <!-- end of page level js -->
+    <!-- begining of page level js -->
+    <script src="../../../../assets/vendors/moment/min/moment.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/summernote/summernote.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/jasny-bootstrap/js/jasny-bootstrap.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/moment/moment.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/datatables/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/bootstrapvalidator/dist/js/bootstrapValidator.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/sweetalert/dist/sweetalert2.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/custom_js/coupon.js" type="text/javascript"></script>
+    <!-- end of page level js -->
 </body>
 
 
-<!-- Mirrored from demo.lorvent.com/fitness/admin_clubinfo by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:49:09 GMT -->
-
+<!-- Mirrored from demo.lorvent.com/fitness/admin_coupon by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:50:00 GMT -->
 </html>

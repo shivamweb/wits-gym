@@ -1,125 +1,573 @@
-@extends('admin.master')
-@section('title','View Enquiry')
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<!-- Mirrored from demo.lorvent.com/fitness/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:47:22 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
-<aside class="right-side right-padding">
-    <section class="content-header">
-        <!--section starts-->
-        {{-- <h2>Courses</h2> --}}
-        <ol class="breadcrumb">
-            <li>
-                <a href='/admin/adminDashboard'>
-                    <i class="fa fa-fw fa-home"></i> Dashboard
+<head>
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <title>@yield('title', 'Admin Dashboard')</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <!-- global css -->
+    <link type="text/css" href="../../../../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/custom_css/metisMenu.css" rel="stylesheet" />
+    <!-- Date picker -->
+    <link href="../../../../assets/vendors/air-datepicker-master/dist/css/datepicker.min.css" rel="stylesheet" type="text/css">
+    <!-- end of global css -->
+    <!-- page level css -->
+    <link type="text/css" href="../../../../assets/vendors/jquery-circliful/css/jquery.circliful.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="vendors/jquery-plugin-circliful-master/css/jquery.circliful.css"> -->
+    <link type="text/css" href="../../../../assets/vendors/progressbar/css/bootstrap-progressbar.min.css" rel="stylesheet">
+    <link type="text/css" href="../../../../assets/vendors/fullcalendar/css/fullcalendar.css" rel="stylesheet">
+    <link type="text/css" href="../../../../assets/vendors/select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link type="text/css" href="../../../../assets/css/custom_css/calendar_custom.css" rel="stylesheet">
+    <link type="text/css" href="../../../../assets/vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../../../assets/vendors/nvd3chart/nv.d3.min.css">
+    <link type="text/css" href="../../../../assets/css/custom_css/fitness.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/custom_css/panel.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/custom_css/admin_dashboard.css" rel="stylesheet">
+    <!-- end of page level css -->
+    <style>
+        .enquiry-image img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .enquiry-description textarea {
+            width: 100%;
+            height: 200px;
+            resize: vertical;
+        }
+
+        .panel {
+            margin-bottom: 20px;
+            border-radius: 0;
+            border: none;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        .panel-heading {
+            background-color: #337ab7;
+            color: #fff;
+            padding: 10px 15px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .panel-title {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 16px;
+            color: inherit;
+        }
+
+        .panel-body {
+            padding: 15px;
+        }
+
+        .content-header {
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb {
+            padding: 8px 15px;
+            margin-bottom: 20px;
+            list-style: none;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .breadcrumb>li {
+            display: inline;
+        }
+
+        .breadcrumb>li+li:before {
+            content: "›";
+            padding: 0 5px;
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="se-pre-con"></div>
+    <!-- header logo: style can be found in header-->
+    <header class="header">
+        <nav class="navbar navbar-static-top">
+            <a class='logo' href='index.html'>
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                <img src="../../../../assets/img/logo.png" alt="image not found">
+            </a>
+            <!-- Header Navbar: style can be found in header-->
+            <!-- Sidebar toggle button-->
+            <!-- Sidebar toggle button-->
+            <div>
+                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button"> <i class="fa fa-fw fa-navicon"></i>
                 </a>
-            </li>
-            <li>
-                <a>View Enquiry</a>
-            </li>
-        </ol>
-    </section>
-    <!--section ends-->
-    <div class="container-fluid">
-        <!--main content-->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <i class="fa fa-fw fa-file-text-o"></i> View Enquiry
-                        </h4>
-                        <span class="pull-right">
-                            <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
-                            <i class="glyphicon glyphicon-remove removepanel"></i>
-                        </span>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row" style="padding: 20px;">
-                            <div class="col-md-12">
-                                <form id="course_form" action="{{route('addGymEnquiry')}}" class="form-horizontal" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-body">
-                                        <div class="form-group">
-                                            <label for="title" class="col-md-3 control-label">
-                                                Title
-                                                <span class='require'>*</span>
-                                            </label>
-                                            <div class="col-md-7">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-fw fa-file-text-o"></i>
-                                                    </span>
-                                                    <input id="title" type="text" value="{{$enquiryDetails->title}}" name="title" required class="form-control" placeholder="Enter Title" disabled>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- <div class="form-group">
-                                            <label for="image_and_description" class="col-md-3 control-label">
-                                                Description <span class='require'>*</span>
-                                            </label>
-                                            <div class="col-md-7">
-                                                @if(isset($enquiryDetails->image))
-                                                <img src="{{'../../'.$enquiryDetails->image}}" alt="Enquiry Image">
-                                                @else
-                                                <img alt="">
-                                                @endif
-                                                <textarea id="content_editor" name="description" class="form-control" style="height: 200px; overflow-y: auto;" disabled>{{$enquiryDetails->description}}</textarea>
-                            
-
-                                            </div>
-
-                                           
-                                        </div> -->
-                                        <div class="form-group">
-                                            <label for="image_and_description" class="col-md-3 control-label">
-                                                Description <span class='require'>*</span>
-                                            </label>
-                                            <div class="col-md-7" style="position: relative;">
-                                                <textarea id="content_editor" name="description" class="form-control" style="height: 200px; overflow-y: auto; padding-left: 80px;" disabled>{{$enquiryDetails->description}}</textarea>
-                                                @if(isset($enquiryDetails->image))
-                                                <img src="{{'../../'.$enquiryDetails->image}}" alt="Enquiry Image" style="position: absolute; left: 15px; top: 25px; max-width: 150px;">
-                                                @else
-                                                <img alt="" style="position: absolute; max-width: 70px;">
-                                                @endif
-                                                
+            </div>
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-fw fa-envelope-o black"></i>
+                            <span class="label label-success">5</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-messages table-striped">
+                            <li class="dropdown-title">New Messages</li>
+                            <li>
+                                <a href="#" class="message striped-col">
+                                    <img class="message-image img-circle" alt="image" src="../../../../assets/img/authors/avatar7.jpg">
+                                    <div class="message-body"> <strong>Ernest Kerry</strong>
+                                        <br> Can we Meet?
+                                        <br>
+                                        <small>Just Now</small>
+                                        <span class="label label-success label-mini msg-lable">New</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="message">
+                                    <img class="message-image img-circle" alt="image" src="../../../../assets/img/authors/avatar.jpg">
+                                    <div class="message-body"> <strong>John</strong>
+                                        <br> Dont forgot to call...
+                                        <br>
+                                        <small>5 minutes ago</small>
+                                        <span class="label label-success label-mini msg-lable">New</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="message striped-col">
+                                    <img class="message-image img-circle" alt="image" src="../../../../assets/img/authors/avatar5.jpg">
+                                    <div class="message-body">
+                                        <strong>Wilton Zeph</strong>
+                                        <br> If there is anything else &hellip;
+                                        <br>
+                                        <small>14/10/2014 1:31 pm</small>
+                                        <span class="label label-success label-mini msg-lable">New</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="message">
+                                    <img class="message-image img-circle" alt="image" src="../../../../assets/img/authors/avatar1.jpg">
+                                    <div class="message-body">
+                                        <strong>Jenny Kerry</strong>
+                                        <br> Let me know when you free
+                                        <br>
+                                        <small>5 days ago</small>
+                                        <span class="label label-success label-mini msg-lable">New</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="message striped-col">
+                                    <img class="message-image img-circle" alt="image" src="../../../../assets/img/authors/avatar.jpg">
+                                    <div class="message-body">
+                                        <strong>Tony</strong>
+                                        <br> Let me know when you free
+                                        <br>
+                                        <small>5 days ago</small>
+                                        <span class="label label-success label-mini msg-lable">New</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="dropdown-footer">View All messages</li>
+                        </ul>
+                    </li>
+                    <!--tasks-->
+                    <li class="dropdown tasks-menu hidden-xs">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-fw fa-edit black"></i>
+                            <span class="label label-primary">4</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-messages">
+                            <li class="dropdown-title">You Have 4 Tasks</li>
+                            <li>
+                                <a href="#" class="message striped-col">
+                                    Design some buttons
+                                    <small class="pull-right">20%</small>
+                                    <div class="message-body">
+                                        <div class="progress xs">
+                                            <div class="progress-bar progress-bar-primary" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <span class="sr-only">20% Complete</span>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="message">
+                                    Create a nice theme
+                                    <small class="pull-right">40%</small>
+                                    <div class="message-body">
+                                        <div class="progress xs">
+                                            <div class="progress-bar progress-bar-success" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <span class="sr-only">40% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="message striped-col">
+                                    Some task I need to do
+                                    <small class="pull-right">60%</small>
+                                    <div class="message-body">
+                                        <div class="progress xs">
+                                            <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <span class="sr-only">60% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="message">
+                                    Make beautiful transitions
+                                    <small class="pull-right">80%</small>
+                                    <div class="message-body">
+                                        <div class="progress xs">
+                                            <div class="progress-bar progress-bar-warning" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <span class="sr-only">80% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="dropdown-footer">View All Tasks</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle toggle-right">
+                            <i class="fa fa-fw fa-comments-o black1"></i>
+                            <span class="label label-danger">0</span>
+                        </a>
+                    </li>
+                    <!-- Notifications: style can be found in dropdown-->
+                    <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-fw fa-bell-o black1"></i>
+                            <span class="label label-warning">9</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-messages">
+                            <li class="dropdown-title">You have 9 notifications</li>
+                            <li>
+                                <a href="#" class="message icon-not striped-col">
+                                    <i class="fa fa-fw fa-users info"></i>
+                                    <div class="message-body">
+                                        <strong>John Doe</strong>
+                                        <br> 5 members joined today
+                                        <br>
+                                        <span class="noti-date">Just now</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="message icon-not">
+                                    <i class="fa fa-fw fa-users warning"></i>
+                                    <div class="message-body">
+                                        <strong>Tony</strong>
+                                        <br> likes a photo of you
+                                        <br>
+                                        <span class="noti-date">5 min</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="message icon-not striped-col">
+                                    <i class="fa fa-fw fa-user danger"></i>
+                                    <div class="message-body">
+                                        <strong>John</strong>
+                                        <br> Dont forgot to call...
+                                        <br>
+                                        <span class="noti-date">11 min</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="message icon-not">
+                                    <i class="fa fa-fw fa-info-circle dange"></i>
+                                    <div class="message-body">
+                                        <strong>Jenny Kerry</strong>
+                                        <br> Very long description here...
+                                        <br>
+                                        <span class="noti-date">1 Hour</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="message icon-not striped-col">
+                                    <i class="fa fa-fw fa-thumbs-o-up success"></i>
+                                    <div class="message-body">
+                                        <strong>Ernest Kerry</strong>
+                                        <br> 2 members joined today
+                                        <br>
+                                        <span class="noti-date">3 Days</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="dropdown-footer">View All Notifications</li>
+                        </ul>
+                    </li>
+                    <!-- User Account: style can be found in dropdown-->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle padding-user" data-toggle="dropdown">
+                            <img src="../../../../assets/img/authors/avatar1.jpg" width="35" class="img-circle img-responsive pull-left" height="35" alt="User Image">
+                            <div class="riot">
+                                <div>
+                                    Natali
+                                    <span>
+                                        <i class="caret"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="../../../../assets/img/authors/avatar1.jpg" class="img-circle" alt="User Image">
+                                <p>Nataliapery</p>
+                            </li>
+                            <!-- Menu Body -->
+                            <li class="pad-3">
+                                <a href="#">
+                                    <i class="fa fa-fw fa-user"></i> My Profile
+                                </a>
+                            </li>
+                            <li role="presentation"></li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-fw fa-gear"></i> Account Settings
+                                </a>
+                            </li>
+                            <li role="presentation" class="divider"></li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#">
+                                        <i class="fa fa-fw fa-lock"></i> Lock
+                                    </a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href='login.html'>
+                                        <i class="fa fa-fw fa-sign-out"></i> Logout
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="wrapper row-offcanvas row-offcanvas-left">
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="left-side sidebar-offcanvas">
+            <!-- sidebar: style can be found in sidebar-->
+            <section class="sidebar">
+                <div id="menu" role="navigation">
+                    <div class="nav_profile">
+                        <div class="media profile-left">
+                            <a class="pull-left profile-thumb" href="#">
+                                <img src="../../assets/img/authors/avatar1.jpg" class="img-circle" alt="User Image">
+                            </a>
+                            <div class="content-profile">
+                                <h4 class="media-heading">Nataliapery</h4>
+                                <span class="text-default">Admin</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="navigation">
+                        <li>
+                            <a href='../admin/adminDashboard'>
+                                <i class="text-primary menu-icon fa fa-fw fa-dashboard"></i>
+                                <span class="mm-text ">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="menu-dropdown">
+                            <a href="#">
+                                <i class="text-success menu-icon fa fa-fw fa-picture-o"></i>
+                                <span class="mm-text">GYM</span>
+                                <span class="fa fa-angle-down pull-right"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href='../admin/viewGymInfo'>
+                                        <i class="text-primary fa fa-fw fa-cloud-upload"></i> Gym Add
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='../admin/viewGymList'>
+                                        <i class="text-success fa fa-fw fa-file-image-o"></i> Gym List
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href='/admin/viewAddAdminSubscription'>
+                                <i class="text-primary menu-icon fa fa-th fa-info-circle"></i>
+                                <span class="mm-text">Subscription</span>
+                            </a>
+                        </li>
+
+                        <li class="menu-dropdown">
+                            <a href="#">
+                                <i class="text-default menu-icon fa fa-fw fa-users"></i>
+                                <span class="mm-text">Users</span>
+                                <span class="fa fa-angle-down pull-right"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href='/admin/adminUserList'>
+                                        <i class="text-primary fa fa-fw fa-users"></i> Users List
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='admin_userprofile.html'>
+                                        <i class="text-success fa fa-fw fa-user"></i> User Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='/admin/addAdminUsers'>
+                                        <i class="text-info fa fa-fw fa-user"></i> Add Users
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href='/admin/coupen'>
+                                <i class="text-primary  menu-icon fa fa-scissors"></i>
+                                <span class="mm-text">Coupons</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/admin/advertisement'>
+                                <i class="text-primary  menu-icon fa fa-question-circle"></i>
+                                <span class="mm-text">Advertisement</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/admin/userNotification'>
+                                <i class="text-primary  menu-icon fa fa-question-circle"></i>
+                                <span class="mm-text">User Notification</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/admin/payment'>
+                                <i class="text-primary  menu-icon fa fa-question-circle"></i>
+                                <span class="mm-text">Payment</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/admin/listEnquiry'>
+                                <i class="text-primary  menu-icon fa fa-question-circle"></i>
+                                <span class="mm-text">Enquiry</span>
+                            </a>
+                        </li>
+                        <!-- / .navigation -->
+                </div>
+                <!-- menu -->
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <aside class="right-side right-padding">
+            <section class="content-header">
+                <!--section starts-->
+                {{-- <h2>Courses</h2> --}}
+                <ol class="breadcrumb">
+                    <li>
+                        <a href='/admin/adminDashboard'>
+                            <i class="fa fa-fw fa-home"></i> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a>View Enquiry</a>
+                    </li>
+                </ol>
+            </section>
+            <!--section ends-->
+            <div class="container-fluid">
+                <!--main content-->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <i class="fa fa-fw fa-file-text-o"></i> View Enquiry
+                                </h4>
+                                <span class="pull-right">
+                                    <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
+                                    <i class="glyphicon glyphicon-remove removepanel"></i>
+                                </span>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row" style="padding: 20px;">
+                                    <div class="col-md-12">
+                                        <div class="form-horizontal">
+                                            <div class="form-group">
+                                                <label for="title" class="col-md-3 control-label">
+                                                    Title
+                                                </label>
+                                                <div class="col-md-7">
+                                                    <input id="title" type="text" value="{{$enquiryDetails->title}}" name="title" class="form-control" placeholder="Enter Title" disabled>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="image_and_description" class="col-md-3 control-label">
+                                                    Description
+                                                </label>
+                                                <div class="col-md-7">
+                                                    <div class="enquiry-description">
+                                                        @if(isset($enquiryDetails->image))
+                                                        <img src="{{'../../'.$enquiryDetails->image}}" alt="Enquiry Image">
+                                                        @endif
+                                                        <textarea id="content_editor" name="description" class="form-control" style="height: 200px; overflow-y: auto;" disabled>{{$enquiryDetails->description}}</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
-        </div>
-
-    </div>
-    <script>
-        function uploadImage() {
-            document.getElementById('image').click();
-        }
-
-        function handleImageUpload(event) {
-            const file = event.target.files[0];
-            const reader = new FileReader();
-
-            reader.onload = function(e) {
-                const image = document.createElement('img');
-                image.src = e.target.result;
-                image.style.maxWidth = '40%';
-                image.style.height = 'auto';
-
-                const contentEditor = document.getElementById('content_editor');
-                contentEditor.focus();
-                const selection = window.getSelection();
-                const range = selection.getRangeAt(0);
-                range.collapse(false);
-                range.insertNode(image);
-            };
-
-            reader.readAsDataURL(file);
-        }
-    </script>
-
-</aside>
-@endsection
+        </aside>
+        <!-- /.right-side -->
+        <!-- ./wrapper -->
+        <!-- global js -->
+        <script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>
+        <script src="../../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../../../assets/js/custom_js/app.js" type="text/javascript"></script>
+        <script src="../../../../assets/js/custom_js/metisMenu.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/holder/holder.js" type="text/javascript"></script>
+        <!-- end of page level js -->
+        <!-- begining of page level js -->
+        <script src="../../../../assets/vendors/moment/min/moment.min.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/summernote/summernote.min.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/jasny-bootstrap/js/jasny-bootstrap.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/moment/moment.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/datatables/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/bootstrapvalidator/dist/js/bootstrapValidator.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/sweetalert/dist/sweetalert2.js" type="text/javascript"></script>
+        <script src="../../../../assets/js/custom_js/coupon.js" type="text/javascript"></script>
+        <!-- end of page level js -->
+</body>
+<!-- Mirrored from demo.lorvent.com/fitness/admin_coupon by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:50:00 GMT -->
+</html>

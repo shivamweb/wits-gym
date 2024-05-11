@@ -9,8 +9,10 @@
 <head>
     <meta charset="UTF-8">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <title>@yield('title', 'GYM Info')</title>
+    <title>@yield('title', 'Payment')</title>
     <link rel="shortcut icon" href="favicon.ico" />
+
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -18,23 +20,17 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     <!-- global css -->
-    <script src="../../../../assets/oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="../../../../assets/oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <!--[endif]-->
-    <!-- global css -->
     <link type="text/css" href="../../../../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/custom_css/fitness.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/custom_css/metisMenu.css" rel="stylesheet" />
 
     <link type="text/css" href="../../../../assets/css/custom_css/panel.css" rel="stylesheet" />
     <!-- end of global css -->
     <!--page level css -->
-    <link type="text/css" href="../../../../assets/vendors/jasny-bootstrap/css/jasny-bootstrap.css" rel="stylesheet" />
-    <link type="text/css" href="../../../../assets/vendors/x-editable/css/bootstrap-editable.css" rel="stylesheet" />
-    <link type="text/css" href="../../../../assets/vendors/summernote/summernote.css" rel="stylesheet" media="screen" />
-    <link type="text/css" href="../../../../assets/css/custom_css/fitness.css" rel="stylesheet" />
-    <link type="text/css" href="../../../../assets/css/custom_css/club_info.css" rel="stylesheet" />
-    <!--end of page level css-->
+    <link type="text/css" href="../../../../assets/vendors/datatables/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/custom_css/payment.css">
+</head>
 
 <body>
     <div class="se-pre-con"></div>
@@ -421,7 +417,8 @@
         <aside class="right-side right-padding">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <h2>Gym Info</h2>
+                <!--section starts-->
+                <h2>Payments</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href='index.html'>
@@ -429,260 +426,158 @@
                         </a>
                     </li>
                     <li>
-                        <a class='activated' href='admin_clubinfo.html'>Gym Info</a>
+                        <a href="#">Users</a>
+                    </li>
+                    <li>
+                        <a href='admin_userpayment.html'>Payments</a>
                     </li>
                 </ol>
             </section>
             <!--section ends-->
             <div class="container-fluid">
-                <!--main content-->
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="box-model">
+                            <h5>Pending Payments</h5>
+                            <div id="bar-chart-stacked" class="flotChart1"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 ">
+                        <div class="box-model">
+                            <h5 class="text-primary">Pending Payments</h5>
+                            <h5 class="text-danger">$500.63</h5>
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th>User name</th>
+                                        <th>Total</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Gavin</td>
+                                        <td>$61.45</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bella</td>
+                                        <td>$50</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jacob</td>
+                                        <td>$10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Markotto</td>
+                                        <td>$80</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <!-- Basic charts strats here-->
-                        <div class="panel">
-                            <div class="panel-heading bg-primary">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <i class="fa fa-fw fa-user"></i> Gym Info
+                                    <i class="fa fa-fw fa-file-text-o"></i> Pending Payments
                                 </h4>
                                 <span class="pull-right">
                                     <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
                                     <i class="glyphicon glyphicon-remove removepanel"></i>
                                 </span>
                             </div>
-                            <div class="panel-body">
-                                <div role="tabpanel">
-                                    <!-- Nav tabs -->
-                                    <div class="terms">
-                                        <ul class="nav nav-tabs nav-custom " role="tablist">
-                                            <li role="presentation" class="active">
-                                                <a href="#Info" aria-controls="Info" role="tab" data-toggle="tab">
-                                                    <strong>Gym Info</strong>
-                                                </a>
-                                            </li>
-                                            <li role="presentation">
-                                                <a href="#terms" aria-controls="terms" role="tab" data-toggle="tab">
-                                                    <strong>Terms & Conditions</strong>
-                                                </a>
-                                            </li>
-                                            <li role="presentation">
-                                                <a href="#social" aria-controls="social" role="tab" data-toggle="tab">
-                                                    <strong>Social Networks</strong>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <form action="{{ route('addGymByAdmin') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
-                                        @csrf
-
-                                        <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane active" id="Info">
-                                                <div class="row">
-                                                    <div class="col-md-3 col-sm-4 text-center">
-                                                        <div class="form-group pad-top">
-                                                            <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                                <div class="fileinput-new thumbnail">
-                                                                    <img data-src="holder.js/200x150" src="#" alt="profile">
-                                                                </div>
-                                                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                                                <div class="select_align">
-                                                                    <span class="btn btn-primary btn-file">
-                                                                        <span class="fileinput-new">Select image</span>
-                                                                        <span class="fileinput-exists">Change</span>
-                                                                        <input type="file" name="image">
-                                                                    </span>
-                                                                    <a href="#" class="btn btn-primary fileinput-exists" data-dismiss="fileinput">Remove</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-9 col-sm-8">
-                                                        <div class="panel-body">
-                                                            <div class="table-responsive">
-                                                                <table class="table table-bordered" id="users">
-                                                                    <tr>
-                                                                        <td>Username</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter user name" id="fb-name" name="username" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>E-mail</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter email" id="fb-name" name="email" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Password</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter email" id="fb-name" name="password" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Gym name</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter gym name" id="fb-name" name="gym_name" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Address</td>
-                                                                        <td>
-                                                                            <textarea class="summernote edi-css" name="address" placeholder="Place some text here"></textarea>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>City</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter city name" id="fb-name" name="city" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>State</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter state name" id="fb-name" name="state" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Country</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter country name" id="fb-name" name="country" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Website</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter website link" id="fb-name" name="web_link" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Gym Type</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter gym type" id="fb-name" name="gym_type" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane" id="terms">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div>
-                                                            <h4>Terms and Conditions</h4>
-                                                        </div>
-                                                        <!-- <form> -->
-                                                        <textarea class="summernote edi-css" placeholder="Place some text here" name="terms_and_conditions"></textarea>
-                                                        <div class="form-actions pad-top">
-                                                            <div class="">
-                                                                <!-- <input type="submit" class="btn btn-primary" value="Add"> &nbsp; -->
-                                                                <!-- <input type="button" class="btn btn-danger" value="Cancel"> &nbsp; -->
-                                                                <!-- <input type="reset" class="btn btn-default reset-editable" value="Reset"> -->
-                                                            </div>
-                                                        </div>
-                                                        <!-- </form> -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane" id="social">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div>
-                                                            <h4>Social Networks</h4>
-                                                        </div>
-                                                        <!-- <form action="#" class="form-horizontal"> -->
-                                                        <div class="form-body">
-                                                            <div class="form-group">
-                                                                <label class="col-lg-2 control-label" for="fb-name">Facebook</label>
-                                                                <div class="col-lg-6">
-                                                                    <div class="input-group">
-                                                                        <span class="input-group-addon">
-                                                                            <i class="fa fa-fw fa-facebook text-primary"></i>
-                                                                        </span>
-                                                                        <input type="text" placeholder=" " name="facebook" id="fb-name" class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-lg-2 control-label" for="twitter">Twitter</label>
-                                                                <div class="col-lg-6">
-                                                                    <div class="input-group">
-                                                                        <span class="input-group-addon">
-                                                                            <i class="fa fa-fw fa-twitter text-primary"></i>
-                                                                        </span>
-                                                                        <input type="text" placeholder=" " name="instagram" id="twitter" class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="g-plus">Google plus</label>
-                                                        <div class="col-lg-6">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">
-                                                                    <i class="fa fa-fw fa-google-plus text-primary"></i>
-                                                                </span>
-                                                                <input type="text" placeholder=" " id="g-plus" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                    </div> -->
-                                                            <!-- <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="skype">Skype</label>
-                                                        <div class="col-lg-6">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">
-                                                                    <i class="fa fa-fw fa-skype text-primary"></i>
-                                                                </span>
-                                                                <input type="text" placeholder=" " id="skype" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                    </div> -->
-                                                        </div>
-                                                        <div class="form-actions">
-                                                            <div class="row">
-                                                                <div class="col-md-offset-2 col-md-9">
-                                                                    <input type="submit" class="btn btn-primary" value="Add"> &nbsp;
-                                                                    <input type="button" class="btn btn-danger" value="Cancel"> &nbsp;
-                                                                    <input type="reset" class="btn btn-default" value="Reset">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- </form> -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                            <div class="panel-body table-responsive">
+                                <table class="table table-bordered" id="fitness-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Username</th>
+                                            <th>Course</th>
+                                            <th>Trainer Name</th>
+                                            <th>Email</th>
+                                            <th>Payment Due</th>
+                                            <th>Total Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Bella</td>
+                                            <td>Yoga</td>
+                                            <td>John Doe</td>
+                                            <td>gankunding@hotmail.com</td>
+                                            <td>$20</td>
+                                            <td>$60</td>
+                                        </tr>
+                                        <tr>
+                                            <td>JacobThornton</td>
+                                            <td>Fitness</td>
+                                            <td>Clara S.Roberson</td>
+                                            <td>JacobThornton@test.com</td>
+                                            <td>$10</td>
+                                            <td>$80</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Markotto</td>
+                                            <td>Aerobics</td>
+                                            <td>Dominick Williams</td>
+                                            <td>Markotto@test.com</td>
+                                            <td>$50</td>
+                                            <td>$00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sonya</td>
+                                            <td>Body Building</td>
+                                            <td>Darin Gross</td>
+                                            <td>Sonya@test.com</td>
+                                            <td>$20</td>
+                                            <td>$100</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gavin</td>
+                                            <td>Yoga</td>
+                                            <td>John Doe</td>
+                                            <td>Gavin@test.com</td>
+                                            <td>$30</td>
+                                            <td>$40</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Timothy</td>
+                                            <td>Life Time Membership</td>
+                                            <td>Clara S.Roberson</td>
+                                            <td>Timothy@test.com</td>
+                                            <td>$50</td>
+                                            <td>$100</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- col-md-6 -->
-                <!--row -->
-                <!--row ends-->
             </div>
             <!-- /.content -->
         </aside>
-        <script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>
-        <script src="../../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../../../../assets/js/custom_js/app.js" type="text/javascript"></script>
-        <script src="../../../../assets/js/custom_js/metisMenu.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/holder/holder.js" type="text/javascript"></script>
-        <!-- end of page level js -->
-        <!-- begining of page level js -->
-        <script src="../../../../assets/vendors/jasny-bootstrap/js/jasny-bootstrap.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/x-editable/jquery.mockjax.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/x-editable/bootstrap-editable.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/x-editable/js/html5types.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/summernote/summernote.min.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/jasny-bootstrap/js/inputmask.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/jasny-bootstrap/js/jquery.inputmask.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/x-editable/js/demo-mock.js" type="text/javascript"></script>
-        <script src="../../../../assets/js/custom_js/club_info.js" type="text/javascript"></script>
-        <!-- end of page level js -->
+        <!-- /.right-side -->
+    </div>
+    <!-- /.right-side -->
+    <!-- ./wrapper -->
+    <!-- global js -->
+    <script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/custom_js/app.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/custom_js/metisMenu.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/holder/holder.js" type="text/javascript"></script>
+    <!-- end of page level js -->
+    <!-- begining of page level js -->
+    <script src="../../../../assets/vendors/chartsjs/floatchart/jquery.flot.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/chartsjs/floatchart/jquery.flot.resize.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/chartsjs/floatchart/jquery.flot.categories.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/chartsjs/floatchart/jquery.flot.tooltip.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/datatables/js/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/custom_js/payment.js" type="text/javascript"></script>
+    <!-- end of page level js -->
 </body>
 
 
-<!-- Mirrored from demo.lorvent.com/fitness/admin_clubinfo by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:49:09 GMT -->
-
+<!-- Mirrored from demo.lorvent.com/fitness/admin_userpayment by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:49:58 GMT -->
 </html>
