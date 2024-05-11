@@ -46,7 +46,6 @@ class AdminSubscription extends Authenticatable
                 'start_date'         => $addSubscription['start_date'],
             ]);
         } catch (\Throwable $e) {
-            dd($e);
             Log::error('[AdminSubscription][addAdminSubscription] Error adding admin subscription: ' . $e->getMessage());
         }
     }

@@ -78,7 +78,7 @@
                                                             <img src="{{$userDetail->image}}" alt="profile">
                                                             @else
                                                             <img src="" alt="profile">
-                                                           @endif
+                                                            @endif
                                                         </div>
                                                         <div class="fileinput-preview fileinput-exists thumbnail"></div>
                                                         <div class="select_align">
@@ -253,7 +253,7 @@
                                             <div class="form-actions">
                                                 <div class="row">
                                                     <div class="col-md-offset-2 col-md-9">
-                                                        <input type="submit" class="btn btn-primary" value="Update"> &nbsp;
+                                                        <input type="submit" class="btn btn-primary" value="Add"> &nbsp;
                                                         <input type="button" class="btn btn-danger" value="Cancel"> &nbsp;
                                                         <input type="reset" class="btn btn-default" value="Reset">
                                                     </div>
@@ -323,7 +323,7 @@
                                                 <div class="form-actions">
                                                     <div class="row">
                                                         <div class="col-md-offset-2 col-md-9">
-                                                            <input type="submit" class="btn btn-primary" value="Update"> &nbsp;
+                                                            <input type="submit" class="btn btn-primary" value="Add"> &nbsp;
                                                             <input type="button" class="btn btn-danger" value="Cancel"> &nbsp;
                                                             <input type="reset" class="btn btn-default" value="Reset">
                                                         </div>
@@ -345,18 +345,18 @@
                                                     <table class="table table-bordered" id="fitness-table">
                                                         <thead>
                                                             <tr>
-                                                                <th>exercise_name</th>
-                                                                <th>sets</th>
-                                                                <th>reps</th>
-                                                                <th>weight</th>
-                                                                <th>notes</th>
+                                                                <th>Exercise Name</th>
+                                                                <th>Sets</th>
+                                                                <th>Reps</th>
+                                                                <th>Weight</th>
+                                                                <th>Notes</th>
                                                                 <th>Edit/Save</th>
                                                                 <th>Delete/Cancel</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($workouts as $workout)
-                                                            <tr>
+                                                            <tr data-workout-id="{{ $workout->id }}">
                                                                 <td>{{ $workout->exercise_name }}</td>
                                                                 <td>{{ $workout->sets }}</td>
                                                                 <td>{{ $workout->reps }}</td>
@@ -375,6 +375,7 @@
                                                                 </td>
                                                             </tr>
                                                             @endforeach
+
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -388,7 +389,7 @@
                                             <div>
                                                 <h4>Diet Plan</h4>
                                             </div>
-                                            <form action="{{ route('addUserDiet') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                            <form id="dietForm" action="{{ route('addUserDiet') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                                 @csrf
                                                 <input type="hidden" name="user_id" value="{{ $userDetail->id }}">
                                                 <div class="form-group">
@@ -424,13 +425,13 @@
                                                 <div class="form-group">
                                                     <label class="col-lg-2 control-label" for="notes">Notes:</label>
                                                     <div class="col-lg-6">
-                                                        <textarea name="notes" id="notes" rows="3" class="form-control"></textarea>
+                                                        <textarea name="notes" id="dietNotes" rows="3" class="form-control"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-actions">
                                                     <div class="row">
                                                         <div class="col-md-offset-2 col-md-9">
-                                                            <input type="submit" class="btn btn-primary" value="Update"> &nbsp;
+                                                            <input type="submit" class="btn btn-primary" value="Add"> &nbsp;
                                                             <input type="button" class="btn btn-danger" value="Cancel"> &nbsp;
                                                             <input type="reset" class="btn btn-default" value="Reset">
                                                         </div>
@@ -464,7 +465,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($diets as $diet)
-                                                            <tr>
+                                                            <tr data-diet-id="{{ $diet->id }}">
                                                                 <td>{{ $diet->meal_name }}</td>
                                                                 <td>{{ $diet->calories }}</td>
                                                                 <td>{{ $diet->protein }}</td>
@@ -473,7 +474,7 @@
                                                                 <td>{{ $diet->notes }}</td>
 
                                                                 <td>
-                                                                    <a class="edit btn btn-primary mar-bm" href="javascript:;">
+                                                                    <a class="edit1 btn btn-primary mar-bm" href="javascript:;">
                                                                         <i class="fa fa-fw fa-edit"></i> Edit
                                                                     </a>
                                                                 </td>
@@ -499,5 +500,98 @@
         </div>
     </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Edit button click event to update the user workout
+            $('.edit').on('click', function() {
+                var row = $(this).closest('tr'); // Get the parent row
+                var workoutId = row.data('workout-id'); // Get the workout ID
+                var exerciseName = row.find('td:eq(0)').text(); // Get exercise name
+                var sets = row.find('td:eq(1)').text(); // Get sets
+                var reps = row.find('td:eq(2)').text(); // Get reps
+                var weight = row.find('td:eq(3)').text(); // Get weight
+                var notes = row.find('td:eq(4)').text(); // Get notes
+                
+                // Populate form fields with the data
+                $('#exercise_name').val(exerciseName);
+                $('#sets').val(sets);
+                $('#reps').val(reps);
+                $('#weight').val(weight);
+                $('#notes').val(notes);
+
+                // Update form action and add workout ID as a hidden input
+                $('form').attr('action', '{{ route("updateUserWorkout") }}');
+                $('<input>').attr({
+                    type: 'hidden',
+                    name: 'workout_id',
+                    value: workoutId
+                }).appendTo('form');
+
+                // Change submit button value to "Update"
+                $('input[type="submit"]').val('Update');
+            });
+
+            // Cancel button click event
+            $('.btn-danger').on('click', function() {
+                // Reset form fields
+                $('form')[0].reset();
+                // Change form action back to add
+                $('form').attr('action', '{{ route("addUserWorkout") }}');
+                // Remove workout_id input
+                $('input[name="workout_id"]').remove();
+                // Change submit button value to "Add"
+                $('input[type="submit"]').val('Add');
+            });
+
+
+
+            // Edit button click event to update the user diet
+            $('.edit1').on('click', function() {
+                var row = $(this).closest('tr');
+                var dietId = row.data('diet-id'); 
+                var mealName = row.find('td:eq(0)').text();
+                var calories = row.find('td:eq(1)').text();
+                var protein = row.find('td:eq(2)').text();
+                var carbs = row.find('td:eq(3)').text();
+                var fats = row.find('td:eq(4)').text();
+                var dietNotes = row.find('td:eq(5)').text();
+
+                $('#meal_name').val(mealName);
+                $('#calories').val(calories);
+                $('#protein').val(protein);
+                $('#carbs').val(carbs);
+                $('#fats').val(fats);
+                $('#dietNotes').val(dietNotes);
+
+                $('#dietForm').attr('action', '{{ route("updateUserDiet") }}');
+                
+                $('<input>').attr({
+                    type: 'hidden',
+                    name: 'diet_id',
+                    value: dietId
+                }).appendTo('#dietForm');
+
+                // Change submit button value to "Update"
+                $('input[type="submit"]').val('Update');
+            });
+
+            // Cancel button click event
+            $('.btn-danger').on('click', function() {
+                // Reset form fields
+                $('#dietForm')[0].reset();
+                // Change form action back to add
+                $('#dietForm').attr('action', '{{ route("addUserDiet") }}');
+                // Remove diet-id input
+                $('input[name="diet_id"]').remove();
+                // Change submit button value to "Add"
+                $('input[type="submit"]').val('Add');
+            });
+
+
+        });
+    </script>
+
 </aside>
 @endsection

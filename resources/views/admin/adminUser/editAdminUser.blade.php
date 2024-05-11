@@ -2,16 +2,22 @@
 <html lang="en">
 
 
-<!-- Mirrored from demo.lorvent.com/fitness/admin_clubinfo by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:48:18 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<!-- Mirrored from demo.lorvent.com/fitness/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:47:22 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title', 'Subscription')</title>
-    <link rel="shortcut icon" href="favicon.ico" />
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <title>@yield('title', 'Update User')</title>
+    <link rel="shortcut icon" href="favicon.ico" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <!-- global css -->
     <script src="../../../../assets/oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="../../../../assets/oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <!--[endif]-->
@@ -29,7 +35,6 @@
     <link type="text/css" href="../../../../assets/css/custom_css/fitness.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/custom_css/club_info.css" rel="stylesheet" />
     <!--end of page level css-->
-</head>
 
 <body>
     <div class="se-pre-con"></div>
@@ -365,7 +370,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='/admin/adminUserprofile'>
+                                    <a href='admin_userprofile.html'>
                                         <i class="text-success fa fa-fw fa-user"></i> User Profile
                                     </a>
                                 </li>
@@ -406,235 +411,227 @@
                                 <span class="mm-text">Enquiry</span>
                             </a>
                         </li>
-
-                    <!-- / .navigation -->
+                        <!-- / .navigation -->
                 </div>
                 <!-- menu -->
             </section>
             <!-- /.sidebar -->
         </aside>
 
-<aside class="right-side right-padding">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <!--section starts-->
-        <h2>Subscriptions</h2>
-        <ol class="breadcrumb">
-            <li>
-                <a href='index.html'>
-                    <i class="fa fa-fw fa-home"></i> Dashboard
-                </a>
-            </li>
-            <li class="active" id="active">
-                <a href='packages.html'>Subscriptions</a>
-            </li>
-        </ol>
-    </section>
-    <!--section ends-->
-    <div class="container-fluid">
-        <!--main content-->
-        <div class="row">
-            <div class="col-lg-12">
-                <!-- Basic charts strats here-->
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <i class="fa fa-money"></i> Add Subscription
-                        </h4>
-                        <span class="pull-right">
-                            <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
-                            <i class="glyphicon glyphicon-remove removepanel"></i>
-                        </span>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <form id="packages" action="{{route('addAdminSubscription')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-body">
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="title">
-                                                Subscription Name
-                                                <span class='require'>*</span>
-                                            </label>
-                                            <div class="col-md-7">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-fw fa-file-text-o"></i>
-                                                    </span>
-                                                    <input type="text" name="subscription_name" id="title" class="form-control" placeholder="Enter Title">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label">Image</label>
-                                            <div class="col-md-7 text-center">
-                                                <div class="input-group">
-                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                                            <img data-src="holder.js/200x150" src="#" alt="profile">
+        <aside class="right-side right-padding">
+            <section class="content-header">
+                <!--section starts-->
+                <h2>Update User</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href='/dashboard '>
+                            <i class="fa fa-fw fa-home"></i> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a>List User</a>
+                    </li>
+                    <li>
+                        <a class='activated'>Update User</a>
+                    </li>
+                </ol>
+            </section>
+            <!--section ends-->
+            <div class="container-fluid">
+                <!--main content-->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- Basic charts strats here-->
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <i class="fa fa-fw fa-user"></i> Update User
+                                </h4>
+                                <span class="pull-right">
+                                    <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
+                                    <i class="glyphicon glyphicon-remove removepanel"></i>
+                                </span>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form id="add_users_form" action="{{route('updateAdminUser')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">Image</label>
+                                                    <div class="col-md-7 text-center">
+                                                        <div class="input-group">
+                                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                                    @if(isset($user->image))
+                                                                    <img src="{{'../../'.$user->image}}">
+                                                                    @else
+                                                                    <img src="" alt="profile">
+                                                                    @endif
+                                                                </div>
+                                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                                                                <div class="select_align">
+                                                                    <span class="btn btn-primary btn-file">
+                                                                        <span class="fileinput-new">Select image</span>
+                                                                        <span class="fileinput-exists">Change</span>
+                                                                        <input type="file" name="image">
+                                                                    </span>
+                                                                    <a href="#" class="btn btn-primary fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-                                                        <div class="select_align">
-                                                            <span class="btn btn-primary btn-file">
-                                                                <span class="fileinput-new">Select image</span>
-                                                                <span class="fileinput-exists">Change</span>
-                                                                <input type="file" name="image">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="usr_name">
+                                                        User Name
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-user-md text-primary"></i>
                                                             </span>
-                                                            <a href="#" class="btn btn-primary fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                                            <input type="text" class="form-control" value="{{$user->username}}" id="usr_name" placeholder="Enter Username" name="username" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="mail">
+                                                        First name
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-envelope text-primary"></i>
+                                                            </span>
+                                                            <input type="text" placeholder="Enter First Name" value="{{$user->first_name}}" required class="form-control" id="mail" name="first_name" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="mail">
+                                                        Last Name
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-envelope text-primary"></i>
+                                                            </span>
+                                                            <input type="text" placeholder="Enter Last Name" value="{{$user->last_name}}" required class="form-control" id="mail" name="last_name" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="mail">
+                                                        Email
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-envelope text-primary"></i>
+                                                            </span>
+                                                            <input type="email" placeholder=" Enter Email Address" value="{{$user->email}}" required class="form-control" id="mail" name="email" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="contact">
+                                                        Contact Number
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-phone text-primary"></i>
+                                                            </span>
+                                                            <input type="text" placeholder="Enter Contact number" value="{{$user->phone_no}}" required id="contact" class="form-control" name="phone_no" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 text-right">
+                                                        Gender
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-group">
+                                                            <label>
+                                                                <input class="radio_val" type="radio" name="gender" value="male" {{ $user->gender == 'male' ? 'checked' : '' }} /> Male
+                                                            </label>
+                                                            <label class="pad-left">
+                                                                <input class="radio_val" type="radio" name="gender" value="female" {{ $user->gender == 'female' ? 'checked' : '' }}/> Female
+                                                            </label>
+                                                            <label class="pad-left">
+                                                                <input class="radio_val" type="radio" name="gender" value="others" {{ $user->gender == 'others' ? 'checked' : '' }} /> Other
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="mail">
+                                                        password
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-envelope text-primary"></i>
+                                                            </span>
+                                                            <input type="text" placeholder="Enter Password" value="{{$user->password}}" required class="form-control" id="mail" name="password" />
+                                                            <input type="hidden" name="uuid" id="uuid" value="{{$user->uuid}}">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="start">
-                                                Start *
-                                            </label>
-                                            <div class="col-md-3">
-                                                <div class='input-group date datetimepicker6'>
-                                                    <input type='date' class="form-control" id="start" name="start_date" />
-                                                    <span class="input-group-addon">
-                                                        <span class="glyphicon glyphicon-time"></span>
-                                                    </span>
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-3 col-md-9">
+                                                        <input type="submit" class="btn btn-primary" value="Update"> &nbsp;
+                                                        <input type="button" class="btn btn-danger" value="Cancel"> &nbsp;
+                                                        <input type="reset" class="btn btn-default " value="Reset">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <label class="col-md-1 control-label" for="end">
-                                                Validity*
-                                            </label>
-                                            <div class="col-md-3">
-                                                <div class='input-group date datetimepicker7'>
-                                                    <input type='number' class="form-control" id="end" name="validity" />
-                                                    <span class="input-group-addon">
-                                                        <span class="glyphicon glyphicon-time"></span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="start">
-                                                Amount *
-                                            </label>
-                                            <div class="col-md-3">
-                                                <div class='input-group date datetimepicker6'>
-                                                    <input type='number' class="form-control" id="start" name="amount" />
-                                                    <span class="input-group-addon">
-                                                        <span class="glyphicon glyphicon-time"></span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <label class="col-md-1 control-label" for="end">
-                                                Plan*
-                                            </label>
-                                            <div class="col-md-3">
-                                                <div class='input-group date datetimepicker7'>
-                                                    <input type='text' class="form-control" id="end" name="plan_id" />
-                                                    <span class="input-group-addon">
-                                                        <span class="glyphicon glyphicon-time"></span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="title">
-                                                Description Name
-                                                <span class='require'>*</span>
-                                            </label>
-                                            <div class="col-md-7">
-                                                <div class="input-group">
-                                                    <textarea name="description" class="form-control" ></textarea>
-                                               </div>
-                                            </div>
-                                        </div>
+                                        </form>
                                     </div>
-                                    <div class="form-actions">
-                                        <div class="form-group">
-                                            <div class="col-md-offset-3 col-md-9">
-                                                <input type="submit" class="btn btn-primary" value="Add">
-                                                <input type="button" class="btn btn-danger" value="Cancel">
-                                                <input type="reset" ID="add-news-reset-editable" class="btn btn-default" value="Reset">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- col-md-6 -->
+                <!--row -->
+                <!--row ends-->
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <!-- Basic charts strats here-->
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <i class="fa fa-fw fa-file-text-o"></i> Present Packages
-                        </h4>
-                        <span class="pull-right">
-                            <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
-                            <i class="glyphicon glyphicon-remove removepanel"></i>
-                        </span>
-                    </div>
-                    <div class="panel-body table-responsive">
-                        <table class="table table-bordered table1">
-                            <thead>
-                                <tr>
-                                    <th>Subscription Name</th>
-                                    <th>Amount</th>
-                                    <th>Desciption</th>
-                                    <th>Amount</th>
-                                    <th>Edit/Save</th>
-                                    <th>Cancel/Delete</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($adminSubscriptions as $adminSubscription)
-                                <tr>
-                                    <td>{{$adminSubscription->subscription_name}}</td>
-                                    <td>{{$adminSubscription->amount}}</td>
-                                    <td>{{$adminSubscription->description}}  </td>
-                                    <td>$60</td>
-                                    <td>
-                                        <a class="edit btn btn-primary mar-bm" href="javascript:;">
-                                            <i class="fa fa-fw fa-edit"></i> Edit
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a class="delete btn btn-danger mar-bm" href="javascript:;">
-                                            <i class="fa fa-trash-o"></i> Delete
-                                        </a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                          </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</aside>
-<script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="../../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../../../../assets/js/custom_js/app.js" type="text/javascript"></script>
-    <script src="../../../../assets/js/custom_js/metisMenu.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/holder/holder.js" type="text/javascript"></script>
-    <!-- end of page level js -->
-    <!-- begining of page level js -->
-    <script src="../../../../assets/vendors/jasny-bootstrap/js/jasny-bootstrap.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/x-editable/jquery.mockjax.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/x-editable/bootstrap-editable.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/x-editable/js/html5types.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/summernote/summernote.min.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/jasny-bootstrap/js/inputmask.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/jasny-bootstrap/js/jquery.inputmask.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/x-editable/js/demo-mock.js" type="text/javascript"></script>
-    <script src="../../../../assets/js/custom_js/club_info.js" type="text/javascript"></script>
-    <!-- end of page level js -->
+        </aside>
+        <!-- /.content -->
+
+
+        <script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>
+        <script src="../../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../../../assets/js/custom_js/app.js" type="text/javascript"></script>
+        <script src="../../../../assets/js/custom_js/metisMenu.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/holder/holder.js" type="text/javascript"></script>
+        <!-- end of page level js -->
+        <!-- begining of page level js -->
+        <script src="../../../../assets/vendors/jasny-bootstrap/js/jasny-bootstrap.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/x-editable/jquery.mockjax.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/x-editable/bootstrap-editable.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/x-editable/js/html5types.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/summernote/summernote.min.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/jasny-bootstrap/js/inputmask.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/jasny-bootstrap/js/jquery.inputmask.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/x-editable/js/demo-mock.js" type="text/javascript"></script>
+        <script src="../../../../assets/js/custom_js/club_info.js" type="text/javascript"></script>
+        <!-- end of page level js -->
 </body>
 
 
 <!-- Mirrored from demo.lorvent.com/fitness/admin_clubinfo by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:49:09 GMT -->
-</html>
 
+</html>

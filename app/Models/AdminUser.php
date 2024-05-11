@@ -41,6 +41,39 @@ class AdminUser extends Model
         }
     }
 
+    public function updateUser(array $updateUser, $imagePath)
+    {
+
+        // dd($updateUser);
+        $uuid = $updateUser['uuid'];
+        $userProfile = AdminUser::where('uuid', $uuid)->first();
+
+        // Check if the user exists
+        if (!$userProfile) {
+            return redirect()->back()->with('error', 'User not found');
+        }
+        try {
+            $userProfile->update([
+                'first_name' => $updateUser['first_name'],
+                'last_name' => $updateUser['last_name'],
+                'email' => $updateUser['email'],
+                'gender' => $updateUser['gender'],
+                'phone_no' => $updateUser['phone_no'],
+                'username' => $updateUser['username'],
+                'password' => $updateUser['password'],
+            ]);
+            if(isset($imagePath)){
+                $userProfile->update([
+                    'image' => $imagePath
+                ]);
+            }
+
+            return $userProfile->save();
+        } catch (\Throwable $e) {
+            Log::error('[Gym][updateUser] Error while updating user detail: ' . $e->getMessage());
+        }
+    }
+
     protected static function boot()
     {
         parent::boot();

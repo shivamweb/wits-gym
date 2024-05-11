@@ -36,8 +36,8 @@ class AdminUserController extends Controller
                 'gender' => 'required',
                 'phone_no' => 'required',
                 'username' => 'required',
-                'password' => 'required'
-
+                'password' => 'required',
+                'image' => 'required'
             ]);
 
             // dd($validatedData);
@@ -61,12 +61,54 @@ class AdminUserController extends Controller
 
     public function adminUserList()
     {
-        // $gym_uuid = $this->getGymSession()['uuid'];
-        // $gymId = $this->gym->where('uuid', $gym_uuid)->first()->id;
-        $users = $this->user->all();
-
-
+        
+        $users = $this->user->all();    
         return view('admin.adminUser.adminUserList', compact('users'));
     }
 
+    public function viewEditUser($uuid)
+    {
+        $user = $this->user->where('uuid', $uuid)->first();
+        return view('admin.adminUser.editAdminUser', compact('user'));
+    }
+
+    public function updateAdminUser(Request $request)
+    {
+        try {
+            
+            $validatedData = $request->validate([
+                'uuid' => 'required',
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'email' => 'required',
+                'gender' => 'required',
+                'phone_no' => 'required',
+                'username' => 'required',
+                'password' => 'required',
+                'image' => 'nullable'
+            ]);
+
+
+            $imagePath = null;
+            if ($request->hasFile('image')) {
+                $gymImage = $request->file('image');
+                $filename = time() . '_' . $gymImage->getClientOriginalName();
+                $imagePath = 'admin_user_images/' . $filename;
+                $gymImage->move(public_path('admin_user_images/'), $filename);
+            }
+
+            $isProfileUpdated = $this->user->updateUser($validatedData, $imagePath);
+
+
+
+            if ($isProfileUpdated) {
+                return redirect()->route('adminUserList')->with('status', 'success')->with('message', 'User updated successfully.');
+            }
+            return redirect()->back()->with('status', 'error')->with('message', 'error while updating user.');
+        } catch (\Exception $e) {
+            Log::error('[AdminUserController][updateAdminUser] Error updating user ' . 'Request=' . $request . ', Exception=' . $e->getMessage());
+            return redirect()->back()->with('status', 'error')->with('message', 'error while updating user.');
+        }
+    }
+    
 }

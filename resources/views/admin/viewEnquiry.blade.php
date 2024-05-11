@@ -532,6 +532,8 @@
                                                     <div class="enquiry-description">
                                                         @if(isset($enquiryDetails->image))
                                                         <img src="{{'../../'.$enquiryDetails->image}}" alt="Enquiry Image">
+                                                        @else
+                                                        <img src="" alt="profile">
                                                         @endif
                                                         <textarea id="content_editor" name="description" class="form-control" style="height: 200px; overflow-y: auto;" disabled>{{$enquiryDetails->description}}</textarea>
                                                     </div>
@@ -570,4 +572,5 @@
         <!-- end of page level js -->
 </body>
 <!-- Mirrored from demo.lorvent.com/fitness/admin_coupon by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:50:00 GMT -->
+
 </html>
