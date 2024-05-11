@@ -570,7 +570,7 @@
                                             <div>
                                                 <h4>BMI </h4>
                                             </div>
-                                            <form id="dietForm" action="{{ route('addUserDiet') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                            <form id="dietForm" action="{{ route('addUserBodyMeasurement') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                                 @csrf
 
                                                 <div class="col-lg-4">
@@ -611,13 +611,13 @@
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-lg-2 control-label" for="notes">Notes:</label>
-                                                    <div class="col-lg-6">
-                                                        <textarea name="notes" id="dietNotes" rows="3" class="form-control"></textarea>
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 control-label" for="abs">Abs (cm):</label>
+                                                        <div class="col-lg-6">
+                                                            <input type="number" name="abs" id="abs"
+                                                                min="0" required class="form-control">
+                                                        </div>
                                                     </div>
-
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <img src="assets/img/bmi_images/female-skeleton.png"
