@@ -42,8 +42,8 @@ class GymUserController extends Controller
 
     public function addUserByGym(Request $request)
     {
-        try { 
-             $request->validate([
+        try {
+            $request->validate([
                 'first_name' => 'required',
                 'last_name' => 'required',
                 'email' => 'required',
@@ -58,7 +58,7 @@ class GymUserController extends Controller
             $gymId = $this->gym->where('uuid', $gym_uuid)->first()->id;
 
             $this->userService->createUserAccount($request->all(), $gymId);
-            
+
 
             return back()->with('status', 'success')->with('message', 'User Added Succesfully');
         } catch (\Exception $e) {
@@ -75,7 +75,7 @@ class GymUserController extends Controller
         $workouts = $this->workout->all();
         $diets = $this->diet->all();
         // dd($userDetail);
-        return view('GymOwner.User.userProfile', compact('userDetail','workouts','diets'));
+        return view('GymOwner.User.userProfile', compact('userDetail', 'workouts', 'diets'));
     }
 
     public function updateUser(Request $request)
@@ -107,9 +107,9 @@ class GymUserController extends Controller
 
 
 
-        if ($isProfileUpdated) {
-            return redirect()->route('listGymUser')->with('status', 'success')->with('message', 'User profile and workout data updated successfully.');
-        }
+            if ($isProfileUpdated) {
+                return redirect()->route('listGymUser')->with('status', 'success')->with('message', 'User profile and workout data updated successfully.');
+            }
             return redirect()->back()->with('status', 'error')->with('message', 'error while updating user.');
         } catch (\Exception $e) {
             Log::error('[GymDetailController][updateUser] Error updating user ' . 'Request=' . $request . ', Exception=' . $e->getMessage());
@@ -158,6 +158,75 @@ class GymUserController extends Controller
         } catch (\Throwable $th) {
             Log::error("[GymUserController][addUserDiet] error " . $th->getMessage());
             return redirect()->back()->with('error', 'Failed to save workout data. Please try again.');
+        }
+    }
+
+    public function updateUserWorkout(Request $request)
+    {
+        try {
+            // Validate the incoming request data
+            $validatedData = $request->validate([
+                'workout_id' => 'required|exists:user_workouts,id',
+                'user_id' => 'required|exists:users,id',
+                'exercise_name' => 'required|string',
+                'sets' => 'required|integer|min:1',
+                'reps' => 'required|integer|min:1',
+                'weight' => 'required|numeric|min:0',
+                'notes' => 'nullable|string',
+            ]);
+
+            // Find the workout by ID
+            $workout = $this->workout->findOrFail($validatedData['workout_id']);
+
+            // Update the workout attributes
+            $workout->exercise_name = $validatedData['exercise_name'];
+            $workout->sets = $validatedData['sets'];
+            $workout->reps = $validatedData['reps'];
+            $workout->weight = $validatedData['weight'];
+            $workout->notes = $validatedData['notes'];
+
+            // Save the changes
+            $workout->save();
+
+            // Redirect back with a success message
+            return redirect()->back()->with('success', 'Workout updated successfully.');
+        } catch (\Throwable $th) {
+            Log::error("[GymUserController][updateUserWorkout] error " . $th->getMessage());
+            return redirect()->back()->with('error', 'Failed to update workout data. Please try again.');
+        }
+    }
+
+    public function updateUserDiet(Request $request)
+    {
+        try {
+            $validatedData = $request->validate([
+                'diet_id' => 'required|exists:user_diets,id',
+                'user_id' => 'required|exists:users,id',
+                'meal_name' => 'required|string',
+                "calories"  =>  'required|integer|min:0',
+                "protein"   =>  'required|integer|min:0',
+                "carbs"     =>  'required|numeric|min:0',
+                "fats"      =>  'required|numeric|min:0',
+                "notes"     =>  'nullable|string',
+            ]);
+
+            // Find the workout by ID
+            $diet = $this->diet->findOrFail($validatedData['diet_id']);
+
+            $diet->meal_name = $validatedData['meal_name'];
+            $diet->calories = $validatedData['calories'];
+            $diet->protein = $validatedData['protein'];
+            $diet->carbs = $validatedData['carbs'];
+            $diet->fats = $validatedData['fats'];
+            $diet->notes = $validatedData['notes'];
+            // Save the changes
+            $diet->save();
+
+            // Redirect back with a success message
+            return redirect()->back()->with('success', 'Diet updated successfully.');
+        } catch (\Throwable $th) {
+            Log::error("[GymUserController][updateUserDiet] error " . $th->getMessage());
+            return redirect()->back()->with('error', 'Failed to update workout data. Please try again.');
         }
     }
 }

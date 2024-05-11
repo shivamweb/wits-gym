@@ -72,7 +72,9 @@ Route::post('/gym-coupon', [GymCouponController::class, 'addGymCoupon']);
 Route::post('/updateGym', [GymDetailController::class,'updateGym'])->name('updateGym');
 Route::post('/updateUser', [GymUserController::class,'updateUser'])->name('updateUser');
 Route::post('/addUserWorkout', [GymUserController::class, 'addUserWorkout'])->name('addUserWorkout');
+Route::post('/updateUserWorkout', [GymUserController::class, 'updateUserWorkout'])->name('updateUserWorkout');
 Route::post('/addUserDiet', [GymUserController::class, 'addUserDiet'])->name('addUserDiet');
+Route::post('/updateUserDiet', [GymUserController::class, 'updateUserDiet'])->name('updateUserDiet');
 
 
 Route::get('/viewAddEnquiry', [GymEnquiryController::class, 'viewAddEnquiry'])->name('viewAddEnquiry');
