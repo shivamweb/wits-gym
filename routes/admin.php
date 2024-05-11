@@ -7,8 +7,6 @@ use App\Http\Controllers\AdminSubscriptionController;
 use App\Http\Controllers\AdminUserController;
 use Illuminate\Support\Facades\Route;
 
-// Route::prefix('admin')->group(function () {
-// });
 Route::get('/viewGymInfo', [AdminGymController::class, 'viewGymInfo']);
 
 Route::get('/adminDashboard', [AdminController::class, 'adminDashboard']);
@@ -26,6 +24,8 @@ Route::post('/addAdminSubscription', [AdminSubscriptionController::class, 'addAd
 Route::get('/addAdminUsers', [AdminUserController::class, 'showAddUsers']);
 Route::post('/add-user-by-admin', [AdminUserController::class, 'addUserByadmin'])->name('addUserByadmin');
 Route::get('/adminUserList', [AdminUserController::class, 'adminUserList'])->name('adminUserList');
+Route::get('/viewEditUser/{uuid}', [AdminUserController::class, 'viewEditUser'])->name('viewEditUser');
+Route::post('/updateAdminUser', [AdminUserController::class,'updateAdminUser'])->name('updateAdminUser');
 
 Route::get('/listEnquiry', [AdminEnquiryController::class, 'listEnquiry'])->name('listEnquiry');
 Route::get('/viewAdminEnquiry/{uuid}', [AdminEnquiryController::class, 'viewAdminEnquiry'])->name('viewAdminEnquiry');
