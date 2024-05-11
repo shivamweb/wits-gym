@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gym;
 use App\Models\User;
+use App\Models\UserBodyMeasurement;
 use App\Models\UserWorkout;
 use App\Models\UserDiet;
 use App\Services\UserService;
@@ -20,14 +21,16 @@ class GymUserController extends Controller
     protected $workout;
     protected $diet;
     protected $userService;
+    protected $userBodyMeasurement;
 
-    public function __construct(User $user, Gym $gym, UserWorkout $workout, UserDiet $diet, UserService $userService)
+    public function __construct(User $user, Gym $gym, UserWorkout $workout, UserDiet $diet, UserService $userService,UserBodyMeasurement $userBodyMeasurement)
     {
         $this->user = $user;
         $this->gym = $gym;
         $this->workout = $workout;
         $this->diet = $diet;
         $this->userService = $userService;
+        $this->userBodyMeasurement = $userBodyMeasurement;
     }
 
     public function listGymUser()
@@ -60,6 +63,7 @@ class GymUserController extends Controller
             $this->userService->createUserAccount($request->all(), $gymId);
 
 
+
             return back()->with('status', 'success')->with('message', 'User Added Succesfully');
         } catch (\Exception $e) {
             Log::error('[GymUserController][addUserByGym]Error adding : ' . 'Request=' . $e->getMessage());
@@ -74,8 +78,11 @@ class GymUserController extends Controller
         $userDetail = $this->user->where('uuid', $uuid)->first();
         $workouts = $this->workout->all();
         $diets = $this->diet->all();
-        // dd($userDetail);
-        return view('GymOwner.User.userProfile', compact('userDetail', 'workouts', 'diets'));
+
+        $userId = $userDetail->first()['id'];
+        $bodyMeasurements=$this->userBodyMeasurement->where('user_id',$userId)->get();
+        // dd($bmis);
+        return view('GymOwner.User.userProfile', compact('userDetail','workouts','diets','bodyMeasurements'));
     }
 
     public function updateUser(Request $request)

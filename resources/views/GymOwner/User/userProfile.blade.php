@@ -566,9 +566,9 @@
                                         </div>
                                     </div>
                                     <div role="tabpanel" class="tab-pane" id="bmi">
-                                        <div class="row">
+                                        <div class="row" >
                                             <div>
-                                                <h4>BMI Plan</h4>
+                                                <h4>BMI </h4>
                                             </div>
                                             <form id="dietForm" action="{{ route('addUserDiet') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                                 @csrf
@@ -576,42 +576,38 @@
                                                 <div class="col-lg-4">
                                                     <input type="hidden" name="user_id" value="{{ $userDetail->id }}">
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="meal_name">Meal
-                                                            Name:</label>
+                                                        <label class="col-lg-2 control-label" for="chest">Chest (cm):</label>
                                                         <div class="col-lg-6">
-                                                            <input type="text" name="meal_name" id="meal_name"
+                                                            <input type="text" name="chest" id="chest"
                                                                 required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-lg-2 control-label"
-                                                            for="calories">Calories:</label>
+                                                            for="triceps">Triceps (cm):</label>
                                                         <div class="col-lg-6">
-                                                            <input type="number" name="calories" id="calories"
+                                                            <input type="number" name="triceps" id="triceps"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="protein">Protein
-                                                            (g):</label>
+                                                        <label class="col-lg-2 control-label" for="biceps">Biceps (cm)::</label>
                                                         <div class="col-lg-6">
-                                                            <input type="number" name="protein" id="protein"
+                                                            <input type="number" name="biceps" id="biceps"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="carbs">Carbohydrates
-                                                            (g):</label>
+                                                        <label class="col-lg-2 control-label" for="lats">Lats (cm):</label>
                                                         <div class="col-lg-6">
-                                                            <input type="number" name="carbs" id="carbs"
+                                                            <input type="number" name="lats" id="lats"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="fats">Fats
-                                                            (g):</label>
+                                                        <label class="col-lg-2 control-label" for="shoulder">Shoulder (cm):</label>
                                                         <div class="col-lg-6">
-                                                            <input type="number" name="fats" id="fats"
+                                                            <input type="number" name="shoulder" id="shoulder"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
@@ -624,94 +620,97 @@
 
                                                 </div>
                                                 <div class="col-lg-4">
-                                                    <img src="https://www.thoughtco.com/thmb/_ikkigMK0zqeXVNNSFgdmj8L6WU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/human-muscles-and-tendons-covering-anatomical-model-166835830-5c44fd4ac9e77c0001a26ea5.jpg"
-                                                        alt="Girl in a jacket" height="500">
+                                                    <img src="assets/img/bmi_images/female-skeleton.png"
+                                                        alt="skeleton" height="500">
                                                 </div>
                                                 <div class="col-lg-4">
-                                                    <input type="hidden" name="user_id" value="{{ $userDetail->id }}">
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="meal_name">Meal
-                                                            Name:</label>
+                                                        <label class="col-lg-2 control-label" for="forearms">Forearms (cm):</label>
                                                         <div class="col-lg-6">
-                                                            <input type="text" name="meal_name" id="meal_name"
+                                                            <input type="text" name="forearms" id="forearms"
                                                                 required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-lg-2 control-label"
-                                                            for="calories">Calories:</label>
+                                                            for="traps">Traps (cm):</label>
                                                         <div class="col-lg-6">
-                                                            <input type="number" name="calories" id="calories"
+                                                            <input type="number" name="traps" id="traps"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="protein">Protein
-                                                            (g):</label>
+                                                        <label class="col-lg-2 control-label" for="glutes">Glutes (cm)::</label>
                                                         <div class="col-lg-6">
-                                                            <input type="number" name="protein" id="protein"
+                                                            <input type="number" name="glutes" id="glutes"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="carbs">Carbohydrates
-                                                            (g):</label>
+                                                        <label class="col-lg-2 control-label" for="quads">Quads (cm):</label>
                                                         <div class="col-lg-6">
-                                                            <input type="number" name="carbs" id="carbs"
+                                                            <input type="number" name="quads" id="quads"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="fats">Fats
-                                                            (g):</label>
+                                                        <label class="col-lg-2 control-label" for="hamstring">Hamstring (cm):</label>
                                                         <div class="col-lg-6">
-                                                            <input type="number" name="fats" id="fats"
+                                                            <input type="number" name="hamstring" id="hamstring"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label"
-                                                            for="notes">Notes:</label>
+                                                        <label class="col-lg-2 control-label" for="calves">Calves (cm):</label>
                                                         <div class="col-lg-6">
-                                                            <textarea name="notes" id="notes" rows="3" class="form-control"></textarea>
+                                                            <input type="number" name="calves" id="calves"
+                                                                min="0" required class="form-control">
                                                         </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-offset-2 col-md-9">
+                                                        <input type="submit" class="btn btn-primary" value="Add">
+
+                                                        <input type="button" class="btn btn-danger" value="Cancel">
+
+                                                        <input type="reset" class="btn btn-default" value="Reset">
                                                     </div>
                                                 </div>
                                             </form>
+
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <!-- Basic charts strats here-->
-                                            <div class="panel panel-success">
-                                                <div class="panel-heading">
-                                                    <h4 class="panel-title">
-                                                        User Diet Plan
-                                                    </h4>
-                                                </div>
-                                                <div class="panel-body table-responsive">
-                                                    <table class="table table-bordered" id="fitness-table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Meal Name</th>
-                                                                <th>Calories</th>
-                                                                <th>Protein</th>
-                                                                <th>Carbs</th>
-                                                                <th>Fats</th>
-                                                                <th>Notes</th>
-                                                                <th>Edit/Save</th>
-                                                                <th>Delete/Cancel</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            @foreach ($diets as $diet)
-                                                            <tr data-diet-id="{{ $diet->id }}">
-                                                                <td>{{ $diet->meal_name }}</td>
-                                                                <td>{{ $diet->calories }}</td>
-                                                                <td>{{ $diet->protein }}</td>
-                                                                <td>{{ $diet->carbs }}</td>
-                                                                <td>{{ $diet->fats }}</td>
-                                                                <td>{{ $diet->notes }}</td>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <!-- Basic charts strats here-->
+                                                <div class="panel panel-success">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            BMI List
+                                                        </h4>
+                                                    </div>
+                                                    <div class="panel-body table-responsive">
+                                                        <table class="table table-bordered" id="fitness-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>id</th>
+                                                                    <th>Height</th>
+                                                                    <th>Weight</th>
+                                                                    <th>Age</th>
+                                                                    <th>Bmi</th>
+                                                                    <th>Edit/View</th>
+                                                                    <th>Delete</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach ($bodyMeasurements as $bodyMeasurement)
+                                                                    <tr>
+                                                                        <td>{{ $bodyMeasurement->user_id }}</td>
+                                                                        <td>{{ $bodyMeasurement->chest }}</td>
+                                                                        <td>{{ $bodyMeasurement->triceps }}</td>
+                                                                        <td>{{ $bodyMeasurement->biceps }}</td>
+                                                                        <td>{{ $bodyMeasurement->shoulder }}</td>
 
                                                                 <td>
                                                                     <a class="edit1 btn btn-primary mar-bm" href="javascript:;">
