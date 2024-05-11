@@ -70,8 +70,12 @@ class User extends Authenticatable
                 'phone_no' => $updateUser['phone_no'],
                 'username' => $updateUser['username'],
                 'password' => $updateUser['password'],
-                'image' => $imagePath,
             ]);
+            if(isset($imagePath)){
+                $userProfile->update([
+                    'image' => $imagePath
+                ]);
+            }
 
             return $userProfile->save();
         } catch (\Throwable $e) {

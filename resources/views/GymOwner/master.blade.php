@@ -10,10 +10,8 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
-    {{-- <script src="../../oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> --}}
-    <script src="{{ asset('assets/oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') }}"></script>
-    {{-- <script src="../../oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script> --}}
-    <script src="{{ asset('assets/oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js') }}"></script>
+    <script src="../../oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="../../oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 
     <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet" />
     <link type="text/css" href="css/font-awesome.min.css" rel="stylesheet" />
@@ -511,7 +509,12 @@
                                 </li>
                             </ul>
                         </li>
-
+                        <li>
+                            <a href='/viewAddEnquiry'>
+                                <i class="text-primary  menu-icon fa fa-question-circle"></i>
+                                <span class="mm-text">Enquiry</span>
+                            </a>
+                        </li>
                         <li class="menu-dropdown">
                             <a href="#">
                                 <i class="text-success menu-icon fa fa-fw fa-picture-o"></i>

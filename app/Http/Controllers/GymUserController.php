@@ -108,12 +108,8 @@ class GymUserController extends Controller
 
 
         if ($isProfileUpdated) {
-            return redirect()->back()->with('status', 'success')->with('message', 'User profile and workout data updated successfully.');
+            return redirect()->route('listGymUser')->with('status', 'success')->with('message', 'User profile and workout data updated successfully.');
         }
-
-            if ($isProfileUpdated) {
-                return redirect()->back()->with('status', 'success')->with('message', 'user profile updated succesfully.');
-            }
             return redirect()->back()->with('status', 'error')->with('message', 'error while updating user.');
         } catch (\Exception $e) {
             Log::error('[GymDetailController][updateUser] Error updating user ' . 'Request=' . $request . ', Exception=' . $e->getMessage());

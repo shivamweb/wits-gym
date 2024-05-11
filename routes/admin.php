@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminEnquiryController;
 use App\Http\Controllers\AdminGymController;
 use App\Http\Controllers\AdminSubscriptionController;
 use App\Http\Controllers\AdminUserController;
@@ -26,3 +27,6 @@ Route::post('/addAdminSubscription', [AdminSubscriptionController::class, 'addAd
 Route::get('/addAdminUsers', [AdminUserController::class, 'showAddUsers']);
 Route::post('/add-user-by-admin', [AdminUserController::class, 'addUserByadmin'])->name('addUserByadmin');
 Route::get('/adminUserList', [AdminUserController::class, 'adminUserList'])->name('adminUserList');
+
+Route::get('/listEnquiry', [AdminEnquiryController::class, 'listEnquiry'])->name('listEnquiry');
+Route::get('/viewAdminEnquiry/{uuid}', [AdminEnquiryController::class, 'viewAdminEnquiry'])->name('viewAdminEnquiry');

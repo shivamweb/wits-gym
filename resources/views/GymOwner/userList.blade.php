@@ -72,7 +72,6 @@
                             <tbody>
                                 @foreach ($users as $user)
                                 <tr>
-
                                     <td><img src="{{ $user->image }}" height="100"></td>
                                     <td>{{ $user->first_name }} {{ $user->last_name }}</td>
                                     <td>{{ $user->username }}</td>
@@ -80,7 +79,9 @@
                                     <td>{{ $user->phone_no }}</td>
                                     <td>{{ $user->gender }}</td>
                                     <td>
-                                        <a class="edit btn btn-primary" href="{{route('showUserProfile', $user->uuid)}}" data-user-uuid="{{ $user->uuid  }}">
+
+                                        <a class="edit btn btn-primary" href={{route('showUserProfile', ['uuid' => $user->uuid])}}>
+
                                             <i class="fa fa-fw fa-edit"></i> Edit
                                         </a>
                                     </td>
