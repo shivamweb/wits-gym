@@ -223,5 +223,5 @@
             </div>
         </div>
     </aside>
-    <script src="{{ asset('resources\js\discount,js') }}"></script>
+
 @endsection

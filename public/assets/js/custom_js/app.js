@@ -31,11 +31,11 @@ $(function () {
     //Activate tooltips
     $("[data-toggle='tooltip']").tooltip();
 
-    /*     
+    /*
      * Add collapse and remove events to boxes
      */
     $("[data-widget='collapse']").click(function () {
-        //Find the box parent        
+        //Find the box parent
         var box = $(this).parents(".box").first();
         //Find the body and the footer
         var bf = box.find(".box-body, .box-footer");
@@ -72,7 +72,7 @@ $(function () {
     });
 
     $("[data-widget='remove']").on('click', function () {
-        //Find the box parent        
+        //Find the box parent
         var box = $(this).parents(".box").first();
         box.slideUp();
     });
@@ -80,13 +80,13 @@ $(function () {
     /* Sidebar tree view */
     //$(".sidebar .treeview").tree();
 
-    /* 
+    /*
      * Make sure that the sidebar is streched full height
      * ---------------------------------------------
      * We are gonna assign a min-height value every time the
      * wrapper gets resized and upon page load. We will use
      * Ben Alman's method for detecting the resize event.
-     * 
+     *
      **/
     function _fix() {
         //Get window height and the wrapper height
@@ -219,18 +219,22 @@ function fix_sidebar() {
                 railBorderRadius: "0px"
             }, h);
             this.each(function () {
-                function r(d) {
-                    if (s) {
-                        d = d ||
-                            window.event;
-                        var c = 0;
-                        d.wheelDelta && (c = -d.wheelDelta / 120);
-                        d.detail && (c = d.detail / 3);
-                        f(d.target || d.srcTarget || d.srcElement).closest("." + a.wrapperClass).is(b.parent()) && m(c, !0);
-                        d.preventDefault && !k && d.preventDefault();
-                        k || (d.returnValue = !1)
-                    }
+               function r(d) {
+        if (s) {
+            d = d || window.event;
+            var c = 0;
+            d.wheelDelta && (c = -d.wheelDelta / 120);
+            d.detail && (c = d.detail / 3);
+            f(d.target || d.srcTarget || d.srcElement).closest("." + a.wrapperClass).is(b.parent()) && m(c, !0);
+            if (!k) {
+                if (d.preventDefault) {
+                    d.preventDefault();
+                } else {
+                    d.returnValue = !1;
                 }
+            }
+        }
+    }
 
                 function m(d, f, h) {
                     k = !1;

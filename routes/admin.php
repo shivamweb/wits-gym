@@ -13,7 +13,6 @@ Route::get('/viewGymInfo', [AdminGymController::class, 'viewGymInfo']);
 
 Route::get('/adminDashboard', [AdminController::class, 'adminDashboard']);
 
-
 Route::get('/viewGymList', [AdminGymController::class, 'viewGymList']);
 
 
@@ -30,3 +29,15 @@ Route::get('/adminUserList', [AdminUserController::class, 'adminUserList'])->nam
 
 Route::get('/listEnquiry', [AdminEnquiryController::class, 'listEnquiry'])->name('listEnquiry');
 Route::get('/viewAdminEnquiry/{uuid}', [AdminEnquiryController::class, 'viewAdminEnquiry'])->name('viewAdminEnquiry');
+Route::get('/payment', function () {
+    return view('admin.payment');
+});
+Route::get('/coupen', function () {
+    return view('admin.coupen');
+});
+Route::get('/advertisement', function () {
+    return view('admin.advertisment');
+});
+Route::get('/userNotification', function () {
+    return view('admin.userNotification');
+});

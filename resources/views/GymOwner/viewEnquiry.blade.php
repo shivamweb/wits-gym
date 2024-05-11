@@ -52,23 +52,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="form-group">
-                                            <label for="image_and_description" class="col-md-3 control-label">
-                                                Description <span class='require'>*</span>
-                                            </label>
-                                            <div class="col-md-7">
-                                                @if(isset($enquiryDetails->image))
-                                                <img src="{{'../'.$enquiryDetails->image}}" alt="Enquiry Image">
-                                                @else
-                                                <img alt="">
-                                                @endif
-                                                <textarea id="content_editor" name="description" class="form-control" style="height: 200px; overflow-y: auto;" disabled>{{$enquiryDetails->description}}</textarea>
-                            
 
-                                            </div>
-
-                                           
-                                        </div> -->
                                         <div class="form-group">
                                             <label for="image_and_description" class="col-md-3 control-label">
                                                 Description <span class='require'>*</span>
@@ -76,15 +60,23 @@
                                             <div class="col-md-7" style="position: relative;">
                                                 <textarea id="content_editor" name="description" class="form-control" style="height: 200px; overflow-y: auto; padding-left: 80px;" disabled>{{$enquiryDetails->description}}</textarea>
                                                 @if(isset($enquiryDetails->image))
-                                                <img src="{{'../'.$enquiryDetails->image}}" alt="Enquiry Image" style="position: absolute; left: 15px; top: 25px; max-width: 150px;">
+                                                <img src="{{'../'.$enquiryDetails->image}}" alt="Enquiry Image" style="position: absolute; left: 10px; top: 10px; max-width: 150px;">
                                                 @else
                                                 <img alt="" style="position: absolute; max-width: 70px;">
                                                 @endif
-                                                
+                                                <button type="button" onclick="uploadImage()" class="btn btn-primary mt-2">Upload Image</button>
+                                                <!-- Assuming $enquiryDetails->image contains the path or URL to the image -->
                                             </div>
                                         </div>
 
-                                        
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-offset-3 col-md-7">
+                                                    <a class='btn btn-danger' href='/dashboard'> Cancel</a>
+                                                    <input type="reset" id="add-news-reset-editable" class="btn btn-default reset-styles" value="Reset">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </form>
                             </div>

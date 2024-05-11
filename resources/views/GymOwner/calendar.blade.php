@@ -1,4 +1,4 @@
-@extends('GymOwner.master1')
+@extends('GymOwner.master2')
 @section('title','Add Calendar')
 @section('content')
 <aside class="right-side right-padding">
@@ -358,4 +358,5 @@
             </div>
             <!-- /.content -->
         </aside>
+        <script src="assets/js/custom_js/admin_index.js" type="text/javascript"></script>
         @endsection

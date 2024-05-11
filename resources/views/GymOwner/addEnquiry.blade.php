@@ -58,18 +58,18 @@
                                                 Description <span class='require'>*</span>
                                             </label>
                                             <div class="col-md-7">
-                                                <textarea id="content_editor" name="description" contenteditable="true" class="form-control" style="height: 200px; overflow-y: auto;"></textarea>
-                                                <button type="button" onclick="uploadImage()" class="btn btn-primary mt-2">Upload Image</button>
+                                                <textarea id="content_editor"id="imagePreview" name="description" contenteditable="true" class="form-control" style="height: 200px; overflow-y: auto;"></textarea>
+
+                                                <button type="button" id="upload-image-btn" class="btn btn-primary mt-2">Upload Image</button>
                                                 <input type="file" id="image" name="image" style="display: none; height: 300px;" accept="image/*" onchange="handleImageUpload(event)">
                                             </div>
-
-                                            <div class="form-actions">
-                                                <div class="row">
-                                                    <div class="col-md-offset-3 col-md-7">
-                                                        <input type="submit" class="btn btn-primary" value="Add"> &nbsp;
-                                                        <a class='btn btn-danger' href='/dashboard'> Cancel</a>
-                                                        <input type="reset" id="add-news-reset-editable" class="btn btn-default reset-styles" value="Reset">
-                                                    </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-offset-3 col-md-7">
+                                                    <input type="submit" class="btn btn-primary" value="Add"> &nbsp;
+                                                    <a class='btn btn-danger' href='/dashboard'> Cancel</a>
+                                                    <input type="reset" id="add-news-reset-editable" class="btn btn-default reset-styles" value="Reset">
                                                 </div>
                                             </div>
                                         </div>
@@ -126,32 +126,88 @@
             </div>
         </div>
     </div>
-    <script>
-        function uploadImage() {
-            document.getElementById('image').click();
-        }
-
-        function handleImageUpload(event) {
-            const file = event.target.files[0];
-            const reader = new FileReader();
-
-            reader.onload = function(e) {
-                const image = document.createElement('img');
-                image.src = e.target.result;
-                image.style.maxWidth = '40%';
-                image.style.height = 'auto';
-
-                const contentEditor = document.getElementById('content_editor');
-                contentEditor.focus();
-                const selection = window.getSelection();
-                const range = selection.getRangeAt(0);
-                range.collapse(false);
-                range.insertNode(image);
-            };
-
-            reader.readAsDataURL(file);
-        }
-    </script>
-
 </aside>
+
+<!-- CSS Styles for Buttons -->
+<style>
+    .btn {
+        margin-right: 10px;
+    }
+
+    .btn-primary {
+        background-color: #337ab7;
+        border-color: #2e6da4;
+        color: #fff;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active,
+    .btn-primary.active {
+        background-color: #286090;
+        border-color: #204d74;
+        color: #fff;
+    }
+
+    .btn-danger {
+        background-color: #d9534f;
+        border-color: #d43f3a;
+        color: #fff;
+    }
+
+    .btn-danger:hover,
+    .btn-danger:focus,
+    .btn-danger:active,
+    .btn-danger.active {
+        background-color: #c9302c;
+        border-color: #ac2925;
+        color: #fff;
+    }
+</style>
+
+<script>
+    // Function to trigger click event on file input
+    document.getElementById('upload-image-btn').addEventListener('click', function() {
+        document.getElementById('image').click();
+    });
+
+    function handleImageUpload(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            const imagePreview = document.createElement('img');
+            imagePreview.src = e.target.result;
+            imagePreview.style.maxWidth = '100%';
+            imagePreview.style.height = 'auto';
+            const contentEditor = document.getElementById('content_editor');
+            contentEditor.focus();
+            contentEditor.appendChild(imagePreview); // Append image to description box
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+    function handleImageUpload(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        const imageSrc = e.target.result;
+        const imgElement = `<img src="${imageSrc}" style="max-width: 100%; height: auto;">`;
+
+        // Get the image preview container
+        const imagePreview = document.getElementById('imagePreview');
+
+        // Append the image HTML to the image preview container
+        imagePreview.innerHTML = imgElement;
+    };
+
+    reader.readAsDataURL(file);
+}
+
+</script>
+
+
+
 @endsection

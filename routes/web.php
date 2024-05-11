@@ -74,6 +74,11 @@ Route::post('/updateUser', [GymUserController::class,'updateUser'])->name('updat
 Route::post('/addUserWorkout', [GymUserController::class, 'addUserWorkout'])->name('addUserWorkout');
 Route::post('/addUserDiet', [GymUserController::class, 'addUserDiet'])->name('addUserDiet');
 
+
+Route::get('/viewAddEnquiry', [GymEnquiryController::class, 'viewAddEnquiry'])->name('viewAddEnquiry');
+Route::post('/addGymEnquiry', [GymEnquiryController::class, 'addGymEnquiry'])->name('addGymEnquiry');
+Route::get('/viewEnquiry/{uuid}', [GymEnquiryController::class, 'viewEnquiry'])->name('viewEnquiry');
+
 Route::get('/addGallery', function () {
     return view('GymOwner.addGallery');
 });
