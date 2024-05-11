@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <title>@yield('title', 'Admin Dashboard')</title>
+    <title>@yield('title', 'view Inquiry')</title>
     <link rel="shortcut icon" href="favicon.ico" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

@@ -513,12 +513,10 @@
                             <ul class="sub-menu">
                                 <li>
                                     <a href='/addGallery'>
-                                    <a href='/addGallery'>
                                         <i class="text-primary fa fa-fw fa-cloud-upload"></i> Add Gallery
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='/gallery'>
                                     <a href='/gallery'>
                                         <i class="text-success fa fa-fw fa-file-image-o"></i> Gallery
                                     </a>
@@ -526,7 +524,6 @@
                             </ul>
                         </li>
                         <li>
-                            <a href='/calendar'>
                             <a href='/calendar'>
                                 <i class="text-info menu-icon fa fa-fw fa-clock-o"></i>
                                 <span class="mm-text ">Class Calendar</span>
@@ -538,7 +535,6 @@
                                 <i class="text-success fa fa-fw fa-user"></i> Gym Profile
                             </a>
                         </li>
-
 
                         <li class="menu-dropdown">
                             <a href="#">
