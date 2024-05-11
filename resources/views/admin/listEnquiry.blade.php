@@ -2,25 +2,24 @@
 <html lang="en">
 
 
-<!-- Mirrored from demo.lorvent.com/fitness/admin_clubinfo by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:48:18 GMT -->
+<!-- Mirrored from demo.lorvent.com/fitness/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:47:22 GMT -->
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title', 'Dashboard')</title>
-    <link rel="shortcut icon" href="favicon.ico" />
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <title>@yield('title', 'GYM List Inquiry')</title>
+    <link rel="shortcut icon" href="favicon.ico" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]-->
-<<<<<<< HEAD
-    <script src="../../../../oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="../../../../oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-=======
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <!-- global css -->
     <script src="../../../../assets/oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="../../../../assets/oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
->>>>>>> 3b9c5c9 (Add and List Users at Admin Side)
     <!--[endif]-->
     <!-- global css -->
     <link type="text/css" href="../../../../assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -36,7 +35,6 @@
     <link type="text/css" href="../../../../assets/css/custom_css/fitness.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/custom_css/club_info.css" rel="stylesheet" />
     <!--end of page level css-->
-</head>
 
 <body>
     <div class="se-pre-con"></div>
@@ -64,7 +62,7 @@
                             <li class="dropdown-title">New Messages</li>
                             <li>
                                 <a href="#" class="message striped-col">
-                                    <img class="message-image img-circle" alt="image" src="img/authors/avatar7.jpg">
+                                    <img class="message-image img-circle" alt="image" src="../../../../assets/img/authors/avatar7.jpg">
                                     <div class="message-body"> <strong>Ernest Kerry</strong>
                                         <br> Can we Meet?
                                         <br>
@@ -75,7 +73,7 @@
                             </li>
                             <li>
                                 <a href="#" class="message">
-                                    <img class="message-image img-circle" alt="image" src="img/authors/avatar.jpg">
+                                    <img class="message-image img-circle" alt="image" src="../../../../assets/img/authors/avatar.jpg">
                                     <div class="message-body"> <strong>John</strong>
                                         <br> Dont forgot to call...
                                         <br>
@@ -86,7 +84,7 @@
                             </li>
                             <li>
                                 <a href="#" class="message striped-col">
-                                    <img class="message-image img-circle" alt="image" src="img/authors/avatar5.jpg">
+                                    <img class="message-image img-circle" alt="image" src="../../../../assets/img/authors/avatar5.jpg">
                                     <div class="message-body">
                                         <strong>Wilton Zeph</strong>
                                         <br> If there is anything else &hellip;
@@ -98,7 +96,7 @@
                             </li>
                             <li>
                                 <a href="#" class="message">
-                                    <img class="message-image img-circle" alt="image" src="img/authors/avatar1.jpg">
+                                    <img class="message-image img-circle" alt="image" src="../../../../assets/img/authors/avatar1.jpg">
                                     <div class="message-body">
                                         <strong>Jenny Kerry</strong>
                                         <br> Let me know when you free
@@ -110,7 +108,7 @@
                             </li>
                             <li>
                                 <a href="#" class="message striped-col">
-                                    <img class="message-image img-circle" alt="image" src="img/authors/avatar.jpg">
+                                    <img class="message-image img-circle" alt="image" src="../../../../assets/img/authors/avatar.jpg">
                                     <div class="message-body">
                                         <strong>Tony</strong>
                                         <br> Let me know when you free
@@ -328,7 +326,7 @@
                     </div>
                     <ul class="navigation">
                         <li>
-                            <a href='index.html'>
+                            <a href='../admin/adminDashboard'>
                                 <i class="text-primary menu-icon fa fa-fw fa-dashboard"></i>
                                 <span class="mm-text ">Dashboard</span>
                             </a>
@@ -358,79 +356,7 @@
                                 <span class="mm-text">Subscription</span>
                             </a>
                         </li>
-                        <!-- <li>
-                            <a href='personal_training.html'>
-                                <i class="text-success menu-icon fa fa-life-ring fa-info-circle"></i>
-                                <span class="mm-text">Personal Training</span>
-                            </a>
-                        </li>
-                        <li class="menu-dropdown">
-                            <a href="#">
-                                <i class="text-info menu-icon fa fa-fw fa-newspaper-o"></i>
-                                <span class="mm-text">News</span>
-                                <span class="fa fa-angle-down pull-right"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href='news.html'>
-                                        <i class="text-primary menu-icon fa fa-inbox"></i> News
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href='admin_addnews.html'>
-                                        <i class="menu-icon text-success fa fa-pencil"></i> Add News
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-dropdown">
-                            <a href="#">
-                                <i class="text-danger menu-icon fa fa-fw fa-calendar"></i>
-                                <span class="mm-text">Events</span>
-                                <span class="fa fa-angle-down pull-right"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href='events_list.html'>
-                                        <i class="text-primary menu-icon fa fa-fw fa-list"></i> Events List
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href='event_item.html'>
-                                        <i class="text-info menu-icon fa fa-fw fa-fast-forward"></i> Event Item
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-dropdown">
-                            <a href="#">
-                                <i class="text-warning menu-icon fa fa-fw fa-graduation-cap"></i>
-                                <span class="mm-text">Course Schedule</span>
-                                <span class="fa fa-angle-down pull-right"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href='admin_courseschedule.html'>
-                                        <i class="text-primary fa fa-fw fa-th"></i> Course Schedule
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href='courses.html'>
-                                        <i class="text-success fa fa-fw fa-indent"></i> Courses
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href='admin_rooms.html'>
-                                        <i class="text-info fa fa-fw fa-star"></i> Rooms
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href='admin_trainers.html'>
-                                        <i class="text-danger fa fa-fw fa-paw"></i> Trainers
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+
                         <li class="menu-dropdown">
                             <a href="#">
                                 <i class="text-default menu-icon fa fa-fw fa-users"></i>
@@ -439,7 +365,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href='admin_userlist.html'>
+                                    <a href='/admin/adminUserList'>
                                         <i class="text-primary fa fa-fw fa-users"></i> Users List
                                     </a>
                                 </li>
@@ -449,241 +375,134 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='add_users.html'>
+                                    <a href='/admin/addAdminUsers'>
                                         <i class="text-info fa fa-fw fa-user"></i> Add Users
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href='admin_userpayment.html'>
-                                        <i class="text-danger fa fa-fw fa-money"></i> Payments
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href='admin_coupon.html'>
+                            <a href='/admin/coupen'>
                                 <i class="text-primary  menu-icon fa fa-scissors"></i>
                                 <span class="mm-text">Coupons</span>
                             </a>
                         </li>
-                        <li class="menu-dropdown">
-                            <a href="#">
-                                <i class="text-success menu-icon fa fa-fw fa-picture-o"></i>
-                                <span class="mm-text">Gallery</span>
-                                <span class="fa fa-angle-down pull-right"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href='add_gallery.html'>
-                                        <i class="text-primary fa fa-fw fa-cloud-upload"></i> Add Gallery
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href='gallery.html'>
-                                        <i class="text-success fa fa-fw fa-file-image-o"></i> Gallery
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
                         <li>
-                            <a href='admin_timings.html'>
-                                <i class="text-info menu-icon fa fa-fw fa-clock-o"></i>
-                                <span class="mm-text ">Class Calendar</span>
+                            <a href='/admin/advertisement'>
+                                <i class="text-primary  menu-icon fa fa-question-circle"></i>
+                                <span class="mm-text">Advertisement</span>
                             </a>
                         </li>
                         <li>
-                            <a href='admin_login.html'>
-                                <i class="text-danger menu-icon fa fa-sign-in"></i>
-                                <span class="mm-text">Login</span>
+                            <a href='/admin/userNotification'>
+                                <i class="text-primary  menu-icon fa fa-question-circle"></i>
+                                <span class="mm-text">User Notification</span>
                             </a>
                         </li>
                         <li>
-                            <a href='404.html'>
-                                <i class="text-warning menu-icon fa fa-anchor"></i>
-                                <span class="mm-text">404</span>
+                            <a href='/admin/payment'>
+                                <i class="text-primary  menu-icon fa fa-question-circle"></i>
+                                <span class="mm-text">Payment</span>
                             </a>
                         </li>
                         <li>
-                            <a href='blank.html'>
-                                <i class="text-default menu-icon fa fa-file-o"></i>
-                                <span class="mm-text">Blank</span>
+                            <a href='/admin/listEnquiry'>
+                                <i class="text-primary  menu-icon fa fa-question-circle"></i>
+                                <span class="mm-text">Enquiry</span>
                             </a>
                         </li>
-                        <li class="menu-dropdown">
-                            <a href="#">
-                                <i class="text-primary menu-icon fa fa-sitemap"></i>
-                                <span class="mm-text">Menu Levels</span>
-                                <span class="fa fa-angle-down pull-right"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="#">
-                                        <i class="text-primary fa fa-fw fa-sitemap"></i> Level 1
-                                        <span class="fa arrow"></span>
-                                    </a>
-                                    <ul class="sub-menu sub-submenu">
-                                        <li>
-                                            <a href="#">
-                                                <i class="text-primary fa fa-fw fa-sitemap"></i> Level 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="text-success fa fa-fw fa-sitemap"></i> Level 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="text-info fa fa-fw fa-sitemap"></i> Level 2
-                                                <span class="fa arrow"></span>
-                                            </a>
-                                            <ul class="sub-menu sub-submenu">
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="text-primary fa fa-fw fa-sitemap"></i> Level 3
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="text-success fa fa-fw fa-sitemap"></i> Level 3
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="text-info fa fa-fw fa-sitemap"></i> Level 3
-                                                        <span class="fa arrow"></span>
-                                                    </a>
-                                                    <ul class="sub-menu sub-submenu">
-                                                        <li>
-                                                            <a href="#">
-                                                                <i class="text-primary fa fa-fw fa-sitemap"></i> Level 4
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <i class="text-success fa fa-fw fa-sitemap"></i> Level 4
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <i class="text-info fa fa-fw fa-sitemap"></i> Level 4
-                                                                <span class="fa arrow"></span>
-                                                            </a>
-                                                            <ul class="sub-menu sub-submenu">
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="text-primary fa fa-fw fa-sitemap"></i> Level 5
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="text-success fa fa-fw fa-sitemap"></i> Level 5
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="text-danger fa fa-fw fa-sitemap"></i> Level 5
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="text-danger fa fa-fw fa-sitemap"></i> Level 4
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="text-danger fa fa-fw fa-sitemap"></i> Level 2
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="text-success fa fa-fw fa-sitemap"></i> Level 1
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="text-info fa fa-fw fa-sitemap"></i> Level 1
-                                        <span class="fa arrow"></span>
-                                    </a>
-                                    <ul class="sub-menu sub-submenu">
-                                        <li>
-                                            <a href="#">
-                                                <i class="text-primary fa fa-fw fa-sitemap"></i> Level 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="text-success fa fa-fw fa-sitemap"></i> Level 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="text-info fa fa-fw fa-sitemap"></i> Level 2
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-dropdown">
-                            <a href="#">
-                                <i class="text-success menu-icon fa fa-fw fa-question-circle"></i>
-                                <span class="mm-text">FAQ</span>
-                                <span class="fa fa-angle-down pull-right"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href='faq.html'>
-                                        <i class="text-primary fa fa-fw fa-question-circle"></i> FAQ
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href='add_faq.html'>
-                                        <i class="text-success fa fa-fw fa-question"></i> Add Faq
-                                    </a>
-                                </li>
-                            </ul>
-                        </li> -->
-                    </ul>
+
                     <!-- / .navigation -->
                 </div>
                 <!-- menu -->
             </section>
             <!-- /.sidebar -->
         </aside>
-        @yield('content')
+
+<aside class="right-side right-padding">
+    <section class="content-header">
+        <!--section starts-->
+        {{-- <h2>Courses</h2> --}}
+        <ol class="breadcrumb">
+            <li>
+                <a href='/admin/adminDashboard'>
+                    <i class="fa fa-fw fa-home"></i> Dashboard
+                </a>
+            </li>
+            <li>
+                <a>List Enquiry</a>
+            </li>
+        </ol>
+    </section>
+    <!--section ends-->
+    <div class="container-fluid">
+        <!--main content-->
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Basic charts strats here-->
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <i class="fa fa-fw fa-file-text-o"></i> Enquiry List
+                        </h4>
+                        <span class="pull-right">
+                            <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
+                            <i class="glyphicon glyphicon-remove removepanel"></i>
+                        </span>
+                    </div>
+                    <div class="panel-body table-responsive">
+                        <table class="table table-bordered" id="fitness-table">
+                            <thead>
+                                <tr>
+                                    <th>Gym Name</th>
+                                    <th>Title</th>
+                                    <th>View</th>
+                                    <th>Delete/Cancel</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($enquiries as $enquiry)
+                                <tr>
+                                    <td>{{ $enquiry->gym->gym_name }}</td>
+                                    <td>{{ $enquiry->title }} </td>
+                                    <td>
+                                        <a class="edit btn btn-primary" href={{route('viewAdminEnquiry',$enquiry->uuid)}} >
+                                            <i class="fa fa-fw fa-eye"></i> View
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="delete btn btn-danger mar-bm" href="javascript:;">
+                                            <i class="fa fa-trash-o"></i> Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.right-side -->
-    <!-- ./wrapper -->
-    <!-- global js -->
-    <script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="../../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../../../../assets/js/custom_js/app.js" type="text/javascript"></script>
-    <script src="../../../../assets/js/custom_js/metisMenu.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/holder/holder.js" type="text/javascript"></script>
-    <!-- end of page level js -->
-    <!-- begining of page level js -->
-    <script src="../../../../assets/vendors/jasny-bootstrap/js/jasny-bootstrap.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/x-editable/jquery.mockjax.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/x-editable/bootstrap-editable.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/x-editable/js/html5types.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/summernote/summernote.min.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/jasny-bootstrap/js/inputmask.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/jasny-bootstrap/js/jquery.inputmask.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/x-editable/js/demo-mock.js" type="text/javascript"></script>
-    <script src="../../../../assets/js/custom_js/club_info.js" type="text/javascript"></script>
-    <!-- end of page level js -->
+</aside>
+<script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>
+        <script src="../../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../../../assets/js/custom_js/app.js" type="text/javascript"></script>
+        <script src="../../../../assets/js/custom_js/metisMenu.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/holder/holder.js" type="text/javascript"></script>
+        <!-- end of page level js -->
+        <!-- begining of page level js -->
+        <script src="../../../../assets/vendors/jasny-bootstrap/js/jasny-bootstrap.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/x-editable/jquery.mockjax.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/x-editable/bootstrap-editable.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/x-editable/js/html5types.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/summernote/summernote.min.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/jasny-bootstrap/js/inputmask.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/jasny-bootstrap/js/jquery.inputmask.js" type="text/javascript"></script>
+        <script src="../../../../assets/vendors/x-editable/js/demo-mock.js" type="text/javascript"></script>
+        <script src="../../../../assets/js/custom_js/club_info.js" type="text/javascript"></script>
 </body>
 
 
-<!-- Mirrored from demo.lorvent.com/fitness/admin_clubinfo by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:49:09 GMT -->
-
+<!-- Mirrored from demo.lorvent.com/fitness/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:48:05 GMT -->
 </html>

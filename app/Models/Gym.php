@@ -104,4 +104,6 @@ class Gym extends Authenticatable
     //         Log::error('[Gym][addSocialLink] Error adding social links: ' . $e->getMessage());
     //     }
     // }
+
+
 }
