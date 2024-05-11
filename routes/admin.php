@@ -41,3 +41,6 @@ Route::get('/advertisement', function () {
 Route::get('/userNotification', function () {
     return view('admin.userNotification');
 });
+Route::get('/adminUserprofile', function () {
+    return view('admin.adminUser.adminUserprofile');
+});

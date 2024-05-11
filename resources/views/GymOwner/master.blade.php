@@ -25,7 +25,7 @@
     <link type="text/css" href="../../assets/vendors/fullcalendar/css/fullcalendar.css" rel="stylesheet">
     <link type="text/css" href="../../assets/vendors/select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link type="text/css" href="../../assets/css/custom_css/calendar_custom.css" rel="stylesheet">
-    <link type="text/css" href="../../assets/vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" />
+    <link type="text/css" href="assets/vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../../assets/vendors/nvd3chart/nv.d3.min.css">
     <link type="text/css" href="../../assets/css/custom_css/fitness.css" rel="stylesheet" />
     <link type="text/css" href="../../assets/css/custom_css/panel.css" rel="stylesheet" />
@@ -44,12 +44,10 @@
     <link type="text/css" href="../../assets/css/custom_css/fitness.css" rel="stylesheet" />
     <link type="text/css" href="../../assets/css/custom_css/club_info.css" rel="stylesheet" />
     <!--end of page level css-->
-    <link type="text/css" href="../../assets/vendors/jquery-circliful/css/jquery.circliful.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" type="text/css" href="vendors/jquery-plugin-circliful-master/css/jquery.circliful.css"> -->
+
     <link type="text/css" href="../../assets/vendors/progressbar/css/bootstrap-progressbar.min.css" rel="stylesheet">
     <link type="text/css" href="../../assets/vendors/select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link type="text/css" href="../../assets/css/custom_css/calendar_custom.css" rel="stylesheet">
-    <link type="text/css" href="{{ asset('vendors/sweetalert/dist/sweetalert2.css') }}" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../../assets/vendors/nvd3chart/nv.d3.min.css">
     <link type="text/css" href="../../assets/css/custom_css/fitness.css" rel="stylesheet" />
     <link type="text/css" href="../../assets/css/custom_css/panel.css" rel="stylesheet" />
@@ -588,7 +586,7 @@
 
 
     <!-- date picker end -->
-    <script src="../../assets/vendors/sweetalert/dist/sweetalert2.js" type="text/javascript"></script>
+    <script src="assets/vendors/sweetalert/dist/sweetalert2.js" type="text/javascript"></script>
     <script src="assets/vendors/fullcalendar/fullcalendar.js" type="text/javascript"></script>
     <script src="assets/vendors/d3-chart/d3.v3.min.js" type="text/javascript"></script>
     <script src="assets/vendors/nvd3chart/nv.d3.min.js" type="text/javascript"></script>

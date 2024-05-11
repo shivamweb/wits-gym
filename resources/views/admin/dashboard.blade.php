@@ -371,7 +371,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='admin_userprofile.html'>
+                                    <a href='/admin/adminUserprofile'>
                                         <i class="text-success fa fa-fw fa-user"></i> User Profile
                                     </a>
                                 </li>

@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <title>@yield('title', 'GYM Info')</title>
+    <title>@yield('title', 'User List')</title>
     <link rel="shortcut icon" href="favicon.ico" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -370,7 +370,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='admin_userprofile.html'>
+                                    <a href='/admin/adminUserprofile'>
                                         <i class="text-success fa fa-fw fa-user"></i> User Profile
                                     </a>
                                 </li>

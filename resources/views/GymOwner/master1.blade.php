@@ -686,6 +686,7 @@
         </tr>
         {% } %}
     </script>
+
     <script src="../../../../assets/vendors/tags/dist/bootstrap-tagsinput.js" type="text/javascript"></script>
     <script src="../../../../assets/vendors/bootstrapvalidator/dist/js/bootstrapValidator.js" type="text/javascript"></script>
     <script src="../../../../assets/vendors/select2/js/select2.full.js" type="text/javascript"></script>
