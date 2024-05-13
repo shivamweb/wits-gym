@@ -544,13 +544,13 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href='/faq'>
+
                                     <a href='/faq'>
                                         <i class="text-primary fa fa-fw fa-question-circle"></i> FAQ
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='/addFaq'>
+
                                     <a href='/addFaq'>
                                         <i class="text-success fa fa-fw fa-question"></i> Add Faq
                                     </a>
