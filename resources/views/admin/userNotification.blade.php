@@ -381,7 +381,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href='/admin/coupen'>
+                            <a href='/admin/coupon'>
                                 <i class="text-primary  menu-icon fa fa-scissors"></i>
                                 <span class="mm-text">Coupons</span>
                             </a>
@@ -392,11 +392,24 @@
                                 <span class="mm-text">Advertisement</span>
                             </a>
                         </li>
-                        <li>
-                            <a href='/admin/userNotification'>
-                                <i class="text-primary  menu-icon fa fa-question-circle"></i>
-                                <span class="mm-text">User Notification</span>
+                        <li class="menu-dropdown">
+                            <a href="#">
+                                <i class="text-success menu-icon fa fa-fw fa-picture-o"></i>
+                                <span class="mm-text">Notifications</span>
+                                <span class="fa fa-angle-down pull-right"></span>
                             </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href='/admin/userNotification'>
+                                        <i class="text-primary fa fa-fw fa-cloud-upload"></i> User Notification
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='/admin/gymNotification'>
+                                        <i class="text-success fa fa-fw fa-file-image-o"></i>GYM Notification
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href='/admin/payment'>
@@ -420,12 +433,15 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <!--section starts-->
-                <h2>Coupons</h2>
+                <h2>Notification</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href='index.html'>
                             <i class="fa fa-fw fa-home"></i> Dashboard
                         </a>
+                    </li>
+                    <li>
+                        <a class='activated' href='admin_coupon.html'>Notification</a>
                     </li>
                     <li>
                         <a class='activated' href='admin_coupon.html'>User Notification</a>
@@ -441,7 +457,7 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <i class="fa fa-scissors "></i> Add Coupon
+                                    <i class="fa fa-scissors "></i> Add Notification
                                 </h4>
                                 <span class="pull-right">
                                     <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
@@ -455,7 +471,7 @@
                                             <div class="form-body">
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label" for="cupon">
-                                                        Coupon Name
+                                                        Notification Name
                                                         <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-7">
@@ -543,7 +559,7 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <i class="fa fa-fw fa-file-text-o"></i> Present Coupons
+                                    <i class="fa fa-fw fa-file-text-o"></i> Present Notification
                                 </h4>
                                 <span class="pull-right">
                                     <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
@@ -554,7 +570,7 @@
                                 <table class="table table-bordered" id="fitness-table">
                                     <thead>
                                         <tr>
-                                            <th>Coupon Name</th>
+                                            <th>Notification Name</th>
                                             <th>Duration</th>
                                             <th>Desciption</th>
                                             <th>Code</th>

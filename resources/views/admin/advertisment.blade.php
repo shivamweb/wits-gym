@@ -381,7 +381,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href='/admin/coupen'>
+                            <a href='/admin/coupon'>
                                 <i class="text-primary  menu-icon fa fa-scissors"></i>
                                 <span class="mm-text">Coupons</span>
                             </a>
@@ -392,11 +392,24 @@
                                 <span class="mm-text">Advertisement</span>
                             </a>
                         </li>
-                        <li>
-                            <a href='/admin/userNotification'>
-                                <i class="text-primary  menu-icon fa fa-question-circle"></i>
-                                <span class="mm-text">User Notification</span>
+                        <li class="menu-dropdown">
+                            <a href="#">
+                                <i class="text-success menu-icon fa fa-fw fa-picture-o"></i>
+                                <span class="mm-text">Notifications</span>
+                                <span class="fa fa-angle-down pull-right"></span>
                             </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href='/admin/userNotification'>
+                                        <i class="text-primary fa fa-fw fa-cloud-upload"></i> User Notification
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='/admin/gymNotification'>
+                                        <i class="text-success fa fa-fw fa-file-image-o"></i>GYM Notification
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href='/admin/payment'>
@@ -404,12 +417,7 @@
                                 <span class="mm-text">Payment</span>
                             </a>
                         </li>
-                        <li>
-                            <a href='/admin/listEnquiry'>
-                                <i class="text-primary  menu-icon fa fa-question-circle"></i>
-                                <span class="mm-text">Payment</span>
-                            </a>
-                        </li>
+
                         <li>
                             <a href='/admin/listEnquiry'>
                                 <i class="text-primary  menu-icon fa fa-question-circle"></i>
@@ -426,7 +434,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <!--section starts-->
-                <h2>Coupons</h2>
+                <h2>Advertisement</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href='index.html'>
@@ -434,7 +442,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class='activated' href='admin_coupon.html'>Advertisement</a>
+                        <a class='activated' href='/'>Advertisement</a>
                     </li>
                 </ol>
             </section>
@@ -447,7 +455,7 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <i class="fa fa-scissors "></i> Add Coupon
+                                    <i class="fa fa-scissors "></i> Add Advertisement
                                 </h4>
                                 <span class="pull-right">
                                     <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>

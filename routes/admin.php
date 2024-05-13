@@ -32,14 +32,17 @@ Route::get('/viewAdminEnquiry/{uuid}', [AdminEnquiryController::class, 'viewAdmi
 Route::get('/payment', function () {
     return view('admin.payment');
 });
-Route::get('/coupen', function () {
-    return view('admin.coupen');
+Route::get('/coupon', function () {
+    return view('admin.coupon');
 });
 Route::get('/advertisement', function () {
     return view('admin.advertisment');
 });
 Route::get('/userNotification', function () {
     return view('admin.userNotification');
+});
+Route::get('/gymNotification', function () {
+    return view('admin.gymNotification');
 });
 Route::get('/adminUserprofile', function () {
     return view('admin.adminUser.adminUserprofile');
