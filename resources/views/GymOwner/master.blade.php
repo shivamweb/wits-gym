@@ -457,7 +457,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="menu-dropdown">
+                                {{-- <li class="menu-dropdown">
                                     <a href="#">
                                         <i class="text-warning menu-icon fa fa-fw fa-graduation-cap"></i>
                                         <span class="mm-text">Course Schedule</span>
@@ -485,7 +485,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <a href='/viewAddEnquiry'>
                                         <i class="text-primary  menu-icon fa fa-question-circle"></i>

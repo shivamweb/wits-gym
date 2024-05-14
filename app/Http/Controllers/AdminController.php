@@ -50,25 +50,25 @@ class AdminController extends Controller
         return view('GymOwner.eventsList');
     }
 
-    public function showCourseSchedule()
-    {
-        return view('GymOwner.courseSchedule');
-    }
+    // public function showCourseSchedule()
+    // {
+    //     return view('GymOwner.courseSchedule');
+    // }
 
-    public function showCourses()
-    {
-        return view('GymOwner.courses');
-    }
+    // public function showCourses()
+    // {
+    //     return view('GymOwner.courses');
+    // }
 
-    public function showTrainers()
-    {
-        return view('GymOwner.trainers');
-    }
+    // public function showTrainers()
+    // {
+    //     return view('GymOwner.trainers');
+    // }
 
-    public function showRooms()
-    {
-        return view('GymOwner.rooms');
-    }
+    // public function showRooms()
+    // {
+    //     return view('GymOwner.rooms');
+    // }
 
     public function showAddUsers()
     {

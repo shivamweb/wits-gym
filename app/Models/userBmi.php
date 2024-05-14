@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Log;
 use Ramsey\Uuid\Uuid;
 use Throwable;
 
-class Bmi extends Model
+class userBmi extends Model
 {
     use SoftDeletes;
 
