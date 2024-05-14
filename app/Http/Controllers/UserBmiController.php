@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\userBmi;
 use App\Models\UserBodyMeasurement;
 use App\Traits\SessionTrait;
 use Illuminate\Http\Request;
@@ -11,15 +12,18 @@ class UserBmiController extends Controller
 {
     use SessionTrait;
     protected $userBodyMeasurement;
+    protected $bmi;
 
 
-    public function __construct(UserBodyMeasurement $userBodyMeasurement)
+    public function __construct(UserBodyMeasurement $userBodyMeasurement,userBmi $bmi)
     {
         $this->userBodyMeasurement = $userBodyMeasurement;
+        $this->bmi = $bmi;
     }
 
     public function createUserBodyMeasurement(Request $request)
     {
+        // dd($request->all());
         try {
             $validatedData = $request->validate([
                 "user_id" => 'required',
@@ -34,11 +38,16 @@ class UserBmiController extends Controller
                 "glutes" => 'required',
                 "quads" => 'required',
                 "hamstring" => 'required',
-                "calves" => 'required'
+                "calves" => 'required',
+                "height" => 'required',
+                "weight" => 'required',
+                "bmi" => 'required',
+                "age" => 'required'
             ]);
 
-            $userId=$request->all()['user_id'];
-            $this->userBodyMeasurement->createBodyMeasurement($validatedData,$userId);
+            $userId = $request->all()['user_id'];
+            $this->userBodyMeasurement->createBodyMeasurement($validatedData, $userId);
+            $this->bmi->createBmi($validatedData, $userId);
 
             return redirect()->back()->with('success', 'Data saved successfully.');
         } catch (\Throwable $th) {

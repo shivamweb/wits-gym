@@ -13,7 +13,7 @@
                 </a>
             </li>
             <li>
-                <a>Add Enquiry</a>
+                <a>Add Enquiry to Admin</a>
             </li>
         </ol>
     </section>
@@ -25,7 +25,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <i class="fa fa-fw f fa-question-circle"></i> Add Enquiry
+                            <i class="fa fa-fw f fa-question-circle"></i> Send Enquiry to Admin
                         </h4>
                         <span class="pull-right">
                             <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
@@ -67,7 +67,7 @@
                                         <div class="form-actions">
                                             <div class="row">
                                                 <div class="col-md-offset-3 col-md-7">
-                                                    <input type="submit" class="btn btn-primary" value="Add"> &nbsp;
+                                                    <input type="submit" class="btn btn-primary" value="Send"> &nbsp;
                                                     <a class='btn btn-danger' href='/dashboard'> Cancel</a>
                                                     <input type="reset" id="add-news-reset-editable" class="btn btn-default reset-styles" value="Reset">
                                                 </div>
@@ -87,7 +87,7 @@
                 <div class="panel panel-success">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <i class="fa fa-fw fa-file-text-o"></i> Enquiry List
+                            <i class="fa fa-fw fa-file-text-o"></i> Enquiry History List
                         </h4>
                         <span class="pull-right">
                             <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>

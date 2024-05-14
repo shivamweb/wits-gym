@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\userBmi;
 use App\Models\Gym;
 use App\Models\User;
 use App\Models\UserBodyMeasurement;
@@ -22,8 +23,9 @@ class GymUserController extends Controller
     protected $diet;
     protected $userService;
     protected $userBodyMeasurement;
+    protected $bmi;
 
-    public function __construct(User $user, Gym $gym, UserWorkout $workout, UserDiet $diet, UserService $userService,UserBodyMeasurement $userBodyMeasurement)
+    public function __construct(User $user, Gym $gym, UserWorkout $workout, UserDiet $diet, UserService $userService,UserBodyMeasurement $userBodyMeasurement,userBmi $bmi)
     {
         $this->user = $user;
         $this->gym = $gym;
@@ -31,6 +33,7 @@ class GymUserController extends Controller
         $this->diet = $diet;
         $this->userService = $userService;
         $this->userBodyMeasurement = $userBodyMeasurement;
+        $this->bmi = $bmi;
     }
 
     public function listGymUser()
@@ -80,9 +83,9 @@ class GymUserController extends Controller
         $diets = $this->diet->all();
 
         $userId = $userDetail->first()['id'];
-        $bodyMeasurements=$this->userBodyMeasurement->where('user_id',$userId)->get();
+        $bmis=$this->bmi->where('user_id',$userId)->get();
         // dd($bmis);
-        return view('GymOwner.User.userProfile', compact('userDetail','workouts','diets','bodyMeasurements'));
+        return view('GymOwner.User.userProfile', compact('userDetail','workouts','diets','bmis'));
     }
 
     public function updateUser(Request $request)

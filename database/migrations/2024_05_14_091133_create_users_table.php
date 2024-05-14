@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->uuid()->index();
             $table->unsignedBigInteger('gym_id');
+            $table->unsignedBigInteger('trainer_id');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
@@ -29,6 +30,11 @@ return new class extends Migration {
             ->references('id')
             ->on('gyms')
             ->onDelete('cascade');
+
+            $table->foreign('trainer_id')
+            ->references('id')
+            ->on('gym_staffs')
+            ->onDelete('cascade');
         });
     }
 
@@ -37,6 +43,8 @@ return new class extends Migration {
      */
     public function down(): void
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Schema::dropIfExists('users');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 };

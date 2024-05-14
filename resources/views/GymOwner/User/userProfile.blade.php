@@ -36,16 +36,6 @@
                                                 <strong>USer Info</strong>
                                             </a>
                                         </li>
-                                        {{-- <li role="presentation">
-                                            <a href="#terms" aria-controls="terms" role="tab" data-toggle="tab">
-                                                <strong>Terms & Conditions</strong>
-                                            </a>
-                                        </li>
-                                        <li role="presentation">
-                                            <a href="#social" aria-controls="social" role="tab" data-toggle="tab">
-                                                <strong>Social Networks</strong>
-                                            </a>
-                                        </li> --}}
                                         <li role="presentation">
                                             <a href="#subscription" aria-controls="subscription" role="tab"
                                                 data-toggle="tab">
@@ -71,7 +61,6 @@
                                 </div>
 
                                 <div class="tab-content">
-
                                     <div role="tabpanel" class="tab-pane active" id="Info">
                                         <form action="{{ route('updateUser') }}" method="POST" class="form-horizontal"
                                             enctype="multipart/form-data">
@@ -192,68 +181,6 @@
                                             </div>
                                     </div>
                                     </form>
-                                    <!-- <div role="tabpanel" class="tab-pane" id="terms">
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <div>
-                                                                        <h4>Terms and Conditions</h4>
-                                                                    </div> -->
-                                    <!-- <form> -->
-                                    <!-- <textarea class="summernote edi-css" placeholder="Place some text here" name="terms_and_conditions"></textarea>
-                                                                    <div class="form-actions pad-top">
-                                                                        <div class="">
-                                                                            <input type="submit" class="btn btn-primary" value="Update"> &nbsp;
-                                                                            <input type="button" class="btn btn-danger" value="Cancel"> &nbsp;
-                                                                            <input type="reset" class="btn btn-default reset-editable" value="Reset">
-                                                                        </div>
-                                                                    </div> -->
-                                    <!-- </form> -->
-                                    <!-- </div>
-                                                            </div>
-                                                        </div> -->
-                                    <!-- <div role="tabpanel" class="tab-pane" id="social">
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <div>
-                                                                        <h4>Social Networks</h4>
-                                                                    </div> -->
-                                    <!-- <form action="#" class="form-horizontal"> -->
-                                    <!-- <div class="form-body">
-                                                                        <div class="form-group">
-                                                                            <label class="col-lg-2 control-label" for="fb-name">Facebook</label>
-                                                                            <div class="col-lg-6">
-                                                                                <div class="input-group">
-                                                                                    <span class="input-group-addon">
-                                                                                        <i class="fa fa-fw fa-facebook text-primary"></i>
-                                                                                    </span>
-                                                                                    <input type="text" placeholder=" " name="facebook" id="fb-name" class="form-control">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label class="col-lg-2 control-label" for="instagram">Instagram</label>
-                                                                            <div class="col-lg-6">
-                                                                                <div class="input-group">
-                                                                                    <span class="input-group-addon">
-                                                                                        <i class="fa fa-fw fa-twitter text-primary"></i>
-                                                                                    </span>
-                                                                                    <input type="text" placeholder=" " name="instagram" id="twitter" class="form-control">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-actions">
-                                                                        <div class="row">
-                                                                            <div class="col-md-offset-2 col-md-9">
-                                                                                <input type="submit" class="btn btn-primary" value="Update"> &nbsp;
-                                                                                <input type="button" class="btn btn-danger" value="Cancel"> &nbsp;
-                                                                                <input type="reset" class="btn btn-default" value="Reset">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div> -->
                                     <div role="tabpanel" class="tab-pane" id="subscription">
                                         <div class="row">
                                             <div class="col-md-12">
@@ -303,8 +230,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-
                                     <div role="tabpanel" class="tab-pane" id="workout">
                                         <div class="row">
                                             <div class="col-md-12">
@@ -566,53 +491,59 @@
                                         </div>
                                     </div>
                                     <div role="tabpanel" class="tab-pane" id="bmi">
-                                        <div class="row" >
+                                        <div class="row">
                                             <div>
-                                                <h4>BMI </h4>
+                                                <h4>Body Measurement </h4>
                                             </div>
-                                            <form id="dietForm" action="{{ route('addUserBodyMeasurement') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                            <form id="bmiForm" action="{{ route('addUserBodyMeasurement') }}"
+                                                method="POST" class="form-horizontal" enctype="multipart/form-data">
                                                 @csrf
 
                                                 <div class="col-lg-4">
                                                     <input type="hidden" name="user_id" value="{{ $userDetail->id }}">
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="chest">Chest (cm):</label>
+                                                        <label class="col-lg-2 control-label" for="chest">Chest
+                                                            (cm):</label>
                                                         <div class="col-lg-6">
-                                                            <input type="text" name="chest" id="chest"
-                                                                required class="form-control">
+                                                            <input type="text" name="chest" id="chest" required
+                                                                class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label"
-                                                            for="triceps">Triceps (cm):</label>
+                                                        <label class="col-lg-2 control-label" for="triceps">Triceps
+                                                            (cm):</label>
                                                         <div class="col-lg-6">
                                                             <input type="number" name="triceps" id="triceps"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="biceps">Biceps (cm)::</label>
+                                                        <label class="col-lg-2 control-label" for="biceps">Biceps
+                                                            (cm)::</label>
                                                         <div class="col-lg-6">
                                                             <input type="number" name="biceps" id="biceps"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="lats">Lats (cm):</label>
+                                                        <label class="col-lg-2 control-label" for="lats">Lats
+                                                            (cm):</label>
                                                         <div class="col-lg-6">
                                                             <input type="number" name="lats" id="lats"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="shoulder">Shoulder (cm):</label>
+                                                        <label class="col-lg-2 control-label" for="shoulder">Shoulder
+                                                            (cm):</label>
                                                         <div class="col-lg-6">
                                                             <input type="number" name="shoulder" id="shoulder"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="abs">Abs (cm):</label>
+                                                        <label class="col-lg-2 control-label" for="abs">Abs
+                                                            (cm):</label>
                                                         <div class="col-lg-6">
                                                             <input type="number" name="abs" id="abs"
                                                                 min="0" required class="form-control">
@@ -620,67 +551,106 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
-                                                    <img src="assets/img/bmi_images/female-skeleton.png"
-                                                        alt="skeleton" height="500">
+                                                    <img src="assets/img/bmi_images/female-skeleton.png" alt="skeleton"
+                                                        height="500">
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="forearms">Forearms (cm):</label>
+                                                        <label class="col-lg-2 control-label" for="forearms">Forearms
+                                                            (cm):</label>
                                                         <div class="col-lg-6">
-                                                            <input type="text" name="forearms" id="forearms"
-                                                                required class="form-control">
+                                                            <input type="text" name="forearms" id="forearms" required
+                                                                class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label"
-                                                            for="traps">Traps (cm):</label>
+                                                        <label class="col-lg-2 control-label" for="traps">Traps
+                                                            (cm):</label>
                                                         <div class="col-lg-6">
                                                             <input type="number" name="traps" id="traps"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="glutes">Glutes (cm)::</label>
+                                                        <label class="col-lg-2 control-label" for="glutes">Glutes
+                                                            (cm)::</label>
                                                         <div class="col-lg-6">
                                                             <input type="number" name="glutes" id="glutes"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="quads">Quads (cm):</label>
+                                                        <label class="col-lg-2 control-label" for="quads">Quads
+                                                            (cm):</label>
                                                         <div class="col-lg-6">
                                                             <input type="number" name="quads" id="quads"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="hamstring">Hamstring (cm):</label>
+                                                        <label class="col-lg-2 control-label" for="hamstring">Hamstring
+                                                            (cm):</label>
                                                         <div class="col-lg-6">
                                                             <input type="number" name="hamstring" id="hamstring"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-lg-2 control-label" for="calves">Calves (cm):</label>
+                                                        <label class="col-lg-2 control-label" for="calves">Calves
+                                                            (cm):</label>
                                                         <div class="col-lg-6">
                                                             <input type="number" name="calves" id="calves"
                                                                 min="0" required class="form-control">
                                                         </div>
                                                     </div>
-
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-offset-2 col-md-9">
-                                                        <input type="submit" class="btn btn-primary" value="Add">
-
-                                                        <input type="button" class="btn btn-danger" value="Cancel">
-
-                                                        <input type="reset" class="btn btn-default" value="Reset">
-                                                    </div>
-                                                </div>
-                                            </form>
-
                                         </div>
+                                        <div class="row">
+                                            <div>
+                                                <h4>BMI</h4>
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-lg-2 control-label" for="height">Height
+                                                    (cm):</label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" name="height" id="height" min="0"
+                                                        required class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-lg-2 control-label" for="bmi_weight">Weight
+                                                (kg):</label>
+                                            <div class="col-lg-6">
+                                                <input type="number" name="weight" id="bmi_weight" min="0"
+                                                    required class="form-control">
+                                                <input type="hidden" name="bmi" id="calculatedBmi" required
+                                                    class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-lg-2 control-label" for="age">Age:</label>
+                                            <div class="col-lg-6">
+                                                <input type="number" name="age" id="age" min="0"
+                                                    required class="form-control">
+                                            </div>
+                                        </div>
+                                        <span>
+                                            <p id="result"></p>
+                                        </span>
+
+                                        <div class="row">
+                                            <div class="col-md-offset-2 col-md-9">
+                                                <input type="submit" class="btn btn-primary" id="addBmiButton" value="Add">
+                                                <input type="button" class="btn btn-danger" id="cancelBmiButton" value="Cancel">
+                                                <input type="button" class="btn btn-primary" value="calculate BMI"
+                                                    onclick="calculateBMI()" id="calculateBmi">
+
+                                                <input type="reset" class="btn btn-default" value="Reset">
+                                            </div>
+                                        </div>
+                                        </form>
+
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <!-- Basic charts strats here-->
@@ -704,28 +674,31 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                @foreach ($bodyMeasurements as $bodyMeasurement)
+                                                                @foreach ($bmis as $bmi)
                                                                     <tr>
-                                                                        <td>{{ $bodyMeasurement->user_id }}</td>
-                                                                        <td>{{ $bodyMeasurement->chest }}</td>
-                                                                        <td>{{ $bodyMeasurement->triceps }}</td>
-                                                                        <td>{{ $bodyMeasurement->biceps }}</td>
-                                                                        <td>{{ $bodyMeasurement->shoulder }}</td>
+                                                                        <td>{{ $bmi->user_id }}</td>
+                                                                        <td>{{ $bmi->height }}</td>
+                                                                        <td>{{ $bmi->weight }}</td>
+                                                                        <td>{{ $bmi->age }}</td>
+                                                                        <td>{{ $bmi->bmi }}</td>
 
-                                                                <td>
-                                                                    <a class="edit1 btn btn-primary mar-bm" href="javascript:;">
-                                                                        <i class="fa fa-fw fa-edit"></i> Edit
-                                                                    </a>
-                                                                </td>
-                                                                <td>
-                                                                    <a class="delete btn btn-danger mar-bm" href="javascript:;">
-                                                                        <i class="fa fa-trash-o"></i> Delete
-                                                                    </a>
-                                                                </td>
-                                                            </tr>
-                                                            @endforeach
-                                                        </tbody>
-                                                    </table>
+                                                                        <td>
+                                                                            <a class="edit1 btn btn-primary mar-bm"
+                                                                                href="javascript:;">
+                                                                                <i class="fa fa-fw fa-edit"></i> Edit
+                                                                            </a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a class="delete btn btn-danger mar-bm"
+                                                                                href="javascript:;">
+                                                                                <i class="fa fa-trash-o"></i> Delete
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -737,100 +710,113 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+        </div>
+        </div>
+        </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Edit button click event to update the user workout
-            $('.edit').on('click', function() {
-                var row = $(this).closest('tr'); // Get the parent row
-                var workoutId = row.data('workout-id'); // Get the workout ID
-                var exerciseName = row.find('td:eq(0)').text(); // Get exercise name
-                var sets = row.find('td:eq(1)').text(); // Get sets
-                var reps = row.find('td:eq(2)').text(); // Get reps
-                var weight = row.find('td:eq(3)').text(); // Get weight
-                var notes = row.find('td:eq(4)').text(); // Get notes
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                hideBmiUpdateButton();
 
-                // Populate form fields with the data
-                $('#exercise_name').val(exerciseName);
-                $('#sets').val(sets);
-                $('#reps').val(reps);
-                $('#weight').val(weight);
-                $('#notes').val(notes);
+                // Edit button click event to update the user workout
+                $('.edit').on('click', function() {
+                    var row = $(this).closest('tr'); // Get the parent row
+                    var workoutId = row.data('workout-id'); // Get the workout ID
+                    var exerciseName = row.find('td:eq(0)').text(); // Get exercise name
+                    var sets = row.find('td:eq(1)').text(); // Get sets
+                    var reps = row.find('td:eq(2)').text(); // Get reps
+                    var weight = row.find('td:eq(3)').text(); // Get weight
+                    var notes = row.find('td:eq(4)').text(); // Get notes
 
-                // Update form action and add workout ID as a hidden input
-                $('form').attr('action', '{{ route("updateUserWorkout") }}');
-                $('<input>').attr({
-                    type: 'hidden',
-                    name: 'workout_id',
-                    value: workoutId
-                }).appendTo('form');
+                    // Populate form fields with the data
+                    $('#exercise_name').val(exerciseName);
+                    $('#sets').val(sets);
+                    $('#reps').val(reps);
+                    $('#weight').val(weight);
+                    $('#notes').val(notes);
 
-                // Change submit button value to "Update"
-                $('input[type="submit"]').val('Update');
+                    // Update form action and add workout ID as a hidden input
+                    $('form').attr('action', '{{ route('updateUserWorkout') }}');
+                    $('<input>').attr({
+                        type: 'hidden',
+                        name: 'workout_id',
+                        value: workoutId
+                    }).appendTo('form');
+
+                    // Change submit button value to "Update"
+                    $('input[type="submit"]').val('Update');
+                });
+
+                // Cancel button click event
+                $('.btn-danger').on('click', function() {
+                    // Reset form fields
+                    $('form')[0].reset();
+                    // Change form action back to add
+                    $('form').attr('action', '{{ route('addUserWorkout') }}');
+                    // Remove workout_id input
+                    $('input[name="workout_id"]').remove();
+                    // Change submit button value to "Add"
+                    $('input[type="submit"]').val('Add');
+                });
+
+                // Edit button click event to update the user diet
+                $('.edit1').on('click', function() {
+                    var row = $(this).closest('tr');
+                    var dietId = row.data('diet-id');
+                    var mealName = row.find('td:eq(0)').text();
+                    var calories = row.find('td:eq(1)').text();
+                    var protein = row.find('td:eq(2)').text();
+                    var carbs = row.find('td:eq(3)').text();
+                    var fats = row.find('td:eq(4)').text();
+                    var dietNotes = row.find('td:eq(5)').text();
+
+                    $('#meal_name').val(mealName);
+                    $('#calories').val(calories);
+                    $('#protein').val(protein);
+                    $('#carbs').val(carbs);
+                    $('#fats').val(fats);
+                    $('#dietNotes').val(dietNotes);
+
+                    $('#dietForm').attr('action', '{{ route('updateUserDiet') }}');
+
+                    $('<input>').attr({
+                        type: 'hidden',
+                        name: 'diet_id',
+                        value: dietId
+                    }).appendTo('#dietForm');
+
+                    // Change submit button value to "Update"
+                    $('input[type="submit"]').val('Update');
+                });
+
             });
 
-            // Cancel button click event
-            $('.btn-danger').on('click', function() {
-                // Reset form fields
-                $('form')[0].reset();
-                // Change form action back to add
-                $('form').attr('action', '{{ route("addUserWorkout") }}');
-                // Remove workout_id input
-                $('input[name="workout_id"]').remove();
-                // Change submit button value to "Add"
-                $('input[type="submit"]').val('Add');
-            });
+            function calculateBMI() {
+                var age = parseFloat(document.getElementById("age").value);
+                var height = parseFloat(document.getElementById("height").value) / 100;
+                var bmi_weight = parseFloat(document.getElementById("bmi_weight").value);
 
+                if (isNaN(age) || isNaN(height) || isNaN(bmi_weight)) {
+                    alert("Please enter valid numbers for age, height, and weight.");
+                    return;
+                }
 
+                var bmi = bmi_weight / (height * height);
+                document.getElementById("result").innerHTML = "Your BMI is: " + bmi.toFixed(2);
 
-            // Edit button click event to update the user diet
-            $('.edit1').on('click', function() {
-                var row = $(this).closest('tr');
-                var dietId = row.data('diet-id');
-                var mealName = row.find('td:eq(0)').text();
-                var calories = row.find('td:eq(1)').text();
-                var protein = row.find('td:eq(2)').text();
-                var carbs = row.find('td:eq(3)').text();
-                var fats = row.find('td:eq(4)').text();
-                var dietNotes = row.find('td:eq(5)').text();
+                document.getElementById('addBmiButton').style.visibility = 'visible';
+                document.getElementById('cancelBmiButton').style.visibility = 'visible';
+                document.getElementById('calculateBmi').remove();
 
-                $('#meal_name').val(mealName);
-                $('#calories').val(calories);
-                $('#protein').val(protein);
-                $('#carbs').val(carbs);
-                $('#fats').val(fats);
-                $('#dietNotes').val(dietNotes);
+                // Set the calculated BMI value to the hidden input field
+                document.getElementById("calculatedBmi").value = bmi.toFixed(2);
+            }
 
-                $('#dietForm').attr('action', '{{ route("updateUserDiet") }}');
-
-                $('<input>').attr({
-                    type: 'hidden',
-                    name: 'diet_id',
-                    value: dietId
-                }).appendTo('#dietForm');
-
-                // Change submit button value to "Update"
-                $('input[type="submit"]').val('Update');
-            });
-
-            // Cancel button click event
-            $('.btn-danger').on('click', function() {
-                // Reset form fields
-                $('#dietForm')[0].reset();
-                // Change form action back to add
-                $('#dietForm').attr('action', '{{ route("addUserDiet") }}');
-                // Remove diet-id input
-                $('input[name="diet_id"]').remove();
-                // Change submit button value to "Add"
-                $('input[type="submit"]').val('Add');
-            });
-
-
-        });
-    </script>
-
-</aside>
+            function hideBmiUpdateButton() {
+                document.getElementById('addBmiButton').style.visibility = 'hidden';
+                document.getElementById('cancelBmiButton').style.visibility = 'hidden';
+            }
+        </script>
+    </aside>
 @endsection
