@@ -69,6 +69,8 @@ Route::post('/gym-login', [GymDetailController::class, 'gymLogin'])->name('gymLo
 
 Route::get('/gym-coupon', [GymCouponController::class, 'listGymCoupons'])->name('listGymCoupons');
 Route::post('/gym-coupon', [GymCouponController::class, 'addGymCoupon']);
+Route::get('/gymCouponView', [GymCouponController::class, 'viewGymCoupon'])->name('viewGymCoupon');
+Route::post('/updateGymCoupon', [GymCouponController::class, 'updateGymCoupon'])->name('updateGymCoupon');
 
 Route::post('/updateGym', [GymDetailController::class,'updateGym'])->name('updateGym');
 Route::post('/updateUser', [GymUserController::class,'updateUser'])->name('updateUser');
