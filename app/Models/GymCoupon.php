@@ -5,7 +5,9 @@ namespace App\Models;
 use App\Traits\SessionTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Log;
 use Ramsey\Uuid\Uuid;
+use Throwable;
 
 class GymCoupon extends Model
 {
@@ -39,6 +41,28 @@ class GymCoupon extends Model
             'type' => $couponArray['type'],
             'gym_id' => $gymId->id
         ]);
+    }
+
+    public function updateCoupon(array $couponUpdateArray, $uuid)
+    {
+        $gymCoupon = GymCoupon::where('uuid', $uuid)->first();
+        if (!$gymCoupon) {
+            return redirect()->back()->with('error', 'coupon not found');
+        }
+        try {
+            $gymCoupon->update([
+                "name" =>  $couponUpdateArray['name'],
+                "from" =>  $couponUpdateArray['from'],
+                "to" =>  $couponUpdateArray['to'],
+                "amount" => $couponUpdateArray['amount'] ,
+                "discount" =>  $couponUpdateArray['discount'],
+                "type" =>  $couponUpdateArray['type'],
+                "max_amount" =>  $couponUpdateArray['max_amount']
+            ]);
+            return $gymCoupon->save();
+        } catch (Throwable $e) {
+            Log::error('[GymCoupon][updateCoupon] Error while updating coupon detail: ' . $e->getMessage());
+        }
     }
 
     protected static function boot()

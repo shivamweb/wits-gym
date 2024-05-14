@@ -1,5 +1,5 @@
 @extends('GymOwner.master1')
-@section('title', 'Add coupon')
+@section('title', 'update coupon')
 @section('content')
 
 
@@ -14,7 +14,7 @@
                     </a>
                 </li>
                 <li>
-                    <a>Gym coupon</a>
+                    <a>Update coupon</a>
                 </li>
             </ol>
         </section>
@@ -36,8 +36,8 @@
                         <div class="panel-body">
                             <div class="row" style="padding: 20px;">
                                 <div class="col-md-12">
-                                    <form id="course_form" action="/gym-coupon" class="form-horizontal" method="POST"
-                                        enctype="multipart/form-data">
+                                    <form id="course_form" action={{ route('updateGymCoupon') }} class="form-horizontal"
+                                        method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-body">
                                             <div class="form-group">
@@ -50,8 +50,11 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-fw fa-file-text-o"></i>
                                                         </span>
+                                                        <input type="hidden" name="uuid" value={{ $gymCoupon->uuid }}>
                                                         <input id="name" type="text" name="name"
-                                                            class="form-control" placeholder="Enter Name" required>
+                                                            class="form-control" value={{ $gymCoupon->name }}
+                                                            placeholder="Enter Name" required>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -65,8 +68,9 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-fw fa-file-text-o"></i>
                                                         </span>
-                                                        <input id="start_date" type="date" name="from" required
-                                                            class="form-control" placeholder="Enter Start Date">
+                                                        <input id="start_date" type="date" value={{ $gymCoupon->from }}
+                                                            name="from" required class="form-control"
+                                                            placeholder="Enter Start Date">
                                                     </div>
                                                 </div>
                                             </div>
@@ -80,8 +84,9 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-fw fa-file-text-o"></i>
                                                         </span>
-                                                        <input id="end_date" type="date" name="to" required
-                                                            class="form-control" placeholder="Enter End Date">
+                                                        <input id="end_date" type="date" value={{ $gymCoupon->to }}
+                                                            name="to" required class="form-control"
+                                                            placeholder="Enter End Date">
                                                     </div>
                                                 </div>
                                             </div>
@@ -95,8 +100,9 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-fw fa-file-text-o"></i>
                                                         </span>
-                                                        <input id="amount" step="any" type="number" required name="amount"
-                                                            class="form-control" placeholder="Enter Amount">
+                                                        <input id="amount" step="any" value={{ $gymCoupon->amount }}
+                                                            type="number" required name="amount" class="form-control"
+                                                            placeholder="Enter Amount">
                                                     </div>
                                                 </div>
                                             </div>
@@ -110,7 +116,8 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-fw fa-file-text-o"></i>
                                                         </span>
-                                                        <input id="discount" step="any" type="number" required name="discount"
+                                                        <input id="discount" value={{ $gymCoupon->discount }}
+                                                            step="any" type="number" required name="discount"
                                                             class="form-control" placeholder="Enter Discount">
                                                     </div>
                                                 </div>
@@ -125,10 +132,13 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-fw fa-file-text-o"></i>
                                                         </span>
-                                                        <select id="discount_type" name="type" class="form-control" required>
+                                                        <select name="type" id="type" class="form-control">
                                                             <option value="percentage">Percentage</option>
-                                                            <option value="fixed">Fixed Amount</option>
+                                                            <option value="fixed"
+                                                                {{ $gymCoupon->type == 'fixed' ? 'selected' : '' }}>Fixed
+                                                                Amount</option>
                                                         </select>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,7 +152,8 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-fw fa-file-text-o"></i>
                                                         </span>
-                                                        <input id="max_amount" type="number" name="max_amount" required
+                                                        <input id="max_amount" value={{ $gymCoupon->max_amount }}
+                                                            type="number" name="max_amount" required
                                                             class="form-control" placeholder="Enter Maximum Amount">
                                                     </div>
                                                 </div>
@@ -151,7 +162,7 @@
                                             <div class="form-actions">
                                                 <div class="row">
                                                     <div class="col-md-offset-3 col-md-7">
-                                                        <input type="submit" class="btn btn-primary" value="Add">
+                                                        <input type="submit" class="btn btn-primary" value="Update">
                                                         &nbsp;
                                                         <a class='btn btn-danger' href='/dashboard'> Cancel</a>
                                                         <input type="reset" id="add-news-reset-editable"
@@ -163,60 +174,6 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <!-- Basic charts strats here-->
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <i class="fa fa-fw fa-file-text-o"></i> Gym Coupons
-                            </h4>
-                            <span class="pull-right">
-                                <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
-                                <i class="glyphicon glyphicon-remove removepanel"></i>
-                            </span>
-                        </div>
-                        <div class="panel-body table-responsive">
-                            <table class="table table-bordered" id="fitness-table">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>From</th>
-                                        <th>To</th>
-                                        <th>Amount</th>
-                                        <th>Discount</th>
-                                        <th>Maximum Amount</th>
-                                        <th>Edit/Save</th>
-                                        <th>Delete/Cancel</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($coupons as $coupon)
-                                        <tr>
-                                            <td>{{ $coupon->name }}</td>
-                                            <td>{{ $coupon->from }}</td>
-                                            <td>{{ $coupon->to }}</td>
-                                            <td>{{ $coupon->amount }}</td>
-                                            <td>{{ $coupon->discount }}</td>
-                                            <td>{{ $coupon->max_amount }}</td>
-                                            <td>
-                                                <a class="edit btn btn-primary mar-bm" href={{route('viewGymCoupon',['uuid'=>$coupon->uuid])}}>
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="delete btn btn-danger mar-bm" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>
