@@ -57,6 +57,11 @@
                                                 <strong>BMI </strong>
                                             </a>
                                         </li>
+                                        <li role="presentation">
+                                            <a href="#trainer" aria-controls="trainer" role="tab" data-toggle="tab">
+                                                <strong>Trainer </strong>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
 
@@ -641,8 +646,10 @@
 
                                         <div class="row">
                                             <div class="col-md-offset-2 col-md-9">
-                                                <input type="submit" class="btn btn-primary" id="addBmiButton" value="Add">
-                                                <input type="button" class="btn btn-danger" id="cancelBmiButton" value="Cancel">
+                                                <input type="submit" class="btn btn-primary" id="addBmiButton"
+                                                    value="Add">
+                                                <input type="button" class="btn btn-danger" id="cancelBmiButton"
+                                                    value="Cancel">
                                                 <input type="button" class="btn btn-primary" value="calculate BMI"
                                                     onclick="calculateBMI()" id="calculateBmi">
 
@@ -703,12 +710,35 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div role="tabpanel" class="tab-pane" id="trainer">
+                                        <div class="row">
+                                            <div>
+                                                <h4>Gym Trainer </h4>
+                                            </div>
+                                            <form id="trainerForm" action="{{ route('allotTrainer') }}"
+                                            method="POST" class="form-horizontal" >
+                                            @csrf
+                                                <label for="trainer">Select a Trainer:</label>
+                                                <select id="trainer" name="trainer_id">
+                                                    <option value="0">none</option>
+                                                    @foreach ($trainers as $trainer )
+                                                    <option value={{$trainer->id}} {{ $trainer->id == $userDetail->trainer_id ? 'selected' : '' }}>{{$trainer->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                                <br><br>
+                                                <input type="hidden" name="user_id" value={{$userDetail->id}}>
+                                                <input type="submit" class="btn btn-primary" value="Allot Trainer">
+                                            </form>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         </div>
         </div>
