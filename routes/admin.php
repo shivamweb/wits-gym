@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminCouponController;
 use App\Http\Controllers\AdminEnquiryController;
 use App\Http\Controllers\AdminGymController;
 use App\Http\Controllers\AdminSubscriptionController;
@@ -32,9 +33,9 @@ Route::get('/viewAdminEnquiry/{uuid}', [AdminEnquiryController::class, 'viewAdmi
 Route::get('/payment', function () {
     return view('admin.payment');
 });
-Route::get('/coupon', function () {
-    return view('admin.coupon');
-});
+// Route::get('/coupon', function () {
+//     return view('admin.coupon');
+// });
 Route::get('/advertisement', function () {
     return view('admin.advertisment');
 });
@@ -47,3 +48,7 @@ Route::get('/gymNotification', function () {
 Route::get('/adminUserprofile', function () {
     return view('admin.adminUser.adminUserprofile');
 });
+
+Route::get('/viewAdminCoupons', [AdminCouponController::class, 'viewAdminCoupons'])->name('viewAdminCoupons');
+Route::post('/addAdminCoupon', [AdminCouponController::class, 'addAdminCoupon'])->name('addAdminCoupon');
+Route::get('/viewAdminCoupon', [AdminCouponController::class, 'viewAdminCoupon'])->name('viewAdminCoupon');

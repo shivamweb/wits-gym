@@ -497,6 +497,25 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="gym_select">
+                                                        GYM
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-user-md text-primary"></i>
+                                                            </span>
+                                                            <select class="custom-select form-control" name="gym_id" id="gym_id" required>
+                                                                <option value="0" {{ $user->gym_id == 0 ? 'selected' : '' }}>None</option>
+                                                                @foreach($gyms as $gym)
+                                                                <option value="{{$gym->id}}" {{ $user->gym_id == $gym->id ? 'selected' : '' }}>{{$gym->gym_name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
                                                     <label class="col-md-3 control-label" for="usr_name">
                                                         User Name
                                                         <span class='require'>*</span>
@@ -577,7 +596,7 @@
                                                                 <input class="radio_val" type="radio" name="gender" value="male" {{ $user->gender == 'male' ? 'checked' : '' }} /> Male
                                                             </label>
                                                             <label class="pad-left">
-                                                                <input class="radio_val" type="radio" name="gender" value="female" {{ $user->gender == 'female' ? 'checked' : '' }}/> Female
+                                                                <input class="radio_val" type="radio" name="gender" value="female" {{ $user->gender == 'female' ? 'checked' : '' }} /> Female
                                                             </label>
                                                             <label class="pad-left">
                                                                 <input class="radio_val" type="radio" name="gender" value="others" {{ $user->gender == 'others' ? 'checked' : '' }} /> Other

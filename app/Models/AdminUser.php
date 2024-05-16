@@ -22,11 +22,11 @@ class AdminUser extends Model
         'image'
     ];
 
-    public function addUser(array $addUser, $imagePath, $gymId)
+    public function addUser(array $addUser, $imagePath)
     {
         try {
             return $this->create([
-               'gym_id' => $gymId, 
+                'gym_id' => $addUser['gym_id'],
                 'first_name' => $addUser['first_name'],
                 'last_name' => $addUser['last_name'],
                 'email' => $addUser['email'],
@@ -54,6 +54,7 @@ class AdminUser extends Model
         }
         try {
             $userProfile->update([
+                'gym_id' => $updateUser['gym_id'],
                 'first_name' => $updateUser['first_name'],
                 'last_name' => $updateUser['last_name'],
                 'email' => $updateUser['email'],
@@ -72,6 +73,11 @@ class AdminUser extends Model
         } catch (\Throwable $e) {
             Log::error('[Gym][updateUser] Error while updating user detail: ' . $e->getMessage());
         }
+    }
+
+    public function gym()
+    {
+        return $this->belongsTo(Gym::class, 'gym_id');
     }
 
     protected static function boot()

@@ -383,7 +383,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href='/admin/coupon'>
+                            <a href='/admin/viewAdminCoupons'>
                                 <i class="text-primary  menu-icon fa fa-scissors"></i>
                                 <span class="mm-text">Coupons</span>
                             </a>

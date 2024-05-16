@@ -125,7 +125,7 @@
                 <div class="panel panel-success">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <i class="fa fa-fw fa-file-text-o"></i> Staff Members
+                            <i class="fa fa-fw fa-file-text-o"></i> Staffs 
                         </h4>
                         <span class="pull-right">
                             <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
@@ -136,10 +136,10 @@
                         <table class="table table-bordered" id="fitness-table">
                             <thead>
                                 <tr>
-                                    <th>Gym Id</th>
-                                    <th>Member Image</th>
-                                    <th>Member Name</th>
-                                    <th>Member Designation</th>
+                                    <th>Id</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Designation</th>
                                     <th>Salary</th>
                                     <th>Edit/Save</th>
                                     <th>Delete/Cancel</th>

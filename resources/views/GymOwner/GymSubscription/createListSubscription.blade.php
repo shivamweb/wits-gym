@@ -83,7 +83,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="subscription_duration" class="col-md-3 control-label">
-                                                    Subscription Duration
+                                                    Duration
                                                     <span class='require'>*</span>
                                                 </label>
                                                 <div class="col-md-7">
@@ -113,7 +113,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="subscription_price" class="col-md-3 control-label">
-                                                    Subscription Price
+                                                    Price
                                                     <span class='require'>*</span>
                                                 </label>
                                                 <div class="col-md-7">
@@ -172,12 +172,12 @@
                             <table class="table table-bordered" id="fitness-table">
                                 <thead>
                                     <tr>
-                                        <th>Gym Id</th>
+                                        <th>Id</th>
                                         <th>Image</th>
-                                        <th>Subscription Name</th>
-                                        <th>Subscription Duration</th>
+                                        <th>Name</th>
+                                        <th>Duration</th>
                                         <th>Start Date</th>
-                                        <th>Subscription Price</th>
+                                        <th>Price</th>
                                         <th>Edit/View</th>
                                         <th>Delete/Cancel</th>
                                     </tr>

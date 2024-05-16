@@ -512,6 +512,12 @@
                                                         <div class="panel-body">
                                                             <div class="table-responsive">
                                                                 <table class="table table-bordered" id="users">
+                                                                <tr>
+                                                                        <td>Gym name</td>
+                                                                        <td>
+                                                                            <input type="text" placeholder="enter gym name" id="fb-name" name="gym_name" class="form-control">
+                                                                        </td>
+                                                                    </tr>
                                                                     <tr>
                                                                         <td>Username</td>
                                                                         <td>
@@ -528,12 +534,6 @@
                                                                         <td>Password</td>
                                                                         <td>
                                                                             <input type="text" placeholder="enter email" id="fb-name" name="password" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Gym name</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter gym name" id="fb-name" name="gym_name" class="form-control">
                                                                         </td>
                                                                     </tr>
                                                                     <tr>

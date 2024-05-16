@@ -63,20 +63,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label" for="usr_name">
-                                            User Name
-                                            <span class='require'>*</span>
-                                        </label>
-                                        <div class="col-md-7">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="fa fa-fw fa-user-md text-primary"></i>
-                                                </span>
-                                                <input type="text" class="form-control" id="usr_name" placeholder="Enter Username" name="username" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label class="col-md-3 control-label" for="mail">
                                             First name
                                             <span class='require'>*</span>
@@ -101,6 +87,21 @@
                                                     <i class="fa fa-envelope text-primary"></i>
                                                 </span>
                                                 <input type="text" placeholder="Enter Last Name" required class="form-control" id="mail" name="last_name" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="usr_name">
+                                            User Name
+                                            <span class='require'>*</span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-fw fa-user-md text-primary"></i>
+                                                </span>
+                                                <input type="text" class="form-control" id="usr_name" placeholder="Enter Username" name="username" required>
                                             </div>
                                         </div>
                                     </div>

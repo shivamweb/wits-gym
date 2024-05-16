@@ -13,13 +13,7 @@ return new class extends Migration
     {
         Schema::create('admin_coupons', function (Blueprint $table) {
             $table->id();
-            $table->uuid()->index();
-            $table->string('name');
-            $table->longText('image');
-            $table->date('from');
-            $table->date('to');
-            $table->longText('description');
-            $table->softDeletes();
+            
             $table->timestamps();
         });
     }
