@@ -52,11 +52,7 @@ class Gym extends Authenticatable
         if (!$gymUser) {
             return redirect()->back()->with('error', 'User not found');
         }
-
-        // dd($gymUser);
-        // // Update the user's attributes
-        // //
-        // // ]);
+        
         try {
             $gymUser->update([
                 'username' => $updateGym['username'],

@@ -34,6 +34,7 @@
     <link type="text/css" href="../../../../assets/vendors/summernote/summernote.css" rel="stylesheet" media="screen" />
     <link type="text/css" href="../../../../assets/css/custom_css/fitness.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/custom_css/club_info.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!--end of page level css-->
 
 <body>
@@ -500,7 +501,7 @@
                                                     <div class="col-md-7">
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-user-md text-primary"></i>
+                                                                <i class="fa fa-fw fa-dumbbell text-primary"></i>
                                                             </span>
                                                             <select class="custom-select form-control" name="gym_id" id="gym_id">
                                                                 <option value="">-----Select GYM------</option>
@@ -513,20 +514,6 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="usr_name">
-                                                        User Name
-                                                        <span class='require'>*</span>
-                                                    </label>
-                                                    <div class="col-md-7">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-user-md text-primary"></i>
-                                                            </span>
-                                                            <input type="text" class="form-control" id="usr_name" placeholder="Enter Username" name="username" required>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
                                                     <label class="col-md-3 control-label" for="mail">
                                                         First name
                                                         <span class='require'>*</span>
@@ -534,7 +521,7 @@
                                                     <div class="col-md-7">
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
-                                                                <i class="fa fa-envelope text-primary"></i>
+                                                                <i class="fa fa-fw fa-file-text text-primary"></i>
                                                             </span>
                                                             <input type="text" placeholder="Enter First Name" required class="form-control" id="mail" name="first_name" />
                                                         </div>
@@ -548,9 +535,23 @@
                                                     <div class="col-md-7">
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
-                                                                <i class="fa fa-envelope text-primary"></i>
+                                                                <i class="fa fa-fw fa-file-text text-primary"></i>
                                                             </span>
                                                             <input type="text" placeholder="Enter Last Name" required class="form-control" id="mail" name="last_name" />
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="usr_name">
+                                                        User Name
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-user text-primary"></i>
+                                                            </span>
+                                                            <input type="text" class="form-control" id="usr_name" placeholder="Enter Username" name="username" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -562,7 +563,7 @@
                                                     <div class="col-md-7">
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
-                                                                <i class="fa fa-envelope text-primary"></i>
+                                                                <i class="fa fa-fw fa-envelope text-primary"></i>
                                                             </span>
                                                             <input type="email" placeholder=" Enter Email Address" required class="form-control" id="mail" name="email" />
                                                         </div>
@@ -591,10 +592,10 @@
                                                         <div class="input-group">
                                                             <label>
                                                                 <input class="radio_val" type="radio" name="gender" value="male" /> Male
-                                                            </label>
+                                                            </label>&nbsp;&nbsp;&nbsp;
                                                             <label class="pad-left">
                                                                 <input class="radio_val" type="radio" name="gender" value="female" /> Female
-                                                            </label>
+                                                            </label>&nbsp;&nbsp;&nbsp;
                                                             <label class="pad-left">
                                                                 <input class="radio_val" type="radio" name="gender" value="others" /> Other
                                                             </label>
@@ -609,7 +610,7 @@
                                                     <div class="col-md-7">
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
-                                                                <i class="fa fa-envelope text-primary"></i>
+                                                                <i class="fa fa-fw fa-lock text-primary"></i>
                                                             </span>
                                                             <input type="text" placeholder="Enter Password" required class="form-control" id="mail" name="password" />
                                                         </div>

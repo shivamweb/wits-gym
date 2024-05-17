@@ -451,7 +451,6 @@
                                     <tr>
                                         <th>Gym Name</th>
                                         <th>Duration</th>
-                                        <th>Desciption</th>
                                         <th>Amount</th>
                                         <th>Edit/Save</th>
                                         <th>Cancel/Delete</th>
@@ -462,7 +461,6 @@
                                     <tr>
                                         <td>{{$gymList->gym_name}}</td>
                                         <td>{{$gymList->web_link}}</td>
-                                        <td>{{$gymList->terms_and_conditions}}</td>
                                         <td>$60</td>
                                         <td>
                                             <a class="edit btn btn-primary mar-bm" href="javascript:;">

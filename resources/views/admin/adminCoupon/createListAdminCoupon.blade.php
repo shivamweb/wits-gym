@@ -513,7 +513,7 @@
                                                     <div class="col-md-3">
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-file-text-o"></i>
+                                                                <i class="fa fa-fw fa-calendar"></i>
                                                             </span>
                                                             <input id="start_date" type="date" name="from" required class="form-control" placeholder="Enter Start Date">
                                                         </div>
@@ -526,7 +526,7 @@
                                                     <div class="col-md-3">
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-file-text-o"></i>
+                                                                <i class="fa fa-fw fa-calendar"></i>
                                                             </span>
                                                             <input id="end_date" type="date" name="to" required class="form-control" placeholder="Enter End Date">
                                                         </div>

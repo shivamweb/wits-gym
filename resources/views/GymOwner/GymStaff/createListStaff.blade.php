@@ -83,7 +83,7 @@
                                             <div class="col-md-7">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">
-                                                        <i class="fa fa-fw fa-file-text-o"></i>
+                                                        <i class="fa fa-fw fa-briefcase"></i>
                                                     </span>
                                                     <input id="member_designation" type="text" required name="member_designation" class="form-control" placeholder="Enter Designation">
                                                 </div>
@@ -97,7 +97,7 @@
                                             <div class="col-md-7">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">
-                                                        <i class="fa fa-fw fa-file-text-o"></i>
+                                                        <i class="fa fa-fw fa-money"></i>
                                                     </span>
                                                     <input id="salary" type="float" required name="salary" class="form-control" placeholder="Enter Salary">
                                                 </div>
@@ -125,7 +125,7 @@
                 <div class="panel panel-success">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <i class="fa fa-fw fa-file-text-o"></i> Staffs 
+                            <i class="fa fa-fw fa-file-text-o"></i> Staffs
                         </h4>
                         <span class="pull-right">
                             <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
@@ -154,7 +154,7 @@
                                     <td>{{ $gymStaffMember->designation }}</td>
                                     <td>{{ $gymStaffMember->salary }}</td>
                                     <td>
-                                        <a class="edit btn btn-primary" href={{route('showUpdateStaff',$gymStaffMember->uuid)}} >
+                                        <a class="edit btn btn-primary" href={{route('showUpdateStaff',$gymStaffMember->uuid)}}>
                                             <i class="fa fa-fw fa-edit"></i> Edit
                                         </a>
                                     </td>
