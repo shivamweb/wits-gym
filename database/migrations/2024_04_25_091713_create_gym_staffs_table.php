@@ -15,12 +15,11 @@ return new class extends Migration {
             $table->uuid()->index();
             $table->unsignedBigInteger('gym_id');
             $table->string('name');
-            $table->string('designation');
+            $table->integer('designation_id');
             $table->float('salary');
             $table->longText('image');
             $table->softDeletes();
             $table->timestamps();
-
             $table->foreign('gym_id')
                 ->references('id')
                 ->on('gyms')

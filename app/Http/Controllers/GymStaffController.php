@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gym;
 use App\Models\GymStaff;
+use App\Models\Designation;
 use App\Traits\SessionTrait;
 use Exception;
 use Illuminate\Http\Request;
@@ -12,22 +13,23 @@ use Illuminate\Support\Facades\Log;
 class GymStaffController extends Controller
 {
     use SessionTrait;
-    protected $gymStaf;
+    protected $gymStaff;
     protected $gym;
-    public function __construct(GymStaff $gymStaf, Gym $gym)
+    protected $designation;
+    public function __construct(GymStaff $gymStaff, Gym $gym, Designation $designation)
     {
-        $this->gymStaf = $gymStaf;
+        $this->gymStaff = $gymStaff;
         $this->gym = $gym;
+        $this->designation = $designation;
     }
     public function listGymStaff()
     {
-
-
+        $gymStaffs = $this->gymStaff->all();
         $gym_uuid = $this->getGymSession()['uuid'];
         $gymId = $this->gym->where('uuid', $gym_uuid)->first()->id;
-
-        $gymStaffMembers = $this->gymStaf->where('gym_id', $gymId)->get();
-        return view('GymOwner.GymStaff.createListStaff', compact('gymStaffMembers'));
+        $gymStaffMembers = $this->gymStaff->where('gym_id', $gymId)->with('designation')->get();
+        $designations = $this->designation->get();
+        return view('GymOwner.GymStaff.createListStaff', compact('gymStaffMembers', 'designations'));
     }
     public function addGymStaff(Request $request)
     {
@@ -53,9 +55,8 @@ class GymStaffController extends Controller
             } else {
                 log::error("[GymStaffController][addGymStaff] error imagefile is null");
             }
-            // dd($validatedData);
-            // dd($imagePath);
-            $this->gymStaf->addGymStaff($validatedData, $imagePath, $gymId);
+
+            $this->gymStaff->addGymStaff($validatedData, $imagePath, $gymId);
 
             return redirect()->route('listGymStaff')->with('success', 'Data saved successfully.');
         } catch (\Throwable $th) {
@@ -67,14 +68,13 @@ class GymStaffController extends Controller
     public function showUpdateStaff(Request $request, $uuid)
     {
         // $uuid = $request->input('uuid');
-        $staffDetail = $this->gymStaf->where('uuid', $uuid)->first();
-
-        return view('GymOwner.GymStaff.editStaff', compact('staffDetail'));
+        $staffDetail = $this->gymStaff->where('uuid', $uuid)->first();
+        $designations = $this->designation->get();
+        return view('GymOwner.GymStaff.editStaff', compact('staffDetail', 'designations'));
     }
 
     public function updateStaff(Request $request)
     {
-    //    dd($request->all());
         try {
 
             $validatedData = $request->validate([
@@ -93,7 +93,7 @@ class GymStaffController extends Controller
                 $gymImage->move(public_path('gymStaff_images/'), $filename);
             }
 
-            $isStaffUpdated = $this->gymStaf->updateStaff($validatedData, $imagePath);
+            $isStaffUpdated = $this->gymStaff->updateStaff($validatedData, $imagePath);
 
             if (!$isStaffUpdated) {
                 return redirect()->back()->with('status', 'error')->with('message', 'error while updating user.');
@@ -103,5 +103,11 @@ class GymStaffController extends Controller
             Log::error('[GymStaffController][updateStaff] Error updating user ' . $e->getMessage());
             return redirect()->back()->with('status', 'error')->with('message', 'error while updating user.');
         }
+    }
+    public function deleteGymStaff($uuid)
+    {
+        $gymStaff = $this->gymStaff->where('uuid', $uuid)->firstOrFail();
+        $gymStaff->delete();
+        return redirect()->back()->with('success', 'Staff deleted successfully!');
     }
 }
