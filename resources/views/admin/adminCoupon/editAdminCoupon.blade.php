@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title', 'Admin Coupon')</title>
+    <title>@yield('title', 'Update Admin Coupon')</title>
     <link rel="shortcut icon" href="favicon.ico" />
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -436,7 +436,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <!--section starts-->
-                <h2>Coupons</h2>
+                <h2>Update Coupons</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href='index.html'>
@@ -444,7 +444,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class='activated' href='admin_coupon.html'>Coupon</a>
+                        <a class='activated' href='admin_coupon.html'>Update Coupon</a>
                     </li>
                 </ol>
             </section>
@@ -457,7 +457,7 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <i class="fa fa-scissors "></i> Add Coupon
+                                    <i class="fa fa-scissors "></i> Update Coupon
                                 </h4>
                                 <span class="pull-right">
                                     <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
@@ -467,7 +467,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <form id="coupon_form" action="{{ route('addAdminCoupon') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                        <form id="coupon_form" action="{{ route('updateAdminCoupon') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-body">
                                                 <div class="form-group">
@@ -480,7 +480,8 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-fw fa-file-text-o"></i>
                                                             </span>
-                                                            <input type="text" name="name" id="cupon" class="form-control" placeholder="Enter Coupon Name">
+                                                            <input type="hidden" name="uuid" value="{{ $adminCoupon->uuid }}">
+                                                            <input type="text" value="{{$adminCoupon->name}}" name="name" id="cupon" class="form-control" placeholder="Enter Coupon Name">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -490,7 +491,11 @@
                                                         <div class="input-group">
                                                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                                                 <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                                                    <img data-src="holder.js/200x150" src="#" alt="profile">
+                                                                    @if(isset($adminCoupon->image))
+                                                                    <img src="{{'../../'.$adminCoupon->image}}" alt="Enquiry Image">
+                                                                    @else
+                                                                    <img src="" alt="profile">
+                                                                    @endif
                                                                 </div>
                                                                 <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                                                 <div class="select_align">
@@ -513,9 +518,9 @@
                                                     <div class="col-md-3">
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-file-text-o"></i>
+                                                                <i class="fa fa-fw fa-calendar"></i>
                                                             </span>
-                                                            <input id="start_date" value="$adminCoupon->name" type="date" name="from" required class="form-control" placeholder="Enter Start Date">
+                                                            <input id="start_date" value="{{$adminCoupon->from}}" type="date" name="from" required class="form-control" placeholder="Enter Start Date">
                                                         </div>
                                                     </div>
 
@@ -526,9 +531,9 @@
                                                     <div class="col-md-3">
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-file-text-o"></i>
+                                                                <i class="fa fa-fw fa-calendar"></i>
                                                             </span>
-                                                            <input id="end_date" type="date" name="to" required class="form-control" placeholder="Enter End Date">
+                                                            <input id="end_date" value="{{$adminCoupon->to}}" type="date" name="to" required class="form-control" placeholder="Enter End Date">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -537,15 +542,16 @@
                                                     <label class="col-md-3 control-label">Description<span class='require'> *</span></label>
                                                     <div class="col-md-7 ">
                                                         <div class="input-group">
-                                                            <textarea name="description" class="summernote edi-css form-control"></textarea>
+                                                            <textarea name="description" id="description" class="summernote edi-css form-control">{{$adminCoupon->description}}</textarea>
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
                                             <div class="form-actions">
                                                 <div class="form-group">
                                                     <div class="col-md-offset-3 col-md-9">
-                                                        <input type="submit" class="btn btn-primary">
+                                                        <input type="submit" class="btn btn-primary" value="Update">
                                                         <input type="button" class="btn btn-danger" value="Cancel">
                                                         <input type="reset" ID="add-news-reset-editable" class="btn btn-default" value="Reset">
                                                     </div>
@@ -562,9 +568,9 @@
             <!-- /.content -->
         </aside>
 
-        </div>
+    </div>
 
-         <!-- /.right-side -->
+    <!-- /.right-side -->
     <!-- ./wrapper -->
     <!-- global js -->
     <script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>

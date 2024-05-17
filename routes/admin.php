@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminGymController;
 use App\Http\Controllers\AdminSubscriptionController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdvertismentController;
+
 use App\Http\Controllers\DesignationController;
 
 use Illuminate\Support\Facades\Route;
@@ -54,7 +55,8 @@ Route::get('/adminUserprofile', function () {
 
 Route::get('/viewAdminCoupons', [AdminCouponController::class, 'viewAdminCoupons'])->name('viewAdminCoupons');
 Route::post('/addAdminCoupon', [AdminCouponController::class, 'addAdminCoupon'])->name('addAdminCoupon');
-Route::get('/viewAdminCoupon', [AdminCouponController::class, 'viewAdminCoupon'])->name('viewAdminCoupon');
+Route::get('/editViewCoupon', [AdminCouponController::class, 'editViewCoupon'])->name('editViewCoupon');
+Route::post('/updateAdminCoupon', [AdminCouponController::class, 'updateAdminCoupon'])->name('updateAdminCoupon');
 
 Route::get('/viewAdvertisment', [AdvertismentController::class, 'viewAdvertisment'])->name('viewAdvertisment');
 Route::post('/addAdvertisment', [AdvertismentController::class, 'addAdvertisment'])->name('addAdvertisment');
