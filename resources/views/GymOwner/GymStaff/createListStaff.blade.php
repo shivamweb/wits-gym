@@ -85,7 +85,12 @@
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-fw fa-briefcase"></i>
                                                     </span>
-                                                    <input id="member_designation" type="text" required name="member_designation" class="form-control" placeholder="Enter Designation">
+                                                    <select id="member_designation" name="member_designation" class="form-control" required>
+                                                        <option value="" disabled selected>Select Designation</option>
+                                                        @foreach($designations as $designation)
+                                                        <option value="{{ $designation->id }}">{{ $designation->designation_name }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -151,7 +156,7 @@
                                     <td>{{ $gymStaffMember->gym_id }}</td>
                                     <td align="center"> <img src="{{ $gymStaffMember->image }}" height="100" alt="user Image"></td>
                                     <td>{{ $gymStaffMember->name }}</td>
-                                    <td>{{ $gymStaffMember->designation }}</td>
+                                    <td>{{ $gymStaffMember->designation->designation_name }}</td>
                                     <td>{{ $gymStaffMember->salary }}</td>
                                     <td>
                                         <a class="edit btn btn-primary" href={{route('showUpdateStaff',$gymStaffMember->uuid)}}>
@@ -159,9 +164,13 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a class="delete btn btn-danger mar-bm" href="javascript:;">
-                                            <i class="fa fa-trash-o"></i> Delete
-                                        </a>
+                                        <form action="{{ route('deleteGymStaff', $gymStaffMember->uuid) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this Gym Staff?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="delete btn btn-danger mar-bm">
+                                                <i class="fa fa-trash-o"></i> Delete
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach

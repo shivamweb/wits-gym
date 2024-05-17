@@ -61,6 +61,7 @@ Route::get('/gym-staff', [GymStaffController::class, 'listGymStaff'])->name('lis
 Route::post('/gym-staff', [GymStaffController::class, 'addGymStaff']);
 Route::get('/editStaff/{uuid}', [GymStaffController::class, 'showUpdateStaff'])->name('showUpdateStaff');
 Route::post('/updateStaff', [GymStaffController::class,'updateStaff'])->name('updateStaff');
+Route::delete('/deleteGymStaff/{uuid}', [GymStaffController::class, 'deleteGymStaff'])->name('deleteGymStaff');
 
 Route::post('/add-user-by-gym', [GymUserController::class, 'addUserByGym'])->name('addUserByGym');
 Route::get('/listUser', [GymUserController::class, 'listGymUser'])->name('listGymUser');

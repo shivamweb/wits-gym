@@ -7,6 +7,8 @@ use App\Http\Controllers\AdminGymController;
 use App\Http\Controllers\AdminSubscriptionController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdvertismentController;
+use App\Http\Controllers\DesignationController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/viewGymInfo', [AdminGymController::class, 'viewGymInfo']);
@@ -56,3 +58,7 @@ Route::get('/viewAdminCoupon', [AdminCouponController::class, 'viewAdminCoupon']
 
 Route::get('/viewAdvertisment', [AdvertismentController::class, 'viewAdvertisment'])->name('viewAdvertisment');
 Route::post('/addAdvertisment', [AdvertismentController::class, 'addAdvertisment'])->name('addAdvertisment');
+
+Route::get('/viewDesignation', [DesignationController::class, 'viewDesignation'])->name('viewDesignation');
+Route::post('/addDesignation', [DesignationController::class, 'addDesignation'])->name('addDesignation');
+Route::delete('/deleteDesignation/{uuid}', [DesignationController::class, 'deleteDesignation'])->name('deleteDesignation');
