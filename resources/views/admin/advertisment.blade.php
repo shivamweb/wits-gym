@@ -3,7 +3,9 @@
 
 
 <!-- Mirrored from demo.lorvent.com/fitness/admin_coupon by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:49:58 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
 <head>
     <meta charset="UTF-8">
     <title>@yield('title', 'Admin Advertisement')</title>
@@ -387,7 +389,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href='/admin/advertisement'>
+                            <a href='/admin/viewAdvertisment'>
                                 <i class="text-primary  menu-icon fa fa-question-circle"></i>
                                 <span class="mm-text">Advertisement</span>
                             </a>
@@ -424,7 +426,7 @@
                                 <span class="mm-text">Enquiry</span>
                             </a>
                         </li>
-                    <!-- / .navigation -->
+                        <!-- / .navigation -->
                 </div>
                 <!-- menu -->
             </section>
@@ -465,11 +467,12 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <form id="coupon_form" action="#" class="form-horizontal">
+                                        <form id="advertisment_form" action="{{route('addAdvertisment')}}" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                                            @csrf
                                             <div class="form-body">
                                                 <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="cupon">
-                                                        Coupon Name
+                                                    <label class="col-md-3 control-label" for="advertisment">
+                                                        Name
                                                         <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-7">
@@ -477,24 +480,24 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-fw fa-file-text-o"></i>
                                                             </span>
-                                                            <input type="text" name="title" id="cupon" class="form-control" placeholder="Enter Title">
+                                                            <input type="text" name="name" id="name" class="form-control" placeholder="Enter Title">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-3 control-label">Image</label>
+                                                    <label class="col-md-3 control-label">Banner</label>
                                                     <div class="col-md-7 text-center">
                                                         <div class="input-group">
                                                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                                                 <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
                                                                     <img data-src="holder.js/200x150" src="#" alt="profile">
                                                                 </div>
-                                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 300px; max-height: 150px;"></div>
                                                                 <div class="select_align">
                                                                     <span class="btn btn-primary btn-file">
                                                                         <span class="fileinput-new">Select image</span>
-                                                                    <span class="fileinput-exists">Change</span>
-                                                                    <input type="file" name="...">
+                                                                        <span class="fileinput-exists">Change</span>
+                                                                        <input type="file" name="image">
                                                                     </span>
                                                                     <a href="#" class="btn btn-primary fileinput-exists" data-dismiss="fileinput">Remove</a>
                                                                 </div>
@@ -503,26 +506,29 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="start">
-                                                        Start *
+                                                    <label for="start_date" class="col-md-3 control-label">
+                                                        Start Date
+                                                        <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-3">
-                                                        <div class='input-group date datetimepicker6'>
-                                                            <input type='text' class="form-control" id="start" name="date_start" />
+                                                        <div class="input-group">
                                                             <span class="input-group-addon">
-                                                                <span class="glyphicon glyphicon-time"></span>
+                                                                <i class="fa fa-fw fa-calendar"></i>
                                                             </span>
+                                                            <input id="start_date" type="date" name="from" required class="form-control" placeholder="Enter Start Date">
                                                         </div>
                                                     </div>
-                                                    <label class="col-md-1 control-label" for="end">
-                                                        End *
+
+                                                    <label for="end_date" class="col-md-1 control-label">
+                                                        End Date
+                                                        <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-3">
-                                                        <div class='input-group date datetimepicker7'>
-                                                            <input type='text' class="form-control" id="end" name="date_end" />
+                                                        <div class="input-group">
                                                             <span class="input-group-addon">
-                                                                <span class="glyphicon glyphicon-time"></span>
+                                                                <i class="fa fa-fw fa-calendar"></i>
                                                             </span>
+                                                            <input id="end_date" type="date" name="to" required class="form-control" placeholder="Enter End Date">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -530,7 +536,39 @@
                                                     <label class="col-md-3 control-label">Description<span class='require'> *</span></label>
                                                     <div class="col-md-7 ">
                                                         <div class="input-group">
-                                                            <textarea name="content" class="summernote edi-css form-control"></textarea>
+                                                            <textarea name="description" id="description" class="summernote edi-css form-control"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="advertisment">
+                                                        Number of users
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-3">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-users"></i>
+                                                            </span>
+                                                            <input type="number" name="users" id="users" class="form-control" placeholder="Enter No. of Users">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="advertisment">
+                                                        Status
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-3">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-info-circle"></i>
+                                                            </span>
+                                                            <select class="custom-select form-control" name="status" id="status">
+                                                                <option value="">-----Select Status------</option>
+                                                                <option name="status" value="{{ \App\Enums\AdminAdvertismentStatus::ACTIVE }}">Active</option>
+                                                                <option name="status" value="{{ \App\Enums\AdminAdvertismentStatus::INACTIVE }}">InActive</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -557,7 +595,7 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <i class="fa fa-fw fa-file-text-o"></i> Present Coupons
+                                    <i class="fa fa-fw fa-file-text-o"></i> Advertisments
                                 </h4>
                                 <span class="pull-right">
                                     <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
@@ -568,96 +606,47 @@
                                 <table class="table table-bordered" id="fitness-table">
                                     <thead>
                                         <tr>
-                                            <th>Coupon Name</th>
-                                            <th>Duration</th>
-                                            <th>Desciption</th>
-                                            <th>Code</th>
+                                            <th>Name</th>
+                                            <th>Banner</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>No. of Users</th>
+                                            <th>Status</th>
                                             <th>Edit/Save</th>
                                             <th>Delete/Cancel</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($advertisments as $advertisment)
                                         <tr>
-                                            <td>Yoga</td>
-                                            <td>3 Months</td>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                            <td>SF345K</td>
+                                            <td>{{ $advertisment->name }}</td>
+                                            <td align="center">
+                                                <img src="{{ asset($advertisment->image) }}" height="100" alt="advertisement Image">
+                                            </td>
+                                            <td>{{ $advertisment->from }} </td>
+                                            <td>{{ $advertisment->to }} </td>
+                                            <td>{{ $advertisment->users }} </td>
                                             <td>
-                                                <a class="edit btn btn-primary" href="javascript:;">
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
+                                                @if($advertisment->status == \App\Enums\AdminAdvertismentStatus::ACTIVE)
+                                                Active
+                                                @else
+                                                Inactive
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a class="edit btn btn-primary" href="#">
+                                                    <i class="fa fa-fw fa-eye"></i> View
                                                 </a>
                                             </td>
                                             <td>
-                                                <a class="delete btn btn-danger" href="javascript:;">
+                                                <a class="delete btn btn-danger mar-bm" href="javascript:;">
                                                     <i class="fa fa-trash-o"></i> Delete
                                                 </a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>Fitness</td>
-                                            <td>1 Week</td>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                            <td>QD144B</td>
-                                            <td>
-                                                <a class="edit btn btn-primary" href="javascript:;">
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="delete btn btn-danger" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Body Building</td>
-                                            <td>1 Month</td>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                            <td>RTV46L</td>
-                                            <td>
-                                                <a class="edit btn btn-primary" href="javascript:;">
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="delete btn btn-danger" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Aerobics</td>
-                                            <td>3 Months</td>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                            <td>AVX753</td>
-                                            <td>
-                                                <a class=" edit btn btn-primary" href="javascript:;">
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="delete btn btn-danger" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Flexibility</td>
-                                            <td>2 Months</td>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                            <td>TN682J</td>
-                                            <td>
-                                                <a class="edit btn btn-primary" href="javascript:;">
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="delete btn btn-danger" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
+
                                 </table>
                             </div>
                         </div>
@@ -693,4 +682,5 @@
 
 
 <!-- Mirrored from demo.lorvent.com/fitness/admin_coupon by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:50:00 GMT -->
+
 </html>

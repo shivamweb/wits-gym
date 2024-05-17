@@ -34,8 +34,6 @@ class AdminEnquiryController extends Controller
     {
         // $uuid = $request->input('uuid');
         $enquiryDetails = $this->enquiry->where('uuid', $uuid)->first();
-        
-
         return view('admin.viewEnquiry', compact('enquiryDetails'));
     }
 }

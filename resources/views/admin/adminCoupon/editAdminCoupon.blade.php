@@ -3,7 +3,9 @@
 
 
 <!-- Mirrored from demo.lorvent.com/fitness/admin_coupon by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:49:58 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
 <head>
     <meta charset="UTF-8">
     <title>@yield('title', 'Admin Coupon')</title>
@@ -29,7 +31,7 @@
     <link type="text/css" href="../../../../assets/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/vendors/datatables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/vendors/bootstrapvalidator/dist/css/bootstrapValidator.css" rel="stylesheet" />
-    <link type="text/css" href="../../../../assets/vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" />
+    <!-- <link type="text/css" href="../../../../assets/vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" /> -->
     <link type="text/css" href="../../../../assets/css/custom_css/timings.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/custom_css/coupon.css" rel="stylesheet">
     <!--end of page level css-->
@@ -381,7 +383,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href='/admin/coupon'>
+                            <a href='/admin/viewAdminCoupons'>
                                 <i class="text-primary  menu-icon fa fa-scissors"></i>
                                 <span class="mm-text">Coupons</span>
                             </a>
@@ -424,7 +426,7 @@
                                 <span class="mm-text">Enquiry</span>
                             </a>
                         </li>
-                    <!-- / .navigation -->
+                        <!-- / .navigation -->
                 </div>
                 <!-- menu -->
             </section>
@@ -465,7 +467,8 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <form id="coupon_form" action="#" class="form-horizontal">
+                                        <form id="coupon_form" action="{{ route('addAdminCoupon') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                            @csrf
                                             <div class="form-body">
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label" for="cupon">
@@ -477,7 +480,7 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-fw fa-file-text-o"></i>
                                                             </span>
-                                                            <input type="text" name="title" id="cupon" class="form-control" placeholder="Enter Title">
+                                                            <input type="text" name="name" id="cupon" class="form-control" placeholder="Enter Coupon Name">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -493,8 +496,8 @@
                                                                 <div class="select_align">
                                                                     <span class="btn btn-primary btn-file">
                                                                         <span class="fileinput-new">Select image</span>
-                                                                    <span class="fileinput-exists">Change</span>
-                                                                    <input type="file" name="...">
+                                                                        <span class="fileinput-exists">Change</span>
+                                                                        <input type="file" name="image">
                                                                     </span>
                                                                     <a href="#" class="btn btn-primary fileinput-exists" data-dismiss="fileinput">Remove</a>
                                                                 </div>
@@ -503,34 +506,38 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="start">
-                                                        Start *
+                                                    <label for="start_date" class="col-md-3 control-label">
+                                                        Start Date
+                                                        <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-3">
-                                                        <div class='input-group date datetimepicker6'>
-                                                            <input type='text' class="form-control" id="start" name="date_start" />
+                                                        <div class="input-group">
                                                             <span class="input-group-addon">
-                                                                <span class="glyphicon glyphicon-time"></span>
+                                                                <i class="fa fa-fw fa-file-text-o"></i>
                                                             </span>
+                                                            <input id="start_date" value="$adminCoupon->name" type="date" name="from" required class="form-control" placeholder="Enter Start Date">
                                                         </div>
                                                     </div>
-                                                    <label class="col-md-1 control-label" for="end">
-                                                        End *
+
+                                                    <label for="end_date" class="col-md-1 control-label">
+                                                        End Date
+                                                        <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-3">
-                                                        <div class='input-group date datetimepicker7'>
-                                                            <input type='text' class="form-control" id="end" name="date_end" />
+                                                        <div class="input-group">
                                                             <span class="input-group-addon">
-                                                                <span class="glyphicon glyphicon-time"></span>
+                                                                <i class="fa fa-fw fa-file-text-o"></i>
                                                             </span>
+                                                            <input id="end_date" type="date" name="to" required class="form-control" placeholder="Enter End Date">
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label">Description<span class='require'> *</span></label>
                                                     <div class="col-md-7 ">
                                                         <div class="input-group">
-                                                            <textarea name="content" class="summernote edi-css form-control"></textarea>
+                                                            <textarea name="description" class="summernote edi-css form-control"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -538,7 +545,7 @@
                                             <div class="form-actions">
                                                 <div class="form-group">
                                                     <div class="col-md-offset-3 col-md-9">
-                                                        <input type="submit" class="btn btn-primary" value="Add">
+                                                        <input type="submit" class="btn btn-primary">
                                                         <input type="button" class="btn btn-danger" value="Cancel">
                                                         <input type="reset" ID="add-news-reset-editable" class="btn btn-default" value="Reset">
                                                     </div>
@@ -551,124 +558,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Basic charts strats here-->
-                        <div class="panel panel-success">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <i class="fa fa-fw fa-file-text-o"></i> Present Coupons
-                                </h4>
-                                <span class="pull-right">
-                                    <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
-                                    <i class="glyphicon glyphicon-remove removepanel"></i>
-                                </span>
-                            </div>
-                            <div class="panel-body table-responsive">
-                                <table class="table table-bordered" id="fitness-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Coupon Name</th>
-                                            <th>Duration</th>
-                                            <th>Desciption</th>
-                                            <th>Code</th>
-                                            <th>Edit/Save</th>
-                                            <th>Delete/Cancel</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Yoga</td>
-                                            <td>3 Months</td>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                            <td>SF345K</td>
-                                            <td>
-                                                <a class="edit btn btn-primary" href="javascript:;">
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="delete btn btn-danger" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fitness</td>
-                                            <td>1 Week</td>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                            <td>QD144B</td>
-                                            <td>
-                                                <a class="edit btn btn-primary" href="javascript:;">
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="delete btn btn-danger" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Body Building</td>
-                                            <td>1 Month</td>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                            <td>RTV46L</td>
-                                            <td>
-                                                <a class="edit btn btn-primary" href="javascript:;">
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="delete btn btn-danger" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Aerobics</td>
-                                            <td>3 Months</td>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                            <td>AVX753</td>
-                                            <td>
-                                                <a class=" edit btn btn-primary" href="javascript:;">
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="delete btn btn-danger" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Flexibility</td>
-                                            <td>2 Months</td>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                            <td>TN682J</td>
-                                            <td>
-                                                <a class="edit btn btn-primary" href="javascript:;">
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="delete btn btn-danger" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <!-- /.content -->
         </aside>
-        <!-- /.right-side -->
-    </div>
-    <!-- /.right-side -->
+
+        </div>
+
+         <!-- /.right-side -->
     <!-- ./wrapper -->
     <!-- global js -->
     <script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>
@@ -686,11 +582,12 @@
     <script src="../../../../assets/vendors/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="../../../../assets/vendors/datatables/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
     <script src="../../../../assets/vendors/bootstrapvalidator/dist/js/bootstrapValidator.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/sweetalert/dist/sweetalert2.js" type="text/javascript"></script>
+    <!-- <script src="../../../../assets/vendors/sweetalert/dist/sweetalert2.js" type="text/javascript"></script> -->
     <script src="../../../../assets/js/custom_js/coupon.js" type="text/javascript"></script>
     <!-- end of page level js -->
 </body>
 
 
 <!-- Mirrored from demo.lorvent.com/fitness/admin_coupon by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:50:00 GMT -->
+
 </html>

@@ -58,7 +58,7 @@
                                                 Description <span class='require'>*</span>
                                             </label>
                                             <div class="col-md-7">
-                                                <textarea id="content_editor"id="imagePreview" name="description" contenteditable="true" class="form-control" style="height: 200px; overflow-y: auto;"></textarea>
+                                                <textarea id="content_editor" id="imagePreview" name="description" contenteditable="true" class="form-control" style="height: 200px; overflow-y: auto;"></textarea>
 
                                                 <button type="button" id="upload-image-btn" class="btn btn-primary mt-2">Upload Image</button>
                                                 <input type="file" id="image" name="image" style="display: none; height: 300px;" accept="image/*" onchange="handleImageUpload(event)">
@@ -189,23 +189,22 @@
     }
 
     function handleImageUpload(event) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
+        const file = event.target.files[0];
+        const reader = new FileReader();
 
-    reader.onload = function(e) {
-        const imageSrc = e.target.result;
-        const imgElement = `<img src="${imageSrc}" style="max-width: 100%; height: auto;">`;
+        reader.onload = function(e) {
+            const imageSrc = e.target.result;
+            const imgElement = `<img src="${imageSrc}" style="max-width: 100%; height: auto;">`;
 
-        // Get the image preview container
-        const imagePreview = document.getElementById('imagePreview');
+            // Get the image preview container
+            const imagePreview = document.getElementById('imagePreview');
 
-        // Append the image HTML to the image preview container
-        imagePreview.innerHTML = imgElement;
-    };
+            // Append the image HTML to the image preview container
+            imagePreview.innerHTML = imgElement;
+        };
 
-    reader.readAsDataURL(file);
-}
-
+        reader.readAsDataURL(file);
+    }
 </script>
 
 

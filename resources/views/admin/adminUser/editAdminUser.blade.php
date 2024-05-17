@@ -34,6 +34,7 @@
     <link type="text/css" href="../../../../assets/vendors/summernote/summernote.css" rel="stylesheet" media="screen" />
     <link type="text/css" href="../../../../assets/css/custom_css/fitness.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/custom_css/club_info.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!--end of page level css-->
 
 <body>
@@ -497,16 +498,21 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="usr_name">
-                                                        User Name
+                                                    <label class="col-md-3 control-label" for="gym_select">
+                                                        GYM
                                                         <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-user-md text-primary"></i>
+                                                                <i class="fa fa-fw fa-dumbbell text-primary"></i>
                                                             </span>
-                                                            <input type="text" class="form-control" value="{{$user->username}}" id="usr_name" placeholder="Enter Username" name="username" required>
+                                                            <select class="custom-select form-control" name="gym_id" id="gym_id" required>
+                                                                <option value="0" {{ $user->gym_id == 0 ? 'selected' : '' }}>None</option>
+                                                                @foreach($gyms as $gym)
+                                                                <option value="{{$gym->id}}" {{ $user->gym_id == $gym->id ? 'selected' : '' }}>{{$gym->gym_name}}</option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -517,8 +523,8 @@
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-group">
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-envelope text-primary"></i>
+                                                        <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-file-text text-primary"></i>
                                                             </span>
                                                             <input type="text" placeholder="Enter First Name" value="{{$user->first_name}}" required class="form-control" id="mail" name="first_name" />
                                                         </div>
@@ -531,10 +537,24 @@
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-group">
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-envelope text-primary"></i>
+                                                        <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-file-text text-primary"></i>
                                                             </span>
                                                             <input type="text" placeholder="Enter Last Name" value="{{$user->last_name}}" required class="form-control" id="mail" name="last_name" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="usr_name">
+                                                        User Name
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-user text-primary"></i>
+                                                            </span>
+                                                            <input type="text" class="form-control" value="{{$user->username}}" id="usr_name" placeholder="Enter Username" name="username" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -545,8 +565,8 @@
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-group">
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-envelope text-primary"></i>
+                                                        <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-envelope text-primary"></i>
                                                             </span>
                                                             <input type="email" placeholder=" Enter Email Address" value="{{$user->email}}" required class="form-control" id="mail" name="email" />
                                                         </div>
@@ -559,7 +579,7 @@
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-group">
-                                                            <span class="input-group-addon">
+                                                        <span class="input-group-addon">
                                                                 <i class="fa fa-fw fa-phone text-primary"></i>
                                                             </span>
                                                             <input type="text" placeholder="Enter Contact number" value="{{$user->phone_no}}" required id="contact" class="form-control" name="phone_no" />
@@ -575,10 +595,10 @@
                                                         <div class="input-group">
                                                             <label>
                                                                 <input class="radio_val" type="radio" name="gender" value="male" {{ $user->gender == 'male' ? 'checked' : '' }} /> Male
-                                                            </label>
+                                                            </label>&nbsp;&nbsp;&nbsp;
                                                             <label class="pad-left">
-                                                                <input class="radio_val" type="radio" name="gender" value="female" {{ $user->gender == 'female' ? 'checked' : '' }}/> Female
-                                                            </label>
+                                                                <input class="radio_val" type="radio" name="gender" value="female" {{ $user->gender == 'female' ? 'checked' : '' }} /> Female
+                                                            </label>&nbsp;&nbsp;&nbsp;
                                                             <label class="pad-left">
                                                                 <input class="radio_val" type="radio" name="gender" value="others" {{ $user->gender == 'others' ? 'checked' : '' }} /> Other
                                                             </label>
@@ -587,13 +607,13 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label" for="mail">
-                                                        password
+                                                        Password
                                                         <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-group">
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-envelope text-primary"></i>
+                                                        <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-lock text-primary"></i>
                                                             </span>
                                                             <input type="text" placeholder="Enter Password" value="{{$user->password}}" required class="form-control" id="mail" name="password" />
                                                             <input type="hidden" name="uuid" id="uuid" value="{{$user->uuid}}">

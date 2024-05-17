@@ -3,10 +3,12 @@
 
 
 <!-- Mirrored from demo.lorvent.com/fitness/admin_coupon by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:49:58 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title', 'User Notification')</title>
+    <title>@yield('title', 'Admin Coupon')</title>
     <link rel="shortcut icon" href="favicon.ico" />
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -29,7 +31,7 @@
     <link type="text/css" href="../../../../assets/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/vendors/datatables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/vendors/bootstrapvalidator/dist/css/bootstrapValidator.css" rel="stylesheet" />
-    <link type="text/css" href="../../../../assets/vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" />
+    <!-- <link type="text/css" href="../../../../assets/vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" /> -->
     <link type="text/css" href="../../../../assets/css/custom_css/timings.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/custom_css/coupon.css" rel="stylesheet">
     <!--end of page level css-->
@@ -381,7 +383,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href='/admin/coupon'>
+                            <a href='/admin/viewAdminCoupons'>
                                 <i class="text-primary  menu-icon fa fa-scissors"></i>
                                 <span class="mm-text">Coupons</span>
                             </a>
@@ -417,13 +419,14 @@
                                 <span class="mm-text">Payment</span>
                             </a>
                         </li>
+
                         <li>
                             <a href='/admin/listEnquiry'>
                                 <i class="text-primary  menu-icon fa fa-question-circle"></i>
                                 <span class="mm-text">Enquiry</span>
                             </a>
                         </li>
-                    <!-- / .navigation -->
+                        <!-- / .navigation -->
                 </div>
                 <!-- menu -->
             </section>
@@ -433,7 +436,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <!--section starts-->
-                <h2>User Notification</h2>
+                <h2>Coupons</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href='index.html'>
@@ -441,10 +444,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class='activated' href='admin_coupon.html'>Notification</a>
-                    </li>
-                    <li>
-                        <a class='activated' href='admin_coupon.html'>User Notification</a>
+                        <a class='activated' href='admin_coupon.html'>Coupon</a>
                     </li>
                 </ol>
             </section>
@@ -457,7 +457,7 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <i class="fa fa-scissors "></i> Add Notification
+                                    <i class="fa fa-scissors "></i> Add Coupon
                                 </h4>
                                 <span class="pull-right">
                                     <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
@@ -467,11 +467,12 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <form id="coupon_form" action="#" class="form-horizontal">
+                                        <form id="coupon_form" action="{{ route('addAdminCoupon') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                            @csrf
                                             <div class="form-body">
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label" for="cupon">
-                                                        Notification Name
+                                                        Coupon Name
                                                         <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-7">
@@ -479,15 +480,64 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-fw fa-file-text-o"></i>
                                                             </span>
-                                                            <input type="text" name="title" id="cupon" class="form-control" placeholder="Enter Title">
+                                                            <input type="text" name="name" id="cupon" class="form-control" placeholder="Enter Coupon Name">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
+                                                    <label class="col-md-3 control-label">Image</label>
+                                                    <div class="col-md-7 text-center">
+                                                        <div class="input-group">
+                                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                                    <img data-src="holder.js/200x150" src="#" alt="profile">
+                                                                </div>
+                                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                                                                <div class="select_align">
+                                                                    <span class="btn btn-primary btn-file">
+                                                                        <span class="fileinput-new">Select image</span>
+                                                                        <span class="fileinput-exists">Change</span>
+                                                                        <input type="file" name="image">
+                                                                    </span>
+                                                                    <a href="#" class="btn btn-primary fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="start_date" class="col-md-3 control-label">
+                                                        Start Date
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-3">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-calendar"></i>
+                                                            </span>
+                                                            <input id="start_date" type="date" name="from" required class="form-control" placeholder="Enter Start Date">
+                                                        </div>
+                                                    </div>
+
+                                                    <label for="end_date" class="col-md-1 control-label">
+                                                        End Date
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-3">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-calendar"></i>
+                                                            </span>
+                                                            <input id="end_date" type="date" name="to" required class="form-control" placeholder="Enter End Date">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
                                                     <label class="col-md-3 control-label">Description<span class='require'> *</span></label>
                                                     <div class="col-md-7 ">
                                                         <div class="input-group">
-                                                            <textarea name="content" class="summernote edi-css form-control"></textarea>
+                                                            <textarea name="description" class="summernote edi-css form-control"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -495,7 +545,7 @@
                                             <div class="form-actions">
                                                 <div class="form-group">
                                                     <div class="col-md-offset-3 col-md-9">
-                                                        <input type="submit" class="btn btn-primary" value="Add">
+                                                        <input type="submit" class="btn btn-primary">
                                                         <input type="button" class="btn btn-danger" value="Cancel">
                                                         <input type="reset" ID="add-news-reset-editable" class="btn btn-default" value="Reset">
                                                     </div>
@@ -514,7 +564,7 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <i class="fa fa-fw fa-file-text-o"></i> Present Notification
+                                    <i class="fa fa-fw fa-file-text-o"></i> Present Coupons
                                 </h4>
                                 <span class="pull-right">
                                     <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
@@ -525,42 +575,33 @@
                                 <table class="table table-bordered" id="fitness-table">
                                     <thead>
                                         <tr>
-                                            <th>Notification Name</th>
-                                            <th>Desciption</th>
+                                            <th>Name</th>
+                                            <th>From</th>
+                                            <th>To</th>
+                                            <th>Description</th>
                                             <th>Edit/Save</th>
                                             <th>Delete/Cancel</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($adminCoupons as $coupon)
                                         <tr>
-                                            <td>Yoga</td>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                                            <td>{{ $coupon->name }}</td>
+                                            <td>{{ $coupon->from }}</td>
+                                            <td>{{ $coupon->to }}</td>
+                                            <td>{{ $coupon->description }}</td>
                                             <td>
-                                                <a class="edit btn btn-primary" href="javascript:;">
+                                                <a class="edit btn btn-primary mar-bm" href={{route('viewAdminCoupon',['uuid'=>$coupon->uuid])}}>
                                                     <i class="fa fa-fw fa-edit"></i> Edit
                                                 </a>
                                             </td>
                                             <td>
-                                                <a class="delete btn btn-danger" href="javascript:;">
+                                                <a class="delete btn btn-danger mar-bm" href="javascript:;">
                                                     <i class="fa fa-trash-o"></i> Delete
                                                 </a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>Aerobics</td>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                            <td>
-                                                <a class=" edit btn btn-primary" href="javascript:;">
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="delete btn btn-danger" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -590,11 +631,12 @@
     <script src="../../../../assets/vendors/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="../../../../assets/vendors/datatables/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
     <script src="../../../../assets/vendors/bootstrapvalidator/dist/js/bootstrapValidator.js" type="text/javascript"></script>
-    <script src="../../../../assets/vendors/sweetalert/dist/sweetalert2.js" type="text/javascript"></script>
+    <!-- <script src="../../../../assets/vendors/sweetalert/dist/sweetalert2.js" type="text/javascript"></script> -->
     <script src="../../../../assets/js/custom_js/coupon.js" type="text/javascript"></script>
     <!-- end of page level js -->
 </body>
 
 
 <!-- Mirrored from demo.lorvent.com/fitness/admin_coupon by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:50:00 GMT -->
+
 </html>

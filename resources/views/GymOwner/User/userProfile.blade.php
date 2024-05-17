@@ -330,11 +330,11 @@
                                                         <table class="table table-bordered" id="fitness-table">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>exercise_name</th>
-                                                                    <th>sets</th>
-                                                                    <th>reps</th>
-                                                                    <th>weight</th>
-                                                                    <th>notes</th>
+                                                                    <th>Exercise Name</th>
+                                                                    <th>Sets</th>
+                                                                    <th>Reps</th>
+                                                                    <th>Weight</th>
+                                                                    <th>Notes</th>
                                                                     <th>Edit/Save</th>
                                                                     <th>Delete/Cancel</th>
                                                                 </tr>

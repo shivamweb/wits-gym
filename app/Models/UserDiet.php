@@ -26,7 +26,7 @@ class UserDiet extends Model
                 'notes' => $addDiet['notes'],
             ]);
         } catch (\Throwable $e) {
-            Log::error('[UserWorkout][addUserDiet] Error adding gym detail: ' . $e->getMessage());
+            Log::error('[UserDiet][addUserDiet] Error adding gym detail: ' . $e->getMessage());
         }
     }
 

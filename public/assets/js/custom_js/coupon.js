@@ -38,7 +38,7 @@ $(document).ready(function() {
         $('#coupon_form').bootstrapValidator('revalidateField', 'content');
 
     };
-    $('#coupon_form')
+    $('#coupon_form1')
         .bootstrapValidator({
             excluded: [':disabled'],
 

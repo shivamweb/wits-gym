@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminCouponController;
 use App\Http\Controllers\AdminEnquiryController;
 use App\Http\Controllers\AdminGymController;
 use App\Http\Controllers\AdminSubscriptionController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\AdvertismentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/viewGymInfo', [AdminGymController::class, 'viewGymInfo']);
@@ -32,12 +34,12 @@ Route::get('/viewAdminEnquiry/{uuid}', [AdminEnquiryController::class, 'viewAdmi
 Route::get('/payment', function () {
     return view('admin.payment');
 });
-Route::get('/coupon', function () {
-    return view('admin.coupon');
-});
-Route::get('/advertisement', function () {
-    return view('admin.advertisment');
-});
+// Route::get('/coupon', function () {
+//     return view('admin.coupon');
+// });
+// Route::get('/advertisement', function () {
+//     return view('admin.advertisment');
+// });
 Route::get('/userNotification', function () {
     return view('admin.userNotification');
 });
@@ -47,3 +49,10 @@ Route::get('/gymNotification', function () {
 Route::get('/adminUserprofile', function () {
     return view('admin.adminUser.adminUserprofile');
 });
+
+Route::get('/viewAdminCoupons', [AdminCouponController::class, 'viewAdminCoupons'])->name('viewAdminCoupons');
+Route::post('/addAdminCoupon', [AdminCouponController::class, 'addAdminCoupon'])->name('addAdminCoupon');
+Route::get('/viewAdminCoupon', [AdminCouponController::class, 'viewAdminCoupon'])->name('viewAdminCoupon');
+
+Route::get('/viewAdvertisment', [AdvertismentController::class, 'viewAdvertisment'])->name('viewAdvertisment');
+Route::post('/addAdvertisment', [AdvertismentController::class, 'addAdvertisment'])->name('addAdvertisment');

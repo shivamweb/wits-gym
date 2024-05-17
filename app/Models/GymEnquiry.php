@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 use Ramsey\Uuid\Uuid;
+use Throwable;
 
 class GymEnquiry extends Model
 {
@@ -16,12 +18,16 @@ class GymEnquiry extends Model
 
     public function addGymEnquiry(array $gymEnquiryArray, $imagePath, $gymId)
     {
-        $this->create([
-            'title' => $gymEnquiryArray['title'],
-            'description' => $gymEnquiryArray['description'],
-            'image' => $imagePath,
-            'gym_id' => $gymId
-        ]);
+        try {
+            $this->create([
+                'title' => $gymEnquiryArray['title'],
+                'description' => $gymEnquiryArray['description'],
+                'image' => $imagePath,
+                'gym_id' => $gymId
+            ]);
+        } catch (Throwable $e) {
+            Log::error('[GymEnquiry][addGymEnquiry] Error while updating coupon detail: ' . $e->getMessage());
+        }
     }
 
     public function gym()
@@ -36,7 +42,4 @@ class GymEnquiry extends Model
             $model->uuid = Uuid::uuid4()->toString();
         });
     }
-
-    
-
 }

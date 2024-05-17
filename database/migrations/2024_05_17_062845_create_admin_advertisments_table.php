@@ -11,15 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admin_coupons', function (Blueprint $table) {
+        Schema::create('admin_advertisments', function (Blueprint $table) {
             $table->id();
-            $table->uuid()->index();
+            $table->uuid()->unique();
             $table->string('name');
             $table->longText('image');
             $table->date('from');
             $table->date('to');
             $table->longText('description');
-            $table->softDeletes();
+            $table->integer('users');
+            $table->integer('status');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admin_coupons');
+        Schema::dropIfExists('admin_advertisments');
     }
 };
