@@ -32,6 +32,37 @@ class AdminCoupon extends Model
         }
     }
 
+    public function updateAdminCoupon(array $validatedData, $imagePath)
+    {
+        try {
+            $uuid = $validatedData['uuid'];
+            $couponDetail = AdminCoupon::where('uuid', $uuid)->first();
+    
+            // Check if the coupon exists
+            if (!$couponDetail) {
+                return false; // Return false or throw an exception if the coupon is not found
+            }
+    
+            // Update the coupon details
+            $couponDetail->update([
+                'name' => $validatedData['name'],
+                'from' => $validatedData['from'],
+                'to' => $validatedData['to'],
+                'description' => $validatedData['description'],
+            ]);
+    
+            // Update the image path if provided
+            if ($imagePath) {
+                $couponDetail->image = $imagePath;
+            }
+    
+            // Save the changes
+            return $couponDetail->save();
+        } catch (\Throwable $e) {
+            Log::error('[AdminCoupon][updateAdminCoupon] Error while updating coupon detail: ' . $e->getMessage());
+            return false; // Return false if an error occurs
+        }
+    }
     protected static function boot()
     {
         parent::boot();

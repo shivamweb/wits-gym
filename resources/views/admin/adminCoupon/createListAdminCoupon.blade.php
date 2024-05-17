@@ -597,7 +597,7 @@
                                             <td>{{ $coupon->to }}</td>
                                             <td>{{ $coupon->description }}</td>
                                             <td>
-                                                <a class="edit btn btn-primary mar-bm" href={{route('viewAdminCoupon',['uuid'=>$coupon->uuid])}}>
+                                                <a class="edit btn btn-primary mar-bm" href={{route('editViewCoupon',['uuid'=>$coupon->uuid])}}>
                                                     <i class="fa fa-fw fa-edit"></i> Edit
                                                 </a>
                                             </td>
