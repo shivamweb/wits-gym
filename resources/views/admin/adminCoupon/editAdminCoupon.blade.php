@@ -389,7 +389,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href='/admin/advertisement'>
+                        <a href='/admin/viewDesignation'>
+                                <i class="text-primary  menu-icon fa fa-scissors"></i>
+                                <span class="mm-text">Designation</span>
+                            </a>
+                        </li>
+                        <li>
+                        <a href='/admin/viewAdvertisment'>
                                 <i class="text-primary  menu-icon fa fa-question-circle"></i>
                                 <span class="mm-text">Advertisement</span>
                             </a>
