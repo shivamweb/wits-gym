@@ -3,7 +3,9 @@
 
 
 <!-- Mirrored from demo.lorvent.com/fitness/admin_coupon by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:49:58 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
 <head>
     <meta charset="UTF-8">
     <title>@yield('title', 'Gym Notification')</title>
@@ -387,13 +389,13 @@
                             </a>
                         </li>
                         <li>
-                        <a href='/admin/viewDesignation'>
+                            <a href='/admin/viewDesignation'>
                                 <i class="text-primary  menu-icon fa fa-scissors"></i>
                                 <span class="mm-text">Designation</span>
                             </a>
                         </li>
                         <li>
-                        <a href='/admin/viewAdvertisment'>
+                            <a href='/admin/viewAdvertisment'>
                                 <i class="text-primary  menu-icon fa fa-question-circle"></i>
                                 <span class="mm-text">Advertisement</span>
                             </a>
@@ -406,12 +408,12 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href='/admin/userNotification'>
+                                    <a href='/admin/viewNotification'>
                                         <i class="text-primary fa fa-fw fa-cloud-upload"></i> User Notification
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='/admin/gymNotification'>
+                                    <a href='/admin/viewGymNotification'>
                                         <i class="text-success fa fa-fw fa-file-image-o"></i>GYM Notification
                                     </a>
                                 </li>
@@ -429,7 +431,7 @@
                                 <span class="mm-text">Enquiry</span>
                             </a>
                         </li>
-                    <!-- / .navigation -->
+                        <!-- / .navigation -->
                 </div>
                 <!-- menu -->
             </section>
@@ -473,7 +475,8 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <form id="coupon_form" action="#" class="form-horizontal">
+                                        <form id="coupon_form" action="addGymNotification" method="POST" class="form-horizontal">
+                                            @csrf
                                             <div class="form-body">
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label" for="cupon">
@@ -482,10 +485,10 @@
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-group">
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-file-text-o"></i>
+                                                        <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-bell-o"></i>
                                                             </span>
-                                                            <input type="text" name="title" id="cupon" class="form-control" placeholder="Enter Title">
+                                                            <input type="text" name="name" id="cupon" class="form-control" placeholder="Enter Title">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -493,7 +496,7 @@
                                                     <label class="col-md-3 control-label">Description<span class='require'> *</span></label>
                                                     <div class="col-md-7 ">
                                                         <div class="input-group">
-                                                            <textarea name="content" class="summernote edi-css form-control"></textarea>
+                                                            <textarea name="description" class="summernote edi-css form-control"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -533,39 +536,25 @@
                                         <tr>
                                             <th>Notification Name</th>
                                             <th>Desciption</th>
-                                            <th>Edit/Save</th>
                                             <th>Delete/Cancel</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($notifications as $notification)
                                         <tr>
-                                            <td>Yoga</td>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                                            <td>{{ $notification->name }}</td>
+                                            <td>{{ $notification->description }} </td>
                                             <td>
-                                                <a class="edit btn btn-primary" href="javascript:;">
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="delete btn btn-danger" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
+                                                <form action="{{ route('deleteGymNotification', $notification->uuid) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this notification?');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="delete btn btn-danger mar-bm">
+                                                        <i class="fa fa-trash-o"></i> Delete
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>Aerobics</td>
-                                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                            <td>
-                                                <a class=" edit btn btn-primary" href="javascript:;">
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="delete btn btn-danger" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        @endforeach
 
                                     </tbody>
                                 </table>
@@ -603,4 +592,5 @@
 
 
 <!-- Mirrored from demo.lorvent.com/fitness/admin_coupon by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:50:00 GMT -->
+
 </html>

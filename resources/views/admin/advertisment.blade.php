@@ -618,7 +618,7 @@
                                             <th>End Date</th>
                                             <th>No. of Users</th>
                                             <th>Status</th>
-                                            <th>Edit/Save</th>
+                                            <th>View</th>
                                             <th>Delete/Cancel</th>
                                         </tr>
                                     </thead>
@@ -640,14 +640,18 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a class="edit btn btn-primary" href="#">
+                                                <a class="edit btn btn-primary" href="{{route('viewAdminAdvertisment',$advertisment->uuid)}}">
                                                     <i class="fa fa-fw fa-eye"></i> View
                                                 </a>
                                             </td>
                                             <td>
-                                                <a class="delete btn btn-danger mar-bm" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
+                                                <form action="{{ route('deleteAdvertisment', $advertisment->uuid) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this advertisment?');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="delete btn btn-danger mar-bm">
+                                                        <i class="fa fa-trash-o"></i> Delete
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                         @endforeach

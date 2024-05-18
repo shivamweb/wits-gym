@@ -56,4 +56,21 @@ class AdvertismentController extends Controller
             return redirect()->back()->with('error', $th->getMessage());
         }
     }
+
+    public function viewAdminAdvertisment(Request $request, $uuid)
+    {
+        $status = null;
+        $message = null;
+        $advertisments = $this->advertisment->where('uuid', $uuid)->first();
+        $status = $advertisments->status;
+
+        return view('admin.viewAdvertisment', compact('status', 'message','advertisments'));
+    }
+
+    public function deleteAdvertisment($uuid)
+    {
+        $advertisment = $this->advertisment->where('uuid', $uuid)->firstOrFail();
+        $advertisment->delete();
+        return redirect()->route('viewAdvertisment')->with('success', 'Advertisment deleted successfully!');
+    }
 }

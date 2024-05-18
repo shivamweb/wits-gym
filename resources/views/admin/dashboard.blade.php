@@ -278,7 +278,7 @@
                             </li>
                             <!-- Menu Body -->
                             <li class="pad-3">
-                                <a href="#">
+                                <a href="/admin/adminUserprofile">
                                     <i class="fa fa-fw fa-user"></i> My Profile
                                 </a>
                             </li>
@@ -408,12 +408,12 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href='/admin/userNotification'>
+                                    <a href='/admin/viewNotification'>
                                         <i class="text-primary fa fa-fw fa-cloud-upload"></i> User Notification
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='/admin/gymNotification'>
+                                    <a href='/admin/viewGymNotification'>
                                         <i class="text-success fa fa-fw fa-file-image-o"></i>GYM Notification
                                     </a>
                                 </li>

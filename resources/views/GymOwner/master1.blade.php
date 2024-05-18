@@ -49,7 +49,7 @@
 </head>
 
 <body>
-<div class="se-pre-con"></div>
+    <div class="se-pre-con"></div>
     <!-- header logo: style can be found in header-->
     <header class="header">
         <nav class="navbar navbar-static-top">
@@ -61,23 +61,20 @@
             <!-- Sidebar toggle button-->
             <!-- Sidebar toggle button-->
             <div>
-                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button"> <i
-                        class="fa fa-fw fa-navicon"></i>
+                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button"> <i class="fa fa-fw fa-navicon"></i>
                 </a>
             </div>
             <div class="navbar-right">
                 <ul class="nav navbar-nav">
                     <li class="dropdown messages-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
-                                class="fa fa-fw fa-envelope-o black"></i>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-fw fa-envelope-o black"></i>
                             <span class="label label-success">5</span>
                         </a>
                         <ul class="dropdown-menu dropdown-messages table-striped">
                             <li class="dropdown-title">New Messages</li>
                             <li>
                                 <a href="#" class="message striped-col">
-                                    <img class="message-image img-circle" alt="image"
-                                        src="assets/img/authors/avatar7.jpg">
+                                    <img class="message-image img-circle" alt="image" src="assets/img/authors/avatar7.jpg">
                                     <div class="message-body"><strong>Ernest Kerry</strong>
                                         <br> Can we Meet?
                                         <br>
@@ -88,8 +85,7 @@
                             </li>
                             <li>
                                 <a href="#" class="message">
-                                    <img class="message-image img-circle" alt="image"
-                                        src="assets/img/authors/avatar.jpg">
+                                    <img class="message-image img-circle" alt="image" src="assets/img/authors/avatar.jpg">
                                     <div class="message-body"><strong>John</strong>
                                         <br> Dont forgot to call...
                                         <br>
@@ -100,8 +96,7 @@
                             </li>
                             <li>
                                 <a href="#" class="message striped-col">
-                                    <img class="message-image img-circle" alt="image"
-                                        src="assets/img/authors/avatar5.jpg">
+                                    <img class="message-image img-circle" alt="image" src="assets/img/authors/avatar5.jpg">
                                     <div class="message-body">
                                         <strong>Wilton Zeph</strong>
                                         <br> If there is anything else &hellip;
@@ -113,8 +108,7 @@
                             </li>
                             <li>
                                 <a href="#" class="message">
-                                    <img class="message-image img-circle" alt="image"
-                                        src="assets/img/authors/avatar1.jpg">
+                                    <img class="message-image img-circle" alt="image" src="assets/img/authors/avatar1.jpg">
                                     <div class="message-body">
                                         <strong>Jenny Kerry</strong>
                                         <br> Let me know when you free
@@ -126,8 +120,7 @@
                             </li>
                             <li>
                                 <a href="#" class="message striped-col">
-                                    <img class="message-image img-circle" alt="image"
-                                        src="assets/img/authors/avatar.jpg">
+                                    <img class="message-image img-circle" alt="image" src="assets/img/authors/avatar.jpg">
                                     <div class="message-body">
                                         <strong>Tony</strong>
                                         <br> Let me know when you free
@@ -154,9 +147,7 @@
                                     <small class="pull-right">20%</small>
                                     <div class="message-body">
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-primary" style="width: 20%"
-                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-primary" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                 <span class="sr-only">20% Complete</span>
                                             </div>
                                         </div>
@@ -169,9 +160,7 @@
                                     <small class="pull-right">40%</small>
                                     <div class="message-body">
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-success" style="width: 40%"
-                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-success" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                 <span class="sr-only">40% Complete</span>
                                             </div>
                                         </div>
@@ -184,9 +173,7 @@
                                     <small class="pull-right">60%</small>
                                     <div class="message-body">
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-red" style="width: 60%"
-                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                 <span class="sr-only">60% Complete</span>
                                             </div>
                                         </div>
@@ -199,9 +186,7 @@
                                     <small class="pull-right">80%</small>
                                     <div class="message-body">
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-warning" style="width: 80%"
-                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-warning" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                 <span class="sr-only">80% Complete</span>
                                             </div>
                                         </div>
@@ -287,11 +272,9 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle padding-user" data-toggle="dropdown">
                             @if (!empty($gymDetail->image))
-                                <img src="{{ $gymDetail->image }}"width="35"
-                                    class="img-circle img-responsive pull-left" height="35" alt="User Image">
+                            <img src="{{ $gymDetail->image }}" width="35" class="img-circle img-responsive pull-left" height="35" alt="User Image">
                             @else
-                                <img src="assets\img\defaultImage\profile.png" width="35"
-                                    class="img-circle img-responsive pull-left" height="35" alt="User Image">
+                            <img src="assets\img\defaultImage\profile.png" width="35" class="img-circle img-responsive pull-left" height="35" alt="User Image">
                             @endif
                             <div class="riot">
                                 <div>
@@ -306,10 +289,9 @@
                             <!-- User image -->
                             <li class="user-header">
                                 @if (!empty($gymDetail->image))
-                                    <img src="{{ $gymDetail->image }}"class="img-circle" alt="User Image">
+                                <img src="{{ $gymDetail->image }}" class="img-circle" alt="User Image">
                                 @else
-                                    <img src="assets\img\defaultImage\profile.png" class="img-circle"
-                                        alt="User Image">
+                                <img src="assets\img\defaultImage\profile.png" class="img-circle" alt="User Image">
                                 @endif
 
                                 <p>Nataliapery</p>
@@ -354,29 +336,28 @@
                 <div id="menu" role="navigation">
                     <div class="nav_profile">
                         <div>
-                        <div class="media profile-left">
-                            <a class="pull-left profile-thumb" href="#">
-                                @if (!empty($gymDetail->image))
+                            <div class="media profile-left">
+                                <a class="pull-left profile-thumb" href="#">
+                                    @if (!empty($gymDetail->image))
                                     <img src="{{ $gymDetail->image }}" class="img-circle" alt="User Image">
-                                @else
-                                    <img src="assets\img\defaultImage\profile.png" class="img-circle"
-                                        alt="User Image">
-                                @endif
+                                    @else
+                                    <img src="assets\img\defaultImage\profile.png" class="img-circle" alt="User Image">
+                                    @endif
 
-                            </a>
-                            <div class="content-profile">
-                                <h4 class="media-heading">
-                                    @if (isset($gymDetail))
+                                </a>
+                                <div class="content-profile">
+                                    <h4 class="media-heading">
+                                        @if (isset($gymDetail))
                                         {{ $gymDetail->gym_name }}
-                                    @endif
-                                </h4>
-                                <span class="text-default">
-                                    @if (isset($gymDetail))
+                                        @endif
+                                    </h4>
+                                    <span class="text-default">
+                                        @if (isset($gymDetail))
                                         {{ $gymDetail->username }}
-                                    @endif
-                                </span>
+                                        @endif
+                                    </span>
+                                </div>
                             </div>
-</div>
                         </div>
                     </div>
                     <ul class="navigation">
@@ -389,13 +370,13 @@
                         </li>
                         <li>
                             <a href='/gym-subscription'>
-                                <i class="text-success menu-icon fa fa-fw fa-info-circle"></i>
+                                <i class="text-primary menu-icon fa fa-fw fa-credit-card"></i>
                                 <span class="mm-text">Gym Subscription</span>
                             </a>
                         </li>
                         <li class="active" id="active">
                             <a href='/gym-staff'>
-                                <i class="text-primary menu-icon fa fa-th fa-info-circle"></i>
+                            <i class=" text-primary fa fa-fw fa-user"></i>
                                 <span class="mm-text">Gym Staff</span>
                             </a>
                         </li>
@@ -594,8 +575,8 @@
     <script src="../../../../assets/vendors/fancyBox/source/helpers/jquery.fancybox-buttons3447.js?v=1.0.5" type="text/javascript"></script>
     <script src="../../../../assets/js/custom_js/portfolio.js" type="text/javascript"></script>
 
-     <!-- begining of page level js -->
-     <script src="../../../../assets/vendors/jQuery-File-Upload/js/main.js"></script>
+    <!-- begining of page level js -->
+    <script src="../../../../assets/vendors/jQuery-File-Upload/js/main.js"></script>
     <script src="../../../../assets/vendors/jQuery-File-Upload/js/vendor/jquery.ui.widget.js"></script>
     <!-- The Templates plugin is included to render the upload/download listings -->
     <script src="../../../../assets/vendors/jQuery-File-Upload/js/tmpl.min.js"></script>

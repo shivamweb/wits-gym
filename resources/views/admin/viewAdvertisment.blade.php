@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Mirrored from demo.lorvent.com/fitness/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:47:22 GMT -->
+
+
+<!-- Mirrored from demo.lorvent.com/fitness/admin_coupon by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:49:58 GMT -->
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
     <meta charset="UTF-8">
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <title>@yield('title', 'view Inquiry')</title>
+    <title>@yield('title', 'Admin Advertisement')</title>
     <link rel="shortcut icon" href="favicon.ico" />
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -18,86 +20,21 @@
     <!-- global css -->
     <link type="text/css" href="../../../../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/font-awesome.min.css" rel="stylesheet" />
-    <link type="text/css" href="../../../../assets/css/custom_css/metisMenu.css" rel="stylesheet" />
-    <!-- Date picker -->
-    <link href="../../../../assets/vendors/air-datepicker-master/dist/css/datepicker.min.css" rel="stylesheet" type="text/css">
-    <!-- end of global css -->
-    <!-- page level css -->
-    <link type="text/css" href="../../../../assets/vendors/jquery-circliful/css/jquery.circliful.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" type="text/css" href="vendors/jquery-plugin-circliful-master/css/jquery.circliful.css"> -->
-    <link type="text/css" href="../../../../assets/vendors/progressbar/css/bootstrap-progressbar.min.css" rel="stylesheet">
-    <link type="text/css" href="../../../../assets/vendors/fullcalendar/css/fullcalendar.css" rel="stylesheet">
-    <link type="text/css" href="../../../../assets/vendors/select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-    <link type="text/css" href="../../../../assets/css/custom_css/calendar_custom.css" rel="stylesheet">
-    <link type="text/css" href="../../../../assets/vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="../../../../assets/vendors/nvd3chart/nv.d3.min.css">
     <link type="text/css" href="../../../../assets/css/custom_css/fitness.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/custom_css/metisMenu.css" rel="stylesheet" />
+
     <link type="text/css" href="../../../../assets/css/custom_css/panel.css" rel="stylesheet" />
-    <link type="text/css" href="../../../../assets/css/custom_css/admin_dashboard.css" rel="stylesheet">
-    <!-- end of page level css -->
-    <style>
-        .enquiry-image img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 15px;
-        }
-
-        .enquiry-description textarea {
-            width: 100%;
-            height: 200px;
-            resize: vertical;
-        }
-
-        .panel {
-            margin-bottom: 20px;
-            border-radius: 0;
-            border: none;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-        }
-
-        .panel-heading {
-            background-color: #337ab7;
-            color: #fff;
-            padding: 10px 15px;
-            border-bottom: 1px solid transparent;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-        }
-
-        .panel-title {
-            margin-top: 0;
-            margin-bottom: 0;
-            font-size: 16px;
-            color: inherit;
-        }
-
-        .panel-body {
-            padding: 15px;
-        }
-
-        .content-header {
-            margin-bottom: 15px;
-        }
-
-        .breadcrumb {
-            padding: 8px 15px;
-            margin-bottom: 20px;
-            list-style: none;
-            background-color: #f5f5f5;
-            border-radius: 4px;
-            margin-top: 10px;
-        }
-
-        .breadcrumb>li {
-            display: inline;
-        }
-
-        .breadcrumb>li+li:before {
-            content: "›";
-            padding: 0 5px;
-            color: #ccc;
-        }
-    </style>
+    <!-- end of global css -->
+    <!--page level css -->
+    <link type="text/css" href="../../../../assets/vendors/summernote/summernote.css" rel="stylesheet" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../../../assets/vendors/jasny-bootstrap/css/jasny-bootstrap.css">
+    <link type="text/css" href="../../../../assets/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/vendors/datatables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/vendors/bootstrapvalidator/dist/css/bootstrapValidator.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/custom_css/timings.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/custom_css/coupon.css" rel="stylesheet">
+    <!--end of page level css-->
 </head>
 
 <body>
@@ -488,6 +425,7 @@
                                 <span class="mm-text">Payment</span>
                             </a>
                         </li>
+
                         <li>
                             <a href='/admin/listEnquiry'>
                                 <i class="text-primary  menu-icon fa fa-question-circle"></i>
@@ -501,17 +439,18 @@
             <!-- /.sidebar -->
         </aside>
         <aside class="right-side right-padding">
+            <!-- Content Header (Page header) -->
             <section class="content-header">
                 <!--section starts-->
-                {{-- <h2>Courses</h2> --}}
+                <h2>Advertisement</h2>
                 <ol class="breadcrumb">
                     <li>
-                        <a href='/admin/adminDashboard'>
+                        <a href='index.html'>
                             <i class="fa fa-fw fa-home"></i> Dashboard
                         </a>
                     </li>
                     <li>
-                        <a>View Enquiry</a>
+                        <a class='activated' href='/'>Advertisement</a>
                     </li>
                 </ol>
             </section>
@@ -520,10 +459,11 @@
                 <!--main content-->
                 <div class="row">
                     <div class="col-lg-12">
+                        <!-- Basic charts strats here-->
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <i class="fa fa-fw fa-file-text-o"></i> View Enquiry
+                                    <i class="fa fa-scissors "></i> Add Advertisement
                                 </h4>
                                 <span class="pull-right">
                                     <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
@@ -531,81 +471,163 @@
                                 </span>
                             </div>
                             <div class="panel-body">
-                                <div class="row" style="padding: 20px;">
+                                <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-horizontal">
-                                            <div class="form-group">
-                                                <label for="title" class="col-md-3 control-label">
-                                                    Title
-                                                </label>
-                                                <div class="col-md-7">
-                                                    <input id="title" type="text" value="{{$enquiryDetails->title}}" name="title" class="form-control" placeholder="Enter Title" disabled>
+                                        <form id="advertisment_form" action="" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="advertisment">
+                                                        Name
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-file-text-o"></i>
+                                                            </span>
+                                                            <input type="text" value="{{$advertisments->name}}" name="name" id="name" class="form-control" placeholder="Enter Title" disabled>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">Banner</label>
+                                                    <div class="col-md-7 text-center">
+                                                        <div class="input-group">
+                                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                                    @if(isset($advertisments->image))
+                                                                    <img src="{{ asset($advertisments->image) }}" alt="Advertisement Image">
+                                                                    @else
+                                                                    <img src="{{ asset('path_to_default_image') }}" alt="Default Image">
+                                                                    @endif
+                                                                </div>
+                                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 300px; max-height: 150px;"></div>
+                                                                <div class="select_align">
+                                                                    <span class="btn btn-primary btn-file">
+                                                                        <span class="fileinput-new">Select image</span>
+                                                                        <span class="fileinput-exists">Change</span>
+                                                                        <input type="file" name="image">
+                                                                    </span>
+                                                                    <a href="#" class="btn btn-primary fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="start_date" class="col-md-3 control-label">
+                                                        Start Date
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-3">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-calendar"></i>
+                                                            </span>
+                                                            <input id="start_date" value="{{$advertisments->from}}" type="date" name="from" required class="form-control" placeholder="Enter Start Date" disabled>
+                                                        </div>
+                                                    </div>
 
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">
-                                                    Description
-                                                    <span class='require'>*</span>
-                                                </label>
-                                                <div class="col-md-7">
-                                                    <div class="input-group">
-                                                        <!-- Ensure the textarea's closing tag is inline to avoid unexpected line breaks -->
-                                                        <textarea class="summernote edi-css form-control" id="description" name="description" required>
-                                                        {{ isset($enquiryDetails->description) ? $enquiryDetails->description : '' }}
-                                                        </textarea>
-                                                        <!-- Adjust the positioning of the image and ensure it is properly aligned with the textarea -->
-                                                        @if(isset($enquiryDetails->image))
-                                                        <img src="{{ asset($enquiryDetails->image) }}" alt="Enquiry Image" style="position: absolute; left: 10px; top: 10px; max-width: 150px;">
-                                                        @else
-                                                        <img alt="" style="position: absolute; left: 10px; top: 10px; max-width: 70px;">
-                                                        @endif
+                                                    <label for="end_date" class="col-md-1 control-label">
+                                                        End Date
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-3">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-calendar"></i>
+                                                            </span>
+                                                            <input id="end_date" value="{{$advertisments->to}}" type="date" name="to" required class="form-control" placeholder="Enter End Date">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">Description<span class='require'> *</span></label>
+                                                    <div class="col-md-7 ">
+                                                        <div class="input-group">
+                                                            <textarea name="description" id="description" class="summernote edi-css form-control" disabled>{{$advertisments->description}}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="advertisment">
+                                                        Number of users
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-3">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-users"></i>
+                                                            </span>
+                                                            <input type="number" value="{{$advertisments->users}}" name="users" id="users" class="form-control" placeholder="Enter No. of Users" disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="advertisment">
+                                                        Status
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-3">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-info-circle"></i>
+                                                            </span>
+                                                            <select class="custom-select form-control" name="status" id="status">
+                                                                <option value="" disabled>-----Select Status------</option>
+                                                                <option value="{{ \App\Enums\AdminAdvertismentStatus::ACTIVE }}" @if($status==\App\Enums\AdminAdvertismentStatus::ACTIVE) selected @endif disabled>Active</option>
+                                                                <option value="{{ \App\Enums\AdminAdvertismentStatus::INACTIVE }}" @if($status==\App\Enums\AdminAdvertismentStatus::INACTIVE) selected @endif disabled>InActive</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                            <!-- <div class="form-actions">
+                                                <div class="form-group">
+                                                    <div class="col-md-offset-3 col-md-9">
+                                                        <input type="submit" class="btn btn-primary" value="Add">
+                                                        <input type="button" class="btn btn-danger" value="Cancel">
+                                                        <input type="reset" ID="add-news-reset-editable" class="btn btn-default" value="Reset">
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
+            <!-- /.content -->
         </aside>
-
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#description').summernote({
-            height: 200 // set the height of the editor
-        });
-    });
-</script>
         <!-- /.right-side -->
-        <!-- ./wrapper -->
-        <!-- global js -->
-        <script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>
-        <script src="../../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../../../../assets/js/custom_js/app.js" type="text/javascript"></script>
-        <script src="../../../../assets/js/custom_js/metisMenu.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/holder/holder.js" type="text/javascript"></script>
-        <!-- end of page level js -->
-        <!-- begining of page level js -->
-        <script src="../../../../assets/vendors/moment/min/moment.min.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/summernote/summernote.min.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/jasny-bootstrap/js/jasny-bootstrap.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/moment/moment.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/datatables/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/bootstrapvalidator/dist/js/bootstrapValidator.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/sweetalert/dist/sweetalert2.js" type="text/javascript"></script>
-        <script src="../../../../assets/js/custom_js/coupon.js" type="text/javascript"></script>
-        <!-- end of page level js -->
+    </div>
+    <!-- /.right-side -->
+    <!-- ./wrapper -->
+    <!-- global js -->
+    <script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/custom_js/app.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/custom_js/metisMenu.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/holder/holder.js" type="text/javascript"></script>
+    <!-- end of page level js -->
+    <!-- begining of page level js -->
+    <script src="../../../../assets/vendors/moment/min/moment.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/summernote/summernote.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/jasny-bootstrap/js/jasny-bootstrap.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/moment/moment.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/datatables/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/bootstrapvalidator/dist/js/bootstrapValidator.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/sweetalert/dist/sweetalert2.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/custom_js/coupon.js" type="text/javascript"></script>
+    <!-- end of page level js -->
 </body>
+
+
 <!-- Mirrored from demo.lorvent.com/fitness/admin_coupon by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:50:00 GMT -->
 
 </html>
