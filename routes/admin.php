@@ -70,6 +70,8 @@ Route::delete('/deleteDesignation/{uuid}', [DesignationController::class, 'delet
 
 Route::get('/viewNotification', [UserNotificationController::class, 'viewNotification'])->name('viewNotification');
 Route::post('/addNotification', [UserNotificationController::class, 'addNotification'])->name('addNotification');
+Route::delete('/deleteNotification/{uuid}', [UserNotificationController::class, 'deleteNotification'])->name('deleteNotification');
 
 Route::get('/viewGymNotification', [GymNotificationController::class, 'viewGymNotification'])->name('viewGymNotification');
 Route::post('/addGymNotification', [GymNotificationController::class, 'addGymNotification'])->name('addGymNotification');
+Route::delete('/deleteGymNotification/{uuid}', [GymNotificationController::class, 'deleteGymNotification'])->name('deleteGymNotification');

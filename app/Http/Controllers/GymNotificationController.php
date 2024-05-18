@@ -36,4 +36,11 @@ class GymNotificationController extends Controller
    
     }
 
+    public function deleteGymNotification($uuid)
+    {
+        $notification = $this->notification->where('uuid', $uuid)->firstOrFail();
+        $notification->delete();
+        return redirect()->route('viewGymNotification')->with('success', 'Notification deleted successfully!');
+    }
+
 }

@@ -35,6 +35,13 @@ class UserNotificationController extends Controller
         return redirect()->back()->with('status','success')->with('message','User Notification Added Successfully');
    
     }
+
+    public function deleteNotification($uuid)
+    {
+        $notification = $this->notification->where('uuid', $uuid)->firstOrFail();
+        $notification->delete();
+        return redirect()->route('viewNotification')->with('success', 'Notification deleted successfully!');
+    }
        
 
 }
