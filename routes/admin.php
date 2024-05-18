@@ -4,12 +4,14 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminCouponController;
 use App\Http\Controllers\AdminEnquiryController;
 use App\Http\Controllers\AdminGymController;
+use App\Http\Controllers\AdminNotificationController;
 use App\Http\Controllers\AdminSubscriptionController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdvertismentController;
 
 use App\Http\Controllers\DesignationController;
-
+use App\Http\Controllers\GymNotificationController;
+use App\Http\Controllers\UserNotificationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/viewGymInfo', [AdminGymController::class, 'viewGymInfo']);
@@ -43,12 +45,12 @@ Route::get('/payment', function () {
 // Route::get('/advertisement', function () {
 //     return view('admin.advertisment');
 // });
-Route::get('/userNotification', function () {
-    return view('admin.userNotification');
-});
-Route::get('/gymNotification', function () {
-    return view('admin.gymNotification');
-});
+// Route::get('/userNotification', function () {
+//     return view('admin.userNotification');
+// });
+// Route::get('/gymNotification', function () {
+//     return view('admin.gymNotification');
+// });
 Route::get('/adminUserprofile', function () {
     return view('admin.adminUser.adminUserprofile');
 });
@@ -60,7 +62,14 @@ Route::post('/updateAdminCoupon', [AdminCouponController::class, 'updateAdminCou
 
 Route::get('/viewAdvertisment', [AdvertismentController::class, 'viewAdvertisment'])->name('viewAdvertisment');
 Route::post('/addAdvertisment', [AdvertismentController::class, 'addAdvertisment'])->name('addAdvertisment');
+Route::get('/viewAdminAdvertisment/{uuid}', [AdvertismentController::class, 'viewAdminAdvertisment'])->name('viewAdminAdvertisment');
 
 Route::get('/viewDesignation', [DesignationController::class, 'viewDesignation'])->name('viewDesignation');
 Route::post('/addDesignation', [DesignationController::class, 'addDesignation'])->name('addDesignation');
 Route::delete('/deleteDesignation/{uuid}', [DesignationController::class, 'deleteDesignation'])->name('deleteDesignation');
+
+Route::get('/viewNotification', [UserNotificationController::class, 'viewNotification'])->name('viewNotification');
+Route::post('/addNotification', [UserNotificationController::class, 'addNotification'])->name('addNotification');
+
+Route::get('/viewGymNotification', [GymNotificationController::class, 'viewGymNotification'])->name('viewGymNotification');
+Route::post('/addGymNotification', [GymNotificationController::class, 'addGymNotification'])->name('addGymNotification');

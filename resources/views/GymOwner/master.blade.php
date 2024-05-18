@@ -378,13 +378,13 @@
                                 </li>
                                 <li>
                                     <a href='/gym-subscription'>
-                                        <i class="text-success menu-icon fa fa-fw fa-info-circle"></i>
+                                        <i class="text-primary menu-icon fa fa-fw fa-credit-card"></i>
                                         <span class="mm-text">Gym Subscription</span>
                                     </a>
                                 </li>
                                 <li class="active" id="active">
                                     <a href='/gym-staff'>
-                                        <i class="text-primary menu-icon fa fa-th fa-info-circle"></i>
+                                        <i class=" text-primary fa fa-fw fa-user"></i>
                                         <span class="mm-text">Gym Staff</span>
                                     </a>
                                 </li>
@@ -415,7 +415,8 @@
                                 </li>
                                 <li>
                                     <a href='/gym-coupon'>
-                                        <i class="text-success menu-icon fa fa-life-ring fa-info-circle"></i>
+                                        <i class="fa fa-fw fa-ticket"></i>
+
                                         <span class="mm-text">Coupons</span>
                                     </a>
                                 </li>

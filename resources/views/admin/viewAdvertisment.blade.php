@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title', 'User Notification')</title>
+    <title>@yield('title', 'Admin Advertisement')</title>
     <link rel="shortcut icon" href="favicon.ico" />
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -408,12 +408,12 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href='/admin/viewNotification'>
+                                    <a href='/admin/userNotification'>
                                         <i class="text-primary fa fa-fw fa-cloud-upload"></i> User Notification
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='/admin/viewGymNotification'>
+                                    <a href='/admin/gymNotification'>
                                         <i class="text-success fa fa-fw fa-file-image-o"></i>GYM Notification
                                     </a>
                                 </li>
@@ -425,6 +425,7 @@
                                 <span class="mm-text">Payment</span>
                             </a>
                         </li>
+
                         <li>
                             <a href='/admin/listEnquiry'>
                                 <i class="text-primary  menu-icon fa fa-question-circle"></i>
@@ -441,7 +442,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <!--section starts-->
-                <h2>User Notification</h2>
+                <h2>Advertisement</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href='index.html'>
@@ -449,10 +450,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class='activated' href='admin_coupon.html'>Notification</a>
-                    </li>
-                    <li>
-                        <a class='activated' href='admin_coupon.html'>User Notification</a>
+                        <a class='activated' href='/'>Advertisement</a>
                     </li>
                 </ol>
             </section>
@@ -465,7 +463,7 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <i class="fa fa-scissors "></i> Add Notification
+                                    <i class="fa fa-scissors "></i> Add Advertisement
                                 </h4>
                                 <span class="pull-right">
                                     <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
@@ -475,20 +473,72 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <form id="coupon_form" action="{{route('addNotification')}}" method="POST" class="form-horizontal">
+                                        <form id="advertisment_form" action="" class="form-horizontal" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-body">
                                                 <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="cupon">
-                                                        Notification Name
+                                                    <label class="col-md-3 control-label" for="advertisment">
+                                                        Name
                                                         <span class='require'>*</span>
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-bell-o"></i>
+                                                                <i class="fa fa-fw fa-file-text-o"></i>
                                                             </span>
-                                                            <input type="text" name="name" id="cupon" class="form-control" placeholder="Enter Title">
+                                                            <input type="text" value="{{$advertisments->name}}" name="name" id="name" class="form-control" placeholder="Enter Title" disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">Banner</label>
+                                                    <div class="col-md-7 text-center">
+                                                        <div class="input-group">
+                                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                                    @if(isset($advertisments->image))
+                                                                    <img src="{{ asset($advertisments->image) }}" alt="Advertisement Image">
+                                                                    @else
+                                                                    <img src="{{ asset('path_to_default_image') }}" alt="Default Image">
+                                                                    @endif
+                                                                </div>
+                                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 300px; max-height: 150px;"></div>
+                                                                <div class="select_align">
+                                                                    <span class="btn btn-primary btn-file">
+                                                                        <span class="fileinput-new">Select image</span>
+                                                                        <span class="fileinput-exists">Change</span>
+                                                                        <input type="file" name="image">
+                                                                    </span>
+                                                                    <a href="#" class="btn btn-primary fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="start_date" class="col-md-3 control-label">
+                                                        Start Date
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-3">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-calendar"></i>
+                                                            </span>
+                                                            <input id="start_date" value="{{$advertisments->from}}" type="date" name="from" required class="form-control" placeholder="Enter Start Date" disabled>
+                                                        </div>
+                                                    </div>
+
+                                                    <label for="end_date" class="col-md-1 control-label">
+                                                        End Date
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-3">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-calendar"></i>
+                                                            </span>
+                                                            <input id="end_date" value="{{$advertisments->to}}" type="date" name="to" required class="form-control" placeholder="Enter End Date">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -496,12 +546,44 @@
                                                     <label class="col-md-3 control-label">Description<span class='require'> *</span></label>
                                                     <div class="col-md-7 ">
                                                         <div class="input-group">
-                                                            <textarea name="description" class="summernote edi-css form-control"></textarea>
+                                                            <textarea name="description" id="description" class="summernote edi-css form-control" disabled>{{$advertisments->description}}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="advertisment">
+                                                        Number of users
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-3">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-users"></i>
+                                                            </span>
+                                                            <input type="number" value="{{$advertisments->users}}" name="users" id="users" class="form-control" placeholder="Enter No. of Users" disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="advertisment">
+                                                        Status
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-3">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-info-circle"></i>
+                                                            </span>
+                                                            <select class="custom-select form-control" name="status" id="status">
+                                                                <option value="" disabled>-----Select Status------</option>
+                                                                <option value="{{ \App\Enums\AdminAdvertismentStatus::ACTIVE }}" @if($status==\App\Enums\AdminAdvertismentStatus::ACTIVE) selected @endif disabled>Active</option>
+                                                                <option value="{{ \App\Enums\AdminAdvertismentStatus::INACTIVE }}" @if($status==\App\Enums\AdminAdvertismentStatus::INACTIVE) selected @endif disabled>InActive</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-actions">
+                                            <!-- <div class="form-actions">
                                                 <div class="form-group">
                                                     <div class="col-md-offset-3 col-md-9">
                                                         <input type="submit" class="btn btn-primary" value="Add">
@@ -509,51 +591,10 @@
                                                         <input type="reset" ID="add-news-reset-editable" class="btn btn-default" value="Reset">
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </form>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Basic charts strats here-->
-                        <div class="panel panel-success">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <i class="fa fa-fw fa-file-text-o"></i> Present Notification
-                                </h4>
-                                <span class="pull-right">
-                                    <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
-                                    <i class="glyphicon glyphicon-remove removepanel"></i>
-                                </span>
-                            </div>
-                            <div class="panel-body table-responsive">
-                                <table class="table table-bordered" id="fitness-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Notification Name</th>
-                                            <th>Desciption</th>
-                                            <th>Delete/Cancel</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($notifications as $notification)
-                                        <tr>
-                                            <td>{{ $notification->name }}</td>
-                                            <td>{{ $notification->description }} </td>
-                                            <td>
-                                                <a class="delete btn btn-danger mar-bm" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                     </div>

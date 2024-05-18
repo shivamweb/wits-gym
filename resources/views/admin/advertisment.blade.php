@@ -618,7 +618,7 @@
                                             <th>End Date</th>
                                             <th>No. of Users</th>
                                             <th>Status</th>
-                                            <th>Edit/Save</th>
+                                            <th>View</th>
                                             <th>Delete/Cancel</th>
                                         </tr>
                                     </thead>
@@ -640,7 +640,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a class="edit btn btn-primary" href="#">
+                                                <a class="edit btn btn-primary" href="{{route('viewAdminAdvertisment',$advertisment->uuid)}}">
                                                     <i class="fa fa-fw fa-eye"></i> View
                                                 </a>
                                             </td>
