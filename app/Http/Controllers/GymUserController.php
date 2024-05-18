@@ -90,8 +90,8 @@ class GymUserController extends Controller
         $userId = $userDetail->first()['id'];
 
         $bmis = $this->bmi->where('user_id', $userId)->get();
-        $trainers = $this->gymStaff->where('designation', "trainer")->get();
-        $trainers = $this->gymStaff->where('gym_id', $gymId)->where('designation', "trainer")->get();
+        $trainers = $this->gymStaff->where('designation_id', "1")->get();
+        $trainers = $this->gymStaff->where('gym_id', $gymId)->where('designation_id', "1")->get();
         // dd($gymId);
         return view('GymOwner.User.userProfile', compact('userDetail', 'workouts', 'diets', 'bmis', 'trainers'));
     }

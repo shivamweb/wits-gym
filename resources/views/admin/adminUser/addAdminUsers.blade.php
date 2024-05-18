@@ -383,7 +383,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href='/admin/coupon'>
+                            <a href='/admin/viewAdminCoupons'>
                                 <i class="text-primary  menu-icon fa fa-scissors"></i>
                                 <span class="mm-text">Coupons</span>
                             </a>
@@ -395,7 +395,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href='/admin/advertisement'>
+                        <a href='/admin/viewAdvertisment'>
                                 <i class="text-primary  menu-icon fa fa-question-circle"></i>
                                 <span class="mm-text">Advertisement</span>
                             </a>
@@ -546,7 +546,7 @@
                                                             <input type="text" placeholder="Enter Last Name" required class="form-control" id="mail" name="last_name" />
                                                         </div>
                                                     </div>
-                                                </div> 
+                                                </div>
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label" for="usr_name">
                                                         User Name
