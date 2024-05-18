@@ -452,13 +452,13 @@
                             </a>
                         </li>
                         <li>
-                        <a href='/admin/viewDesignation'>
+                            <a href='/admin/viewDesignation'>
                                 <i class="text-primary  menu-icon fa fa-scissors"></i>
                                 <span class="mm-text">Designation</span>
                             </a>
                         </li>
                         <li>
-                        <a href='/admin/viewAdvertisment'>
+                            <a href='/admin/viewAdvertisment'>
                                 <i class="text-primary  menu-icon fa fa-question-circle"></i>
                                 <span class="mm-text">Advertisement</span>
                             </a>
@@ -544,17 +544,22 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="image_and_description" class="col-md-3 control-label">
+                                                <label class="col-md-3 control-label">
                                                     Description
+                                                    <span class='require'>*</span>
                                                 </label>
                                                 <div class="col-md-7">
-                                                    <div class="enquiry-description">
+                                                    <div class="input-group">
+                                                        <!-- Ensure the textarea's closing tag is inline to avoid unexpected line breaks -->
+                                                        <textarea class="summernote edi-css form-control" id="description" name="description" required>
+                                                        {{ isset($enquiryDetails->description) ? $enquiryDetails->description : '' }}
+                                                        </textarea>
+                                                        <!-- Adjust the positioning of the image and ensure it is properly aligned with the textarea -->
                                                         @if(isset($enquiryDetails->image))
-                                                        <img src="{{'../../'.$enquiryDetails->image}}" alt="Enquiry Image">
+                                                        <img src="{{ asset($enquiryDetails->image) }}" alt="Enquiry Image" style="position: absolute; left: 10px; top: 10px; max-width: 150px;">
                                                         @else
-                                                        <img src="" alt="profile">
+                                                        <img alt="" style="position: absolute; left: 10px; top: 10px; max-width: 70px;">
                                                         @endif
-                                                        <textarea id="content_editor" name="description" class="form-control" style="height: 200px; overflow-y: auto;" disabled>{{$enquiryDetails->description}}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -568,6 +573,17 @@
 
             </div>
         </aside>
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#description').summernote({
+            height: 200 // set the height of the editor
+        });
+    });
+</script>
         <!-- /.right-side -->
         <!-- ./wrapper -->
         <!-- global js -->
