@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 use Ramsey\Uuid\Uuid;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Throwable;
 
 class GymEnquiry extends Model
 {
+    use SoftDeletes;
     protected $fillable = [
         'title',
         'description',

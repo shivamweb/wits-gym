@@ -69,5 +69,10 @@ class GymEnquiryController extends Controller
 
         return view('GymOwner.viewEnquiry', compact('enquiryDetails'));
     }
-
+    public function deleteEnquiry($uuid)
+    {
+        $enquiry = $this->enquiry->where('uuid', $uuid)->firstOrFail();
+        $enquiry->delete();
+        return redirect()->back()->with('success', 'Enquiry deleted successfully!');
+    }
 }
