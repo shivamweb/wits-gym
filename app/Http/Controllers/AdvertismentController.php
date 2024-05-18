@@ -66,4 +66,11 @@ class AdvertismentController extends Controller
 
         return view('admin.viewAdvertisment', compact('status', 'message','advertisments'));
     }
+
+    public function deleteAdvertisment($uuid)
+    {
+        $advertisment = $this->advertisment->where('uuid', $uuid)->firstOrFail();
+        $advertisment->delete();
+        return redirect()->route('viewAdvertisment')->with('success', 'Advertisment deleted successfully!');
+    }
 }

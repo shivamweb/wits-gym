@@ -498,7 +498,7 @@
                                                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                                                 <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
                                                                     @if(isset($adminCoupon->image))
-                                                                    <img src="{{'../../'.$adminCoupon->image}}" alt="Enquiry Image">
+                                                                    <img src="{{'../../'.$adminCoupon->image}}" alt="Coupon Image">
                                                                     @else
                                                                     <img src="" alt="profile">
                                                                     @endif

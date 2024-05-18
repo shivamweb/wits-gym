@@ -59,10 +59,12 @@ Route::get('/viewAdminCoupons', [AdminCouponController::class, 'viewAdminCoupons
 Route::post('/addAdminCoupon', [AdminCouponController::class, 'addAdminCoupon'])->name('addAdminCoupon');
 Route::get('/editViewCoupon', [AdminCouponController::class, 'editViewCoupon'])->name('editViewCoupon');
 Route::post('/updateAdminCoupon', [AdminCouponController::class, 'updateAdminCoupon'])->name('updateAdminCoupon');
+Route::delete('/deleteCoupon/{uuid}', [AdminCouponController::class, 'deleteCoupon'])->name('deleteCoupon');
 
 Route::get('/viewAdvertisment', [AdvertismentController::class, 'viewAdvertisment'])->name('viewAdvertisment');
 Route::post('/addAdvertisment', [AdvertismentController::class, 'addAdvertisment'])->name('addAdvertisment');
 Route::get('/viewAdminAdvertisment/{uuid}', [AdvertismentController::class, 'viewAdminAdvertisment'])->name('viewAdminAdvertisment');
+Route::delete('/deleteAdvertisment/{uuid}', [AdvertismentController::class, 'deleteAdvertisment'])->name('deleteAdvertisment');
 
 Route::get('/viewDesignation', [DesignationController::class, 'viewDesignation'])->name('viewDesignation');
 Route::post('/addDesignation', [DesignationController::class, 'addDesignation'])->name('addDesignation');

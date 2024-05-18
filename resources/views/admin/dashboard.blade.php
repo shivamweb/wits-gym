@@ -278,7 +278,7 @@
                             </li>
                             <!-- Menu Body -->
                             <li class="pad-3">
-                                <a href="#">
+                                <a href="/admin/adminUserprofile">
                                     <i class="fa fa-fw fa-user"></i> My Profile
                                 </a>
                             </li>

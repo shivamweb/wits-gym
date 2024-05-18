@@ -96,4 +96,11 @@ class AdminCouponController extends Controller
             return redirect()->back()->with('status', 'error')->with('message', 'Error while updating coupon.');
         }
     }
+
+    public function deleteCoupon($uuid)
+    {
+        $adminCoupon = $this->adminCoupon->where('uuid', $uuid)->firstOrFail();
+        $adminCoupon->delete();
+        return redirect()->route('viewAdminCoupons')->with('success', 'Coupon deleted successfully!');
+    }
 }
