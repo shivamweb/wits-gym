@@ -53,7 +53,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label for="image_and_description" class="col-md-3 control-label">
                                                 Description <span class='require'>*</span>
                                             </label>
@@ -62,6 +62,17 @@
 
                                                 <button type="button" id="upload-image-btn" class="btn btn-primary mt-2">Upload Image</button>
                                                 <input type="file" id="image" name="image" style="display: none; height: 300px;" accept="image/*" onchange="handleImageUpload(event)">
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">
+                                                Description
+                                                <span class='require'>*</span>
+                                            </label>
+                                            <div class="col-md-7">
+                                                <div class="input-group">
+                                                    <textarea class="summernote edi-css form-control" id="description" name="description" required></textarea>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-actions">

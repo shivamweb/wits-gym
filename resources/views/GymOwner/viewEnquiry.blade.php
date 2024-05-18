@@ -52,8 +52,26 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="form-group">
+                                            <label class="col-md-3 control-label">
+                                                Description
+                                                <span class='require'>*</span>
+                                            </label>
+                                            <div class="col-md-7">
+                                                <div class="input-group">
+                                                    <textarea class="summernote edi-css form-control" id="description" name="description" required>
+                                                    {{ isset($enquiryDetails->description) ? $enquiryDetails->description : '' }}
+                                                    </textarea>
+                                                    @if(isset($enquiryDetails->image))
+                                                    <img src="{{ asset($enquiryDetails->image) }}" alt="Enquiry Image" style="position: absolute; left: 10px; top: 10px; max-width: 150px;">
+                                                    @else
+                                                    <img alt="" style="position: absolute; max-width: 70px;">
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="form-group">
                                             <label for="image_and_description" class="col-md-3 control-label">
                                                 Description <span class='require'>*</span>
                                             </label>
@@ -65,9 +83,8 @@
                                                 <img alt="" style="position: absolute; max-width: 70px;">
                                                 @endif
                                                 <button type="button" onclick="uploadImage()" class="btn btn-primary mt-2">Upload Image</button>
-                                                <!-- Assuming $enquiryDetails->image contains the path or URL to the image -->
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                         <div class="form-actions">
                                             <div class="row">
