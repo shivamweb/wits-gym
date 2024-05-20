@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title', 'Subscription')</title>
+    <title>@yield('title', 'Update Subscription')</title>
     <link rel="shortcut icon" href="favicon.ico" />
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -439,7 +439,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <!--section starts-->
-                <h2>Subscriptions</h2>
+                <h2>Update Subscriptions</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href='index.html'>
@@ -447,7 +447,7 @@
                         </a>
                     </li>
                     <li class="active" id="active">
-                        <a href='packages.html'>Subscriptions</a>
+                        <a href='packages.html'>Update Subscriptions</a>
                     </li>
                 </ol>
             </section>
@@ -460,7 +460,7 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <i class="fa fa-money"></i> Add Subscription
+                                    <i class="fa fa-money"></i> Update Subscription
                                 </h4>
                                 <span class="pull-right">
                                     <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
@@ -470,7 +470,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <form id="packages" action="{{route('addAdminSubscription')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                        <form id="packages" action="{{route('updateSubscription')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-body">
                                                 <div class="form-group">
@@ -483,7 +483,8 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-fw fa-file-text-o"></i>
                                                             </span>
-                                                            <input type="text" name="subscription_name" id="title" class="form-control" placeholder="Enter Title">
+                                                            <input type="hidden" name="uuid" value="{{ $adminSubscription->uuid }}">
+                                                            <input type="text" name="subscription_name" value="{{$adminSubscription->subscription_name}}" id="title" class="form-control" placeholder="Enter Title">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -493,7 +494,11 @@
                                                         <div class="input-group">
                                                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                                                 <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                                                    <img data-src="holder.js/200x150" src="#" alt="profile">
+                                                                    @if(isset($adminSubscription->image))
+                                                                    <img src="{{'../../'.$adminSubscription->image}}" alt="Subcription Image">
+                                                                    @else
+                                                                    <img src="" alt="Subcription Image">
+                                                                    @endif
                                                                 </div>
                                                                 <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                                                 <div class="select_align">
@@ -517,7 +522,7 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-fw fa-calendar"></i>
                                                             </span>
-                                                            <input type='date' class="form-control" id="start" name="start_date" />
+                                                            <input type='date' value="{{$adminSubscription->start_date}}" class="form-control" id="start" name="start_date" />
                                                         </div>
                                                     </div>
                                                     <label class="col-md-1 control-label" for="end">
@@ -528,7 +533,7 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-fw fa-hourglass"></i>
                                                             </span>
-                                                            <input type='number' class="form-control" id="end" name="validity" />
+                                                            <input type='number' value="{{$adminSubscription->validity}}" class="form-control" id="end" name="validity" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -541,7 +546,7 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-fw fa-dollar"></i>
                                                             </span>
-                                                            <input type='number' class="form-control" id="start" name="amount" />
+                                                            <input type='number' value="{{$adminSubscription->amount}}"  class="form-control" id="start" name="amount" />
                                                         </div>
                                                     </div>
                                                     <label class="col-md-1 control-label" for="end">
@@ -552,7 +557,7 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-fw fa-list"></i>
                                                             </span>
-                                                            <input type='text' class="form-control" id="end" name="plan_id" />
+                                                            <input type='text'  value="{{$adminSubscription->plan_id}}"  class="form-control" id="end" name="plan_id" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -563,7 +568,7 @@
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-group">
-                                                            <textarea name="description" class="form-control"></textarea>
+                                                            <textarea name="description" class="form-control">{{$adminSubscription->description}}</textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -571,7 +576,7 @@
                                             <div class="form-actions">
                                                 <div class="form-group">
                                                     <div class="col-md-offset-3 col-md-9">
-                                                        <input type="submit" class="btn btn-primary" value="Add">
+                                                        <input type="submit" class="btn btn-primary" value="Update">
                                                         <input type="button" class="btn btn-danger" value="Cancel">
                                                         <input type="reset" ID="add-news-reset-editable" class="btn btn-default" value="Reset">
                                                     </div>
@@ -580,58 +585,6 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Basic charts strats here-->
-                        <div class="panel panel-success">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <i class="fa fa-fw fa-file-text-o"></i> Present Packages
-                                </h4>
-                                <span class="pull-right">
-                                    <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
-                                    <i class="glyphicon glyphicon-remove removepanel"></i>
-                                </span>
-                            </div>
-                            <div class="panel-body table-responsive">
-                                <table class="table table-bordered table1">
-                                    <thead>
-                                        <tr>
-                                            <th>Subscription Name</th>
-                                            <th>Amount</th>
-                                            <th>Desciption</th>
-                                            <th>Amount</th>
-                                            <th>Edit/Save</th>
-                                            <th>Cancel/Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($adminSubscriptions as $adminSubscription)
-                                        <tr>
-                                            <td>{{$adminSubscription->subscription_name}}</td>
-                                            <td>{{$adminSubscription->amount}}</td>
-                                            <td>{{$adminSubscription->description}} </td>
-                                            <td>{{$adminSubscription->amount}}</td>
-                                            <td>
-                                                <a class="edit btn btn-primary mar-bm" href="{{ route('viewEditSubscription', $adminSubscription->uuid) }}">
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
-                                                </a>
-                                            </td>
-
-
-                                            <td>
-                                                <a class="delete btn btn-danger mar-bm" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                     </div>
