@@ -522,7 +522,7 @@
                                                                     <tr>
                                                                         <td>Username</td>
                                                                         <td>
-                                                                            <input type="text" value="{{ $gymLists->username }}" placeholder="enter user name" id="fb-name" name="username" class="form-control" disabled>
+                                                                            <input type="text" value="{{ $gymLists->username }}" placeholder="enter user name" id="fb-name" name="username" class="form-control">
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
