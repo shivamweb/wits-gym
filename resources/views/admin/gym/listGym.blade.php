@@ -388,13 +388,13 @@
                             </a>
                         </li>
                         <li>
-                        <a href='/admin/viewDesignation'>
+                            <a href='/admin/viewDesignation'>
                                 <i class="text-primary  menu-icon fa fa-scissors"></i>
                                 <span class="mm-text">Designation</span>
                             </a>
                         </li>
                         <li>
-                        <a href='/admin/viewAdvertisment'>
+                            <a href='/admin/viewAdvertisment'>
                                 <i class="text-primary  menu-icon fa fa-question-circle"></i>
                                 <span class="mm-text">Advertisement</span>
                             </a>
@@ -431,7 +431,7 @@
                             </a>
                         </li>
 
-                    <!-- / .navigation -->
+                        <!-- / .navigation -->
                 </div>
                 <!-- menu -->
             </section>
@@ -441,49 +441,53 @@
         <aside class="right-side right-padding">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <i class="fa fa-fw fa-file-text-o"></i> Gym List
-                            </h4>
-                            <span class="pull-right">
-                                <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
-                                <i class="glyphicon glyphicon-remove removepanel"></i>
-                            </span>
-                        </div>
-                        <div class="panel-body table-responsive">
-                            <table class="table table-bordered table1">
-                                <thead>
-                                    <tr>
-                                        <th>Gym Name</th>
-                                        <th>Duration</th>
-                                        <th>Amount</th>
-                                        <th>Edit/Save</th>
-                                        <th>Cancel/Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($gymLists as $gymList)
-                                    <tr>
-                                        <td>{{$gymList->gym_name}}</td>
-                                        <td>{{$gymList->web_link}}</td>
-                                        <td>$60</td>
-                                        <td>
-                                            <a class="edit btn btn-primary mar-bm" href="javascript:;">
-                                                <i class="fa fa-fw fa-edit"></i> Edit
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a class="delete btn btn-danger mar-bm" href="javascript:;">
-                                                <i class="fa fa-trash-o"></i> Delete
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <i class="fa fa-fw fa-file-text-o"></i> Gym List
+                        </h4>
+                        <span class="pull-right">
+                            <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
+                            <i class="glyphicon glyphicon-remove removepanel"></i>
+                        </span>
                     </div>
+                    <div class="panel-body table-responsive">
+                        <table class="table table-bordered table1">
+                            <thead>
+                                <tr>
+                                    <th>Gym Name</th>
+                                    <th>Duration</th>
+                                    <th>Amount</th>
+                                    <th>Edit/Save</th>
+                                    <th>Cancel/Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($gymLists as $gymList)
+                                <tr>
+                                    <td>{{$gymList->gym_name}}</td>
+                                    <td>{{$gymList->web_link}}</td>
+                                    <td>$60</td>
+                                    <td>
+                                        <a class="edit btn btn-primary mar-bm" href="{{ route('viewEditGym', $gymList->uuid) }}">
+                                            <i class="fa fa-fw fa-edit"></i> Edit
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('deleteGym', $gymList->uuid) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this Gym?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="delete btn btn-danger mar-bm">
+                                                <i class="fa fa-trash-o"></i> Delete
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </section>
         </aside>
         <script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>

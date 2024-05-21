@@ -283,19 +283,19 @@
                                 </a>
                             </li>
                             <li role="presentation"></li>
-                            <li>
+                            <!-- <li>
                                 <a href="#">
                                     <i class="fa fa-fw fa-gear"></i> Account Settings
                                 </a>
-                            </li>
+                            </li> -->
                             <li role="presentation" class="divider"></li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <div class="pull-left">
+                                <!-- <div class="pull-left">
                                     <a href="#">
                                         <i class="fa fa-fw fa-lock"></i> Lock
                                     </a>
-                                </div>
+                                </div> -->
                                 <div class="pull-right">
                                     <a href='login.html'>
                                         <i class="fa fa-fw fa-sign-out"></i> Logout

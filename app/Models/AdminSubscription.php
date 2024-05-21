@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Log;
 use Ramsey\Uuid\Uuid;
+use Throwable;
 
 class AdminSubscription extends Authenticatable
 {
@@ -49,4 +50,23 @@ class AdminSubscription extends Authenticatable
             Log::error('[AdminSubscription][addAdminSubscription] Error adding admin subscription: ' . $e->getMessage());
         }
     }
+
+    public function updateAdminSubscription(array $updateSubscriptionArray, $imagePath, $uuid)
+    {
+        try {
+            $subscription = $this->where('uuid', $uuid)->first();
+            $subscription->update($updateSubscriptionArray);
+            if (isset($imagePath)) {
+                $subscription->update([
+                    'image' => $imagePath
+                ]);
+            }
+            return true;
+        } catch (Throwable $th) {
+            Log::error('[AdminSubscription] [updateAdminSubscription] Error updating Subscription: ' . $th->getMessage());
+           return false;
+        }
+
+    }
+
 }

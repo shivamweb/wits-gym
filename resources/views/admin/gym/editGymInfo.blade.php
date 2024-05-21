@@ -2,18 +2,22 @@
 <html lang="en">
 
 
-<!-- Mirrored from demo.lorvent.com/fitness/admin_clubinfo by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:48:18 GMT -->
+<!-- Mirrored from demo.lorvent.com/fitness/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:47:22 GMT -->
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title', 'Subscription')</title>
-    <link rel="shortcut icon" href="favicon.ico" />
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <title>@yield('title', 'Update GYM Info')</title>
+    <link rel="shortcut icon" href="favicon.ico" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <!-- global css -->
     <script src="../../../../assets/oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="../../../../assets/oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <!--[endif]-->
@@ -31,7 +35,6 @@
     <link type="text/css" href="../../../../assets/css/custom_css/fitness.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/custom_css/club_info.css" rel="stylesheet" />
     <!--end of page level css-->
-</head>
 
 <body>
     <div class="se-pre-con"></div>
@@ -323,7 +326,7 @@
                     </div>
                     <ul class="navigation">
                         <li>
-                            <a href='../admin/adminDashboard'>
+                            <a href='/admin/adminDashboard'>
                                 <i class="text-primary menu-icon fa fa-fw fa-dashboard"></i>
                                 <span class="mm-text ">Dashboard</span>
                             </a>
@@ -336,12 +339,12 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href='../admin/viewGymInfo'>
+                                    <a href='/admin/viewGymInfo'>
                                         <i class="text-primary fa fa-fw fa-cloud-upload"></i> Gym Add
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='../admin/viewGymList'>
+                                    <a href='/admin/viewGymList'>
                                         <i class="text-success fa fa-fw fa-file-image-o"></i> Gym List
                                     </a>
                                 </li>
@@ -439,63 +442,61 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <!--section starts-->
-                <h2>Subscriptions</h2>
+                <h2 class="section_h2_margin_top">Update Gym Profile</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href='index.html'>
                             <i class="fa fa-fw fa-home"></i> Dashboard
                         </a>
                     </li>
-                    <li class="active" id="active">
-                        <a href='packages.html'>Subscriptions</a>
+                    <li>
+                        <a>Update Gym Profile</a>
                     </li>
                 </ol>
             </section>
             <!--section ends-->
             <div class="container-fluid">
-                <!--main content-->
                 <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Basic charts strats here-->
+                    <div class="col-md-12">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <i class="fa fa-money"></i> Add Subscription
-                                </h4>
-                                <span class="pull-right">
-                                    <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
-                                    <i class="glyphicon glyphicon-remove removepanel"></i>
-                                </span>
+                                <h5 class="panel-title">Update Gym Profile</h5>
                             </div>
                             <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <form id="packages" action="{{route('addAdminSubscription')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
-                                            @csrf
-                                            <div class="form-body">
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="title">
-                                                        Subscription Name
-                                                        <span class='require'>*</span>
-                                                    </label>
-                                                    <div class="col-md-7">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-file-text-o"></i>
-                                                            </span>
-                                                            <input type="text" name="subscription_name" id="title" class="form-control" placeholder="Enter Title">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label">Image</label>
-                                                    <div class="col-md-7 text-center">
-                                                        <div class="input-group">
+                                <div role="tabpanel">
+                                    <!-- Nav tabs -->
+                                    <div class="terms">
+                                        <ul class="nav nav-tabs nav-custom " role="tablist">
+                                            <li role="presentation" class="active">
+                                                <a href="#Info" aria-controls="Info" role="tab" data-toggle="tab">
+                                                    <strong>Gym Info</strong>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#terms" aria-controls="terms" role="tab" data-toggle="tab">
+                                                    <strong>Terms & Conditions</strong>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#social" aria-controls="social" role="tab" data-toggle="tab">
+                                                    <strong>Social Networks</strong>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <form action="{{ route('updateAdminGym') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                        @csrf
+
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="Info">
+                                                <div class="row">
+                                                    <div class="col-md-3 col-sm-4 text-center">
+                                                        <div class="form-group pad-top">
                                                             <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                                                    <img data-src="holder.js/200x150" src="#" alt="profile">
+                                                                <div class="fileinput-new thumbnail">
+                                                                    <img data-src="holder.js/200x150" src="{{ $gymLists->image }}" alt="profile">
                                                                 </div>
-                                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                                                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
                                                                 <div class="select_align">
                                                                     <span class="btn btn-primary btn-file">
                                                                         <span class="fileinput-new">Select image</span>
@@ -507,131 +508,152 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="start">
-                                                        Start *
-                                                    </label>
-                                                    <div class="col-md-3">
-                                                        <div class='input-group date datetimepicker6'>
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-calendar"></i>
-                                                            </span>
-                                                            <input type='date' class="form-control" id="start" name="start_date" />
-                                                        </div>
-                                                    </div>
-                                                    <label class="col-md-1 control-label" for="end">
-                                                        Validity*
-                                                    </label>
-                                                    <div class="col-md-3">
-                                                        <div class='input-group date datetimepicker7'>
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-hourglass"></i>
-                                                            </span>
-                                                            <input type='number' class="form-control" id="end" name="validity" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="start">
-                                                        Amount *
-                                                    </label>
-                                                    <div class="col-md-3">
-                                                        <div class='input-group date datetimepicker6'>
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-dollar"></i>
-                                                            </span>
-                                                            <input type='number' class="form-control" id="start" name="amount" />
-                                                        </div>
-                                                    </div>
-                                                    <label class="col-md-1 control-label" for="end">
-                                                        Plan*
-                                                    </label>
-                                                    <div class="col-md-3">
-                                                        <div class='input-group date datetimepicker7'>
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-list"></i>
-                                                            </span>
-                                                            <input type='text' class="form-control" id="end" name="plan_id" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="title">
-                                                        Description Name
-                                                        <span class='require'>*</span>
-                                                    </label>
-                                                    <div class="col-md-7">
-                                                        <div class="input-group">
-                                                            <textarea name="description" class="form-control"></textarea>
+                                                    <div class="col-md-9 col-sm-8">
+                                                        <div class="panel-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered" id="users">
+
+                                                                    <tr>
+                                                                        <td>Gym name</td>
+                                                                        <td>
+                                                                            <input type="text" value="{{ $gymLists->gym_name }}" placeholder="enter gym name" id="fb-name" name="gym_name" class="form-control">
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Username</td>
+                                                                        <td>
+                                                                            <input type="text" value="{{ $gymLists->username }}" placeholder="enter user name" id="fb-name" name="username" class="form-control">
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>E-mail</td>
+                                                                        <td>
+                                                                            <input type="text" value="{{ $gymLists->email }}" placeholder="enter email" id="fb-name" name="email" class="form-control">
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Password</td>
+                                                                        <td>
+                                                                            <input type="text" value="{{ $gymLists->password }}" placeholder="enter email" id="fb-name" name="password" class="form-control">
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td>Address</td>
+                                                                        <td>
+                                                                            <textarea class="summernote edi-css" name="address" placeholder="Place some text here"> {{ $gymLists->address }} </textarea>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>City</td>
+                                                                        <td>
+                                                                            <input type="text" value="{{ $gymLists->city }}" placeholder="enter city name" id="fb-name" name="city" class="form-control">
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>State</td>
+                                                                        <td>
+                                                                            <input type="text" value="{{ $gymLists->state }}" placeholder="enter state name" id="fb-name" name="state" class="form-control">
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Country</td>
+                                                                        <td>
+                                                                            <input type="text" value="{{ $gymLists->country }}" placeholder="enter country name" id="fb-name" name="country" class="form-control">
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Website</td>
+                                                                        <td>
+                                                                            <input type="text" value="{{ $gymLists->web_link }}" placeholder="enter website link" id="fb-name" name="web_link" class="form-control">
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Gym Type</td>
+                                                                        <td>
+                                                                            <input type="text" value="{{ $gymLists->gym_type }}" placeholder="enter gym type" id="fb-name" name="gym_type" class="form-control">
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                <div class="form-actions">
+                                                                    <div class="row">
+                                                                        <div class="col-md-offset-2 col-md-9">
+                                                                            <input type="submit" class="btn btn-primary" value="Update"> &nbsp;
+                                                                            <input type="button" class="btn btn-danger" value="Cancel"> &nbsp;
+                                                                            <input type="reset" class="btn btn-default" value="Reset">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-actions">
-                                                <div class="form-group">
-                                                    <div class="col-md-offset-3 col-md-9">
-                                                        <input type="submit" class="btn btn-primary" value="Add">
-                                                        <input type="button" class="btn btn-danger" value="Cancel">
-                                                        <input type="reset" ID="add-news-reset-editable" class="btn btn-default" value="Reset">
+                                            <div role="tabpanel" class="tab-pane" id="terms">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div>
+                                                            <h4>Terms and Conditions</h4>
+                                                        </div>
+                                                        <!-- <form> -->
+                                                        <textarea class="summernote edi-css" placeholder="Place some text here" name="terms_and_conditions">{{ $gymLists->terms_and_conditions }}</textarea>
+                                                        <div class="form-actions pad-top">
+                                                            <div class="">
+                                                                <input type="submit" class="btn btn-primary" value="Update"> &nbsp;
+                                                                <input type="button" class="btn btn-danger" value="Cancel"> &nbsp;
+                                                                <input type="reset" class="btn btn-default reset-editable" value="Reset">
+                                                            </div>
+                                                        </div>
+                                                        <!-- </form> -->
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
+                                            <div role="tabpanel" class="tab-pane" id="social">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div>
+                                                            <h4>Social Networks</h4>
+                                                        </div>
+                                                        <!-- <form action="#" class="form-horizontal"> -->
+                                                        <div class="form-body">
+                                                            <div class="form-group">
+                                                                <label class="col-lg-2 control-label" for="fb-name">Facebook</label>
+                                                                <div class="col-lg-6">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                            <i class="fa fa-fw fa-facebook text-primary"></i>
+                                                                        </span>
+                                                                        <input type="text" value="{{ $gymLists->facebook }}" placeholder=" " name="facebook" id="fb-name" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-lg-2 control-label" for="instagram">Instagram</label>
+                                                                <div class="col-lg-6">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                            <i class="fa fa-fw fa-instagram text-primary"></i>
+                                                                        </span>
+                                                                        <input type="text" value="{{ $gymLists->instagram }}" placeholder=" " name="instagram" id="twitter" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-actions">
+                                                            <div class="row">
+                                                                <div class="col-md-offset-2 col-md-9">
+                                                                    <input type="submit" class="btn btn-primary" value="Update"> &nbsp;
+                                                                    <input type="button" class="btn btn-danger" value="Cancel"> &nbsp;
+                                                                    <input type="reset" class="btn btn-default" value="Reset">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Basic charts strats here-->
-                        <div class="panel panel-success">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <i class="fa fa-fw fa-file-text-o"></i> Present Packages
-                                </h4>
-                                <span class="pull-right">
-                                    <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
-                                    <i class="glyphicon glyphicon-remove removepanel"></i>
-                                </span>
-                            </div>
-                            <div class="panel-body table-responsive">
-                                <table class="table table-bordered table1">
-                                    <thead>
-                                        <tr>
-                                            <th>Subscription Name</th>
-                                            <th>Amount</th>
-                                            <th>Desciption</th>
-                                            <th>Amount</th>
-                                            <th>Edit/Save</th>
-                                            <th>Cancel/Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($adminSubscriptions as $adminSubscription)
-                                        <tr>
-                                            <td>{{$adminSubscription->subscription_name}}</td>
-                                            <td>{{$adminSubscription->amount}}</td>
-                                            <td>{{$adminSubscription->description}} </td>
-                                            <td>{{$adminSubscription->amount}}</td>
-                                            <td>
-                                                <a class="edit btn btn-primary mar-bm" href="{{ route('viewEditSubscription', $adminSubscription->uuid) }}">
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
-                                                </a>
-                                            </td>
-
-
-                                            <td>
-                                                <a class="delete btn btn-danger mar-bm" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                     </div>

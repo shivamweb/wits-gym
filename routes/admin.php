@@ -18,15 +18,20 @@ Route::get('/viewGymInfo', [AdminGymController::class, 'viewGymInfo']);
 
 Route::get('/adminDashboard', [AdminController::class, 'adminDashboard']);
 
-Route::get('/viewGymList', [AdminGymController::class, 'viewGymList']);
+Route::get('/viewGymList', [AdminGymController::class, 'viewGymList'])->name('viewGymList');
 
 
 Route::post('/addGymByAdmin', [AdminGymController::class, 'addGymDetailsByAdmin'])->name('addGymByAdmin');
+Route::get('/viewEditGym/{uuid}', [AdminGymController::class, 'viewEditGym'])->name('viewEditGym');
+Route::post('/updateAdminGym', [AdminGymController::class,'updateAdminGym'])->name('updateAdminGym');
+Route::delete('/deleteGym/{uuid}', [AdminGymController::class, 'deleteGym'])->name('deleteGym');
 // Route::post('/addTermsAndConditions', [AdminGymController::class, 'addTermsAndConditions'])->name('addTAndC');
 // Route::post('/addGymSocialLink', [AdminGymController::class, 'addGymSocialLink'])->name('addGymSocialLink');
 
-Route::get('/viewAddAdminSubscription', [AdminSubscriptionController::class, 'viewAddAdminSubscription']);
+Route::get('/viewAddAdminSubscription', [AdminSubscriptionController::class, 'viewAddAdminSubscription'])->name('viewAddAdminSubscription');
 Route::post('/addAdminSubscription', [AdminSubscriptionController::class, 'addAdminSubscription'])->name('addAdminSubscription');
+Route::get('/viewEditSubscription/{uuid}', [AdminSubscriptionController::class, 'viewEditAdminSubscription'])->name('viewEditSubscription');
+Route::post('/updateSubscription', [AdminSubscriptionController::class, 'updateAdminSubscription'])->name('updateSubscription');
 
 Route::get('/addAdminUsers', [AdminUserController::class, 'showAddUsers']);
 Route::post('/add-user-by-admin', [AdminUserController::class, 'addUserByadmin'])->name('addUserByadmin');
