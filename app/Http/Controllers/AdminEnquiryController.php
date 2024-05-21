@@ -6,6 +6,7 @@ use App\Models\GymEnquiry;
 use App\Traits\SessionTrait;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
+use Throwable;
 
 class AdminEnquiryController extends Controller
 {
@@ -36,4 +37,24 @@ class AdminEnquiryController extends Controller
         $enquiryDetails = $this->enquiry->where('uuid', $uuid)->first();
         return view('admin.viewEnquiry', compact('enquiryDetails'));
     }
+
+    public function updateStatus(Request $request)
+    {
+        try {
+            $validatedData = $request->validate([
+                "uuid" => 'required',
+                "status" => 'required',
+            ]);
+            $uuid=$request->uuid;
+
+            $this->enquiry->updateEnquiryStatus($validatedData, $uuid);
+            return redirect()->route('listEnquiry')->with('status', 'success')->with('message', 'coupon Updated successfully.');
+        } catch (Throwable $th) {
+            Log::error("[AdminEnquiryController][updateStatus] error " . $th->getMessage());
+            return redirect()->back()->with('error', $th->getMessage());
+        }
+   
+    }
+
+
 }

@@ -41,6 +41,7 @@ Route::post('/updateAdminUser', [AdminUserController::class,'updateAdminUser'])-
 
 Route::get('/listEnquiry', [AdminEnquiryController::class, 'listEnquiry'])->name('listEnquiry');
 Route::get('/viewAdminEnquiry/{uuid}', [AdminEnquiryController::class, 'viewAdminEnquiry'])->name('viewAdminEnquiry');
+Route::post('/updateStatus', [AdminEnquiryController::class,'updateStatus'])->name('updateStatus');
 Route::get('/payment', function () {
     return view('admin.payment');
 });
