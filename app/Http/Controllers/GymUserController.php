@@ -98,7 +98,7 @@ class GymUserController extends Controller
     public function updateUser(Request $request)
     {
         try {
-            $validatedData = $request->validate([€
+            $validatedData = $request->validate([
                 'uuid' => 'required',
                 'first_name' => 'required',
                 'last_name' => 'required',
