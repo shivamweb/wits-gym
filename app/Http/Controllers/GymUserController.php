@@ -87,8 +87,7 @@ class GymUserController extends Controller
         $diets = $this->diet->all();
 
         $gymId = $this->gym->where('uuid', $this->getGymSession()['uuid'])->first()->id;
-        $userId = $userDetail->first()['id'];
-
+        $userId = $userDetail->id;
         $bmis = $this->bmi->where('user_id', $userId)->get();
         $trainers = $this->gymStaff->where('designation_id', "1")->get();
         $trainers = $this->gymStaff->where('gym_id', $gymId)->where('designation_id', "1")->get();

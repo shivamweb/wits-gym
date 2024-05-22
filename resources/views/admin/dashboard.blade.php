@@ -282,7 +282,7 @@
                                     <i class="fa fa-fw fa-user"></i> My Profile
                                 </a>
                             </li>
-                            <li role="presentation"></li>
+                            <!-- <li role="presentation"></li> -->
                             <!-- <li>
                                 <a href="#">
                                     <i class="fa fa-fw fa-gear"></i> Account Settings

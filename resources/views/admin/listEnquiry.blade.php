@@ -475,6 +475,7 @@
                                         <tr>
                                             <th>Gym Name</th>
                                             <th>Title</th>
+                                            <th>Status</th>
                                             <th>View</th>
                                             <th>Delete/Cancel</th>
                                         </tr>
@@ -484,6 +485,7 @@
                                         <tr>
                                             <td>{{ $enquiry->gym->gym_name }}</td>
                                             <td>{{ $enquiry->title }} </td>
+                                            <td>{{ $enquiry->status }} </td>
                                             <td>
                                                 <a class="edit btn btn-primary" href={{route('viewAdminEnquiry',$enquiry->uuid)}}>
                                                     <i class="fa fa-fw fa-eye"></i> View

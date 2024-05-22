@@ -533,37 +533,60 @@
                             <div class="panel-body">
                                 <div class="row" style="padding: 20px;">
                                     <div class="col-md-12">
-                                        <div class="form-horizontal">
-                                            <div class="form-group">
-                                                <label for="title" class="col-md-3 control-label">
-                                                    Title
-                                                </label>
-                                                <div class="col-md-7">
-                                                    <input id="title" type="text" value="{{$enquiryDetails->title}}" name="title" class="form-control" placeholder="Enter Title" disabled>
+                                        <form id="enquiry_form" action="{{route('updateStatus')}}" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label for="title" class="col-md-3 control-label">
+                                                        Title
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <input type="hidden" name="uuid" value="{{ $enquiryDetails->uuid }}">
+                                                        <input id="title" type="text" value="{{$enquiryDetails->title}}" name="title" class="form-control" placeholder="Enter Title" disabled>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                <div class="form-group">
+                                                    <label for="title" class="col-md-3 control-label">
+                                                        Status
+                                                    </label>
+                                                    <div class="col-md-2">
+                                                        <select id="status" name="status" class="form-control">
+                                                            <option value="PENDING" {{ $enquiryDetails->status == 'PENDING' ? 'selected' : '' }}>PENDING</option>
+                                                            <option value="PROCESSING" {{ $enquiryDetails->status == 'PROCESSING' ? 'selected' : '' }}>PROCESSING</option>
+                                                            <option value="RESOLVED" {{ $enquiryDetails->status == 'RESOLVED' ? 'selected' : '' }}>RESOLVED</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
 
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">
-                                                    Description
-                                                    <span class='require'>*</span>
-                                                </label>
-                                                <div class="col-md-7">
-                                                    <div class="input-group">
-                                                        <!-- Ensure the textarea's closing tag is inline to avoid unexpected line breaks -->
-                                                        <textarea class="summernote edi-css form-control" id="description" name="description" required>
-                                                        {{ isset($enquiryDetails->description) ? $enquiryDetails->description : '' }}
-                                                        </textarea>
-                                                        <!-- Adjust the positioning of the image and ensure it is properly aligned with the textarea -->
-                                                        @if(isset($enquiryDetails->image))
-                                                        <img src="{{ asset($enquiryDetails->image) }}" alt="Enquiry Image" style="position: absolute; left: 10px; top: 10px; max-width: 150px;">
-                                                        @else
-                                                        <img alt="" style="position: absolute; left: 10px; top: 10px; max-width: 70px;">
-                                                        @endif
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">
+                                                        Description
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-group">
+                                                            <!-- Ensure the textarea's closing tag is inline to avoid unexpected line breaks -->
+                                                            <textarea class="summernote edi-css form-control" id="description" name="description" required>
+                                                            {{ isset($enquiryDetails->description) ? $enquiryDetails->description : '' }}
+                                                            </textarea>
+                                                            <!-- Adjust the positioning of the image and ensure it is properly aligned with the textarea -->
+                                                            @if(isset($enquiryDetails->image))
+                                                            <img src="{{ asset($enquiryDetails->image) }}" alt="Enquiry Image" style="position: absolute; left: 10px; top: 10px; max-width: 150px;">
+                                                            @else
+                                                            <img alt="" style="position: absolute; left: 10px; top: 10px; max-width: 70px;">
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-actions">
+                                                    <div class="form-group">
+                                                        <div class="col-md-offset-3 col-md-9">
+                                                            <input type="submit" class="btn btn-primary" value="Update Enquiry">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -575,15 +598,15 @@
         </aside>
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#description').summernote({
-            height: 200 // set the height of the editor
-        });
-    });
-</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#description').summernote({
+                    height: 200 // set the height of the editor
+                });
+            });
+        </script>
         <!-- /.right-side -->
         <!-- ./wrapper -->
         <!-- global js -->

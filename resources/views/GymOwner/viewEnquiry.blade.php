@@ -59,7 +59,7 @@
                                             </label>
                                             <div class="col-md-7">
                                                 <div class="input-group">
-                                                    <textarea class="summernote edi-css form-control" id="description" name="description" required>
+                                                    <textarea class="summernote edi-css form-control" id="description" name="description" required disabled>
                                                     {{ isset($enquiryDetails->description) ? $enquiryDetails->description : '' }}
                                                     </textarea>
                                                     @if(isset($enquiryDetails->image))

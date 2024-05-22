@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\EnquiryStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 use Ramsey\Uuid\Uuid;
@@ -14,6 +15,7 @@ class GymEnquiry extends Model
     protected $fillable = [
         'title',
         'description',
+        'status',
         'image',
         'gym_id'
     ];
@@ -25,10 +27,24 @@ class GymEnquiry extends Model
                 'title' => $gymEnquiryArray['title'],
                 'description' => $gymEnquiryArray['description'],
                 'image' => $imagePath,
+                'status' => EnquiryStatusEnum::PENDING,
                 'gym_id' => $gymId
             ]);
         } catch (Throwable $e) {
             Log::error('[GymEnquiry][addGymEnquiry] Error while updating coupon detail: ' . $e->getMessage());
+        }
+    }
+
+    public function updateEnquiryStatus(array $validatedData, $uuid)
+    {
+        $gymEnquiry = GymEnquiry::where('uuid', $uuid)->first();
+        try {
+            $gymEnquiry->update([
+                "status" =>  $validatedData['status']
+            ]);
+            return $gymEnquiry->save();
+        } catch (Throwable $e) {
+            Log::error('[GymCoupon][updateCoupon] Error while updating coupon detail: ' . $e->getMessage());
         }
     }
 

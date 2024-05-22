@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('gym_enquiries', function (Blueprint $table) {
             $table->id();
             $table->uuid()->unique();
+            $table->string('status');
             $table->unsignedBigInteger('gym_id');
             $table->string('title');
             $table->longText('image')->nullable();
