@@ -382,11 +382,34 @@
                                         <span class="mm-text">Gym Subscription</span>
                                     </a>
                                 </li>
-                                <li class="active" id="active">
+                                <!-- <li class="active" id="active">
                                     <a href='/gym-staff'>
                                         <i class=" text-primary fa fa-fw fa-user"></i>
                                         <span class="mm-text">Gym Staff</span>
                                     </a>
+                                </li> -->
+                                <li class="menu-dropdown">
+                                    <a href="#">
+                                        <i class="text-default menu-icon fa fa-fw fa-users"></i>
+                                        <span class="mm-text">Staff</span>
+                                        <span class="fa fa-angle-down pull-right"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="active" id="active">
+                                            <a href='/gym-staff'>
+                                                <i class=" text-primary fa fa-fw fa-user"></i>
+                                                <span class="mm-text">Gym Staff</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="sub-menu">
+                                        <li class="active" id="active">
+                                            <a href='/add-staff-attendence'>
+                                                <i class=" text-primary fa fa-fw fa-user"></i>
+                                                <span class="mm-text">Gym Staff Analysis</span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li class="menu-dropdown">
                                     <a href="#">

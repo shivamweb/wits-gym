@@ -364,15 +364,25 @@
                                 <span class="fa fa-angle-down pull-right"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li>
-                                    <a href='/admin/adminUserList'>
-                                        <i class="text-primary fa fa-fw fa-users"></i> Users List
+                                <li class="menu-dropdown">
+                                    <a href="#">
+                                        <i class="text-default menu-icon fa fa-fw fa-users"></i>
+                                        <span class="mm-text">User List</span>
+                                        <span class="fa fa-angle-down pull-right"></span>
                                     </a>
-                                </li>
-                                <li>
-                                    <a href='/admin/adminUserprofile'>
-                                        <i class="text-success fa fa-fw fa-user"></i> User Profile
-                                    </a>
+
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href='/admin/gymUserList'>
+                                                <i class="text-info fa fa-fw fa-user"></i> Gym Users
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href='/admin/homeUserList'>
+                                                <i class="text-info fa fa-fw fa-user"></i> Home Users
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a href='/admin/addAdminUsers'>
@@ -526,12 +536,6 @@
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>E-mail</td>
-                                                                        <td>
-                                                                            <input type="text" value="{{ $gymLists->email }}" placeholder="enter email" id="fb-name" name="email" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
                                                                         <td>Password</td>
                                                                         <td>
                                                                             <input type="text" value="{{ $gymLists->password }}" placeholder="enter email" id="fb-name" name="password" class="form-control">
@@ -539,39 +543,46 @@
                                                                     </tr>
 
                                                                     <tr>
-                                                                        <td>Address</td>
+                                                                        <td>E-mail</td>
                                                                         <td>
-                                                                            <textarea class="summernote edi-css" name="address" placeholder="Place some text here"> {{ $gymLists->address }} </textarea>
+                                                                            <input type="text" value="{{ $gymLists->email }}" placeholder="enter email" id="fb-name" name="email" class="form-control">
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
+                                                                        <td>Address</td>
+                                                                        <td>
+                                                                            <textarea class="form-control" name="address" placeholder="Place some text here" required>{{ $gymLists->address }}</textarea>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <tr>
                                                                         <td>City</td>
                                                                         <td>
-                                                                            <input type="text" value="{{ $gymLists->city }}" placeholder="enter city name" id="fb-name" name="city" class="form-control">
+                                                                            <input type="text" value="{{ $gymLists->city }}" placeholder="enter city name" id="fb-name" name="city" class="form-control" required>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>State</td>
                                                                         <td>
-                                                                            <input type="text" value="{{ $gymLists->state }}" placeholder="enter state name" id="fb-name" name="state" class="form-control">
+                                                                            <input type="text" value="{{ $gymLists->state }}" placeholder="enter state name" id="fb-name" name="state" class="form-control" required>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>Country</td>
                                                                         <td>
-                                                                            <input type="text" value="{{ $gymLists->country }}" placeholder="enter country name" id="fb-name" name="country" class="form-control">
+                                                                            <input type="text" value="{{ $gymLists->country }}" placeholder="enter country name" id="fb-name" name="country" class="form-control" required>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>Website</td>
                                                                         <td>
-                                                                            <input type="text" value="{{ $gymLists->web_link }}" placeholder="enter website link" id="fb-name" name="web_link" class="form-control">
+                                                                            <input type="text" value="{{ $gymLists->web_link }}" placeholder="enter website link" id="fb-name" name="web_link" class="form-control" required>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>Gym Type</td>
                                                                         <td>
-                                                                            <input type="text" value="{{ $gymLists->gym_type }}" placeholder="enter gym type" id="fb-name" name="gym_type" class="form-control">
+                                                                            <input type="text" value="{{ $gymLists->gym_type }}" placeholder="enter gym type" id="fb-name" name="gym_type" class="form-control" required>
                                                                         </td>
                                                                     </tr>
                                                                 </table>

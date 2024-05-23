@@ -365,15 +365,25 @@
                                 <span class="fa fa-angle-down pull-right"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li>
-                                    <a href='/admin/adminUserList'>
-                                        <i class="text-primary fa fa-fw fa-users"></i> Users List
+                                <li class="menu-dropdown">
+                                    <a href="#">
+                                        <i class="text-default menu-icon fa fa-fw fa-users"></i>
+                                        <span class="mm-text">User List</span>
+                                        <span class="fa fa-angle-down pull-right"></span>
                                     </a>
-                                </li>
-                                <li>
-                                    <a href='admin_userprofile.html'>
-                                        <i class="text-success fa fa-fw fa-user"></i> User Profile
-                                    </a>
+
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href='/admin/gymUserList'>
+                                                <i class="text-info fa fa-fw fa-user"></i> Gym Users
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href='/admin/homeUserList'>
+                                                <i class="text-info fa fa-fw fa-user"></i> Home Users
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a href='/admin/addAdminUsers'>
@@ -389,13 +399,13 @@
                             </a>
                         </li>
                         <li>
-                        <a href='/admin/viewDesignation'>
+                            <a href='/admin/viewDesignation'>
                                 <i class="text-primary  menu-icon fa fa-scissors"></i>
                                 <span class="mm-text">Designation</span>
                             </a>
                         </li>
                         <li>
-                        <a href='/admin/viewAdvertisment'>
+                            <a href='/admin/viewAdvertisment'>
                                 <i class="text-primary  menu-icon fa fa-question-circle"></i>
                                 <span class="mm-text">Advertisement</span>
                             </a>
@@ -473,170 +483,717 @@
                                 </span>
                             </div>
                             <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <form id="add_users_form" action="{{route('updateAdminUser')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
-                                            @csrf
-                                            <div class="form-body">
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label">Image</label>
-                                                    <div class="col-md-7 text-center">
-                                                        <div class="input-group">
-                                                            <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                                                    @if(isset($user->image))
-                                                                    <img src="{{'../../'.$user->image}}">
-                                                                    @else
-                                                                    <img src="" alt="profile">
-                                                                    @endif
+                                <div role="tabpanel">
+                                    <!-- Nav tabs -->
+                                    <div class="terms">
+                                        <ul class="nav nav-tabs nav-custom " role="tablist">
+                                            <li role="presentation" class="active">
+                                                <a href="#Info" aria-controls="Info" role="tab" data-toggle="tab">
+                                                    <strong>User Info</strong>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#subscription" aria-controls="subscription" role="tab" data-toggle="tab">
+                                                    <strong>Subscription</strong>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#workout" aria-controls="workout" role="tab" data-toggle="tab">
+                                                    <strong>Workout</strong>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#diet" aria-controls="diet" role="tab" data-toggle="tab">
+                                                    <strong>Diet </strong>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#bmi" aria-controls="bmi" role="tab" data-toggle="tab">
+                                                    <strong>BMI </strong>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#trainer" aria-controls="trainer" role="tab" data-toggle="tab">
+                                                    <strong>Trainer </strong>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="Info">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div>
+                                                        <h4>Update User</h4>
+                                                    </div>
+                                                    <form id="add_users_form" action="{{route('updateAdminUser')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <div class="form-body">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Image</label>
+                                                                <div class="col-md-7 text-center">
+                                                                    <div class="input-group">
+                                                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                                                @if(isset($user->image))
+                                                                                <img src="{{'../../'.$user->image}}">
+                                                                                @else
+                                                                                <img src="" alt="profile">
+                                                                                @endif
+                                                                            </div>
+                                                                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                                                                            <div class="select_align">
+                                                                                <span class="btn btn-primary btn-file">
+                                                                                    <span class="fileinput-new">Select image</span>
+                                                                                    <span class="fileinput-exists">Change</span>
+                                                                                    <input type="file" name="image">
+                                                                                </span>
+                                                                                <a href="#" class="btn btn-primary fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-                                                                <div class="select_align">
-                                                                    <span class="btn btn-primary btn-file">
-                                                                        <span class="fileinput-new">Select image</span>
-                                                                        <span class="fileinput-exists">Change</span>
-                                                                        <input type="file" name="image">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label" for="user_type">
+                                                                    User Type
+                                                                    <span class='require'>*</span>
+                                                                </label>
+                                                                <div class="col-md-7">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                            <i class="fa fa-fw fa-user text-primary"></i>
+                                                                        </span>
+                                                                        <select class="custom-select form-control" name="user_type" id="user_type" required>
+                                                                            <option name="user_type" id="gym_user" value="1" {{ $user->user_type == '1' ? 'selected' : '' }}>Gym User</option>
+                                                                            <option name="user_type" id="home_user" value="0" {{ $user->user_type == '0' ? 'selected' : '' }}>Home User</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label" for="gym_select">
+                                                                    GYM
+                                                                    <span class='require'>*</span>
+                                                                </label>
+                                                                <div class="col-md-7">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                            <i class="fa fa-fw fa-dumbbell text-primary"></i>
+                                                                        </span>
+                                                                        <select class="custom-select form-control" name="gym_id" id="gym_id" required>
+                                                                            <option value="0" {{ $user->gym_id == 0 ? 'selected' : '' }}>None</option>
+                                                                            @foreach($gyms as $gym)
+                                                                            <option value="{{$gym->id}}" {{ $user->gym_id == $gym->id ? 'selected' : '' }}>{{$gym->gym_name}}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label" for="mail">
+                                                                    First name
+                                                                    <span class='require'>*</span>
+                                                                </label>
+                                                                <div class="col-md-7">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                            <i class="fa fa-fw fa-file-text text-primary"></i>
+                                                                        </span>
+                                                                        <input type="text" placeholder="Enter First Name" value="{{$user->first_name}}" required class="form-control" id="mail" name="first_name" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label" for="mail">
+                                                                    Last Name
+                                                                    <span class='require'>*</span>
+                                                                </label>
+                                                                <div class="col-md-7">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                            <i class="fa fa-fw fa-file-text text-primary"></i>
+                                                                        </span>
+                                                                        <input type="text" placeholder="Enter Last Name" value="{{$user->last_name}}" required class="form-control" id="mail" name="last_name" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label" for="usr_name">
+                                                                    User Name
+                                                                    <span class='require'>*</span>
+                                                                </label>
+                                                                <div class="col-md-7">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                            <i class="fa fa-fw fa-user text-primary"></i>
+                                                                        </span>
+                                                                        <input type="text" class="form-control" value="{{$user->username}}" id="usr_name" placeholder="Enter Username" name="username" required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label" for="mail">
+                                                                    Email
+                                                                    <span class='require'>*</span>
+                                                                </label>
+                                                                <div class="col-md-7">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                            <i class="fa fa-fw fa-envelope text-primary"></i>
+                                                                        </span>
+                                                                        <input type="email" placeholder=" Enter Email Address" value="{{$user->email}}" required class="form-control" id="mail" name="email" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label" for="contact">
+                                                                    Contact Number
+                                                                    <span class='require'>*</span>
+                                                                </label>
+                                                                <div class="col-md-7">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                            <i class="fa fa-fw fa-phone text-primary"></i>
+                                                                        </span>
+                                                                        <input type="text" placeholder="Enter Contact number" value="{{$user->phone_no}}" required id="contact" class="form-control" name="phone_no" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 text-right">
+                                                                    Gender
+                                                                    <span class='require'>*</span>
+                                                                </label>
+                                                                <div class="col-md-7">
+                                                                    <div class="input-group">
+                                                                        <label>
+                                                                            <input class="radio_val" type="radio" name="gender" value="male" {{ $user->gender == 'male' ? 'checked' : '' }} /> Male
+                                                                        </label>&nbsp;&nbsp;&nbsp;
+                                                                        <label class="pad-left">
+                                                                            <input class="radio_val" type="radio" name="gender" value="female" {{ $user->gender == 'female' ? 'checked' : '' }} /> Female
+                                                                        </label>&nbsp;&nbsp;&nbsp;
+                                                                        <label class="pad-left">
+                                                                            <input class="radio_val" type="radio" name="gender" value="others" {{ $user->gender == 'others' ? 'checked' : '' }} /> Other
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label" for="mail">
+                                                                    Password
+                                                                    <span class='require'>*</span>
+                                                                </label>
+                                                                <div class="col-md-7">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                            <i class="fa fa-fw fa-lock text-primary"></i>
+                                                                        </span>
+                                                                        <input type="text" placeholder="Enter Password" value="{{$user->password}}" required class="form-control" id="mail" name="password" />
+                                                                        <input type="hidden" name="uuid" id="uuid" value="{{$user->uuid}}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-actions">
+                                                            <div class="row">
+                                                                <div class="col-md-offset-3 col-md-9">
+                                                                    <input type="submit" class="btn btn-primary" value="Update"> &nbsp;
+                                                                    <input type="button" class="btn btn-danger" value="Cancel"> &nbsp;
+                                                                    <input type="reset" class="btn btn-default " value="Reset">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="subscription">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div>
+                                                        <h4>Subscription</h4>
+                                                    </div>
+                                                    <!-- <form action="#" class="form-horizontal"> -->
+                                                    <div class="form-body">
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="fb-name">Facebook</label>
+                                                            <div class="col-lg-6">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon">
+                                                                        <i class="fa fa-fw fa-facebook text-primary"></i>
                                                                     </span>
-                                                                    <a href="#" class="btn btn-primary fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                                                    <input type="text" placeholder=" " name="facebook" id="fb-name" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="instagram">Instagram</label>
+                                                            <div class="col-lg-6">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon">
+                                                                        <i class="fa fa-fw fa-twitter text-primary"></i>
+                                                                    </span>
+                                                                    <input type="text" placeholder=" " name="instagram" id="twitter" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="gym_select">
-                                                        GYM
-                                                        <span class='require'>*</span>
-                                                    </label>
-                                                    <div class="col-md-7">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-dumbbell text-primary"></i>
-                                                            </span>
-                                                            <select class="custom-select form-control" name="gym_id" id="gym_id" required>
-                                                                <option value="0" {{ $user->gym_id == 0 ? 'selected' : '' }}>None</option>
-                                                                @foreach($gyms as $gym)
-                                                                <option value="{{$gym->id}}" {{ $user->gym_id == $gym->id ? 'selected' : '' }}>{{$gym->gym_name}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="mail">
-                                                        First name
-                                                        <span class='require'>*</span>
-                                                    </label>
-                                                    <div class="col-md-7">
-                                                        <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-file-text text-primary"></i>
-                                                            </span>
-                                                            <input type="text" placeholder="Enter First Name" value="{{$user->first_name}}" required class="form-control" id="mail" name="first_name" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="mail">
-                                                        Last Name
-                                                        <span class='require'>*</span>
-                                                    </label>
-                                                    <div class="col-md-7">
-                                                        <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-file-text text-primary"></i>
-                                                            </span>
-                                                            <input type="text" placeholder="Enter Last Name" value="{{$user->last_name}}" required class="form-control" id="mail" name="last_name" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="usr_name">
-                                                        User Name
-                                                        <span class='require'>*</span>
-                                                    </label>
-                                                    <div class="col-md-7">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-user text-primary"></i>
-                                                            </span>
-                                                            <input type="text" class="form-control" value="{{$user->username}}" id="usr_name" placeholder="Enter Username" name="username" required>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="mail">
-                                                        Email
-                                                        <span class='require'>*</span>
-                                                    </label>
-                                                    <div class="col-md-7">
-                                                        <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-envelope text-primary"></i>
-                                                            </span>
-                                                            <input type="email" placeholder=" Enter Email Address" value="{{$user->email}}" required class="form-control" id="mail" name="email" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="contact">
-                                                        Contact Number
-                                                        <span class='require'>*</span>
-                                                    </label>
-                                                    <div class="col-md-7">
-                                                        <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-phone text-primary"></i>
-                                                            </span>
-                                                            <input type="text" placeholder="Enter Contact number" value="{{$user->phone_no}}" required id="contact" class="form-control" name="phone_no" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 text-right">
-                                                        Gender
-                                                        <span class='require'>*</span>
-                                                    </label>
-                                                    <div class="col-md-7">
-                                                        <div class="input-group">
-                                                            <label>
-                                                                <input class="radio_val" type="radio" name="gender" value="male" {{ $user->gender == 'male' ? 'checked' : '' }} /> Male
-                                                            </label>&nbsp;&nbsp;&nbsp;
-                                                            <label class="pad-left">
-                                                                <input class="radio_val" type="radio" name="gender" value="female" {{ $user->gender == 'female' ? 'checked' : '' }} /> Female
-                                                            </label>&nbsp;&nbsp;&nbsp;
-                                                            <label class="pad-left">
-                                                                <input class="radio_val" type="radio" name="gender" value="others" {{ $user->gender == 'others' ? 'checked' : '' }} /> Other
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="mail">
-                                                        Password
-                                                        <span class='require'>*</span>
-                                                    </label>
-                                                    <div class="col-md-7">
-                                                        <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-lock text-primary"></i>
-                                                            </span>
-                                                            <input type="text" placeholder="Enter Password" value="{{$user->password}}" required class="form-control" id="mail" name="password" />
-                                                            <input type="hidden" name="uuid" id="uuid" value="{{$user->uuid}}">
+                                                    <div class="form-actions">
+                                                        <div class="row">
+                                                            <div class="col-md-offset-2 col-md-9">
+                                                                <input type="submit" class="btn btn-primary" value="Update">
+                                                                &nbsp;
+                                                                <input type="button" class="btn btn-danger" value="Cancel">
+                                                                &nbsp;
+                                                                <input type="reset" class="btn btn-default" value="Reset">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-actions">
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="workout">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div>
+                                                        <h4>Workout</h4>
+                                                    </div>
+                                                    <form action="{{ route('addAdminWorkout') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                                        <div class="form-body">
+                                                            <div class="form-group">
+                                                                <label class="col-lg-2 control-label" for="exercise_name">Exercise Name:</label>
+                                                                <div class="col-lg-6">
+                                                                    <div class="input-group">
+                                                                        <input type="text" name="exercise_name" id="exercise_name" required class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-lg-2 control-label" for="sets">Sets:</label>
+                                                                <div class="col-lg-6">
+                                                                    <div class="input-group">
+
+                                                                        <input type="number" name="sets" id="sets" min="1" required class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-lg-2 control-label" for="reps">Reps:</label>
+                                                                <div class="col-lg-6">
+                                                                    <div class="input-group">
+
+                                                                        <input type="number" name="reps" id="reps" min="1" required class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-lg-2 control-label" for="weight">Weight
+                                                                    (kg):</label>
+                                                                <div class="col-lg-6">
+                                                                    <div class="input-group">
+
+                                                                        <input type="number" name="weight" id="weight" min="0" step="any" required class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-lg-2 control-label" for="notes">Notes:</label>
+                                                                <div class="col-lg-6">
+                                                                    <div class="input-group">
+
+                                                                        <textarea name="notes" id="notes" rows="3" class="form-control"></textarea>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-actions">
+                                                            <div class="row">
+                                                                <div class="col-md-offset-2 col-md-9">
+                                                                    <input type="submit" class="btn btn-primary" value="Add"> &nbsp;
+                                                                    <input type="button" class="btn btn-danger" value="Cancel"> &nbsp;
+                                                                    <input type="reset" class="btn btn-default" value="Reset">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <!-- Basic charts strats here-->
+                                                    <div class="panel panel-success">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                User Workout
+                                                            </h4>
+                                                        </div>
+                                                        <div class="panel-body table-responsive">
+                                                            <table class="table table-bordered" id="fitness-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Exercise Name</th>
+                                                                        <th>Sets</th>
+                                                                        <th>Reps</th>
+                                                                        <th>Weight</th>
+                                                                        <th>Notes</th>
+                                                                        <th>Edit/Save</th>
+                                                                        <th>Delete/Cancel</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    @foreach ($workouts as $workout)
+                                                                    <tr data-workout-id="{{ $workout->id }}">
+                                                                        <td>{{ $workout->exercise_name }}</td>
+                                                                        <td>{{ $workout->sets }}</td>
+                                                                        <td>{{ $workout->reps }}</td>
+                                                                        <td>{{ $workout->weight }}</td>
+                                                                        <td>{{ $workout->notes }}</td>
+
+                                                                        <td>
+                                                                            <a class="edit btn btn-primary mar-bm" href="javascript:;">
+                                                                                <i class="fa fa-fw fa-edit"></i> Edit
+                                                                            </a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a class="delete btn btn-danger mar-bm" href="javascript:;">
+                                                                                <i class="fa fa-trash-o"></i> Delete
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="diet">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div>
+                                                        <h4>Diet Plan</h4>
+                                                    </div>
+                                                    <form id="dietForm" action="{{ route('addAdminDiet') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="meal_name">Meal Name:</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="text" name="meal_name" id="meal_name" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="calories">Calories:</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="number" name="calories" id="calories" min="0" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="protein">Protein (g):</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="number" name="protein" id="protein" min="0" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="carbs">Carbohydrates (g):</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="number" name="carbs" id="carbs" min="0" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="fats">Fats (g):</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="number" name="fats" id="fats" min="0" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="notes">Notes:</label>
+                                                            <div class="col-lg-6">
+                                                                <textarea name="notes" id="dietNotes" rows="3" class="form-control"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-actions">
+                                                            <div class="row">
+                                                                <div class="col-md-offset-2 col-md-9">
+                                                                    <input type="submit" class="btn btn-primary" value="Add"> &nbsp;
+                                                                    <input type="button" class="btn btn-danger" value="Cancel"> &nbsp;
+                                                                    <input type="reset" class="btn btn-default" value="Reset">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <!-- Basic charts strats here-->
+                                                    <div class="panel panel-success">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                User Diet Plan
+                                                            </h4>
+                                                        </div>
+                                                        <div class="panel-body table-responsive">
+                                                            <table class="table table-bordered" id="fitness-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Meal Name</th>
+                                                                        <th>Calories</th>
+                                                                        <th>Protein</th>
+                                                                        <th>Carbs</th>
+                                                                        <th>Fats</th>
+                                                                        <th>Notes</th>
+                                                                        <th>Edit/Save</th>
+                                                                        <th>Delete/Cancel</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    @foreach ($diets as $diet)
+                                                                    <tr data-diet-id="{{ $diet->id }}">
+                                                                        <td>{{ $diet->meal_name }}</td>
+                                                                        <td>{{ $diet->calories }}</td>
+                                                                        <td>{{ $diet->protein }}</td>
+                                                                        <td>{{ $diet->carbs }}</td>
+                                                                        <td>{{ $diet->fats }}</td>
+                                                                        <td>{{ $diet->notes }}</td>
+
+                                                                        <td>
+                                                                            <a class="edit1 btn btn-primary mar-bm" href="javascript:;">
+                                                                                <i class="fa fa-fw fa-edit"></i> Edit
+                                                                            </a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a class="delete btn btn-danger mar-bm" href="javascript:;">
+                                                                                <i class="fa fa-trash-o"></i> Delete
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="bmi">
+                                            <div class="row">
+                                                <div>
+                                                    <h4>Body Measurement </h4>
+                                                </div>
+                                                <form id="bmiForm" action="{{ route('UserBodyMeasurement') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                                    @csrf
+
+                                                    <div class="col-lg-4">
+                                                        <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="chest">Chest
+                                                                (cm):</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="text" name="chest" id="chest" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="triceps">Triceps
+                                                                (cm):</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="number" name="triceps" id="triceps" min="0" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="biceps">Biceps
+                                                                (cm)::</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="number" name="biceps" id="biceps" min="0" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="lats">Lats
+                                                                (cm):</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="number" name="lats" id="lats" min="0" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="shoulder">Shoulder
+                                                                (cm):</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="number" name="shoulder" id="shoulder" min="0" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="abs">Abs
+                                                                (cm):</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="number" name="abs" id="abs" min="0" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <img src="../../assets/img/bmi_images/female-skeleton.png" alt="skeleton" height="500">
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="forearms">Forearms
+                                                                (cm):</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="text" name="forearms" id="forearms" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="traps">Traps
+                                                                (cm):</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="number" name="traps" id="traps" min="0" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="glutes">Glutes
+                                                                (cm)::</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="number" name="glutes" id="glutes" min="0" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="quads">Quads
+                                                                (cm):</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="number" name="quads" id="quads" min="0" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="hamstring">Hamstring
+                                                                (cm):</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="number" name="hamstring" id="hamstring" min="0" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 control-label" for="calves">Calves
+                                                                (cm):</label>
+                                                            <div class="col-lg-6">
+                                                                <input type="number" name="calves" id="calves" min="0" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                <div>
+                                                    <h4>BMI</h4>
+                                                </div>
                                                 <div class="row">
-                                                    <div class="col-md-offset-3 col-md-9">
-                                                        <input type="submit" class="btn btn-primary" value="Update"> &nbsp;
-                                                        <input type="button" class="btn btn-danger" value="Cancel"> &nbsp;
-                                                        <input type="reset" class="btn btn-default " value="Reset">
+                                                    <label class="col-lg-2 control-label" for="height">Height
+                                                        (cm):</label>
+                                                    <div class="col-lg-6">
+                                                        <input type="number" name="height" id="height" min="0" required class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                            <div class="row">
+                                                <label class="col-lg-2 control-label" for="bmi_weight">Weight
+                                                    (kg):</label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" name="weight" id="bmi_weight" min="0" required class="form-control">
+                                                    <input type="hidden" name="bmi" id="calculatedBmi" required class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-lg-2 control-label" for="age">Age:</label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" name="age" id="age" min="0" required class="form-control">
+                                                </div>
+                                            </div>
+                                            <span>
+                                                <p id="result"></p>
+                                            </span>
+
+                                            <div class="row">
+                                                <div class="col-md-offset-2 col-md-9">
+                                                    <input type="submit" class="btn btn-primary" id="addBmiButton" value="Add">
+                                                    <input type="button" class="btn btn-danger" id="cancelBmiButton" value="Cancel">
+                                                    <input type="button" class="btn btn-primary" value="calculate BMI" onclick="calculateBMI()" id="calculateBmi">
+
+                                                    <input type="reset" class="btn btn-default" value="Reset">
+                                                </div>
+                                            </div>
+                                            </form>
+
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <!-- Basic charts strats here-->
+                                                    <div class="panel panel-success">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                BMI List
+                                                            </h4>
+                                                        </div>
+                                                        <div class="panel-body table-responsive">
+                                                            <table class="table table-bordered" id="fitness-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>id</th>
+                                                                        <th>Height</th>
+                                                                        <th>Weight</th>
+                                                                        <th>Age</th>
+                                                                        <th>Bmi</th>
+                                                                        <th>Edit/View</th>
+                                                                        <th>Delete</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    @foreach ($bmis as $bmi)
+                                                                    <tr>
+                                                                        <td>{{ $bmi->user_id }}</td>
+                                                                        <td>{{ $bmi->height }}</td>
+                                                                        <td>{{ $bmi->weight }}</td>
+                                                                        <td>{{ $bmi->age }}</td>
+                                                                        <td>{{ $bmi->bmi }}</td>
+
+                                                                        <td>
+                                                                            <a class="bmiEdit btn btn-primary mar-bm">
+                                                                                <i class="fa fa-fw fa-edit"></i> Edit
+                                                                            </a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a class="delete btn btn-danger mar-bm" href="javascript:;">
+                                                                                <i class="fa fa-trash-o"></i> Delete
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="trainer">
+                                            <div class="row">
+                                                <div>
+                                                    <h4>Gym Trainer </h4>
+                                                </div>
+                                                <form id="trainerForm" action="{{ route('allocateTrainertoUser') }}" method="POST" class="form-horizontal">
+                                                    @csrf
+                                                    <label for="trainer">Select a Trainer:</label>
+                                                    <select id="trainer" name="trainer_id">
+                                                        <option value="0">none</option>
+                                                        @foreach ($trainers as $trainer )
+                                                        <option value={{$trainer->id}} {{ $trainer->id == $user->trainer_id ? 'selected' : '' }}>{{$trainer->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <br><br>
+                                                    <input type="hidden" name="user_id" value={{$user->id}}>
+                                                    <input type="submit" class="btn btn-primary" value="Allot Trainer">
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -647,6 +1204,138 @@
                 <!--row -->
                 <!--row ends-->
             </div>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script>
+                $(document).ready(function() {
+                    hideBmiUpdateButton();
+
+                    // Edit button click event to update the user workout
+                    $('.edit').on('click', function() {
+                        var row = $(this).closest('tr'); // Get the parent row
+                        var workoutId = row.data('workout-id'); // Get the workout ID
+                        var exerciseName = row.find('td:eq(0)').text(); // Get exercise name
+                        var sets = row.find('td:eq(1)').text(); // Get sets
+                        var reps = row.find('td:eq(2)').text(); // Get reps
+                        var weight = row.find('td:eq(3)').text(); // Get weight
+                        var notes = row.find('td:eq(4)').text(); // Get notes
+
+                        // Populate form fields with the data
+                        $('#exercise_name').val(exerciseName);
+                        $('#sets').val(sets);
+                        $('#reps').val(reps);
+                        $('#weight').val(weight);
+                        $('#notes').val(notes);
+
+                        // Update form action and add workout ID as a hidden input
+                        $('form').attr('action', '{{ route("updateAdminWorkout") }}');
+                        $('<input>').attr({
+                            type: 'hidden',
+                            name: 'workout_id',
+                            value: workoutId
+                        }).appendTo('form');
+
+                        // Change submit button value to "Update"
+                        $('input[type="submit"]').val('Update');
+                    });
+
+                    // Cancel button click event
+                    $('.btn-danger').on('click', function() {
+                        // Reset form fields
+                        $('form')[0].reset();
+                        // Change form action back to add
+                        $('form').attr('action', '{{ route("addAdminWorkout") }}');
+                        // Remove workout_id input
+                        $('input[name="workout_id"]').remove();
+                        // Change submit button value to "Add"
+                        $('input[type="submit"]').val('Add');
+                    });
+
+                    // Edit button click event to update the user diet
+                    $('.edit1').on('click', function() {
+                        var row = $(this).closest('tr');
+                        var dietId = row.data('diet-id');
+                        var mealName = row.find('td:eq(0)').text();
+                        var calories = row.find('td:eq(1)').text();
+                        var protein = row.find('td:eq(2)').text();
+                        var carbs = row.find('td:eq(3)').text();
+                        var fats = row.find('td:eq(4)').text();
+                        var dietNotes = row.find('td:eq(5)').text();
+
+                        $('#meal_name').val(mealName);
+                        $('#calories').val(calories);
+                        $('#protein').val(protein);
+                        $('#carbs').val(carbs);
+                        $('#fats').val(fats);
+                        $('#dietNotes').val(dietNotes);
+
+                        $('#dietForm').attr('action', '{{ route("updateAdminDiet") }}');
+
+                        $('<input>').attr({
+                            type: 'hidden',
+                            name: 'diet_id',
+                            value: dietId
+                        }).appendTo('#dietForm');
+
+                        // Change submit button value to "Update"
+                        $('input[type="submit"]').val('Update');
+
+
+                        $('.bmiEdit').on('click', function() {
+                            var row = $(this).closest('tr');
+                            var height = row.find('td:eq(1)').text();
+                            var weight = row.find('td:eq(2)').text();
+                            var age = row.find('td:eq(3)').text();
+
+
+                            $('#height').val(height);
+                            $('#bmi_weight').val(weight);
+                            $('#age').val(age);
+
+                            $('#bmiForm').attr();
+
+                            // Change submit button value to "Update"
+                            $('input[type="submit"]').val('Update');
+                        });
+                        // Cancel button click event
+                        $('.btn-danger').on('click', function() {
+                            // Reset form fields
+                            $('#dietForm')[0].reset();
+                            // Change form action back to add
+                            $('#dietForm').attr('action', '{{ route("addUserDiet") }}');
+                            // Remove diet-id input
+                            $('input[name="diet_id"]').remove();
+                            // Change submit button value to "Add"
+                            $('input[type="submit"]').val('Add');
+                        });
+                    });
+                });
+
+                function calculateBMI() {
+                    var age = parseFloat(document.getElementById("age").value);
+                    var height = parseFloat(document.getElementById("height").value) / 100;
+                    var bmi_weight = parseFloat(document.getElementById("bmi_weight").value);
+
+                    if (isNaN(age) || isNaN(height) || isNaN(bmi_weight)) {
+                        alert("Please enter valid numbers for age, height, and weight.");
+                        return;
+                    }
+
+                    var bmi = bmi_weight / (height * height);
+                    document.getElementById("result").innerHTML = "Your BMI is: " + bmi.toFixed(2);
+
+                    document.getElementById('addBmiButton').style.visibility = 'visible';
+                    document.getElementById('cancelBmiButton').style.visibility = 'visible';
+                    document.getElementById('calculateBmi').remove();
+
+                    // Set the calculated BMI value to the hidden input field
+                    document.getElementById("calculatedBmi").value = bmi.toFixed(2);
+                }
+
+                function hideBmiUpdateButton() {
+                    document.getElementById('addBmiButton').style.visibility = 'hidden';
+                    document.getElementById('cancelBmiButton').style.visibility = 'hidden';
+                }
+            </script>
         </aside>
         <!-- /.content -->
 

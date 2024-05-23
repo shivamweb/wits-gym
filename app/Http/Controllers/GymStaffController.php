@@ -22,6 +22,13 @@ class GymStaffController extends Controller
         $this->gym = $gym;
         $this->designation = $designation;
     }
+
+    public function addStaffAttendence()
+    {
+        
+        return view('GymOwner.GymStaff.gymStaffAttendenceAdd');
+    }
+
     public function listGymStaff()
     {
         $gymStaffs = $this->gymStaff->all();
