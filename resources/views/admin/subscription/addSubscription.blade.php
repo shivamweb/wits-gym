@@ -362,25 +362,15 @@
                                 <span class="fa fa-angle-down pull-right"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="menu-dropdown">
-                                    <a href="#">
-                                        <i class="text-default menu-icon fa fa-fw fa-users"></i>
-                                        <span class="mm-text">User List</span>
-                                        <span class="fa fa-angle-down pull-right"></span>
+                                <li>
+                                    <a href='/admin/gymUserList'>
+                                        <i class="text-info fa fa-fw fa-user"></i> Gym Users
                                     </a>
-
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href='/admin/gymUserList'>
-                                                <i class="text-info fa fa-fw fa-user"></i> Gym Users
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href='/admin/homeUserList'>
-                                                <i class="text-info fa fa-fw fa-user"></i> Home Users
-                                            </a>
-                                        </li>
-                                    </ul>
+                                </li>
+                                <li>
+                                    <a href='/admin/homeUserList'>
+                                        <i class="text-info fa fa-fw fa-user"></i> Home Users
+                                    </a>
                                 </li>
                                 <li>
                                     <a href='/admin/addAdminUsers'>
@@ -388,6 +378,7 @@
                                     </a>
                                 </li>
                             </ul>
+
                         </li>
                         <li>
                             <a href='/admin/viewAdminCoupons'>
