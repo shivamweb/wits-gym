@@ -847,7 +847,7 @@
     document.addEventListener("DOMContentLoaded", function() {
         const userTypeField = document.getElementById('user_type');
         const gymIdField = document.getElementById('gym_id');
-        
+
         function toggleGymIdField() {
             if (userTypeField.value == "{{ \App\Enums\UserTypeEnum::HOMEUSER }}") {
                 gymIdField.disabled = true;
@@ -856,7 +856,7 @@
                 gymIdField.disabled = false;
             }
         }
-        
+
         userTypeField.addEventListener('change', toggleGymIdField);
 
         // Initial call to set the state correctly on page load
