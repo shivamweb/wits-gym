@@ -9,9 +9,10 @@ use Ramsey\Uuid\Uuid;
 
 class AdminUser extends Model
 {
-    
+
     protected $fillable = [
         'gym_id',
+        'user_type',
         'first_name',
         'last_name',
         'email',
@@ -27,6 +28,7 @@ class AdminUser extends Model
         try {
             return $this->create([
                 'gym_id' => $addUser['gym_id'],
+                'user_type' => $addUser['user_type'],
                 'first_name' => $addUser['first_name'],
                 'last_name' => $addUser['last_name'],
                 'email' => $addUser['email'],
@@ -55,6 +57,7 @@ class AdminUser extends Model
         try {
             $userProfile->update([
                 'gym_id' => $updateUser['gym_id'],
+                'user_type' => $updateUser['user_type'],
                 'first_name' => $updateUser['first_name'],
                 'last_name' => $updateUser['last_name'],
                 'email' => $updateUser['email'],
@@ -63,7 +66,7 @@ class AdminUser extends Model
                 'username' => $updateUser['username'],
                 'password' => $updateUser['password'],
             ]);
-            if(isset($imagePath)){
+            if (isset($imagePath)) {
                 $userProfile->update([
                     'image' => $imagePath
                 ]);
@@ -87,5 +90,4 @@ class AdminUser extends Model
             $model->uuid = Uuid::uuid4()->toString();
         });
     }
-
 }

@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <title>@yield('title', 'User List')</title>
+    <title>@yield('title', 'Admin Dashboard')</title>
     <link rel="shortcut icon" href="favicon.ico" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,30 +18,33 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     <!-- global css -->
-    <script src="../../../../assets/oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="../../../../assets/oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <!--[endif]-->
-    <!-- global css -->
     <link type="text/css" href="../../../../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/font-awesome.min.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/custom_css/metisMenu.css" rel="stylesheet" />
-
-    <link type="text/css" href="../../../../assets/css/custom_css/panel.css" rel="stylesheet" />
+    <!-- Date picker -->
+    <link href="../../../../assets/vendors/air-datepicker-master/dist/css/datepicker.min.css" rel="stylesheet" type="text/css">
     <!-- end of global css -->
-    <!--page level css -->
-    <link type="text/css" href="../../../../assets/vendors/jasny-bootstrap/css/jasny-bootstrap.css" rel="stylesheet" />
-    <link type="text/css" href="../../../../assets/vendors/x-editable/css/bootstrap-editable.css" rel="stylesheet" />
-    <link type="text/css" href="../../../../assets/vendors/summernote/summernote.css" rel="stylesheet" media="screen" />
+    <!-- page level css -->
+    <link type="text/css" href="../../../../assets/vendors/jquery-circliful/css/jquery.circliful.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="vendors/jquery-plugin-circliful-master/css/jquery.circliful.css"> -->
+    <link type="text/css" href="../../../../assets/vendors/progressbar/css/bootstrap-progressbar.min.css" rel="stylesheet">
+    <link type="text/css" href="../../../../assets/vendors/fullcalendar/css/fullcalendar.css" rel="stylesheet">
+    <link type="text/css" href="../../../../assets/vendors/select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link type="text/css" href="../../../../assets/css/custom_css/calendar_custom.css" rel="stylesheet">
+    <link type="text/css" href="../../../../assets/vendors/sweetalert/dist/sweetalert2.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../../../assets/vendors/nvd3chart/nv.d3.min.css">
     <link type="text/css" href="../../../../assets/css/custom_css/fitness.css" rel="stylesheet" />
-    <link type="text/css" href="../../../../assets/css/custom_css/club_info.css" rel="stylesheet" />
-    <!--end of page level css-->
+    <link type="text/css" href="../../../../assets/css/custom_css/panel.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../assets/css/custom_css/admin_dashboard.css" rel="stylesheet">
+    <!-- end of page level css -->
+</head>
 
 <body>
     <div class="se-pre-con"></div>
     <!-- header logo: style can be found in header-->
     <header class="header">
         <nav class="navbar navbar-static-top">
-            <a class='logo' href='index.html'>
+            <a class='logo' href='/'>
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
                 <img src="../../../../assets/img/logo.png" alt="image not found">
             </a>
@@ -277,24 +280,24 @@
                             </li>
                             <!-- Menu Body -->
                             <li class="pad-3">
-                                <a href="#">
+                                <a href="/admin/adminUserprofile">
                                     <i class="fa fa-fw fa-user"></i> My Profile
                                 </a>
                             </li>
-                            <li role="presentation"></li>
-                            <li>
+                            <!-- <li role="presentation"></li> -->
+                            <!-- <li>
                                 <a href="#">
                                     <i class="fa fa-fw fa-gear"></i> Account Settings
                                 </a>
-                            </li>
+                            </li> -->
                             <li role="presentation" class="divider"></li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <div class="pull-left">
+                                <!-- <div class="pull-left">
                                     <a href="#">
                                         <i class="fa fa-fw fa-lock"></i> Lock
                                     </a>
-                                </div>
+                                </div> -->
                                 <div class="pull-right">
                                     <a href='login.html'>
                                         <i class="fa fa-fw fa-sign-out"></i> Logout
@@ -316,7 +319,7 @@
                     <div class="nav_profile">
                         <div class="media profile-left">
                             <a class="pull-left profile-thumb" href="#">
-                                <img src="../../../../assets/img/authors/avatar1.jpg" class="img-circle" alt="User Image">
+                                <img src="../../assets/img/authors/avatar1.jpg" class="img-circle" alt="User Image">
                             </a>
                             <div class="content-profile">
                                 <h4 class="media-heading">Nataliapery</h4>
@@ -358,22 +361,17 @@
                         </li>
 
                         <li class="menu-dropdown">
-                            <a href="#">
-                                <i class="text-default menu-icon fa fa-fw fa-users"></i>
-                                <span class="mm-text">Users</span>
-                                <span class="fa fa-angle-down pull-right"></span>
-                            </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href='/admin/adminUserList'>
+                                    <a href='/admin/gymUserList'>
                                         <i class="text-primary fa fa-fw fa-users"></i> Users List
                                     </a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href='/admin/adminUserprofile'>
                                         <i class="text-success fa fa-fw fa-user"></i> User Profile
                                     </a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a href='/admin/addAdminUsers'>
                                         <i class="text-info fa fa-fw fa-user"></i> Add Users
@@ -388,13 +386,13 @@
                             </a>
                         </li>
                         <li>
-                        <a href='/admin/viewDesignation'>
+                            <a href='/admin/viewDesignation'>
                                 <i class="text-primary  menu-icon fa fa-scissors"></i>
                                 <span class="mm-text">Designation</span>
                             </a>
                         </li>
                         <li>
-                        <a href='/admin/viewAdvertisment'>
+                            <a href='/admin/viewAdvertisment'>
                                 <i class="text-primary  menu-icon fa fa-question-circle"></i>
                                 <span class="mm-text">Advertisement</span>
                             </a>
@@ -407,12 +405,12 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href='/admin/userNotification'>
+                                    <a href='/admin/viewNotification'>
                                         <i class="text-primary fa fa-fw fa-cloud-upload"></i> User Notification
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='/admin/gymNotification'>
+                                    <a href='/admin/viewGymNotification'>
                                         <i class="text-success fa fa-fw fa-file-image-o"></i>GYM Notification
                                     </a>
                                 </li>
@@ -430,134 +428,239 @@
                                 <span class="mm-text">Enquiry</span>
                             </a>
                         </li>
-
                         <!-- / .navigation -->
                 </div>
                 <!-- menu -->
             </section>
             <!-- /.sidebar -->
         </aside>
-
-        <aside class="right-side right-padding">
+        <aside class="right-side">
             <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <!--section starts-->
-                <h2>Users List</h2>
-                <ol class="breadcrumb">
-                    <li>
-                        <a href='/dashboard'>
-                            <i class="fa fa-fw fa-home"></i> Dashboard
-                        </a>
-                    </li>
-                    <li>
-                        <a>Users</a>
-                    </li>
-                    <li>
-                        <a>Users List</a>
-                    </li>
-                </ol>
-            </section>
             <!--section ends-->
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-12 col-lg-12">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <i class="fa fa-fw fa-line-chart"></i> Users Trend
-                                </h4>
-                                <span class="pull-right">
-                                    <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
-                                    <i class="glyphicon glyphicon-remove removepanel"></i>
-                                </span>
-                            </div>
-                            <div class="panel-body">
-                                <div id="bar-chart-stacked" class="flotChart1"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--main content-->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Basic charts strats here-->
-                        <div class="panel panel-danger">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <i class="fa fa-fw fa-file-text-o"></i> Users List
-                                </h4>
-                                <span class="pull-right">
-                                    <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
-                                    <i class="glyphicon glyphicon-remove removepanel"></i>
-                                </span>
-                            </div>
-                            <div class="panel-body table-responsive">
-                                <table class="table table-bordered" id="fitness-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Image</th>
-                                            <th>Name</th>
-                                            <th>Username</th>
-                                            <th>Email</th>
-                                            <th>Contact Number</th>
-                                            <th>Gender</th>
-                                            <th>Edit/Save</th>
-                                            <th>Delete/Cancel</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($users as $user)
-                                        <tr>
-                                            <td><img src="{{ asset($user->image) }}" height="100"></td>
-                                            <td>{{ $user->first_name }} {{ $user->last_name }}</td>
-                                            <td>{{ $user->username }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->phone_no }}</td>
-                                            <td>{{ $user->gender }}</td>
-                                            <td>
-                                                <a class="edit btn btn-primary" href="{{ route('viewEditUser', ['uuid' => $user->uuid]) }}">
-                                                    <i class="fa fa-fw fa-edit"></i> Edit
-                                                </a>
+                <div class="row bg-color">
+                   
+                    <div class="col-lg-8">
+                        <div class="row">
 
-                                            </td>
-                                            <td>
-                                                <a class="delete btn btn-danger" href="javascript:;">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                            <div class="col-md-12">
+                                <div class="box-model">
+                                    <h4>Trainers</h4>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered trainer">
+                                            <thead>
+                                                <tr class="bg-primary">
+                                                    <th>Sl.No</th>
+                                                    <th>Course</th>
+                                                    <th>Personal Trainers</th>
+                                                    <th>General Trainers</th>
+                                                    <th>Total</th>
+                                                    <th>view</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Yoga</td>
+                                                    <td>09</td>
+                                                    <td>08</td>
+                                                    <td>17</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Aerobics</td>
+                                                    <td>12</td>
+                                                    <td>10</td>
+                                                    <td>22</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Fitness</td>
+                                                    <td>14</td>
+                                                    <td>12</td>
+                                                    <td>26</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>Body Building</td>
+                                                    <td>11</td>
+                                                    <td>09</td>
+                                                    <td>20</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>Zumba</td>
+                                                    <td>15</td>
+                                                    <td>12</td>
+                                                    <td>27</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6</td>
+                                                    <td>Flexibility</td>
+                                                    <td>07</td>
+                                                    <td>05</td>
+                                                    <td>12</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="box-model">
+                            <div class="row">
+                                <div class=" col-lg-12 col-xs-12">
+                                    <table style="width: -webkit-fill-available;">
+                                        <caption align="top">Month July </caption>
+                                        <thead>
+                                            <tr>
+                                                <th style="color: white; background: purple;">
+                                                    Sun</th>
+                                                <th style="color: white; background: purple;">
+                                                    Mon</th>
+                                                <th style="color: white; background: purple;">
+                                                    Tue</th>
+                                                <th style="color: white; background: purple;">
+                                                    Wed</th>
+                                                <th style="color: white; background: purple;">
+                                                    Thu</th>
+                                                <th style="color: white; background: purple;">
+                                                    Fri</th>
+                                                <th style="color: white; background: purple;">
+                                                    Sat</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>1</td>
+                                                <td>2</td>
+                                            </tr>
+                                            <tr></tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>4</td>
+                                                <td>5</td>
+                                                <td>6</td>
+                                                <td>7</td>
+                                                <td>8</td>
+                                                <td>9</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>11</td>
+                                                <td>12</td>
+                                                <td>13</td>
+                                                <td>14</td>
+                                                <td>15</td>
+                                                <td>16</td>
+                                            </tr>
+                                            <tr>
+                                                <td>17</td>
+                                                <td>18</td>
+                                                <td>19</td>
+                                                <td>20</td>
+                                                <td>21</td>
+                                                <td>22</td>
+                                                <td>23</td>
+                                            </tr>
+                                            <tr>
+                                                <td>24</td>
+                                                <td>25</td>
+                                                <td>26</td>
+                                                <td>27</td>
+                                                <td>28</td>
+                                                <td>29</td>
+                                                <td>30</td>
+                                            </tr>
+                                            <tr>
+                                                <td>31</td>
+                                                <td>1</td>
+                                                <td>2</td>
+                                                <td>3</td>
+                                                <td>4</td>
+                                                <td>5</td>
+                                                <td>6</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-model">
+                            <h4>Quick Stats</h4>
+                            <div class="row">
+                                <div class="col-lg-6 col-xs-6 text-center">
+                                    <p class="income">Monthly Income</p>
+                                    <div id="myStat2" data-dimension="210" data-width="20" data-text="70%" data-fontsize="20" data-percent="70" data-fgcolor="#33a4d8" data-bgcolor="#f7f7f7"></div>
+                                </div>
+                                <div class="col-lg-6 col-xs-6 text-center">
+                                    <p class="income">Yearly Income</p>
+                                    <div id="myStat3" data-dimension="210" data-width="20" data-text="85%" data-fontsize="20" data-percent="85" data-fgcolor="#65a800" data-bgcolor="#f7f7f7"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-10 col-xs-12">
+                                    <div class="amount">
+                                        <p>Pending Amount <span class="pull-right">%</span><span id="pending_amount" class="pull-right">30</span>
+                                        </p>
+                                        <div class="progress progress-striped active">
+                                            <div class="progress-bar progress-bar-primary"></div>
+                                        </div>
+                                        <p>Pending Users <span class="pull-right">%</span><span id="fifty" class="pull-right">50</span>
+                                        </p>
+                                        <div class="progress progress-striped active">
+                                            <div class="progress-bar progress-bar-success"></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- col-md-6 -->
-                <!--row -->
             </div>
-
+            <!-- /#right -->
+            <!-- /.content -->
         </aside>
-        <script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>
-        <script src="../../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../../../../assets/js/custom_js/app.js" type="text/javascript"></script>
-        <script src="../../../../assets/js/custom_js/metisMenu.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/holder/holder.js" type="text/javascript"></script>
-        <!-- end of page level js -->
-        <!-- begining of page level js -->
-        <script src="../../../../assets/vendors/jasny-bootstrap/js/jasny-bootstrap.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/x-editable/jquery.mockjax.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/x-editable/bootstrap-editable.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/x-editable/js/html5types.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/summernote/summernote.min.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/jasny-bootstrap/js/inputmask.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/jasny-bootstrap/js/jquery.inputmask.js" type="text/javascript"></script>
-        <script src="../../../../assets/vendors/x-editable/js/demo-mock.js" type="text/javascript"></script>
-        <script src="../../../../assets/js/custom_js/club_info.js" type="text/javascript"></script>
-        <!-- end of page level js -->
+    </div>
+    <script src="../../../../assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/custom_js/app.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/custom_js/metisMenu.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/custom_js/backstretch.js"></script>
+    <!-- end of global level js -->
+    <script src="../../../../assets/vendors/jquery-circliful/js/jquery.circliful.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/progressbar/bootstrap-progressbar.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/countUp/countUp.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/moment/min/moment.min.js" type="text/javascript"></script>
+    <!-- date picker -->
+    <script src="../../../../assets/vendors/air-datepicker-master/dist/js/datepicker.min.js"></script>
+    <script src="../../../../assets/vendors/air-datepicker-master/dist/js/i18n/datepicker.en.js"></script>
+    <!-- date picker end -->
+    <script src="../../../../assets/vendors/sweetalert/dist/sweetalert2.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/d3-chart/d3.v3.min.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/nvd3chart/nv.d3.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../../../assets/vendors/jquery-easy-ticker-master/jquery.easy-ticker.min.js"></script>
+    <script src="../../../../assets/vendors/inputmask/inputmask/inputmask.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/inputmask/inputmask/jquery.inputmask.js" type="text/javascript"></script>
+    <script src="../../../../assets/vendors/inputmask/inputmask/inputmask.date.extensions.js" type="text/javascript"></script>
+    <script src="../../../../assets/js/custom_js/admin_index.js" type="text/javascript"></script>
+    <!-- end of page level js -->
 </body>
 
 
-<!-- Mirrored from demo.lorvent.com/fitness/admin_clubinfo by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:49:09 GMT -->
+<!-- Mirrored from demo.lorvent.com/fitness/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:48:05 GMT -->
 
 </html>

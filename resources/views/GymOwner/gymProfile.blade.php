@@ -101,7 +101,6 @@
                                                                     <input type="text" value="{{ $gymDetail->password }}" placeholder="enter email" id="fb-name" name="password" class="form-control">
                                                                 </td>
                                                             </tr>
-                                                            
                                                             <tr>
                                                                 <td>Address</td>
                                                                 <td>

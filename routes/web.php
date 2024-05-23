@@ -33,6 +33,8 @@ Route::get('/news', [AdminController::class, 'showNews']);
 
 Route::get('/addNews', [AdminController::class, 'showAddNews']);
 
+Route::get('/add-staff-attendence', [GymStaffController::class, 'addStaffAttendence']);
+Route::get('/trainers', [AdminController::class, 'showTrainers']);
 
 Route::get('/eventItems', [AdminController::class, 'showEventItems']);
 

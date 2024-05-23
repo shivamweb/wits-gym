@@ -365,15 +365,25 @@
                                 <span class="fa fa-angle-down pull-right"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li>
-                                    <a href='/admin/adminUserList'>
-                                        <i class="text-primary fa fa-fw fa-users"></i> Users List
+                                <li class="menu-dropdown">
+                                    <a href="#">
+                                        <i class="text-default menu-icon fa fa-fw fa-users"></i>
+                                        <span class="mm-text">User List</span>
+                                        <span class="fa fa-angle-down pull-right"></span>
                                     </a>
-                                </li>
-                                <li>
-                                    <a href='a/admin/adminUserprofile'>
-                                        <i class="text-success fa fa-fw fa-user"></i> User Profile
-                                    </a>
+
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href='/admin/gymUserList'>
+                                                <i class="text-info fa fa-fw fa-user"></i> Gym Users
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href='/admin/homeUserList'>
+                                                <i class="text-info fa fa-fw fa-user"></i> Home Users
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a href='/admin/addAdminUsers'>
@@ -389,13 +399,13 @@
                             </a>
                         </li>
                         <li>
-                        <a href='/admin/viewDesignation'>
+                            <a href='/admin/viewDesignation'>
                                 <i class="text-primary  menu-icon fa fa-scissors"></i>
                                 <span class="mm-text">Designation</span>
                             </a>
                         </li>
                         <li>
-                        <a href='/admin/viewAdvertisment'>
+                            <a href='/admin/viewAdvertisment'>
                                 <i class="text-primary  menu-icon fa fa-question-circle"></i>
                                 <span class="mm-text">Advertisement</span>
                             </a>
@@ -499,6 +509,27 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <!-- User Type Dropdown -->
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="user_type">
+                                                        User Type
+                                                        <span class='require'>*</span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-fw fa-user text-primary"></i>
+                                                            </span>
+                                                            <select class="custom-select form-control" name="user_type" id="user_type" required>
+                                                                <option value="">-----Select User Type-----</option>
+                                                                <option name="user_type" id="gym_user" value="<?php echo e(\App\Enums\UserTypeEnum::GYMUSER); ?>">Gym User</option>
+                                                                <option name="user_type" id="home_user" value="<?php echo e(\App\Enums\UserTypeEnum::HOMEUSER); ?>">Home User</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- GYM Dropdown -->
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label" for="gym_select">
                                                         GYM
@@ -510,7 +541,7 @@
                                                                 <i class="fa fa-fw fa-dumbbell text-primary"></i>
                                                             </span>
                                                             <select class="custom-select form-control" name="gym_id" id="gym_id">
-                                                                <option value="">-----Select GYM------</option>
+                                                                <option value="">-----Select GYM-----</option>
                                                                 <option value="0">None</option>
                                                                 @foreach($gyms as $gym)
                                                                 <option value="{{$gym->id}}">{{$gym->gym_name}}</option>
@@ -801,5 +832,36 @@
 
 
 <!-- Mirrored from demo.lorvent.com/fitness/admin_clubinfo by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Apr 2024 12:49:09 GMT -->
+<script>
+    document.getElementById('user_type').addEventListener('change', function () {
+        var gymDropdown = document.getElementById('gym_id');
+        if (this.value === '<?php echo e(\App\Enums\UserTypeEnum::HOMEUSER); ?>') {
+            gymDropdown.disabled = true;
+            gymDropdown.value = "";
+        } else {
+            gymDropdown.disabled = false;
+        }
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const userTypeField = document.getElementById('user_type');
+        const gymIdField = document.getElementById('gym_id');
+        
+        function toggleGymIdField() {
+            if (userTypeField.value == "{{ \App\Enums\UserTypeEnum::HOMEUSER }}") {
+                gymIdField.disabled = true;
+                gymIdField.value = "";
+            } else {
+                gymIdField.disabled = false;
+            }
+        }
+        
+        userTypeField.addEventListener('change', toggleGymIdField);
+
+        // Initial call to set the state correctly on page load
+        toggleGymIdField();
+    });
+</script>
 
 </html>

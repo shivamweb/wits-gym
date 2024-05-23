@@ -35,9 +35,18 @@ Route::post('/updateSubscription', [AdminSubscriptionController::class, 'updateA
 
 Route::get('/addAdminUsers', [AdminUserController::class, 'showAddUsers']);
 Route::post('/add-user-by-admin', [AdminUserController::class, 'addUserByadmin'])->name('addUserByadmin');
-Route::get('/adminUserList', [AdminUserController::class, 'adminUserList'])->name('adminUserList');
+Route::get('/gymUserList', [AdminUserController::class, 'gymUserList'])->name('gymUserList');
+Route::get('/homeUserList', [AdminUserController::class, 'homeUserList'])->name('homeUserList');
 Route::get('/viewEditUser/{uuid}', [AdminUserController::class, 'viewEditUser'])->name('viewEditUser');
 Route::post('/updateAdminUser', [AdminUserController::class,'updateAdminUser'])->name('updateAdminUser');
+
+Route::post('/addAdminWorkout', [AdminUserController::class, 'addAdminWorkout'])->name('addAdminWorkout');
+Route::post('/updateAdminWorkout', [AdminUserController::class, 'updateAdminWorkout'])->name('updateAdminWorkout');
+Route::post('/addAdminDiet', [AdminUserController::class, 'addAdminDiet'])->name('addAdminDiet');
+Route::post('/updateAdminDiet', [AdminUserController::class, 'updateAdminDiet'])->name('updateAdminDiet');
+Route::post('/addUserBmi', [AdminUserController::class, 'UserBodyMeasurement'])->name('UserBodyMeasurement');
+Route::post('/allocateTrainertoUser', [AdminUserController::class, 'allocateTrainertoUser'])->name('allocateTrainertoUser');
+
 
 Route::get('/listEnquiry', [AdminEnquiryController::class, 'listEnquiry'])->name('listEnquiry');
 Route::get('/viewAdminEnquiry/{uuid}', [AdminEnquiryController::class, 'viewAdminEnquiry'])->name('viewAdminEnquiry');

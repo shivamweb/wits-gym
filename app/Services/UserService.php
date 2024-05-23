@@ -62,4 +62,16 @@ class UserService
         }
         return $user;
     }
+
+
+    //Admin user profile upload
+    public function uploadUserProfileImage(UploadedFile $file)
+    {
+        if ($file) {
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $imagePath = 'admin_user_images/' . $filename;
+            $file->move(public_path('admin_user_images/'), $filename);
+            return $imagePath;
+        }
+    }
 }

@@ -30,6 +30,7 @@
     <link type="text/css" href="../../../../assets/vendors/summernote/summernote.css" rel="stylesheet" media="screen" />
     <link type="text/css" href="../../../../assets/css/custom_css/fitness.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/custom_css/club_info.css" rel="stylesheet" />
+
     <!--end of page level css-->
 </head>
 
@@ -361,15 +362,25 @@
                                 <span class="fa fa-angle-down pull-right"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li>
-                                    <a href='/admin/adminUserList'>
-                                        <i class="text-primary fa fa-fw fa-users"></i> Users List
+                                <li class="menu-dropdown">
+                                    <a href="#">
+                                        <i class="text-default menu-icon fa fa-fw fa-users"></i>
+                                        <span class="mm-text">User List</span>
+                                        <span class="fa fa-angle-down pull-right"></span>
                                     </a>
-                                </li>
-                                <li>
-                                    <a href='/admin/adminUserprofile'>
-                                        <i class="text-success fa fa-fw fa-user"></i> User Profile
-                                    </a>
+
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href='/admin/gymUserList'>
+                                                <i class="text-info fa fa-fw fa-user"></i> Gym Users
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href='/admin/homeUserList'>
+                                                <i class="text-info fa fa-fw fa-user"></i> Home Users
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a href='/admin/addAdminUsers'>
@@ -539,7 +550,7 @@
                                                     <div class="col-md-3">
                                                         <div class='input-group date datetimepicker6'>
                                                             <span class="input-group-addon">
-                                                                <i class="fa fa-fw fa-dollar"></i>
+                                                                ₹
                                                             </span>
                                                             <input type='number' class="form-control" id="start" name="amount" />
                                                         </div>

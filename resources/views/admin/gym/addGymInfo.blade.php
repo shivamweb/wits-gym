@@ -364,15 +364,25 @@
                                 <span class="fa fa-angle-down pull-right"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li>
-                                    <a href='/admin/adminUserList'>
-                                        <i class="text-primary fa fa-fw fa-users"></i> Users List
+                                <li class="menu-dropdown">
+                                    <a href="#">
+                                        <i class="text-default menu-icon fa fa-fw fa-users"></i>
+                                        <span class="mm-text">User List</span>
+                                        <span class="fa fa-angle-down pull-right"></span>
                                     </a>
-                                </li>
-                                <li>
-                                    <a href='/admin/adminUserprofile'>
-                                        <i class="text-success fa fa-fw fa-user"></i> User Profile
-                                    </a>
+
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href='/admin/gymUserList'>
+                                                <i class="text-info fa fa-fw fa-user"></i> Gym Users
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href='/admin/homeUserList'>
+                                                <i class="text-info fa fa-fw fa-user"></i> Home Users
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a href='/admin/addAdminUsers'>
@@ -531,15 +541,15 @@
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>E-mail</td>
-                                                                        <td>
-                                                                            <input type="text" placeholder="enter email" id="fb-name" name="email" class="form-control">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
                                                                         <td>Password</td>
                                                                         <td>
                                                                             <input type="text" placeholder="enter email" id="fb-name" name="password" class="form-control">
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>E-mail</td>
+                                                                        <td>
+                                                                            <input type="text" placeholder="enter email" id="fb-name" name="email" class="form-control">
                                                                         </td>
                                                                     </tr>
                                                                     <tr>

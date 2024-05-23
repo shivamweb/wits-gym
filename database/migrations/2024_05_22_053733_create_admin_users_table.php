@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('admin_users', function (Blueprint $table) {
             $table->id();
             $table->uuid()->index();
+            $table->string('user_type');
             $table->unsignedBigInteger('gym_id');
             $table->string('first_name');
             $table->string('last_name');

@@ -677,7 +677,7 @@
                 $('#notes').val(notes);
 
                 // Update form action and add workout ID as a hidden input
-                $('form').attr('action', '{{ route('updateUserWorkout') }}');
+                $('form').attr('action', '{{ route("updateUserWorkout") }}');
                 $('<input>').attr({
                     type: 'hidden',
                     name: 'workout_id',
@@ -693,7 +693,7 @@
                 // Reset form fields
                 $('form')[0].reset();
                 // Change form action back to add
-                $('form').attr('action', '{{ route('addUserWorkout') }}');
+                $('form').attr('action', '{{ route("addUserWorkout") }}');
                 // Remove workout_id input
                 $('input[name="workout_id"]').remove();
                 // Change submit button value to "Add"
@@ -730,6 +730,18 @@
                 $('input[type="submit"]').val('Update');
             });
 
+            // Cancel button click event
+            $('.btn-danger').on('click', function() {
+                // Reset form fields
+                $('#dietForm')[0].reset();
+                // Change form action back to add
+                $('#dietForm').attr('action', '{{ route("addUserDiet") }}');
+                // Remove diet-id input
+                $('input[name="diet_id"]').remove();
+                // Change submit button value to "Add"
+                $('input[type="submit"]').val('Add');
+            });
+
             $('.bmiEdit').on('click', function() {
                 var row = $(this).closest('tr');
                 var height = row.find('td:eq(1)').text();
@@ -745,17 +757,6 @@
     
                 // Change submit button value to "Update"
                 $('input[type="submit"]').val('Update');
-            });
-            // Cancel button click event
-            $('.btn-danger').on('click', function() {
-                // Reset form fields
-                $('#dietForm')[0].reset();
-                // Change form action back to add
-                $('#dietForm').attr('action', '{{ route("addUserDiet") }}');
-                // Remove diet-id input
-                $('input[name="diet_id"]').remove();
-                // Change submit button value to "Add"
-                $('input[type="submit"]').val('Add');
             });
         });
 
