@@ -9,6 +9,7 @@ use App\Http\Controllers\GymEnquiryController;
 use App\Http\Controllers\GymUserController;
 use App\Http\Controllers\UserBmiController;
 use App\Traits\SessionTrait;
+use App\Http\Controllers\GymDesignationController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -112,3 +113,7 @@ Route::delete('/deleteEnquiry/{uuid}', [GymEnquiryController::class, 'deleteEnqu
 
 Route::post('/addBmi', [UserBmiController::class, 'createUserBodyMeasurement'])->name('addUserBodyMeasurement');
 Route::post('/allocateTrainer', [GymUserController::class, 'allocateTrainerToUser'])->name('allotTrainer');
+
+Route::get('/viewGymDesignation', [GymDesignationController::class, 'viewGymDesignation'])->name('viewGymDesignation');
+Route::post('/addGymDesignation', [GymDesignationController::class, 'addGymDesignation'])->name('addGymDesignation');
+Route::delete('/deleteGymDesignation/{uuid}', [GymDesignationController::class, 'deleteGymDesignation'])->name('deleteGymDesignation');

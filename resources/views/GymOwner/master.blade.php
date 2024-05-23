@@ -493,7 +493,12 @@
                                         <span class="mm-text">Enquiry</span>
                                     </a>
                                 </li>
-
+                                <li>
+                                    <a href='/viewGymDesignation'>
+                                        <i class="text-primary  menu-icon fa fa-question-circle"></i>
+                                        <span class="mm-text">Gym Designation</span>
+                                    </a>
+                                </li>
                                 <li class="menu-dropdown">
                                     <a href="#">
                                         <i class="text-success menu-icon fa fa-fw fa-picture-o"></i>
