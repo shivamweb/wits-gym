@@ -110,6 +110,7 @@
                             <thead>
                                 <tr>
                                     <th>Title</th>
+                                    <th>Status</th>
                                     <th>View</th>
                                     <th>Delete/Cancel</th>
                                 </tr>
@@ -118,6 +119,7 @@
                                 @foreach ($enquiries as $enquiry)
                                 <tr>
                                     <td>{{ $enquiry->title }} </td>
+                                    <td>{{ $enquiry->status }} </td>
                                     <td>
                                         <a class="edit btn btn-primary" href={{route('viewEnquiry',$enquiry->uuid)}}>
                                             <i class="fa fa-fw fa-eye"></i> View
