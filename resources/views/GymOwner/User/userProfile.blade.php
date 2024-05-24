@@ -33,7 +33,7 @@
                                 <ul class="nav nav-tabs nav-custom " role="tablist">
                                     <li role="presentation" class="active">
                                         <a href="#Info" aria-controls="Info" role="tab" data-toggle="tab">
-                                            <strong>USer Info</strong>
+                                            <strong>User Info</strong>
                                         </a>
                                     </li>
                                     <li role="presentation">

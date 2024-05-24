@@ -361,7 +361,7 @@
                         </li>
                         <li class="active" id="active">
                             <a href='/gym-staff'>
-                            <i class=" text-primary fa fa-fw fa-user"></i>
+                                <i class=" text-primary fa fa-fw fa-user"></i>
                                 <span class="mm-text">Gym Staff</span>
                             </a>
                         </li>
@@ -396,7 +396,7 @@
                                 <span class="mm-text">Coupons</span>
                             </a>
                         </li>
-                        <li class="menu-dropdown">
+                        <!-- <li class="menu-dropdown">
                             <a href="#">
                                 <i class="text-info menu-icon fa fa-fw fa-newspaper-o"></i>
                                 <span class="mm-text">News</span>
@@ -414,8 +414,8 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="menu-dropdown">
+                        </li> -->
+                        <!-- <li class="menu-dropdown">
                             <a href="#">
                                 <i class="text-danger menu-icon fa fa-fw fa-calendar"></i>
                                 <span class="mm-text">Events</span>
@@ -433,7 +433,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="menu-dropdown">
                             <a href="#">
                                 <i class="text-warning menu-icon fa fa-fw fa-graduation-cap"></i>
@@ -470,11 +470,11 @@
                             </a>
                         </li>
                         <li>
-                                    <a href='/viewGymDesignation'>
-                                        <i class="text-primary  menu-icon fa fa-question-circle"></i>
-                                        <span class="mm-text">Gym Designation</span>
-                                    </a>
-                                </li>
+                            <a href='/viewGymDesignation'>
+                                <i class="text-primary menu-icon fa fa-briefcase"></i>
+                                <span class="mm-text">Gym Designation</span>
+                            </a>
+                        </li>
                         <li class="menu-dropdown">
                             <a href="#">
                                 <i class="text-success menu-icon fa fa-fw fa-picture-o"></i>

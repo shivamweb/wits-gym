@@ -85,15 +85,6 @@
                                                 <button type="button" onclick="uploadImage()" class="btn btn-primary mt-2">Upload Image</button>
                                             </div>
                                         </div> -->
-
-                                        <div class="form-actions">
-                                            <div class="row">
-                                                <div class="col-md-offset-3 col-md-7">
-                                                    <a class='btn btn-danger' href='/dashboard'> Cancel</a>
-                                                    <input type="reset" id="add-news-reset-editable" class="btn btn-default reset-styles" value="Reset">
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </form>
                             </div>
