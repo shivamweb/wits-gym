@@ -72,9 +72,9 @@ class GymStaffController extends Controller
         }
     }
 
-    public function showUpdateStaff(Request $request, $uuid)
+    public function showUpdateStaff(Request $request)
     {
-        // $uuid = $request->input('uuid');
+        $uuid = $request->input('uuid');
         $staffDetail = $this->gymStaff->where('uuid', $uuid)->first();
         $designations = $this->designation->get();
         return view('GymOwner.GymStaff.editStaff', compact('staffDetail', 'designations'));

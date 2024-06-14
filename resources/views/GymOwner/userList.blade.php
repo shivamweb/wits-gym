@@ -2,6 +2,10 @@
 @section('title', 'User List')
 @section('content')
 
+<head>
+    <link rel="stylesheet" href="//cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
 <aside class="right-side right-padding">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -79,16 +83,18 @@
                                     <td>{{ $user->phone_no }}</td>
                                     <td>{{ $user->gender }}</td>
                                     <td>
-
                                         <a class="edit btn btn-primary" href={{route('showUserProfile', ['uuid' => $user->uuid])}}>
-
                                             <i class="fa fa-fw fa-edit"></i> Edit
                                         </a>
                                     </td>
                                     <td>
-                                        <a class="delete btn btn-danger" href="javascript:;">
-                                            <i class="fa fa-trash-o"></i> Delete
-                                        </a>
+                                        <form action="{{ route('deleteUser', $user->uuid) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="delete btn btn-danger mar-bm">
+                                                <i class="fa fa-trash-o"></i> Delete
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -102,4 +108,9 @@
         <!--row -->
     </div>
 </aside>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="//cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
+<script>
+    let table = new DataTable('#fitness-table');
+</script>
 @endsection

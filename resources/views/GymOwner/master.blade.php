@@ -528,12 +528,12 @@
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href='/addGallery'>
+                                            <a href='/viewAddGallery'>
                                                 <i class="text-primary fa fa-fw fa-cloud-upload"></i> Add Gallery
                                             </a>
                                         </li>
                                         <li>
-                                            <a href='/gallery'>
+                                            <a href='/viewGallery'>
                                                 <i class="text-success fa fa-fw fa-file-image-o"></i> Gallery
                                             </a>
                                         </li>

@@ -10,6 +10,7 @@ use App\Http\Controllers\GymUserController;
 use App\Http\Controllers\UserBmiController;
 use App\Traits\SessionTrait;
 use App\Http\Controllers\GymDesignationController;
+use App\Http\Controllers\GymGallaryController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -59,15 +60,17 @@ Route::post('/gym-subscription', [GymSubscriptionController::class, 'createGymSu
 
 Route::get('/updateSubscriptionView', [GymSubscriptionController::class, 'viewGymSubscription'])->name('updateSubscriiptionView');
 Route::post('/updateSubscriiption', [GymSubscriptionController::class, 'updateGymSubscriptionPlan'])->name('updateSubscriiption');
+Route::delete('/deleteSubscription/{uuid}', [GymSubscriptionController::class, 'deleteSubscription'])->name('deleteSubscription');
 
 Route::get('/gym-staff', [GymStaffController::class, 'listGymStaff'])->name('listGymStaff');
 Route::post('/gym-staff', [GymStaffController::class, 'addGymStaff']);
-Route::get('/editStaff/{uuid}', [GymStaffController::class, 'showUpdateStaff'])->name('showUpdateStaff');
+Route::get('/editStaff', [GymStaffController::class, 'showUpdateStaff'])->name('showUpdateStaff');
 Route::post('/updateStaff', [GymStaffController::class,'updateStaff'])->name('updateStaff');
 Route::delete('/deleteGymStaff/{uuid}', [GymStaffController::class, 'deleteGymStaff'])->name('deleteGymStaff');
 
 Route::post('/add-user-by-gym', [GymUserController::class, 'addUserByGym'])->name('addUserByGym');
 Route::get('/listUser', [GymUserController::class, 'listGymUser'])->name('listGymUser');
+Route::delete('/deleteUser/{uuid}', [GymUserController::class, 'deleteUser'])->name('deleteUser');
 
 Route::post('/gym-login', [GymDetailController::class, 'gymLogin'])->name('gymLogin');
 
@@ -75,6 +78,7 @@ Route::get('/gym-coupon', [GymCouponController::class, 'listGymCoupons'])->name(
 Route::post('/gym-coupon', [GymCouponController::class, 'addGymCoupon']);
 Route::get('/gymCouponView', [GymCouponController::class, 'viewGymCoupon'])->name('viewGymCoupon');
 Route::post('/updateGymCoupon', [GymCouponController::class, 'updateGymCoupon'])->name('updateGymCoupon');
+Route::delete('/deleteGymCoupon/{uuid}', [GymCouponController::class, 'deleteGymCoupon'])->name('deleteGymCoupon');
 
 Route::post('/updateGym', [GymDetailController::class,'updateGym'])->name('updateGym');
 Route::post('/updateUser', [GymUserController::class,'updateUser'])->name('updateUser');
@@ -88,13 +92,13 @@ Route::get('/viewAddEnquiry', [GymEnquiryController::class, 'viewAddEnquiry'])->
 Route::post('/addGymEnquiry', [GymEnquiryController::class, 'addGymEnquiry'])->name('addGymEnquiry');
 Route::get('/viewEnquiry/{uuid}', [GymEnquiryController::class, 'viewEnquiry'])->name('viewEnquiry');
 
-Route::get('/addGallery', function () {
-    return view('GymOwner.addGallery');
-});
+// Route::get('/addGallery', function () {
+//     return view('GymOwner.addGallery');
+// });
 
-Route::get('/gallery', function () {
-    return view('GymOwner.gallery');
-});
+// Route::get('/gallery', function () {
+//     return view('GymOwner.gallery');
+// });
 Route::get('/calendar', function () {
     return view('GymOwner.calendar');
 });
@@ -119,3 +123,7 @@ Route::post('/allocateTrainer', [GymUserController::class, 'allocateTrainerToUse
 Route::get('/viewGymDesignation', [GymDesignationController::class, 'viewGymDesignation'])->name('viewGymDesignation');
 Route::post('/addGymDesignation', [GymDesignationController::class, 'addGymDesignation'])->name('addGymDesignation');
 Route::delete('/deleteGymDesignation/{uuid}', [GymDesignationController::class, 'deleteGymDesignation'])->name('deleteGymDesignation');
+
+Route::get('/viewAddGallery', [GymGallaryController::class, 'viewAddGallery'])->name('viewAddGallery');
+Route::get('/viewGallery', [GymGallaryController::class, 'viewGallery'])->name('viewGallery');
+Route::post('/addGallery', [GymGallaryController::class, 'addGallery'])->name('addGallery');

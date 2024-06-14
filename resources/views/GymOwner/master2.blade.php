@@ -359,12 +359,27 @@
                                 <span class="mm-text">Gym Subscription</span>
                             </a>
                         </li>
-                        <li class="active" id="active">
-                            <a href='/gym-staff'>
-                                <i class=" text-primary fa fa-fw fa-user"></i>
-                                <span class="mm-text">Gym Staff</span>
-                            </a>
-                        </li>
+                        <li class="menu-dropdown">
+                                    <a href="#">
+                                        <i class="text-default menu-icon fa fa-fw fa-users"></i>
+                                        <span class="mm-text">Staff</span>
+                                        <span class="fa fa-angle-down pull-right"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href='/gym-staff'>
+                                                <i class=" text-primary fa fa-fw fa-user"></i>
+                                                <span class="mm-text">Gym Staff</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href='/add-staff-attendence'>
+                                                <i class=" text-primary fa fa-fw fa-user"></i>
+                                                <span class="mm-text">Gym Staff Analysis</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                         <li class="menu-dropdown">
                             <a href="#">
                                 <i class="text-default menu-icon fa fa-fw fa-users"></i>
@@ -483,12 +498,12 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href='/addGallery'>
+                                    <a href='/viewAddGallery'>
                                         <i class="text-primary fa fa-fw fa-cloud-upload"></i> Add Gallery
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='/gallery'>
+                                    <a href='/viewGallery'>
                                         <i class="text-success fa fa-fw fa-file-image-o"></i> Gallery
                                     </a>
                                 </li>

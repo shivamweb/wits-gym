@@ -26,7 +26,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <!-- First Basic Table strats here-->
+                <!-- First Basic Table starts here-->
                 <div class="panel panel-success">
                     <div class="panel-heading">
                         <h3 class="panel-title">
@@ -38,51 +38,35 @@
                             <p>
                                 File Upload widget with multiple file selection, progress bars, validation and preview images for jQuery.
                             </p>
-                            <form id="fileupload" action="#" method="POST" enctype="multipart/form-data">
+                            <form id="fileupload" action="{{ route('addGallery') }}" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                                @csrf
                                 <!-- Redirect browsers with JavaScript disabled to the origin page -->
                                 <noscript>
                                     <input type="hidden" name="redirect" value="">
                                 </noscript>
-                                <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
-                                <div class="row fileupload-buttonbar">
-                                    <div class="col-lg-7">
-                                        <!-- The fileinput-button span is used to style the file input field as button -->
-                                        <span class="btn btn-success fileinput-button">
-                                            <i class="fa fa-fw fa-picture-o"></i>
-                                            <span>Add files</span>
-
-                                        </span>
-                                        <button type="submit" class="btn btn-primary start">
-                                            <i class="fa fa-fw fa-cloud-upload"></i>
-                                            <span>Start upload</span>
-                                        </button>
-                                        <button type="reset" class="btn btn-warning cancel">
-                                            <i class="fa fa-fw fa-times"></i>
-                                            <span>Cancel upload</span>
-                                        </button>
-                                        <button type="button" class="btn btn-danger delete">
-                                            <i class="fa fa-trash-o"></i>
-                                            <span>Delete</span>
-                                        </button>
-                                        <input type="checkbox" class="toggle">
-                                        <!-- The global file processing state -->
-                                        <span class="fileupload-process"></span>
-                                    </div>
-                                    <!-- The global progress state -->
-                                    <div class="col-lg-5 fileupload-progress fade">
-                                        <!-- The global progress bar -->
-                                        <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress-bar progress-bar-primary" style="width:0;"></div>
-                                        </div>
-                                        <!-- The extended global progress state -->
-                                        <div class="progress-extended">&nbsp;</div>
-                                    </div>
+                                <!-- Add category field -->
+                                <div class="form-group">
+                                    <label for="category">Category:</label>
+                                    <input type="text" class="form-control" id="category" name="category" placeholder="Enter category">
                                 </div>
+                                <!-- The fileinput-button span is used to style the file input field as button -->
+                                <div class="form-group">
+                                    <label for="files">Add Files:</label>
+                                    <input type="file" id="files" name="files[]" multiple>  
+                                </div>
+                                <!-- The global file processing state -->
+                                <span class="fileupload-process"></span>
                                 <!-- The table listing the files available for upload/download -->
                                 <table role="presentation" class="table table-striped">
                                     <tbody class="files">
                                     </tbody>
                                 </table>
+
+                                <!-- Single submit button -->
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-fw fa-cloud-upload"></i>
+                                    <span>Upload</span>
+                                </button>
                             </form>
                         </div>
                     </div>

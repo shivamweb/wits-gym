@@ -259,4 +259,11 @@ class GymUserController extends Controller
             return redirect()->back()->with('error', 'Failed to allocate trainer. Please try again.');
         }
     }
+
+    public function deleteUser($uuid)
+    {
+        $user = $this->user->where('uuid', $uuid)->firstOrFail();
+        $user->delete();
+        return redirect()->route('listGymUser')->with('success', 'User deleted successfully!');
+    }
 }

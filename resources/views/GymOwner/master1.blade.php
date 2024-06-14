@@ -14,6 +14,9 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!-- global css -->
+
+   
+
     <link type="text/css" href="../../../../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/font-awesome.min.css" rel="stylesheet" />
     <link type="text/css" href="../../../../assets/css/custom_css/metisMenu.css" rel="stylesheet" />
@@ -374,11 +377,26 @@
                                 <span class="mm-text">Gym Subscription</span>
                             </a>
                         </li>
-                        <li class="active" id="active">
-                            <a href='/gym-staff'>
-                                <i class=" text-primary fa fa-fw fa-user"></i>
-                                <span class="mm-text">Gym Staff</span>
+                        <li class="menu-dropdown">
+                            <a href="#">
+                                <i class="text-default menu-icon fa fa-fw fa-users"></i>
+                                <span class="mm-text">Staff</span>
+                                <span class="fa fa-angle-down pull-right"></span>
                             </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href='/gym-staff'>
+                                        <i class=" text-primary fa fa-fw fa-user"></i>
+                                        <span class="mm-text">Gym Staff</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='/add-staff-attendence'>
+                                        <i class=" text-primary fa fa-fw fa-user"></i>
+                                        <span class="mm-text">Gym Staff Analysis</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="menu-dropdown">
                             <a href="#">
@@ -498,12 +516,12 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href='/addGallery'>
+                                    <a href='/viewAddGallery'>
                                         <i class="text-primary fa fa-fw fa-cloud-upload"></i> Add Gallery
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='/gallery'>
+                                    <a href='/viewGallery'>
                                         <i class="text-success fa fa-fw fa-file-image-o"></i> Gallery
                                     </a>
                                 </li>
@@ -672,7 +690,7 @@
         </tr>
         {% } %}
     </script>
-
+  
     <script src="../../../../assets/vendors/tags/dist/bootstrap-tagsinput.js" type="text/javascript"></script>
     <script src="../../../../assets/vendors/bootstrapvalidator/dist/js/bootstrapValidator.js" type="text/javascript"></script>
     <script src="../../../../assets/vendors/select2/js/select2.full.js" type="text/javascript"></script>

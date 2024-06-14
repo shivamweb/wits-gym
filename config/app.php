@@ -123,4 +123,21 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+
+    // 'providers' => [
+
+    // //     Illuminate\Filesystem\FilesystemServiceProvider::class,
+    // //     Illuminate\Validation\ValidationServiceProvider::class,
+    // //     Illuminate\View\ViewServiceProvider::class,
+    // //     \Yajra\Datatables\DataTablesServiceProvider::class
+    // Yajra\DataTables\DataTablesServiceProvider::class,
+    // ],
+
+
+    // // 'aliases' => [
+    // //     'File' => Illuminate\Support\Facades\File::class,
+    // //     'Datatables' => \Yajra\Datatables\Facades\DataTables::class,
+
+    // // ]
+
 ];

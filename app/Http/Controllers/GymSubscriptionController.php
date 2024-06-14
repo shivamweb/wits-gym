@@ -103,4 +103,11 @@ class GymSubscriptionController extends Controller
             return redirect()->back()->with('error', $th->getMessage());
         }
     }
+
+    public function deleteSubscription($uuid)
+    {
+        $gymSubscription = $this->gymSubscription->where('uuid', $uuid)->firstOrFail();
+        $gymSubscription->delete();
+        return redirect()->route('listSubscriptionPlan')->with('success', 'Suscription deleted successfully!');
+    }
 }

@@ -87,7 +87,7 @@ class GymDetailController extends Controller
             //  dd($e);
             Log::error('[GymDetailController][registerGym] Error register gym: ' . $e->getMessage());
             return redirect()->route('register')->with('status', 'error')->with('message', 'error in register gym.');
-        }
+        }  
     }
 
     public function updateGym(Request $request)

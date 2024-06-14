@@ -201,9 +201,13 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a class="delete btn btn-danger mar-bm" href="javascript:;">
-                                            <i class="fa fa-trash-o"></i> Delete
-                                        </a>
+                                        <form action="{{ route('deleteGymCoupon', $coupon->uuid) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this coupon?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="delete btn btn-danger mar-bm">
+                                                <i class="fa fa-trash-o"></i> Delete
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach

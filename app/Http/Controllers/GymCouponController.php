@@ -84,4 +84,11 @@ class GymCouponController extends Controller
             return redirect()->back()->with('error', $th->getMessage());
         }
     }
+
+    public function deleteGymCoupon($uuid)
+    {
+        $gymCoupon = $this->gymCoupon->where('uuid', $uuid)->firstOrFail();
+        $gymCoupon->delete();
+        return redirect()->route('listGymCoupons')->with('success', 'Coupon deleted successfully!');
+    }
 }
